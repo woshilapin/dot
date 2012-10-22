@@ -23,6 +23,11 @@
 " Maintainer: woshilapin <woshilapin@gmail.com>
 " License: This file is placed in the public domain.
 
+"" Activate the pathogen plugin to rule all other plugin
+set nocompatible
+call pathogen#infect()
+call pathogen#helptags()
+
 "" Activer les différents greffons
 " Autoriser le chargement des greffons généraux
 set loadplugins
