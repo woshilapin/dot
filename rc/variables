@@ -1,0 +1,8 @@
+#!/bin/zsh
+LC_ALL=fr_FR.UTF-8
+export LC_ALL
+CLASSPATH=$HOME/Library/Java:$NEXT_ROOT/Library/Java:$NEXT_ROOT/System/Library/Java:$NEXT_ROOT/Network/Library/Java:$NEXT_ROOT/System/Library/Frameworks/JavaVM.framework/Classes/classes.jar:$NEXT_ROOT/System/Library/Frameworks/JavaVM.framework/Classes/ui.jar
+export CLASSPATH
+EDITOR=/opt/local/bin/vim
+export EDITOR
+declare -x TEXINPUTS=.:$HOME/.texmf:

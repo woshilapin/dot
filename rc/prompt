@@ -1,0 +1,31 @@
+#!/bin/zsh
+
+# Load colors is necessary to define "fg" and "bg"
+autoload -U colors
+colors
+
+# Some predefine colors
+# "fg" is for foreground color
+# "bg" is for background color
+local g_col="%{${fg[green]}%}"
+local w_col="%{${fg[white]}%}"
+local c_col="%{${fg[cyan]}%}"
+local r_col="%{${fg[red]}%}"
+local y_col="%{${fg[yellow]}%}"
+
+# %B/%b is for play/stop bold text
+# %n display the username
+# %m display the hostname
+# %~ display the current directory (factorized with ~for home if possible)
+# %f reset the colors to the default
+# %D display the date (see strftime documentation)
+# %* display the hour
+# %_ display the current loop ("for" for example)
+# %N display the current script
+# %i display the current line
+PS1="${w_col}%B<%b${r_col}%n${g_col}@${g_col}%m${w_col}%B:%b${c_col}%~${w_col}%B>%b%f "
+RPS1="${r_col}%B[%D{%d/%m/%y}-%*]%b${g_col}%f"
+PS2="${y_col}%_> %f"
+RPS2=$RPS1
+PS3="${y_col}-> %f"
+PS4="${r_col}%Berror:%N:%i%b ${w_col}(%_) %f"

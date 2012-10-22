@@ -1,0 +1,29 @@
+#!/bin/zsh
+alias rm="rm -v"
+UNAME=`uname`
+if test $UNAME = "Darwin" ;
+then
+	alias ls="ls -GFT" ;
+	alias cp="cp -H" ;
+elif test $UNAME = "Linux" ;
+then
+	alias ls="ls --color=auto" ;
+	alias cp="cp --dereference" ;
+else
+	alias ls="ls --color=auto" ;
+	alias cp="cp --dereference" ;
+fi
+alias ll="ls -lh"
+alias la="ll -a"
+alias less="/usr/share/vim/vim72/macros/less.sh"
+alias grep="grep --color=auto"
+alias bc="bc -ql"
+alias vimdiff="vim -d"
+
+# Alias for Git
+alias gdf="git df"
+alias ga="git add"
+alias grm="git rm"
+alias gi="git ignore"
+alias gc="git commit"
+alias gca="git commit -a"
