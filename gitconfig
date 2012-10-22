@@ -1,0 +1,30 @@
+[alias]
+	ls = ls-files -v --cached
+	lg = log --pretty=oneline --abbrev-commit --graph
+	df = diff --color-words
+[core]
+	editor = vim
+	excludesfile = /Users/lapin/.gitignore
+	compression = -1
+[color]
+	diff = auto
+	branch = auto
+	status = auto
+[github]
+	user = woshilapin
+	email = woshilapin@gmail.com
+[http]
+	sslVerify = false
+[i18n]
+	commitEncoding = UTF-8 UTF8
+	logOutputEncoding = UTF-8 UTF8
+[merge]
+	tool = vimdiff
+	verbosity = 2
+[mergetool]
+	keepBackup = false
+[user]
+	name = woshilapin
+	email = woshilapin@gmail.com
+[credential]
+	helper = osxkeychain
