@@ -18,6 +18,7 @@
 # 
 # The following lines were added by compinstall
 
+fpath=(~/.zsh/comp $fpath)
 zstyle ':completion:*' add-space true
 zstyle ':completion:*' auto-description 'Complete with: %d'
 zstyle ':completion:*' completer _expand _complete _ignored _match _correct _approximate
