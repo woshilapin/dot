@@ -70,8 +70,8 @@ set gdefault
 set autowriteall
 " normally don't automatically format `text' as it is typed, IE only do this
 " with comments, at 79 characters:
-set formatoptions=crowanl
-set textwidth=0
+set formatoptions=tcrowanl
+set textwidth=80
 " Have % bounce between angled brackets, as well as the other kinds:
 set matchpairs=(:),{:},[:],<:>
 " Allow <BkSpc> to delete line breaks, beyond the start of the current insertion, and over indentations:
