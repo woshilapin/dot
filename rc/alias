@@ -1,6 +1,5 @@
 #!/bin/zsh
 alias rm="rm -v"
-UNAME=`uname`
 if test $UNAME = "Darwin" ;
 then
 	alias ls="ls -GFT" ;
@@ -17,6 +16,7 @@ alias ll="ls -lh"
 alias la="ll -a"
 alias less=$PAGER
 alias zless=$PAGER
+alias vless=/opt/local/share/vim/vim73/macros/less.sh
 alias grep="grep --color=auto"
 alias bc="bc -ql"
 alias vimdiff="vim -d"
