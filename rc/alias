@@ -15,7 +15,8 @@ else
 fi
 alias ll="ls -lh"
 alias la="ll -a"
-alias less="/usr/share/vim/vim72/macros/less.sh"
+alias less=$PAGER
+alias zless=$PAGER
 alias grep="grep --color=auto"
 alias bc="bc -ql"
 alias vimdiff="vim -d"
