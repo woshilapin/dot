@@ -59,7 +59,7 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 
 # Chargement des fichiers externes
-for file in $HOME/.zsh/rc/* ;
+for file in $HOME/.zsh/rc/{variables,*} ;
 do
 	source $file ;
 done
