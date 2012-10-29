@@ -3,7 +3,7 @@
 UNAME=`uname`
 if test $UNAME = "Linux" ;
 then
-	PATH=$PATH
+	PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
 elif test $UNAME = "Darwin" ;
 then
 	PATH=/opt/local/bin:/opt/local/sbin:$PATH
