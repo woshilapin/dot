@@ -1,7 +1,0 @@
-#!/bin/zsh
-export UNAME=`uname`
-export LC_ALL=fr_FR.UTF-8
-export EDITOR=/opt/local/bin/vim
-export PAGER=/opt/local/share/vim/vim73/macros/less.sh
-export PAGER=/usr/bin/less
-declare -x TEXINPUTS=.:$HOME/.texmf:

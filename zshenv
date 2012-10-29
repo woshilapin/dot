@@ -18,3 +18,8 @@ then
 	TRASH=~/.Trash ;
 fi
 export TRASH
+export UNAME=`uname`
+export LC_ALL=fr_FR.UTF-8
+export EDITOR=/opt/local/bin/vim
+export PAGER=/usr/bin/less
+declare -x TEXINPUTS=.:$HOME/.texmf:
