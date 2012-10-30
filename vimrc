@@ -94,7 +94,7 @@ set showcmd
 " Print the current line and column number
 set ruler
 " when using list, keep tabs at their full width and display `arrows':
-set listchars=eol:$,tab:<-,trail:=,extends:>,precedes:<
+set listchars=eol:$,tab:>-,trail:=,extends:>,precedes:<
 "" INDENTATION
 " use indents of 2 spaces, and have them copied down lines:
 " Size of the tabulation display
