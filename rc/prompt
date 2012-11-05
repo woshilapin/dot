@@ -4,15 +4,7 @@
 autoload -U colors
 colors
 
-# Some predefine colors
-# "fg" is for foreground color
-# "bg" is for background color
-local g_col="%{${fg[green]}%}"
-local w_col="%{${fg[white]}%}"
-local c_col="%{${fg[cyan]}%}"
-local r_col="%{${fg[red]}%}"
-local y_col="%{${fg[yellow]}%}"
-
+# Define the prompt
 # %B/%b is for play/stop bold text
 # %n display the username
 # %m display the hostname
@@ -23,9 +15,16 @@ local y_col="%{${fg[yellow]}%}"
 # %_ display the current loop ("for" for example)
 # %N display the current script
 # %i display the current line
-PS1="${w_col}%B<%b${r_col}%n${g_col}@${g_col}%m${w_col}%B:%b${c_col}%~${w_col}%B>%b%f "
-RPS1="${r_col}%B[%D{%d/%m/%y}-%*]%b${g_col}%f"
-PS2="${y_col}%_> %f"
-RPS2=$RPS1
-PS3="${y_col}-> %f"
-PS4="${r_col}%Berror:%N:%i%b ${w_col}(%_) %f"
+ZSH_THEME_GIT_PROMPT_PREFIX="$FG[255]<$FG[238]git:$FG[070]"
+ZSH_THEME_GIT_PROMPT_CLEAN="-%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="$FG[202]+%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="$FG[255]>%{$reset_color%}"
+
+PROMPT='$BG[232]$FG[244]--- $BG[233]%n@%m [%D{%d/%m/%y}-%*]$BG[232] ---%{$reset_color%}
+$FG[255]%~ \
+$FG[105]%(!.#.>)%{$reset_color%} '
+PROMPT2='%{$fg[yellow]%}%_> %{$reset_color%}'
+
+# right prompt
+RPROMPT='$(git_prompt_info)'
+RPROMPT2='%{$fg[yellow]%}\ %{$reset_color%}'
