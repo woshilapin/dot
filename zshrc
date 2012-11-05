@@ -18,7 +18,21 @@
 # 
 # The following lines were added by compinstall
 
-fpath=(~/.zsh/comp $fpath)
+
+# Load the oh-my-zsh configuration
+ZSH=$HOME/.zsh/oh-my-zsh
+CASE_SENSITIVE="true"
+COMPLETION_WAITING_DOTS="true"
+plugins=(git git-flow macports osx python urltools taskwarrior)
+source $ZSH/oh-my-zsh.sh
+
+# Load the external files
+for file in $HOME/.zsh/rc/* ;
+do
+	source $file ;
+done
+fpath=(~/.zsh/completion $fpath)
+
 zstyle ':completion:*' add-space true
 zstyle ':completion:*' auto-description 'Complete with: %d'
 zstyle ':completion:*' completer _expand _complete _ignored _match _correct _approximate
@@ -57,9 +71,3 @@ setopt appendhistory autocd extendedglob
 unsetopt beep nomatch
 bindkey -e
 # End of lines configured by zsh-newuser-install
-
-# Chargement des fichiers externes
-for file in $HOME/.zsh/rc/* ;
-do
-	source $file ;
-done
