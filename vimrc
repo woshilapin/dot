@@ -342,6 +342,9 @@ if has("cscope")
 	noremap <C-]>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>rmstrA3XX.dd.gz
 endif
 
+" When forgot to open the file in root
+command Wroot silent execute 'write !sudo tee ' . shellescape(@%, 1) . ' >/dev/null'
+
 " Read a '.vimrc' in the current directory of edition or in the local 
 " directory of the edited file
 let s:home_directory = expand("~")
