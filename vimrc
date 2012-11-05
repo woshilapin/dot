@@ -62,7 +62,9 @@ noremap <F2> <C-W><C-W>
 """" OPTIONS
 " Set the mouse abilities in the terminal
 set mouse=a
-" Set the clipboard option to copy each selected and yanked text into the clipboard of the system
+behave xterm
+" Set the clipboard option to copy each selected and yanked text into the 
+" clipboard of the system
 set clipboard=autoselect
 " Replace all occurences in a line by default
 set gdefault
