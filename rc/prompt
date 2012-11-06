@@ -22,8 +22,8 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="$FG[255]>%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_AHEAD="$FG[202]*%{$reset_color%}"
 
 PROMPT='$BG[232]$FG[244]--- $BG[233]%n@%m [%D{%d/%m/%y}-%*]$BG[232] ---%{$reset_color%}
-$FG[255]%~ \
-$FG[105]%(!.#.>)%{$reset_color%} '
+$FG[105]%~/\
+$FG[255]%(!.#.>)%{$reset_color%} '
 PROMPT2='%{$fg[yellow]%}%_> %{$reset_color%}'
 
 # right prompt
