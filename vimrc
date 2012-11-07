@@ -364,4 +364,26 @@ if filereadable(s:source_conf_filename) && s:source_directory != s:home_director
 	exec "source " . substitute(s:source_conf_filename, ' ', '\\ ', 'g')
 endif
 
+" For persistent undo (write in a file)
+set undodir=".undo"
+set undofile
+au BufReadPost * call ReadUndo()
+au BufWritePost * call WriteUndo()
+func ReadUndo()
+	let undodir=".undo/"
+	let undo_filename = undodir . expand('%:t')
+	if filereadable(undo_filename)
+		execute 'rundo ' . undo_filename
+	endif
+endfunc
+func WriteUndo()
+	let undodir=".undo/"
+	let undo_filename = undodir . expand('%:t')
+	if !isdirectory(undodir)
+		call mkdir(undodir)
+	endif
+	execute 'wundo ' . undo_filename
+endfunc
+
+
 " End of woshilapin's .vimrc
