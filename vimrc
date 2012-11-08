@@ -385,5 +385,17 @@ func WriteUndo()
 	execute 'wundo ' . undo_filename
 endfunc
 
+" Configuration of the vim-signature plugin
+let g:SignaturePurgeConfirmation=1
+if !hasmapto( '<Plug>SIG_NextLineByAlpha'  ) | nmap <buffer> ') <Plug>SIG_NextLineByAlpha| endif
+if !hasmapto( '<Plug>SIG_PrevLineByAlpha'  ) | nmap <buffer> '( <Plug>SIG_PrevLineByAlpha| endif
+if !hasmapto( '<Plug>SIG_NextSpotByAlpha'  ) | nmap <buffer> `) <Plug>SIG_NextSpotByAlpha| endif
+if !hasmapto( '<Plug>SIG_PrevSpotByAlpha'  ) | nmap <buffer> `( <Plug>SIG_PrevSpotByAlpha| endif
+if !hasmapto( '<Plug>SIG_NextLineByPos'    ) | nmap <buffer> '] <Plug>SIG_NextLineByPos| endif
+if !hasmapto( '<Plug>SIG_PrevLineByPos'    ) | nmap <buffer> '[ <Plug>SIG_PrevLineByPos| endif
+if !hasmapto( '<Plug>SIG_NextSpotByPos'    ) | nmap <buffer> `] <Plug>SIG_NextSpotByPos| endif
+if !hasmapto( '<Plug>SIG_PrevSpotByPos'    ) | nmap <buffer> `[ <Plug>SIG_PrevSpotByPos| endif
+if !hasmapto( '<Plug>SIG_NextMarkerByType' ) | nmap <buffer> '} <Plug>SIG_NextMarkerByType| endif
+if !hasmapto( '<Plug>SIG_PrevMarkerByType' ) | nmap <buffer> '{ <Plug>SIG_PrevMarkerByType| endif
 
 " End of woshilapin's .vimrc
