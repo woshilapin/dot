@@ -60,8 +60,7 @@ zstyle ':completion:*' substitute 1
 zstyle ':completion:*' verbose true
 zstyle :compinstall filename '/Users/lapin/.zshrc'
 
-autoload -Uz compinit
-compinit
+autoload -U compinit && compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zshhist
