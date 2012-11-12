@@ -54,6 +54,9 @@ nmap <Leader>e :NERDTree<Enter>
 nmap <Leader>E :NERDTree 
 " Afficher les tampons ouverts
 nmap <Leader>b :BufExplore<Enter>
+" Afficher l'explorateur
+vmap <Leader>c gc
+nmap <Leader>c gcc
 " Afficher l'aide
 noremap <F1> <Esc>:help 
 " Changer de fenêtre
