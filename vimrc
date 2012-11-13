@@ -329,16 +329,16 @@ if has("cscope")
 	set cscopepathcomp=1
 	set nocscopeverbose
 	set cscopeverbose
-	noremap <Leader>cu :call AutotagsUpdate()<Enter>
-	noremap <Leader>ca :call AutotagsAdd()<Enter>
-	noremap <Leader>cs :cs find s <C-R>=expand("<cword>")<CR><CR>
-	noremap <Leader>cg :cs find g <C-R>=expand("<cword>")<CR><CR>
-	noremap <Leader>cd :cs find d <C-R>=expand("<cword>")<CR><CR>
-	noremap <Leader>cc :cs find c <C-R>=expand("<cword>")<CR><CR>
-	noremap <Leader>ct :cs find t <C-R>=expand("<cword>")<CR><CR>
-	noremap <Leader>ce :cs find e <C-R>=expand("<cword>")<CR><CR>
-	noremap <Leader>cf :cs find f <C-R>=expand("<cfile>")<CR><CR>
-	noremap <Leader>ci :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>rmstrA3XX.dd.gz
+	noremap <Leader>tu :call AutotagsUpdate()<Enter>
+	noremap <Leader>ta :call AutotagsAdd()<Enter>
+	noremap <Leader>ts :cs find s <C-R>=expand("<cword>")<CR><CR>
+	noremap <Leader>tg :cs find g <C-R>=expand("<cword>")<CR><CR>
+	noremap <Leader>td :cs find d <C-R>=expand("<cword>")<CR><CR>
+	noremap <Leader>tc :cs find c <C-R>=expand("<cword>")<CR><CR>
+	noremap <Leader>tt :cs find t <C-R>=expand("<cword>")<CR><CR>
+	noremap <Leader>te :cs find e <C-R>=expand("<cword>")<CR><CR>
+	noremap <Leader>tf :cs find f <C-R>=expand("<cfile>")<CR><CR>
+	noremap <Leader>ti :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>rmstrA3XX.dd.gz
 endif
 
 " When forgot to open the file in root
