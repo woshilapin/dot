@@ -13,3 +13,6 @@
 [submodule "bundle/tcomment_vim"]
 	path = bundle/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
+[submodule "bundle/vim-autotags"]
+	path = bundle/vim-autotags
+	url = https://github.com/basilgor/vim-autotags.git

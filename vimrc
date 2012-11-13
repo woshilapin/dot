@@ -322,27 +322,23 @@ if &term =~ "xterm.*"
 endif
 " To load the Cscope database
 if has("cscope")
-	set cscopeprg=/usr/local/bin/cscope
+	set cscopeprg=/usr/bin/cscope
 	set cscopetagorder=0
 	set cscopetag
 	set cscopequickfix="s+,g+,d+,c+,t+,e+,f+,i+"
+	set cscopepathcomp=1
 	set nocscopeverbose
-	" Add the database from the current directory
-	if filereadable("cstags")
-			cs add cstags
-	" Else, add the default database
-	elseif $CSCOPE_DB != ""
-			cs add $CSCOPE_DB
-	endif
 	set cscopeverbose
-	noremap <C-]>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-	noremap <C-]>d :cs find g <C-R>=expand("<cword>")<CR><CR>
-	noremap <C-]>l :cs find d <C-R>=expand("<cword>")<CR><CR>
-	noremap <C-]>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-	noremap <C-]>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-	noremap <C-]>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-	noremap <C-]>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-	noremap <C-]>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>rmstrA3XX.dd.gz
+	noremap <Leader>cu :call AutotagsUpdate()<Enter>
+	noremap <Leader>ca :call AutotagsAdd()<Enter>
+	noremap <Leader>cs :cs find s <C-R>=expand("<cword>")<CR><CR>
+	noremap <Leader>cd :cs find g <C-R>=expand("<cword>")<CR><CR>
+	noremap <Leader>cl :cs find d <C-R>=expand("<cword>")<CR><CR>
+	noremap <Leader>cc :cs find c <C-R>=expand("<cword>")<CR><CR>
+	noremap <Leader>ct :cs find t <C-R>=expand("<cword>")<CR><CR>
+	noremap <Leader>ce :cs find e <C-R>=expand("<cword>")<CR><CR>
+	noremap <Leader>cf :cs find f <C-R>=expand("<cfile>")<CR><CR>
+	noremap <Leader>ci :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>rmstrA3XX.dd.gz
 endif
 
 " When forgot to open the file in root
@@ -368,25 +364,31 @@ if filereadable(s:source_conf_filename) && s:source_directory != s:home_director
 endif
 
 " For persistent undo (write in a file)
-set undodir=".undo"
-set undofile
-au BufReadPost * call ReadUndo()
-au BufWritePost * call WriteUndo()
-func ReadUndo()
-	let undodir=".undo/"
-	let undo_filename = undodir . expand('%:t')
-	if filereadable(undo_filename)
-		execute 'rundo ' . undo_filename
-	endif
-endfunc
-func WriteUndo()
-	let undodir=".undo/"
-	let undo_filename = undodir . expand('%:t')
-	if !isdirectory(undodir)
-		call mkdir(undodir)
-	endif
-	execute 'wundo ' . undo_filename
-endfunc
+if exists("+undodir")
+	set undodir=".undo"
+	set undofile
+endif
+if exists("*rundo")
+	au BufReadPost * call ReadUndo()
+	func ReadUndo()
+		let undodir=".undo/"
+		let undo_filename = undodir . expand('%:t')
+		if filereadable(undo_filename)
+			execute 'rundo ' . undo_filename
+		endif
+	endfunc
+endif
+if exists("*rundo")
+	au BufWritePost * call WriteUndo()
+	func WriteUndo()
+		let undodir=".undo/"
+		let undo_filename = undodir . expand('%:t')
+		if !isdirectory(undodir)
+			call mkdir(undodir)
+		endif
+		execute 'wundo ' . undo_filename
+	endfunc
+endif
 
 " Configuration of the vim-signature plugin
 let g:SignaturePurgeConfirmation=1
