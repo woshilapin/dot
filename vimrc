@@ -332,8 +332,8 @@ if has("cscope")
 	noremap <Leader>cu :call AutotagsUpdate()<Enter>
 	noremap <Leader>ca :call AutotagsAdd()<Enter>
 	noremap <Leader>cs :cs find s <C-R>=expand("<cword>")<CR><CR>
-	noremap <Leader>cd :cs find g <C-R>=expand("<cword>")<CR><CR>
-	noremap <Leader>cl :cs find d <C-R>=expand("<cword>")<CR><CR>
+	noremap <Leader>cg :cs find g <C-R>=expand("<cword>")<CR><CR>
+	noremap <Leader>cd :cs find d <C-R>=expand("<cword>")<CR><CR>
 	noremap <Leader>cc :cs find c <C-R>=expand("<cword>")<CR><CR>
 	noremap <Leader>ct :cs find t <C-R>=expand("<cword>")<CR><CR>
 	noremap <Leader>ce :cs find e <C-R>=expand("<cword>")<CR><CR>
