@@ -13,8 +13,8 @@
 [http]
 	sslVerify = false
 [i18n]
-	commitEncoding = UTF-8 UTF8
-	logOutputEncoding = UTF-8 UTF8
+	commitEncoding = UTF-8
+	logOutputEncoding = UTF-8
 [merge]
 	tool = vimdiff
 	verbosity = 2
