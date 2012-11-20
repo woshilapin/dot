@@ -23,3 +23,17 @@ export LC_ALL=fr_FR.UTF-8
 export EDITOR=/opt/local/bin/vim
 export PAGER=/usr/bin/less
 declare -x TEXINPUTS=.:$HOME/.texmf:
+# For java
+JAVA_HOME_LIST=/usr/lib/jvm/java-6-sun:/usr/lib/jvm/default-java
+# Select the first available directory for JAVA_HOME
+if test `uname` = 'Linux';     
+then
+	for dir in `echo $JAVA_HOME_LIST | sed 's/:/ /g'`                                                                                                                   
+	do
+		if test -d $dir
+		then
+			export JAVA_HOME=$dir
+			break
+		fi
+	done
+fi
