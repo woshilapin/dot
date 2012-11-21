@@ -49,7 +49,7 @@ let maplocalleader="="
 
 "" Définition de mappages
 " Afficher l'explorateur
-nmap <Leader>me :NERDTreeToggle<Enter>
+nmap <Leader>me :NERDTreeToggle<Enter>R
 " Afficher l'explorateur en précisant le répertoire racine
 nmap <Leader>mE :NERDTree 
 " Afficher l'explorateur
