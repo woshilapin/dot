@@ -49,7 +49,7 @@ let maplocalleader="="
 
 "" Définition de mappages
 " Afficher l'explorateur
-nmap <Leader>me :NERDTreeToggle<Enter>
+nmap <Leader>me :NERDTreeToggle<Enter>R
 " Afficher l'explorateur en précisant le répertoire racine
 nmap <Leader>mE :NERDTree 
 " Afficher l'explorateur
@@ -322,13 +322,42 @@ if &term =~ "xterm.*"
 endif
 " To load the Cscope database
 if has("cscope")
-	set cscopeprg=/usr/bin/cscope
+	let s:cscopeprg_list =
+				\ "/usr/bin/cscope" .
+				\ "/opt/local/bin/cscope"
+	for s:entry in split(s:cscopeprg_list, " ")
+		if filereadable(s:entry)
+			set cscopeprg=s:entry
+			break
+		endif
+	endfor
 	set cscopetagorder=0
 	set cscopetag
 	set cscopequickfix="s+,g+,d+,c+,t+,e+,f+,i+"
 	set cscopepathcomp=1
 	set nocscopeverbose
 	set cscopeverbose
+	let g:autotags_cscope_file_extensions = ".cpp .cc .cxx .m .hpp .hh .h .hxx .c .idl .java"
+	let s:autotags_ctags_global_include = 
+				\ "/usr/include/" .
+				\ " /usr/include/sys/" .
+				\ " /usr/include/net/" .
+				\ " /usr/include/bits/" .
+				\ " /usr/include/arpa/" .
+				\ " /usr/include/asm/" .
+				\ " /usr/include/asm-generic/" .
+				\ " /usr/include/linux/" .
+				\ " /opt/local/include/" .
+				\ " /opt/local/include/GL/" .
+				\ " /opt/local/include/gcc47/c++/"
+	let g:autotags_ctags_global_include = ""
+    for s:entry in split(s:autotags_ctags_global_include, " ")
+		if isdirectory(s:entry)
+			let g:autotags_ctags_global_include = 
+						\ g:autotags_ctags_global_include .
+						\ " " . s:entry . "*"
+		endif
+	endfor
 	noremap <Leader>tu :call AutotagsUpdate()<Enter>
 	noremap <Leader>ta :call AutotagsAdd()<Enter>
 	noremap <Leader>ts :cscope find s <C-R>=expand("<cword>")<CR><CR>
