@@ -20,7 +20,12 @@ fi
 export TRASH
 export UNAME=`uname`
 export LC_ALL=fr_FR.UTF-8
-export EDITOR=/opt/local/bin/vim
+if test `uname` = 'Darwin';     
+then
+	export EDITOR=/opt/local/bin/vim
+else
+	export EDITOR=/usr/bin/vim
+fi
 export PAGER=/usr/bin/less
 declare -x TEXINPUTS=.:$HOME/.texmf:
 # For java
