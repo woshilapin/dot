@@ -4,3 +4,6 @@
 [submodule "git"]
 	path = git
 	url = git@github.com:woshilapin/dot-git.git
+[submodule "vim"]
+	path = vim
+	url = git@github.com:woshilapin/dot-vim.git
