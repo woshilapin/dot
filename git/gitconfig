@@ -1,0 +1,27 @@
+[alias]
+	ls = ls-files -v --cached
+	lg = log --pretty=oneline --abbrev-commit --graph
+	df = diff --color-words
+[core]
+	editor = vim
+	excludesfile = /Users/lapin/.gitignore
+	compression = -1
+[color]
+	diff = auto
+	branch = auto
+	status = auto
+[http]
+	sslVerify = false
+[i18n]
+	commitEncoding = UTF-8
+	logOutputEncoding = UTF-8
+[merge]
+	tool = vimdiff
+	verbosity = 2
+[mergetool]
+	keepBackup = false
+[push]
+	default = matching
+[user]
+	name = Jean SIMARD
+	email = simard.jean.travail@gmail.com
