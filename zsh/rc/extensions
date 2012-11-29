@@ -1,0 +1,37 @@
+#!/bin/zsh
+
+# Text editor
+alias -s txt="/opt/local/bin/vim"
+
+alias -s tex="/opt/local/bin/vim"
+alias -s cls="/opt/local/bin/vim"
+alias -s sty="/opt/local/bin/vim"
+
+alias -s c="/opt/local/bin/vim"
+alias -s h="/opt/local/bin/vim"
+alias -s cpp="/opt/local/bin/vim"
+alias -s hpp="/opt/local/bin/vim"
+alias -s C="/opt/local/bin/vim"
+alias -s H="/opt/local/bin/vim"
+
+alias -s ada="/opt/local/bin/vim"
+alias -s ads="/opt/local/bin/vim"
+alias -s adb="/opt/local/bin/vim"
+
+# Documents
+alias -s pdf="open"
+
+alias -s odt="open"
+alias -s ods="open"
+alias -s odp="open"
+
+alias -s doc="open"
+alias -s docx="open"
+alias -s xls="open"
+alias -s xlsx="open"
+alias -s ppt="open"
+alias -s pptx="open"
+alias -s pps="open"
+alias -s ppsx="open"
+
+alias -s csv="/opt/local/bin/vim"
