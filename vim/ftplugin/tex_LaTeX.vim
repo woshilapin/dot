@@ -11,3 +11,4 @@ setlocal list
 
 """" MAPPING
 map <F5> <Esc>:wa<Enter>:!latexmk %<Enter>
+map <F7> <Esc>:!open .build/%:r.pdf<Enter>
