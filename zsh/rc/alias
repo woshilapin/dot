@@ -20,6 +20,7 @@ alias vless=/opt/local/share/vim/vim73/macros/less.sh
 alias grep="grep --color=auto"
 alias bc="bc -ql"
 alias vimdiff="vim -d"
+alias moc="mocp"
 
 # Alias for Git
 alias ga="git add"
