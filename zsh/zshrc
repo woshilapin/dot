@@ -69,5 +69,5 @@ SAVEHIST=1000
 setopt appendhistory autocd extendedglob
 unsetopt beep nomatch
 bindkey -e
-sh ~/.dot/update.sh
+bash ~/.dot/update.sh
 # End of lines configured by zsh-newuser-install

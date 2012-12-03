@@ -34,7 +34,7 @@ dot_dir()
 		print_msg "UPDATE: Create link ~/.$2 to $1/$2"
 		ln -s $1/$2 ~/.$2
 	fi
-	sh $0 ~/.$2
+	bash $0 ~/.$2
 	return 0
 }
 
