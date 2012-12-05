@@ -10,7 +10,6 @@ print_choice()
 	echo -n "dot-files: "$1
 }
 
-cd ~/.dot && git fetch
 REV_MASTER=`cd ~/.dot && git rev-parse master`
 REV_ORIGIN=`cd ~/.dot && git rev-parse origin/master`
 if test $REV_MASTER != $REV_ORIGIN
