@@ -65,3 +65,8 @@ function extract() {
 	fi
 }
 alias extract="extract"
+
+function bak() {
+	cp "$1" "$1_`date +%Y-%m-%d_%H-%M-%S`"
+}
+alias bak="bak"
