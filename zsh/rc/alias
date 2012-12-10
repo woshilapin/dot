@@ -21,6 +21,7 @@ alias grep="grep --color=auto"
 alias bc="bc -ql"
 alias vimdiff="vim -d"
 alias moc="mocp"
+alias tree="find . | sed 's/[^/]*\\//|   /g;s/| *\\([^| ]\\)/+--- \\1/'"
 
 # Alias for Git
 alias ga="git add"
