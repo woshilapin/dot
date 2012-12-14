@@ -10,3 +10,6 @@ setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal softtabstop=0
 setlocal list
+
+compiler maven2
+map <F5> <Esc>:wa<Enter>:make<Enter>
