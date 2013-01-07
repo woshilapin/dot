@@ -374,25 +374,6 @@ endif
 " When forgot to open the file in root
 command Wroot silent execute 'write !sudo tee ' . shellescape(@%, 1) . ' >/dev/null'
 
-" Read a '.vimrc' in the current directory of edition or in the local 
-" directory of the edited file
-let s:home_directory = expand("~")
-let s:vim_directory = s:home_directory . "/.vim"
-let s:conf_filename = ".vimrc"
-let s:current_directory = getcwd()
-let s:source_directory = expand("%:p:h")
-let s:current_conf_filename = s:current_directory . "/" . s:conf_filename
-let s:source_conf_filename = s:source_directory . "/" . s:conf_filename
-" Do not forget to avoid loading the '.vimrc' in the HOME directory and in the 
-" '~/.vim/' directory to prevent recursive loading of this file.
-if filereadable(s:current_conf_filename) && s:current_directory != s:home_directory && s:current_directory != s:vim_directory
-	exec "source " . substitute(s:current_conf_filename, ' ', '\\ ', 'g')
-endif
-" To read local directory '.vimrc' configuration file from the directory of the opened file
-if filereadable(s:source_conf_filename) && s:source_directory != s:home_directory && s:source_directory != s:vim_directory
-	exec "source " . substitute(s:source_conf_filename, ' ', '\\ ', 'g')
-endif
-
 " For persistent undo (write in a file)
 if exists("+undodir")
 	set undodir=".undo"
@@ -432,5 +413,24 @@ if !hasmapto( '<Plug>SIG_NextSpotByPos'    ) | nmap <buffer> `] <Plug>SIG_NextSp
 if !hasmapto( '<Plug>SIG_PrevSpotByPos'    ) | nmap <buffer> `[ <Plug>SIG_PrevSpotByPos| endif
 if !hasmapto( '<Plug>SIG_NextMarkerByType' ) | nmap <buffer> '} <Plug>SIG_NextMarkerByType| endif
 if !hasmapto( '<Plug>SIG_PrevMarkerByType' ) | nmap <buffer> '{ <Plug>SIG_PrevMarkerByType| endif
+
+" Read a '.vimrc' in the current directory of edition or in the local 
+" directory of the edited file
+let s:home_directory = expand("~")
+let s:vim_directory = s:home_directory . "/.vim"
+let s:conf_filename = ".vimrc"
+let s:current_directory = getcwd()
+let s:source_directory = expand("%:p:h")
+let s:current_conf_filename = s:current_directory . "/" . s:conf_filename
+let s:source_conf_filename = s:source_directory . "/" . s:conf_filename
+" Do not forget to avoid loading the '.vimrc' in the HOME directory and in the 
+" '~/.vim/' directory to prevent recursive loading of this file.
+if filereadable(s:current_conf_filename) && s:current_directory != s:home_directory && s:current_directory != s:vim_directory
+	execute "source " . substitute(s:current_conf_filename, " ", "\\ ", "g")
+endif
+" To read local directory '.vimrc' configuration file from the directory of the opened file
+if filereadable(s:source_conf_filename) && s:source_directory != s:home_directory && s:source_directory != s:vim_directory
+	execute "source " . substitute(s:source_conf_filename, " ", "\\ ", "g")
+endif
 
 " End of woshilapin's .vimrc
