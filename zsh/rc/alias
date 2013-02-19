@@ -71,3 +71,4 @@ function bak() {
 	mv "$1" "$1_`date +%Y-%m-%d_%H-%M-%S`"
 }
 alias bak="bak"
+alias tunnel-bison="ssh -N simard@bison.lirmm.fr -L 3000:majorque.lirmm.fr:3000 -L 8081:majorque.lirmm.fr:8081 -L 8082:majorque.lirmm.fr:8082"
