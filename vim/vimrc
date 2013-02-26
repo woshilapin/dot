@@ -65,7 +65,10 @@ noremap <F2> <C-W><C-W>
 """" OPTIONS
 " Set the mouse abilities in the terminal
 set mouse=a
-behave xterm
+if &term == "rxvt-unicode"
+	set ttymouse="urxvt"
+endif
+
 " Set the clipboard option to copy each selected and yanked text into the 
 " clipboard of the system
 set clipboard=autoselect
