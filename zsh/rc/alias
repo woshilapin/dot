@@ -34,6 +34,7 @@ alias gph="git push"
 alias gpl="git pull"
 alias grm="git rm"
 alias gss="git status"
+alias gls="git ls"
 
 # To extract files
 function extract() {
