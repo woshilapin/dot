@@ -12,6 +12,7 @@
 	status = auto
 [http]
 	sslVerify = false
+	sslCAInfo = /home/simard/.git/certs/info-depot.lirmm.fr.pem
 [i18n]
 	commitEncoding = UTF-8
 	logOutputEncoding = UTF-8
