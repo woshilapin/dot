@@ -74,3 +74,43 @@ function bak() {
 alias bak="bak"
 alias tunnel-bison="ssh -v -N simard@bison.lirmm.fr -L 3000:majorque.lirmm.fr:3000 -L 8081:majorque.lirmm.fr:8081 -L 8082:majorque.lirmm.fr:8082"
 alias screen-update="xrandr --output VGA1 --auto --right-of LVDS1"
+
+trash_dir=~/.trash
+function rm2trash() {
+	rm2trash_options=""
+	current_rel_dir=`pwd -L`
+	current_abs_dir=`pwd -P`
+	for e in $*
+	do
+		if test $e =~ "^-.*"
+		then
+			case $e in
+				-v)
+					rm2trash_options=`echo $rm2trash_options -v`
+					;;
+				*)
+					echo "rm2trash: This is not the true 'rm' command"
+					echo "rm2trash: It is an alias which move files to ~/.trash"
+					echo "rm2trash: If you want the true one, use '/bin/rm'"
+					return 1
+					;;
+			esac
+		else
+			rel_dir_e=$(echo $current_abs_dir/`dirname $e`)
+			dir_e=`cd $rel_dir_e; pwd -P`
+			name_e=$(basename $e)
+			element=$(echo `echo $dir_e/$name_e`_`date +%Y-%m-%d_%H-%M-%S`)
+			mkdir -p $trash_dir$dir_e
+			mv $rm2trash_options $e $trash_dir$element
+			unset rel_dir_e
+			unset dir_e
+			unset name_e
+			unset element
+		fi
+	done
+	cd $current_rel_dir
+	unset rm2trash_options
+	unset current_rel_dir
+	unset current_abs_dir
+}
+alias rm='rm2trash -v'
