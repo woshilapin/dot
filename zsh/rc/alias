@@ -75,7 +75,12 @@ alias bak="bak"
 alias tunnel-bison="ssh -v -N simard@bison.lirmm.fr -L 3000:majorque.lirmm.fr:3000 -L 8081:majorque.lirmm.fr:8081 -L 8082:majorque.lirmm.fr:8082"
 alias screen-update="xrandr --output VGA1 --auto --right-of LVDS1"
 
-trash_dir=~/.trash
+if test $UNAME = "Darwin" ;
+then
+	trash_dir=~/.Trash
+else
+	trash_dir=~/.trash
+fi
 function rm2trash() {
 	rm2trash_options=""
 	current_rel_dir=`pwd -L`
