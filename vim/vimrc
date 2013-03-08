@@ -261,12 +261,14 @@ au FileType xml setlocal foldmethod=syntax
 
 " To come back to the last edited line
 if has("autocmd")
-	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+	autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 				\| exe "normal! g'\"" | endif
 endif
 " The previous option should not happen when editing a commit of Git (always on top of the file)
-autocmd BufReadPost COMMIT_EDITMSG exe "normal! ggO"
-autocmd BufReadPost COMMIT_EDITMSG exe "startinsert"
+if has("autocmd")
+	autocmd BufReadPost COMMIT_EDITMSG exe "normal! ggO"
+	autocmd BufReadPost COMMIT_EDITMSG exe "startinsert"
+endif
 
 " Change the look of the cursor when changing the mode (insert or normal)
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
