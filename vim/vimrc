@@ -270,6 +270,28 @@ if has("autocmd")
 	autocmd BufReadPost COMMIT_EDITMSG exe "startinsert"
 endif
 
+function s:java_test()
+	map <F5> <Esc>:wa<Enter>:!javac %<Enter>
+	let package_line_number=search("^package.*;", 'n')
+	let package_line=getline(package_line_number)
+	let package=substitute(package_line, "package\\s*\\(\\<.*\\);", "\\1", "")
+	let package_path=substitute(package, "\\.", "\\/", "")
+	let file_dir=expand("%:p:h")
+	let file_classpath=substitute(file_dir, package_path, "", "")
+	let classpath="\"/usr/share/java/junit4.jar:".file_classpath."\""
+	let junit_runner="org.junit.runner.JUnitCore"
+	let file_class=package.".".expand("%:r")
+	let test_map="map <F7> <Esc>:!java -cp "
+	let test_map=test_map.classpath." "
+	let test_map=test_map.junit_runner." "
+	let test_map=test_map.file_class."<Enter>"
+	exec test_map
+endfunction
+
+if has("autocmd")
+	autocmd BufReadPost *Test.java call <SID>java_test()
+endif
+
 " Change the look of the cursor when changing the mode (insert or normal)
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
