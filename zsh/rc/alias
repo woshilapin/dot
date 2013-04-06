@@ -13,7 +13,8 @@ else
 	alias cp="cp --dereference" ;
 fi
 alias ll="ls -lh"
-alias la="ll -a"
+alias la="ls -ha"
+alias lla="ll -a"
 alias less=$PAGER
 alias zless=$PAGER
 alias vless=/opt/local/share/vim/vim73/macros/less.sh
