@@ -5,32 +5,56 @@ print_msg()
 	echo "dot-files: "$1
 }
 
-print_choice()
+dot_file()
 {
-	echo -n "dot-files: "$1
+	if test ! -L ~/.$2
+	then
+		if test -f ~/.$2
+		then
+			print_msg "WARNING: File ~/.$2 already exists"
+			print_msg "INFO: File ~/.$2 backup to ~/.$2.`date +'%Y%m%d-%H%M%S'`"
+			mv ~/.$2 ~/.$2.`date +'%Y%m%d-%H%M%S'`
+		fi
+		print_msg "UPDATE: Create link ~/.$2 to $1/$2"
+		ln -s $1/$2 ~/.$2
+	fi
+	return 0
 }
 
-REV_MASTER=`cd ~/.dot && git rev-parse master`
-REV_ORIGIN=`cd ~/.dot && git rev-parse origin/master`
-if test $REV_MASTER != $REV_ORIGIN
-then
-	print_msg "INFO: Your dot-files are outdated"
-	print_choice "Do you want to update your dot-files [y/n/a]? "
-	read UPDATE_DOT_FILES
-	if test $UPDATE_DOT_FILES = "a"
+dot_dir()
+{
+	if test ! -L ~/.$2
 	then
-		exit
-	elif test $UPDATE_DOT_FILES = "n"
-	then
-		exit
-	elif test $UPDATE_DOT_FILES = "y"
-	then
-		cd ~/.dot &&
-			git pull &&
-			git submodule update
-	else
-		print_msg "ERROR: You should answer with one of (y)es, (n)o or (a)bort"
-		bash $0
+		if test -f ~/.$2
+		then
+			print_msg "WARNING: Directory ~/.$2 already exists"
+			print_msg "INFO: Directory ~/.$2 backup to ~/.$2.`date +'%Y%m%d-%H%M%S'`"
+			mv ~/.$2 ~/.$2.`date +'%Y%m%d-%H%M%S'`
+		fi
+		print_msg "UPDATE: Create link ~/.$2 to $1/$2"
+		ln -s $1/$2 ~/.$2
 	fi
+	bash $0 ~/.$2
+	return 0
+}
+
+if test $# -eq 0
+then
+	DOT_PATH=~/.dot
+else
+	DOT_PATH=$1
 fi
-bash ~/.dot/update_dot-files.sh ~/.dot
+DOT_FILES=$DOT_PATH/.dotfiles
+
+if test -f $DOT_FILES
+then
+	for element in `cat $DOT_FILES`
+	do
+		if test -d $element
+		then
+			dot_dir $DOT_PATH $element
+		else
+			dot_file $DOT_PATH $element
+		fi
+	done
+fi
