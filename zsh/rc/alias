@@ -124,7 +124,10 @@ function rm2trash() {
 alias rm='rm2trash -v'
 
 # Create the CLASSPATH
-java_classpath=/usr/share/java
+if [ -f /usr/share/java ]
+then
+	java_classpath=/usr/share/java
+fi
 CLASSPATH=""
 for file in `ls $java_classpath`
 do
