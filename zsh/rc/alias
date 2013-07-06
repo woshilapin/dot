@@ -71,17 +71,46 @@ function extract() {
 }
 alias extract="extract"
 
+function concat-path() {
+	DIRNAME="$1"
+	BASENAME="$2"
+	EXTNAME="$3"
+	if [ $DIRNAME = "." ]
+	then
+		if [ -z $EXTNAME ]
+		then
+			echo $BASENAME
+		else
+			echo $BASENAME"."$EXTNAME
+		fi
+	else
+		if [ -z $EXTNAME ]
+		then
+			echo $DIRNAME"/"$BASENAME
+		else
+			echo $DIRNAME"/"$BASENAME"."$EXTNAME
+		fi
+	fi
+}
+
 function insert-date() {
 	DIRNAME=`dirname $1`
 	FILENAME=`basename $1`
 	BASE="${FILENAME%.[^.]*}"
 	EXT="${FILENAME:${#BASE}+1}"
-	if [ -z $EXT ]
-	then
-		echo $DIRNAME"/"$BASE"."`date +%Y-%m-%d_%H-%M-%S`
-	else
-		echo $DIRNAME"/"$BASE"."`date +%Y-%m-%d_%H-%M-%S`"."$EXT
-	fi
+	OUTBASE="$BASE"."`date +%Y-%m-%d_%H-%M-%S`"
+	concat-path "$DIRNAME" "$OUTBASE" "$EXT"
+	unset DIRNAME FILENAME BASE EXT OUTBASE
+}
+
+function remove-date() {
+	DIRNAME=`dirname $1`
+	FILENAME=`basename $1`
+	BASE="${FILENAME%.[^.]*}"
+	EXT="${FILENAME:${#BASE}+1}"
+	OUTBASE=`echo $BASE | sed 's/\.[0-9-]\{10\}_[0-9-]\{8\}$//g'`
+	concat-path "$DIRNAME" "$OUTBASE" "$EXT"
+	unset DIRNAME FILENAME BASE EXT OUTBASE
 }
 
 function bak() {
@@ -93,47 +122,133 @@ alias update-screen="xrandr --output VGA1 --auto --right-of LVDS1"
 
 if test $UNAME = "Darwin" ;
 then
-	trash_dir=~/.Trash
+	TRASH_DIR=~/.Trash
 else
-	trash_dir=~/.trash
+	TRASH_DIR=~/.trash
 fi
 function rm2trash() {
-	rm2trash_options=""
-	current_rel_dir=`pwd -L`
-	current_abs_dir=`pwd -P`
-	for e in $*
+	RM2TRASH_OPTIONS=""
+	CURRENT_REL_DIR=`pwd -L`
+	CURRENT_ABS_DIR=`pwd -P`
+	for arg in $*
 	do
-		if test $e =~ "^-.*"
+		if test $arg =~ "^-.*"
 		then
-			case $e in
+			case $arg in
 				-v)
-					rm2trash_options=`echo $rm2trash_options -v`
+					RM2TRASH_OPTIONS=`echo $RM2TRASH_OPTIONS -v`
 					;;
 				*)
 					echo "rm2trash: This is not the true 'rm' command"
-					echo "rm2trash: It is an alias which move files to ~/.trash"
-					echo "rm2trash: If you want the true one, use '/bin/rm'"
+					echo "rm2trash: It is an alias which move files to "$TRASH_DIR
+					echo "rm2trash: If you want the true one, use '/bin/rm' or alias 'rmf'"
 					return 1
 					;;
 			esac
 		else
-			rel_dir_e=$(echo $current_abs_dir/`dirname $e`)
-			dir_e=`cd $rel_dir_e; pwd -P`
-			name_e=$(basename $e)
-			element=`insert-date "$dir_e/$name_e"`
-			mkdir -p $trash_dir$dir_e
-			mv $rm2trash_options $e $trash_dir$element
-			unset rel_dir_e
-			unset dir_e
-			unset name_e
-			unset element
+			ARG_REL_DIR=$(echo $CURRENT_ABS_DIR/`dirname $arg`)
+			ARG_ABS_DIR=`cd $ARG_REL_DIR; pwd -P`
+			ARG_FILENAME=$(basename $arg)
+			OUT_FILENAME=`insert-date "$ARG_ABS_DIR/$ARG_FILENAME"`
+			mkdir -p $TRASH_DIR$ARG_ABS_DIR
+			OUT_PATH=`concat-path "$TRASH_DIR" "$OUT_FILENAME"`
+			mv "$arg" "$OUT_PATH"
+			unset ARG_REL_DIR ARG_ABS_DIR ARG_FILENAME OUT_FILENAME OUT_PATH
 		fi
 	done
-	cd $current_rel_dir
-	unset rm2trash_options
-	unset current_rel_dir
-	unset current_abs_dir
+	cd $CURRENT_REL_DIR
+	unset RM2TRASH_OPTIONS CURRENT_REL_DIR CURRENT_ABS_DIR
 }
+
+function restore-from-trash() {
+	DIRNAME=`dirname $1`
+	FILENAME=`basename $1`
+	OUT_DIRNAME=`echo $DIRNAME | sed 's+'$TRASH_DIR'++g'`
+	OUT_FILENAME=`remove-date "$FILENAME"`
+	IN_PATH="$1"
+	OUT_PATH=`concat-path "$OUT_DIRNAME" "$OUT_FILENAME"`
+	cp "$IN_PATH" "$OUT_PATH"
+	unset DIRNAME FILENAME OUT_DIRNAME OUT_FILENAME IN_PATH OUT_PATH
+}
+
+function restore-from-current() {
+	DIRNAME=`dirname $1`
+	FILENAME=`basename $1`
+	BASE="${FILENAME%.[^.]*}"
+	EXT="${FILENAME:${#BASE}+1}"
+	CURRENT_ABS_DIR=`pwd -P`
+	if [ -z `echo $DIRNAME | grep '^\/'` ]
+	then
+		if [ $DIRNAME = "." ]
+		then
+			DIR_IN_TRASH=$TRASH_DIR$CURRENT_ABS_DIR
+		else
+			DIR_IN_TRASH=$TRASH_DIR$CURRENT_ABS_DIR/$DIRNAME
+		fi
+	else
+		DIR_IN_TRASH=$TRASH_DIR$DIRNAME
+	fi
+	FILE_NUM=0
+	for file in `ls $DIR_IN_TRASH/$BASE*`
+	do
+		TRASH_FILENAME=`basename $file`
+		TRASH_BASEDATE="${TRASH_FILENAME%.[^.]*}"
+		TRASH_EXT="${TRASH_FILENAME:${#TRASH_BASEDATE}+1}"
+		TRASH_BASE="${TRASH_BASEDATE%.[^.]*}"
+		TRASH_DATE="${TRASH_BASEDATE:${#TRASH_BASE}+1}"
+		YEAR=`echo $TRASH_DATE | sed 's/^\([0-9]\{4\}\).*$/\1/g'`
+		MONTH=`echo $TRASH_DATE | sed 's/^[0-9-]\{5\}\([0-9]\{2\}\).*$/\1/g'`
+		DAY=`echo $TRASH_DATE | sed 's/^[0-9-]\{8\}\([0-9]\{2\}\).*$/\1/g'`
+		HOUR=`echo $TRASH_DATE | sed 's/^.*_\([0-9]\{2\}\).*$/\1/g'`
+		MIN=`echo $TRASH_DATE | sed 's/^.*_[0-9-]\{3\}\([0-9]\{2\}\).*$/\1/g'`
+		SEC=`echo $TRASH_DATE | sed 's/^.*_[0-9-]\{6\}\([0-9]\{2\}\).*$/\1/g'`
+		DATE_STR=$DAY"-"$MONTH"-"$YEAR" ("$HOUR":"$MIN":"$SEC")"
+		FILE_NUM=$(($FILE_NUM + 1))
+		echo "["$FILE_NUM"] '"`concat-path "." "$TRASH_BASE" "$TRASH_EXT"`"' from "$DATE_STR
+		unset TRASH_FILENAME TRASH_BASEDATE TRASH_EXT TRASH_BASE TRASH_DATE
+		unset YEAR MONTH DAY HOUR MIN SEC
+		unset DATE_STR
+	done
+	CHOSEN_FILE=""
+	if [ $FILE_NUM -gt 1 ]
+	then
+		echo -n 'Which file [1]? '
+		read CHOSEN_FILE
+	fi
+	if [ -z $CHOSEN_FILE ]
+	then
+		CHOSEN_FILE=1
+	fi
+	FILE_NUM=0
+	for file in `ls $DIR_IN_TRASH/$BASE*`
+	do
+		FILE_NUM=$(($FILE_NUM + 1))
+		if [ $FILE_NUM -eq $CHOSEN_FILE ]
+		then
+			IN_PATH=$file
+		fi
+	done
+	IN_FILENAME=`basename $IN_PATH`
+	OUT_DIRNAME=`echo $DIRNAME | sed 's+'$TRASH_DIR'++g'`
+	OUT_FILENAME=`remove-date "$IN_FILENAME"`
+	OUT_PATH=`concat-path "$OUT_DIRNAME" "$OUT_FILENAME"`
+	cp "$IN_PATH" "$OUT_PATH"
+	unset DIRNAME FILENAME BASE EXT CURRENT_ABS_DIR
+	unset DIR_IN_TRASH FILE_NUM CHOSEN_FILE
+	unset IN_FILENAME OUT_DIRNAME OUT_FILENAME
+	unset IN_PATH OUT_PATH
+}
+
+function restore() {
+	DIRNAME=`dirname $1`
+	if [ -z `echo $DIRNAME | grep "$TRASH_DIR"` ]
+	then
+		restore-from-trash $1
+	else
+		restore-from-current $1
+	fi
+}
+
 alias rm='rm2trash -v'
 alias rmf='/bin/rm -Rf'
 
