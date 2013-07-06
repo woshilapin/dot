@@ -71,8 +71,21 @@ function extract() {
 }
 alias extract="extract"
 
+function insert-date() {
+	DIRNAME=`dirname $1`
+	FILENAME=`basename $1`
+	BASE="${FILENAME%.[^.]*}"
+	EXT="${FILENAME:${#BASE}+1}"
+	if [ -z $EXT ]
+	then
+		echo $DIRNAME"/"$BASE"."`date +%Y-%m-%d_%H-%M-%S`
+	else
+		echo $DIRNAME"/"$BASE"."`date +%Y-%m-%d_%H-%M-%S`"."$EXT
+	fi
+}
+
 function bak() {
-	mv "$1" "$1_`date +%Y-%m-%d_%H-%M-%S`"
+	cp "$1" `insert-date "$1"`
 }
 alias bak="bak"
 alias tunnel-bison="ssh -v -N simard@bison.lirmm.fr -L 3000:majorque.lirmm.fr:3000 -L 8081:majorque.lirmm.fr:8081 -L 8082:majorque.lirmm.fr:8082"
@@ -107,7 +120,7 @@ function rm2trash() {
 			rel_dir_e=$(echo $current_abs_dir/`dirname $e`)
 			dir_e=`cd $rel_dir_e; pwd -P`
 			name_e=$(basename $e)
-			element=$(echo `echo $dir_e/$name_e`_`date +%Y-%m-%d_%H-%M-%S`)
+			element=`insert-date "$dir_e/$name_e"`
 			mkdir -p $trash_dir$dir_e
 			mv $rm2trash_options $e $trash_dir$element
 			unset rel_dir_e
@@ -122,6 +135,7 @@ function rm2trash() {
 	unset current_abs_dir
 }
 alias rm='rm2trash -v'
+alias rmf='/bin/rm -Rf'
 
 # Create the CLASSPATH
 if [ -f /usr/share/java ]
