@@ -1,26 +1,26 @@
 #!/bin/zsh
 # PATH initialisations
 UNAME=`uname`
-if test $UNAME = "Linux" ;
+if [ $UNAME = "Linux" ]
 then
 	PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
-elif test $UNAME = "Darwin" ;
+elif [ $UNAME = "Darwin" ]
 then
 	PATH=/opt/local/bin:/opt/local/sbin:$PATH
 fi
 export PATH
 # TRASH initialisations
-if test $UNAME = "Linux" ;
+if [ $UNAME = "Linux" ]
 then
-	TRASH=~/.local/share/Trash/files ;
-elif test $UNAME = "Darwin" ;
+	TRASH=~/.local/share/Trash/files
+elif [ $UNAME = "Darwin" ]
 then
-	TRASH=~/.Trash ;
+	TRASH=~/.Trash
 fi
 export TRASH
-export UNAME=`uname`
+export UNAME
 export LC_ALL=fr_FR.UTF-8
-if test `uname` = 'Darwin';     
+if [ `uname` = 'Darwin' ]
 then
 	export EDITOR=/opt/local/bin/vim
 else
@@ -31,7 +31,7 @@ declare -x TEXINPUTS=.:$HOME/.texmf:
 # For java
 JAVA_HOME_LIST=/usr/lib/jvm/java-6-sun:/usr/lib/jvm/default-java
 # Select the first available directory for JAVA_HOME
-if test `uname` = 'Linux';     
+if [ `uname` = 'Linux' ]
 then
 	for dir in `echo $JAVA_HOME_LIST | sed 's/:/ /g'`                                                                                                                   
 	do
