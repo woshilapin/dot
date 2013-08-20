@@ -19,6 +19,7 @@
 [merge]
 	tool = vimdiff
 	verbosity = 2
+	conflictstyle = diff3
 [mergetool]
 	keepBackup = false
 [push]
