@@ -114,7 +114,12 @@ function remove-date() {
 }
 
 function bak() {
-	cp "$1" `insert-date "$1"`
+	if [ -d $1 ]
+	then
+		cp -R "$1" `insert-date "$1"`
+	else
+		cp "$1" `insert-date "$1"`
+	fi
 }
 alias bak="bak"
 alias tunnel-bison="ssh -v -N simard@bison.lirmm.fr -L 3000:majorque.lirmm.fr:3000 -L 8081:majorque.lirmm.fr:8081 -L 8082:majorque.lirmm.fr:8082"
