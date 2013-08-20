@@ -22,7 +22,7 @@ then
 		exit 0
 	fi
 fi
-for file_url in `grep '/watch' $1 | grep -v 'data-translation-src' | grep -v '^[ \t]*>[ \t]*$' | sed -e 's+^.*href="\(.*\)$+\1+g' -e 's/".*$//g' | grep -v 'class' | grep -v 'watch_later' | uniq`
+for file_url in `grep '/watch\>' $1 | grep -v 'data-translation-src' | grep -v '^[ \t]*>[ \t]*$' | sed -e 's+^.*href="\(.*\)$+\1+g' -e 's/".*$//g' | grep -v 'class' | grep -v 'watch_later' | uniq`
 do
 	HASH=`echo $file_url | sed 's/^.*v=//g'`
 	youtube-dl -f 22/45/44/35/18/43/34 'https://www.youtube.com/watch?v='$HASH
