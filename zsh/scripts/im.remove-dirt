@@ -1,0 +1,140 @@
+#!/bin/bash
+function print_err {
+	echo "`basename $0`: error: $1"
+	exit 1
+}
+
+function print_info {
+	echo -e "---> $1"
+}
+
+HELP='remove-dirt v0.1
+Remove a dirt of a photography
+
+$> $0 [<options>] <infile> <seed-point> <outfile>
+
+The script can remove a dirt on a photography given the coordinates of the
+dirt.
+
+<infile>      The image input file to correct.
+<outfile>     The image output file.
+<seed-points> The point where the dirt is; it must be in the form +<x>+<y> where
+              <x> is the number of pixel from the left of the image and <y> is
+              the number of pixel from the top of the image
+
+OPTIONS
+-------
+-b|--blur     The size of the blurring effect [default=3]
+-f|--fuzz     The maximum color difference from the seeding point (as a
+              percentage) [default=0]
+-h|--help     Display this message
+'
+
+if [ $# -eq 0 ]
+then
+	printf '%s\n' "$HELP"
+	exit 1
+fi
+ARGS=("$@")
+
+IN_FILE=
+OUT_FILE=
+FUZZ=10%
+BLUR=0x3
+JUMP=0
+for i in `seq 0 $(($# - 1))`
+do
+	ARG=${ARGS[$i]}
+	if [ $JUMP -eq 1 ]
+	then
+		JUMP=0
+		continue
+	fi
+	case $ARG in
+		"-h"|"--help")
+			printf '%s\n' $HELP
+			exit 0
+			;;
+		"-f"|"--fuzz")
+			FUZZ=${ARGS[$((i+1))]}'%'
+			JUMP=1
+			;;
+		"-b"|"--blur")
+			BLUR='0x'${ARGS[$((i+1))]}
+			JUMP=1
+			;;
+		"+"*)
+			SEED_POINT=$ARG
+			;;
+		*)
+			if [ -z $IN_FILE ]
+			then
+				IN_FILE=$ARG
+			elif [ -z $OUT_FILE ]
+			then
+				OUT_FILE=$ARG
+			else
+				print_err "Too many arguments. See '--help'."
+			fi
+			;;
+	esac
+done
+if [ -z $IN_FILE ]
+then
+	print_err "You must give an input file."
+fi
+if [ -z $OUT_FILE ]
+then
+	print_err "You must give an output file."
+fi
+if [ -z $SEED_POINT ]
+then
+	print_err "You must give a seeding point."
+fi
+
+# Explanations of the script
+#####
+# There is 4 image in the sequence of 'convert'
+#
+# 1) The first image is the input image (given by the user)
+#
+# 2) The second image is the mask of the dirt.  The dirt is identified by a seed
+#point given by the user and compute by 'convert' depending on the '-fuzz'
+#parameter.  The final mask is full white with the dirt area colored in black.
+# NOTE: If the fuzz is too high, the size of the dirt may be too important and # 
+#will remove important part of the image.
+#
+# 3) The third image is the filling image which will be used to replace the
+#dirt.  The first image is used and the dirt is removed (with transparency) with
+#the mask (second image).  A blur effect (with '-blur' parameter) is applied in
+#order to fill the 'hole' from the dirt.
+# NOTE: The blur size should be at least half the size of the 'dirty hole'; if
+#not, 'dirty hole' will not be fully fill and the result will render a black
+#area on the dirt.
+convert \
+	$IN_FILE \
+	\( \
+		+clone \
+		-fill none \
+		-fuzz $FUZZ \
+		-draw 'color '$SEED_POINT' FloodFill' \
+		-alpha extract \
+	\) \
+	\( \
+		-clone 0 \
+		-clone -1 \
+		-compose CopyOpacity \
+		-composite \
+		-channel RGBA \
+		-blur 0x$BLUR \
+		+channel \
+		-alpha Off \
+	\) \
+	\( \
+		-clone 1 \
+		-negate \
+	\) \
+	-delete 1 \
+	-compose Over \
+	-composite \
+	$OUT_FILE
