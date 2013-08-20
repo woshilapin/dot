@@ -8,6 +8,7 @@ elif [ $UNAME = "Darwin" ]
 then
 	PATH=/opt/local/bin:/opt/local/sbin:$PATH
 fi
+PATH=$PATH:~/.zsh/scripts
 export PATH
 # TRASH initialisations
 if [ $UNAME = "Linux" ]
