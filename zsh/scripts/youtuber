@@ -26,6 +26,6 @@ do
 	HASH=`echo $file_url | sed 's/^.*v=//g'`
 	youtube-dl -f 22/45/44/35/18/43/34 'https://www.youtube.com/watch?v='$HASH
 	EXT=`ls . | grep -- $HASH | sed 's/^.*\.//g'`
-	TITLE=`grep '/watch?v='$HASH'">' videos | sed -e 's/^.*title="//g' -e 's/" data-sessionlink.*$//g' -e 's/^[ \t]*//g' -e 's/[ \t]*$//g' -e 's+/+-+g' -e 's/\&amp;/\&/g' -e 's/\&quot;/"/g' -e "s/\&#39;/'/g"`
+	TITLE=`grep '/watch?v='$HASH'">' videos | sed -e 's/^.*title="//g' -e 's/" data-sessionlink.*$//g' -e 's/^[ \t]*//g' -e 's/[ \t]*$//g' -e 's+/+-+g' -e 's/\&amp;/\&/g' -e 's/\&quot;/"/g' -e "s/\&#39;/'/g" | tr '|' '-'`
 	mv -- $HASH.$EXT "$TITLE.$EXT"
 done
