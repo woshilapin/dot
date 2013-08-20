@@ -265,7 +265,7 @@ fi
 CLASSPATH=""
 for file in `ls $java_classpath`
 do
-	if test ${file##*.} = "jar"
+	if [ ${file##*.} = "jar" ]
 	then
 		CLASSPATH=$CLASSPATH:$java_classpath/$file
 	fi
