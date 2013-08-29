@@ -20,7 +20,9 @@ then
 fi
 export TRASH
 export UNAME
-export LC_ALL=fr_FR.UTF-8
+export UNAME=`uname`
+export LANG=fr_FR.UTF-8
+export LANGUAGE=fr:en
 if [ `uname` = 'Darwin' ]
 then
 	export EDITOR=/opt/local/bin/vim
