@@ -7,23 +7,24 @@ then
 elif [ $UNAME = "Darwin" ]
 then
 	PATH=/opt/local/bin:/opt/local/sbin:$PATH
+	LIBRARY_PATH=/opt/local/lib:$LIBRARY_PATH
 fi
 PATH=$PATH:~/.zsh/scripts
 export PATH
+export LIBRARY_PATH
 # TRASH initialisations
 if [ $UNAME = "Linux" ]
 then
-	TRASH=~/.local/share/Trash/files
+	TRASH_DIR=~/.trash ;
 elif [ $UNAME = "Darwin" ]
 then
-	TRASH=~/.Trash
+	TRASH_DIR=~/.Trash ;
 fi
-export TRASH
 export UNAME
-export UNAME=`uname`
+export TRASH_DIR
 export LANG=fr_FR.UTF-8
 export LANGUAGE=fr:en
-if [ `uname` = 'Darwin' ]
+if [ $UNAME = 'Darwin' ]
 then
 	export EDITOR=/opt/local/bin/vim
 else
@@ -34,7 +35,7 @@ declare -x TEXINPUTS=.:$HOME/.texmf:
 # For java
 JAVA_HOME_LIST=/usr/lib/jvm/java-6-sun:/usr/lib/jvm/default-java
 # Select the first available directory for JAVA_HOME
-if [ `uname` = 'Linux' ]
+if [ $UNAME = 'Linux' ]
 then
 	for dir in `echo $JAVA_HOME_LIST | sed 's/:/ /g'`                                                                                                                   
 	do
