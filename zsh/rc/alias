@@ -94,12 +94,20 @@ function concat-path() {
 }
 
 function insert-date() {
-	DIRNAME=`dirname $1`
-	FILENAME=`basename $1`
-	BASE="${FILENAME%.[^.]*}"
-	EXT="${FILENAME:${#BASE}+1}"
-	OUTBASE="$BASE"."`date +%Y-%m-%d_%H-%M-%S`"
-	concat-path "$DIRNAME" "$OUTBASE" "$EXT"
+	if [ -d $1 ]
+	then
+		DIRNAME=`dirname $1`
+		FILENAME=`basename $1`
+		DATE="`date +%Y-%m-%d_%H-%M-%S`"
+		concat-path "$DIRNAME" "$FILENAME" "$DATE"
+	else
+		DIRNAME=`dirname $1`
+		FILENAME=`basename $1`
+		BASE="${FILENAME%.[^.]*}"
+		EXT="${FILENAME:${#BASE}+1}"
+		OUTBASE="$BASE"."`date +%Y-%m-%d_%H-%M-%S`"
+		concat-path "$DIRNAME" "$OUTBASE" "$EXT"
+	fi
 	unset DIRNAME FILENAME BASE EXT OUTBASE
 }
 
