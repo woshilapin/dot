@@ -23,7 +23,8 @@ fi
 export UNAME
 export TRASH_DIR
 export LANG=fr_FR.UTF-8
-export LANGUAGE=fr:en
+export LANGUAGE=fr_FR:fr:en_US:en_GB:en
+unset LC_ALL
 if [ $UNAME = 'Darwin' ]
 then
 	export EDITOR=/opt/local/bin/vim
