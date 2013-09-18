@@ -264,6 +264,7 @@ function restore() {
 
 alias rm='rm2trash -v'
 alias rmf='/bin/rm -Rf'
+alias bd='. bd -s'
 
 # Create the CLASSPATH
 if [ -f /usr/share/java ]
