@@ -1,0 +1,255 @@
+# [Created by task 1.9.4 10/24/2012 10:28:30]
+# Taskwarrior program configuration file.
+# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-faq',
+# 'man task-tutorial', 'man task-color', 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# Use the command 'task show' to see all defaults and overrides
+
+# Files
+data.location=/Users/lapin/.task
+
+# Color theme (uncomment one to use)
+#include /opt/local/share/doc/task/rc/light-16.theme
+#include /opt/local/share/doc/task/rc/light-256.theme
+#include /opt/local/share/doc/task/rc/dark-16.theme
+#include /opt/local/share/doc/task/rc/dark-256.theme
+
+#include /opt/local/share/doc/task/rc/dark-red-256.theme
+#include /opt/local/share/doc/task/rc/dark-green-256.theme
+#include /opt/local/share/doc/task/rc/dark-blue-256.theme
+#include /opt/local/share/doc/task/rc/dark-violets-256.theme
+#include /opt/local/share/doc/task/rc/dark-yellow-green.theme
+
+
+# Config variable                 Value
+# ------------------------------- ------------------------------------------------
+# _forcecolor                     no
+# active.indicator                *
+# alias.burndown                  burndown.weekly
+# alias.export                    export.yaml
+# alias.export.json               _query
+# alias.export.vcalendar          export.ical
+# alias.ghistory                  ghistory.monthly
+# alias.history                   history.monthly
+# alias.rm                        delete
+# annotations                     full
+# blanklines                      true
+# bulk                            2
+# burndown.bias                   0.666
+# calendar.details                sparse
+# calendar.details.report         list
+calendar.holidays=full
+# calendar.legend                 yes
+# calendar.offset                 no
+# calendar.offset.value           -1
+color=on
+# color.active                    black on bright green
+color.alternate=on color233
+# color.blocked                   black on white
+# color.burndown.done             black on green
+# color.burndown.pending          black on red
+# color.burndown.started          black on yellow
+# color.calendar.due              white on red
+# color.calendar.due.today        bold white on red
+# color.calendar.holiday          black on bright yellow
+# color.calendar.overdue          black on bright red
+# color.calendar.today            bold white on bright blue
+# color.calendar.weekend          white on bright black
+# color.calendar.weeknumber       bold blue
+# color.debug                     yellow
+# color.due                       red
+# color.due.today                 red
+# color.footnote                  yellow
+# color.header                    yellow
+# color.history.add               black on red
+# color.history.delete            black on yellow
+# color.history.done              black on green
+# color.overdue                   bold red
+# color.pri.H                     bold white
+# color.pri.L
+# color.pri.M                     white
+# color.pri.none
+# color.recurring                 magenta
+# color.summary.background        white on black
+# color.summary.bar               black on green
+# color.sync.added                green
+# color.sync.changed              yellow
+# color.sync.rejected             red
+# color.tagged                    green
+# color.undo.after                green
+# color.undo.before               red
+complete.all.projects=yes
+complete.all.tags=yes
+# confirmation                    yes
+# curses                          off
+# data.location                   /Users/lapin/.task
+dateformat=DMY
+dateformat.annotation=[D-M-Y H:N:S]
+dateformat.holiday=DMY
+dateformat.report=D-M-Y
+# debug                           no
+default.command=ls
+# defaultwidth                    80
+# dependency.confirmation         on
+# dependency.reminder             on
+# displayweeknumber               yes
+# due                             7
+# echo.command                    yes
+# edit.verbose                    yes
+# export.ical.class               PRIVATE
+# fontunderline                   yes
+# gc                              on
+# hooks                           off
+# journal.info                    on
+journal.time=on
+# journal.time.start.annotation   Started task
+# journal.time.stop.annotation    Stopped task
+# list.all.projects               no
+# list.all.tags                   no
+# locale
+# locking                         on
+# merge.autopush                  ask
+# nag                             You have higher priority tasks.
+# next                            2
+# recurrence.indicator            R
+# recurrence.limit                1
+# regex                           no
+# report.active.columns           id,project,priority,due,active,age,description
+# report.active.description       Lists active tasks matching the specified
+#                                 criteria
+# report.active.filter            status:pending start.any:
+# report.active.labels            ID,Project,Pri,Due,Active,Age,Description
+# report.active.sort              due+,priority-,project+,description+
+# report.all.columns              id,project,priority,due,end,active,age,descript-
+#                                 ion
+# report.all.description          Lists all tasks matching the specified criteria,
+#                                 including parents of recurring tasks
+# report.all.filter               status.not:deleted
+# report.all.labels               ID,Project,Pri,Due,Completed,Active,Age,Descrip-
+#                                 tion
+# report.all.sort                 project+,due+,end+,priority-,active-,descriptio-
+#                                 n+
+# report.blocked.columns          id,depends,project,priority,due,active,age,desc-
+#                                 ription
+# report.blocked.description      Lists all blocked tasks matching the specified
+#                                 criteria
+# report.blocked.filter           status:pending depends.any:
+# report.blocked.labels           ID,Deps,Project,Pri,Due,Active,Age,Description
+# report.blocked.sort             due+,priority-,active-,project+,description+
+# report.completed.columns        end,project,priority,age,description
+# report.completed.description    Lists completed tasks matching the specified
+#                                 criteria
+# report.completed.filter         status:completed
+# report.completed.labels         Complete,Project,Pri,Age,Description
+# report.completed.sort           end+,priority-,project+,description+
+# report.list.columns             id,project,priority,due,active,age,description
+# report.list.description         Lists all tasks matching the specified criteria
+# report.list.filter              status:pending
+# report.list.labels              ID,Project,Pri,Due,Active,Age,Description
+# report.list.sort                due+,priority-,active-,project+,description+
+# report.long.columns             id,project,priority,entry,start,due,recur,count-
+#                                 down,age,depends,tags,description
+# report.long.description         Lists all task, all data, matching the specified
+#                                 criteria
+# report.long.filter              status:pending
+# report.long.labels              ID,Project,Pri,Added,Started,Due,Recur,Countdow-
+#                                 n,Age,Deps,Tags,Description
+# report.long.sort                due+,priority-,project+,description+
+report.ls.columns=start.active,id,description,project,tags,due,priority
+# report.ls.description           Minimal listing of all tasks matching the
+#                                 specified criteria
+# report.ls.filter                status:pending
+report.ls.labels=Active,ID,Description,Project,Tags,Due,Pri.
+report.ls.sort=due+,priority-,project-,description+
+# report.minimal.columns          id,project,description
+# report.minimal.description      A really minimal listing
+# report.minimal.filter           status:pending
+# report.minimal.labels           ID,Project,Description
+# report.minimal.sort             project+,description+
+# report.newest.columns           id,project,priority,due,active,age,description
+# report.newest.description       Shows the newest tasks
+# report.newest.filter            status:pending limit:10
+# report.newest.labels            ID,Project,Pri,Due,Active,Age,Description
+# report.newest.sort              id-
+# report.next.columns             id,project,priority,due,active,age,description
+# report.next.description         Lists the most urgent tasks
+# report.next.filter              status:pending limit:page depends.none:
+# report.next.labels              ID,Project,Pri,Due,Active,Age,Description
+# report.next.sort                due+,priority-,active-,project+,description+
+# report.oldest.columns           id,project,priority,due,active,age,description
+# report.oldest.description       Shows the oldest tasks
+# report.oldest.filter            status:pending limit:10
+# report.oldest.labels            ID,Project,Pri,Due,Active,Age,Description
+# report.oldest.sort              id+
+# report.overdue.columns          id,project,priority,due,active,age,description
+# report.overdue.description      Lists overdue tasks matching the specified
+#                                 criteria
+# report.overdue.filter           status:pending due.before:now
+# report.overdue.labels           ID,Project,Pri,Due,Active,Age,Description
+# report.overdue.sort             due+,priority-,active-,project+,description+
+# report.recurring.columns        id,project,priority,due,recur,active,age,descri-
+#                                 ption
+# report.recurring.description    Lists recurring tasks matching the specified
+#                                 criteria
+# report.recurring.filter         status:pending parent.any:
+# report.recurring.labels         ID,Project,Pri,Due,Recur,Active,Age,Description
+# report.recurring.sort           due+,priority-,active-,project+,description+
+# report.unblocked.columns        id,depends,project,priority,due,active,age,desc-
+#                                 ription
+# report.unblocked.description    Lists all unblocked tasks matching the specified
+#                                 criteria
+# report.unblocked.filter         status:pending depends.none:
+# report.unblocked.labels         ID,Deps,Project,Pri,Due,Active,Age,Description
+# report.unblocked.sort           due+,priority-,active-,project+,description+
+# report.waiting.columns          id,project,priority,wait,age,description
+# report.waiting.description      Lists all waiting tasks matching the specified
+#                                 criteria
+# report.waiting.filter           status:waiting
+# report.waiting.labels           ID,Project,Pri,Wait,Age,Description
+# report.waiting.sort             wait+,priority-,project+,description+
+# rule.precedence.color           due.today,active,blocked,overdue,due,keyword,pr-
+#                                 oject,tag,recurring,pri,tagged
+search.case.sensitive=no
+# shell.prompt                    task>
+# tag.indicator                   +
+# undo.style                      side
+# urgency.active.coefficient      4.0
+# urgency.annotations.coefficient 1.0
+# urgency.blocked.coefficient     8.0
+# urgency.blocking.coefficient    9.0
+# urgency.due.coefficient         7.0
+# urgency.next.coefficient        10.0
+# urgency.priority.coefficient    6.0
+# urgency.project.coefficient     3.0
+# urgency.tags.coefficient        2.0
+# urgency.waiting.coefficient     5.0
+# verbose                         yes
+weekstart=monday
+# xterm.title                     no
+
+## Holidays
+holiday.jourdelan.name=Jour de l'an
+holiday.jourdelan.date=01012012
+holiday.travail.name=Fête du premier mai
+holiday.travail.date=01052012
+holiday.victoire.name=la Fête de Victoire 45
+holiday.victoire.date=08052012
+holiday.ascencion.name=l'Ascencion
+holiday.ascencion.date=02062012
+holiday.pentecôte.name=la Pentecôte
+holiday.pentecôte.date=12062012
+holiday.bastille.name=Fête nationale
+holiday.bastille.date=14072012
+holiday.assomption.name=Assomption
+holiday.assomption.date=15082012
+holiday.toussaint.name=La Toussaint
+holiday.toussaint.date=01112012
+holiday.armistice.name=Jour d'armistice
+holiday.armistice.date=11112012
+holiday.noël.name=Noël
+holiday.noël.date=25122012
