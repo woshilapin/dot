@@ -23,7 +23,7 @@
 ZSH=$HOME/.zsh/oh-my-zsh
 CASE_SENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
-plugins=(extract git git-extras git-flow macports osx pass pip python ssh-agent urltools taskwarrior)
+plugins=(extract git git-extras git-flow macports osx pass pip python urltools taskwarrior)
 source $ZSH/oh-my-zsh.sh
 
 # Load the external files
