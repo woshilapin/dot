@@ -25,3 +25,6 @@
 [submodule "vim/bundle/riv"]
 	path = vim/bundle/riv
 	url = https://github.com/Rykka/riv.vim
+[submodule "vim/bundle/vim-asciidoc"]
+	path = vim/bundle/vim-asciidoc
+	url = https://github.com/romanvbabenko/vim-asciidoc
