@@ -1,0 +1,32 @@
+#! /bin/sh
+echo -ne "Give the email of the author/committer you want to replace: "
+read MAIL_SRC
+echo -ne "Give the name of the new author/committer: "
+read NAME_DST
+echo -ne "Give the email of the new author/committer: "
+read MAIL_DST
+
+git filter-branch --env-filter '
+
+an="$GIT_AUTHOR_NAME"
+am="$GIT_AUTHOR_EMAIL"
+cn="$GIT_COMMITTER_NAME"
+cm="$GIT_COMMITTER_EMAIL"
+
+if [ "$GIT_COMMITTER_EMAIL" = "'$MAIL_SRC'" ]
+then
+    cn="'$NAME_DST'"
+    cm="'$MAIL_DST'"
+fi
+if [ "$GIT_AUTHOR_EMAIL" = "'$MAIL_SRC'" ]
+then
+    an="'$NAME_DST'"
+    am="'$MAIL_DST'"
+fi
+
+export GIT_AUTHOR_NAME="$an"
+export GIT_AUTHOR_EMAIL="$am"
+export GIT_COMMITTER_NAME="$cn"
+export GIT_COMMITTER_EMAIL="$cm"
+'
+
