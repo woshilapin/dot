@@ -1,0 +1,20 @@
+#! /bin/sh
+
+WHOAMI=`whoami`
+CURRENT_DATE=`date "+%Y%m%d-%H%M%S"`
+SNAPSHOT_SRC=/run/btrfs-root/__active/ROOT
+SNAPSHOT_DST=/run/btrfs-root/__snapshot/ROOT@$CURRENT_DATE
+SNAPSHOT_FILE=/$ROOT_BTRFS_MOUNT_POINT/$ACTIVE_SUBDIR/$ROOT_DIR/SNAPSHOT
+
+if [ $WHOAMI != "root" ]
+then
+	echo "btrfs-snapshot: error: You must be root to snapshot your BTRFS volume"
+	exit
+fi
+
+echo -ne "Enter a message which will be associated with this snapshot: "
+read SNAPSHOT_MESSAGE
+echo $CURRENT_DATE > $SNAPSHOT_FILE
+echo $SNAPSHOT_MESSAGE >> $SNAPSHOT_FILE
+btrfs subvolume snapshot -r $SNAPSHOT_SRC $SNAPSHOT_DST
+rm $SNAPSHOT_FILE
