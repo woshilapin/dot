@@ -1,0 +1,18 @@
+#! /bin/sh
+
+SNAPSHOT_SRC=/run/btrfs-root/__snapshot
+SNAPSHOT_FILE=SNAPSHOT
+
+for snapshot in `/bin/ls $SNAPSHOT_SRC`
+do
+	RAW_DATE=`echo $snapshot | sed 's/ROOT\@//g'`
+	YEAR=`echo $RAW_DATE | sed 's/^\([0-9]\{4\}\).*$/\1/g'`
+	MONTH=`echo $RAW_DATE | sed 's/^[0-9]\{4\}\([0-9]\{2\}\).*$/\1/g'`
+	DAY=`echo $RAW_DATE | sed 's/^[0-9]\{6\}\([0-9]\{2\}\)-.*$/\1/g'`
+	HOUR=`echo $RAW_DATE | sed 's/^[0-9]\{8\}-\([0-9]\{2\}\).*$/\1/g'`
+	MINUTE=`echo $RAW_DATE | sed 's/^[0-9]\{8\}-[0-9]\{2\}\([0-9]\{2\}\).*$/\1/g'`
+	SECOND=`echo $RAW_DATE | sed 's/^[0-9]\{8\}-[0-9]\{4\}\([0-9]\{2\}\).*$/\1/g'`
+	DATE=`date --date="$YEAR-$MONTH-$DAY $HOUR:$MINUTE:$SECOND"`
+	echo "["$SNAPSHOT_SRC"/"$snapshot"] "$DATE
+	cat $SNAPSHOT_SRC/$snapshot/$SNAPSHOT_FILE | tail -n +2 | sed 's/^/\t/g'
+done
