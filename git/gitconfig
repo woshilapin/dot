@@ -10,9 +10,6 @@
 	diff = auto
 	branch = auto
 	status = auto
-[http]
-	sslVerify = false
-	sslCAInfo = /home/simard/.git/certs/info-depot.lirmm.fr.pem
 [i18n]
 	commitEncoding = UTF-8
 	logOutputEncoding = UTF-8
@@ -26,4 +23,4 @@
 	default = matching
 [user]
 	name = Jean SIMARD
-	email = simard.jean.travail@gmail.com
+	email = woshilapin@gmail.com
