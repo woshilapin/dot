@@ -21,7 +21,10 @@ alias vless=/opt/local/share/vim/vim73/macros/less.sh
 alias grep="grep --color=auto"
 alias bc="bc -ql"
 alias moc="mocp"
-alias tree="find . | sed 's/[^/]*\\//|   /g;s/| *\\([^| ]\\)/+--- \\1/'"
+if [ "$( command -v tree )" = '' ] 
+then
+	alias tree="find . | sed 's/[^/]*\\//│   /g;s/│ *\\([^│ ]\\)/├── \\1/'"
+fi
 
 # Alias for Git
 alias ga="git add"
