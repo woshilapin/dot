@@ -69,4 +69,9 @@ SAVEHIST=1000
 setopt appendhistory autocd extendedglob
 unsetopt beep nomatch
 bindkey -e
+
+if [ -f /usr/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]
+then
+	. /usr/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+fi
 # End of lines configured by zsh-newuser-install
