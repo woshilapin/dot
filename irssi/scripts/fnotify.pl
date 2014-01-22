@@ -61,7 +61,7 @@ sub filewrite {
 }
 sub notify {
 	my ($title, $msg) = @_;
-	system "notify-send", $title, $msg;
+	system "notify-send", "--app-name=irssi", "--icon=/usr/share/icons/gnome/scalable/appsi/irssi.svg", "--urgency=normal", "--expire-time=600000", $title, $msg;
 }
 
 #--------------------------------------------------------------------
