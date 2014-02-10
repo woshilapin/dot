@@ -1,11 +1,11 @@
 servers = (
 	{
-		address = "fc13:6176:aaca:8c7f:9f55:924f:26b3:4b14";
+		address = "irc.hypeirc.net";
 		chatnet = "Hype"; 
 		autoconnect = "Yes";
 	},
 	{ 
-		address = "213.92.8.4";
+		address = "chat.freenode.net";
 		chatnet = "Freenode";
 		autoconnect = "Yes";
 	},
