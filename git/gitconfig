@@ -2,6 +2,7 @@
 	ls = ls-files -v --cached
 	lg = log --pretty=oneline --abbrev-commit --graph
 	df = diff --color-words
+	patch = diff -p --src-prefix '' --dst-prefix '' --relative -- 
 [core]
 	editor = vim
 	excludesfile = /Users/lapin/.gitignore
