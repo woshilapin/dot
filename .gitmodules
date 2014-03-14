@@ -28,3 +28,6 @@
 [submodule "vim/bundle/vim-asciidoc"]
 	path = vim/bundle/vim-asciidoc
 	url = https://github.com/romanvbabenko/vim-asciidoc
+[submodule "zsh/scripts/google-translate-cli"]
+	path = zsh/scripts/google-translate-cli
+	url = git@github.com:soimort/google-translate-cli.git
