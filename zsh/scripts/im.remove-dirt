@@ -26,7 +26,7 @@ OPTIONS
 -------
 -b|--blur     The size of the blurring effect [default=3]
 -f|--fuzz     The maximum color difference from the seeding point (as a
-              percentage) [default=0]
+              percentage) [default=10]
 -h|--help     Display this message
 '
 
