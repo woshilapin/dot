@@ -40,7 +40,7 @@ ARGS=("$@")
 IN_FILE=
 OUT_FILE=
 FUZZ=10%
-BLUR=0x3
+BLUR=3
 JUMP=0
 for i in `seq 0 $(($# - 1))`
 do
