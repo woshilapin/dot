@@ -7,6 +7,11 @@ ffmpeg.diff <file_in1> <file_in2> <file_out>\n
 \n
 -h | --help Display this message\n
 """
+if [ $# -eq 1 -a \( "$1" = "-h" -o "$1" = "--help" \) ]
+then
+	echo $HELP
+	exit 0
+fi
 if [ $# -lt 2 -o \! -f "$1" -o \! -f "$2" ]
 then
 	echo "error: ffmpeg.diff: Need 2 input files."

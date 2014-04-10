@@ -7,6 +7,11 @@ ffmpeg.deshake <file_in> <file_out>\n
 \n
 -h | --help Display this message\n
 """
+if [ $# -eq 1 -a \( "$1" = "-h" -o "$1" = "--help" \) ]
+then
+	echo $HELP
+	exit 0
+fi
 if [ $# -lt 1 -o \! -f "$1" ]
 then
 	echo "error: ffmpeg.deshake: Need an input file."
