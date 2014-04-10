@@ -1,0 +1,21 @@
+#!/bin/sh
+# Documentation on http://www.ffmpeg.org/ffmpeg-filters.html#deshake
+HELP="""ffmpeg.deshake\n
+Remove the shake from hand-holding camera...\n
+\n
+ffmpeg.deshake <file_in> <file_out>\n
+\n
+-h | --help Display this message\n
+"""
+if [ $# -lt 1 -o \! -f "$1" ]
+then
+	echo "error: ffmpeg.deshake: Need an input file."
+	echo $HELP
+	exit 1
+elif [ $# -lt 2 -o -z "$2" ]
+then
+	echo "error: ffmpeg.deshake: Need an output file."
+	echo $HELP
+	exit 2
+fi
+ffmpeg -i $1 -filter_complex "deshake=rx=32:ry=32" $2
