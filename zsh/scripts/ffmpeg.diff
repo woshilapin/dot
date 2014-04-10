@@ -1,0 +1,21 @@
+#!/bin/sh
+# Documentation on http://www.ffmpeg.org/ffmpeg-filters.html#blend
+HELP="""ffmpeg.diff\n
+Diff 2 videos\n
+\n
+ffmpeg.diff <file_in1> <file_in2> <file_out>\n
+\n
+-h | --help Display this message\n
+"""
+if [ $# -lt 2 -o \! -f "$1" -o \! -f "$2" ]
+then
+	echo "error: ffmpeg.diff: Need 2 input files."
+	echo $HELP
+	exit 1
+elif [ $# -lt 3 -o -z "$3" ]
+then
+	echo "error: ffmpeg.diff: Need an output file."
+	echo $HELP
+	exit 2
+fi
+ffmpeg -i $1 -i $2 -filter_complex "blend=all_mode=difference" $3
