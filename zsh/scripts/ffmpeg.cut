@@ -1,0 +1,41 @@
+#!/bin/sh
+HELP="""ffmpeg.cut\n
+Remove the shake from hand-holding camera...\n
+\n
+ffmpeg.cut <file_in> <start_time> <end_time> <file_out>\n
+\n
+-h | --help Display this message\n
+
+The format of <start_time> and <end_time> is 'hh:mm:ss[.xxx]'
+"""
+IN=$1
+START=$2
+END=$3
+OUT=$4
+if [ $# -eq 1 -a \( "$1" = "-h" -o "$1" = "--help" \) ]
+then
+	echo $HELP
+	exit 0
+fi
+if [ $# -lt 1 -o \! -f "$1" ]
+then
+	echo "error: ffmpeg.cut: Need an input file."
+	echo $HELP
+	exit 1
+elif [ $# -lt 2 -o -z "$2" ]
+then
+	echo "error: ffmpeg.cut: Need a start time (hh:mm:ss[.xxx])."
+	echo $HELP
+	exit 2
+elif [ $# -lt 3 -o -z "$3" ]
+then
+	echo "error: ffmpeg.cut: Need a end time (hh:mm:ss[.xxx])."
+	echo $HELP
+	exit 3
+elif [ $# -lt 4 -o -z "$3" ]
+then
+	OUT=$( echo $1 | sed 's/\(.*\)\./\1\.cut\./g' )
+	echo "warning: ffmpeg.cut: The output file will be '$OUT'."
+fi
+# Use '-to' (for a position) instead of '-t' (for a duration)
+ffmpeg -ss $START -i $IN -q 0 -to $END $OUT
