@@ -12,23 +12,23 @@ then
 	echo $HELP
 	exit 0
 fi
-LASTNUM=$#
-LAST=${!LASTNUM}
-INPUTNUM=$(($# - 1))
-INPUTS=""
+OUTNUM=$#
+OUT=${!OUTNUM}
+INNUM=$(($# - 1))
+IN=""
 if [ $# -lt 2 -o \! -f "$1" -o \! -f "$2" ]
 then
 	echo "error: ffmpeg.concat: Need 2 input files."
 	echo $HELP
 	exit 1
-elif [ $# -lt 3 -o -z "${LAST}" ]
+elif [ $# -lt 3 -o -z "${OUT}" ]
 then
 	echo "error: ffmpeg.concat: Need an output file."
 	echo $HELP
 	exit 2
 fi
-for num in `seq 1 $INPUTNUM`
+for num in `seq 1 $INNUM`
 do
-	INPUTS="${INPUTS} -i ${!num}"
+	IN="${IN} -i ${!num}"
 done
-ffmpeg $INPUTS -filter_complex "concat=n=${INPUTNUM}" $LAST
+ffmpeg $IN -filter_complex "concat=n=${INNUM}" $OUT

@@ -7,6 +7,8 @@ ffmpeg.deshake <file_in> <file_out>\n
 \n
 -h | --help Display this message\n
 """
+IN=$1
+OUT=$2
 if [ $# -eq 1 -a \( "$1" = "-h" -o "$1" = "--help" \) ]
 then
 	echo $HELP
@@ -19,8 +21,7 @@ then
 	exit 1
 elif [ $# -lt 2 -o -z "$2" ]
 then
-	echo "error: ffmpeg.deshake: Need an output file."
-	echo $HELP
-	exit 2
+	OUT=$( echo $1 | sed 's/\(.*\)\./\1\.deshake\./g' )
+	echo "warning: ffmpeg.deshake: The output file will be '$OUT'."
 fi
-ffmpeg -i $1 -filter_complex "deshake=rx=32:ry=32" $2
+ffmpeg -i $IN -filter_complex "deshake=rx=32:ry=32" $OUT
