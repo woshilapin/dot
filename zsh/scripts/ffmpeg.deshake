@@ -24,4 +24,4 @@ then
 	OUT=$( echo $1 | sed 's/\(.*\)\./\1\.deshake\./g' )
 	echo "warning: ffmpeg.deshake: The output file will be '$OUT'."
 fi
-ffmpeg -i $IN -filter_complex "deshake=rx=32:ry=32" $OUT
+ffmpeg -i $IN -q 0 -filter_complex "deshake=rx=32:ry=32" $OUT

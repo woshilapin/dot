@@ -23,4 +23,4 @@ then
 	echo $HELP
 	exit 2
 fi
-ffmpeg -i $1 -i $2 -filter_complex "blend=all_mode=difference" $3
+ffmpeg -i $1 -i $2 -q 0 -filter_complex "blend=all_mode=difference" $3
