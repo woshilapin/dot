@@ -1,5 +1,5 @@
 #!/bin/sh
-# Documentation on http://www.ffmpeg.org/ffmpeg-filters.html#blend
+# Documentation on http://www.ffmpeg.org/ffmpeg-filters.html#concat
 HELP="""ffmpeg.concat\n
 Concatenate 2 videos\n
 \n
