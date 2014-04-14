@@ -38,4 +38,4 @@ then
 	echo "warning: ffmpeg.cut: The output file will be '$OUT'."
 fi
 # Use '-to' (for a position) instead of '-t' (for a duration)
-ffmpeg -ss $START -i $IN -q 0 -to $END $OUT
+ffmpeg -i $IN -q 0 -ss $START -to $END -c:v copy -c:a copy $OUT
