@@ -31,4 +31,4 @@ for num in `seq 1 $INNUM`
 do
 	IN="${IN} -i ${!num}"
 done
-ffmpeg $IN -q 0 -filter_complex "concat=n=${INNUM}" $OUT
+ffmpeg $IN -q 0 -filter_complex "concat=n=${INNUM}" -strict -2 $OUT
