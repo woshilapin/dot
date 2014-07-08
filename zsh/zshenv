@@ -47,3 +47,4 @@ then
 		fi
 	done
 fi
+PULSE_LATENCY_MSEC=60
