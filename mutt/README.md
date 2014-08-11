@@ -29,6 +29,7 @@ This is a template that you can use to create these mail accounts' files.
     set from="$my_account_login"
     set hostname="$my_account_host"
     
+	unmailboxes *
     mailboxes "+INBOX" "+Sent" "+Drafts"
 
 Then you can encrypt these files using the following command (`my_key` be the ID
