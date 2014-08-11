@@ -1,0 +1,2 @@
+macro index <F5> '<sync-mailbox><enter-command>source $my_source_woshilapin<enter><change-folder>!<enter>' "Go to woshilapin mailbox"
+macro index <F6> '<sync-mailbox><enter-command>source $my_source_xwiki<enter><change-folder>!<enter>' "Go to XWiki mailbox"

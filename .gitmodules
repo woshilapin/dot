@@ -31,3 +31,6 @@
 [submodule "zsh/scripts/google-translate-cli"]
 	path = zsh/scripts/google-translate-cli
 	url = git@github.com:soimort/google-translate-cli.git
+[submodule "mutt/carddav/pycarddav"]
+	path = mutt/carddav/pycarddav
+	url = git@github.com:geier/pycarddav.git

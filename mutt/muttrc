@@ -1,0 +1,29 @@
+set my_source_woshilapin="gpg2 -dq /home/simard/.mutt/accounts/muttrc.woshilapin.gpg |"
+set my_source_xwiki= "gpg2 -dq /home/simard/.mutt/accounts/muttrc.xwiki.gpg |"
+account-hook woshilapin@gmail.com 'source $my_source_woshilapin'
+account-hook jean.simard@xwiki.com 'source $my_source_xwiki'
+folder-hook woshilapin@gmail.com 'source $my_source_woshilapin'
+folder-hook jean.simard@xwiki.com 'source $my_source_xwiki'
+source $my_source_xwiki
+
+set query_command="python2 ~/.mutt/carddav/pycarddav/bin/pc_query -c ~/.mutt/carddav/pycarddav.conf -m '%s'"
+bind editor <Tab> complete-query
+
+# Set the directory where to cache headers
+set header_cache="~/.mutt/cache/headers"
+# Do not hide the email title in messages depending on the same thread of
+# discussion
+set hide_thread_subject="no"
+# Set the directory where to cache messages
+set message_cachedir="~/.mutt/cache/messages"
+# Sort the messages in index by threads
+set sort="threads"
+# Since the messages are sorted by threads, 'sort_aux' will sort the threads in
+# the reverse order of 'date received', considering only the last mail of the
+# thread
+set sort_aux="reverse-last-date-received"
+
+### MACROS
+source "~/.mutt/muttrc.macros"
+### THEME
+source "~/.mutt/muttrc.theme"

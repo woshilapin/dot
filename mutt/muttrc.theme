@@ -1,0 +1,9 @@
+# Make the new messages highlighted
+color index brightgreen default '~N'
+# Default menu and status bar in inversed colors (if the terminal is default to
+# black)
+color status brightblack white
+# Make the header of messages another color
+color hdrdefault blue default
+# The quoted text in messages must be colored different
+color quoted green default
