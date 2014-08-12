@@ -1,5 +1,7 @@
 # Make the new messages highlighted
 color index brightgreen default '~N'
+# Do the same for Old messages
+color index green default '~O'
 # Default menu and status bar in inversed colors (if the terminal is default to
 # black)
 color status brightblack white
