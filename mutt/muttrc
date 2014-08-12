@@ -18,6 +18,8 @@ set header_cache="$my_mutt/cache/headers"
 set hide_thread_subject=no
 # How often (in seconds) the mail are checked
 set mail_check=90
+# Add the file for association between MIME and program to open attachments
+set mailcap_path="$my_mutt/mailcap"
 # Set the directory where to cache messages
 set message_cachedir="$my_mutt/cache/messages"
 # Use `pycarddav' to find contacts

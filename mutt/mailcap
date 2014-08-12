@@ -1,0 +1,18 @@
+# About M$-Office documents
+application/msword; libreoffice %s
+application/vnd.ms-excel; libreoffice %s
+application/vnd.ms-powerpoint; libreoffice %s
+application/vnd.openxmlformats-officedocument.presentationml.presentation; libreoffice %s
+application/vnd.openxmlformats-officedocument.presentationml.template; libreoffice %s
+application/vnd.openxmlformats-officedocument.spreadsheetml.document; libreoffice %s
+application/vnd.openxmlformats-officedocument.spreadsheetml.template; libreoffice %s
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; libreoffice %s
+application/vnd.openxmlformats-officedocument.wordprocessingml.template; libreoffice %s
+# About OpenOffice/LibreOffice documents
+application/vnd.oasis.*; libreoffice %s
+
+application/pdf; evince %s
+image/*; display
+text/html; firefox %s; nametemplate=%s.html
+text/html; lynx -dump %s ; copiousoutput ; nametemplate=%s.html
+video/*; mplayer -
