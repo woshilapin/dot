@@ -1,0 +1,7 @@
+# A vim-like way of moving in a message
+bind pager \cd next-page
+bind pager \cu previous-page
+bind pager j next-line
+bind pager k previous-line
+# Usefull for completing folders name or email addresses
+bind editor <Tab> complete-query
