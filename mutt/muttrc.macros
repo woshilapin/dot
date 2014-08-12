@@ -4,3 +4,6 @@ macro index <F6> '<sync-mailbox><enter-command>source $my_source_xwiki<enter><ch
 
 # Replace the delete function in order to move to Trash directory
 macro index,pager d "<save-message>+Trash<enter>" "Delete the message (move to 'Trash')"
+
+# Use of `urlview' to parse a message and find URLs
+macro pager \cv "<pipe-entry>urlview<enter>" "List URL in the message"
