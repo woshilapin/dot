@@ -35,6 +35,9 @@ set timeout=15
 # Where to create temporary files (which may contains personal informations)
 set tmpdir="$my_mutt/cache/temporary"
 
+alternative_order text/plain text/html
+auto_view text/html
+
 ### BINDS
 source "$my_mutt/muttrc.binds"
 ### MACROS
