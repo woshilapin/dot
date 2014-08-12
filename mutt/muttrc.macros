@@ -1,2 +1,6 @@
+# Change between accounts
 macro index <F5> '<sync-mailbox><enter-command>source $my_source_woshilapin<enter><change-folder>!<enter>' "Go to woshilapin mailbox"
 macro index <F6> '<sync-mailbox><enter-command>source $my_source_xwiki<enter><change-folder>!<enter>' "Go to XWiki mailbox"
+
+# Replace the delete function in order to move to Trash directory
+macro index,pager d "<save-message>+Trash<enter>" "Delete the message (move to 'Trash')"
