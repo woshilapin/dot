@@ -9,3 +9,5 @@ color status brightblack white
 color hdrdefault blue default
 # The quoted text in messages must be colored different
 color quoted green default
+# To change the signatures colors
+color signature blue default
