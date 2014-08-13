@@ -8,7 +8,8 @@ repository is fully functional.
 First of all, you need to create GPG encrypted files for the mail accounts
 loaded (see the beginning of the `muttrc` file).
 
-This is a template that you can use to create these mail accounts' files.
+This is a template that you can use to create these mail accounts' files (put
+them in the `accounts` directory).
 
     set my_account_host="host.com"
     set my_account_login="mymail@$my_account_host"
@@ -29,19 +30,19 @@ This is a template that you can use to create these mail accounts' files.
     set from="$my_account_login"
     set hostname="$my_account_host"
     
-	unmailboxes *
+    unmailboxes *
     mailboxes "+INBOX" "+Sent" "+Drafts"
 
 Then you can encrypt these files using the following command (`my_key` be the ID
 of your GPG key).
 
-	gpg -e -rmy_key muttrc.account
+    gpg -e -rmy_key muttrc.account
 
 Don't forget to start `mutt` with an active `gpg-agent`.  GNOME may do it for
 you; however, last versions of `gpg` may give you the following warning message.
 
     gpg: WARNING: The GNOME keyring manager hijacked the GnuPG agent.
-	gpg: WARNING: GnuPG will not work proberly - please configure that tool to not
+    gpg: WARNING: GnuPG will not work proberly - please configure that tool to not
     interfere with the GnuPG system!
 
 You may disable this hijacking by asking GNOME keyring to not interfere.  Use
