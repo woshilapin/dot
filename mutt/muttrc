@@ -23,7 +23,7 @@ set mailcap_path="$my_mutt/mailcap"
 # Set the directory where to cache messages
 set message_cachedir="$my_mutt/cache/messages"
 # All about PGP signatures and encryptions
-set pgp_autosign=yes
+set pgp_autosign=no
 set pgp_decode_command="gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
 set pgp_verify_command="gpg --no-verbose --batch --output - --verify %s %f"
 set pgp_decrypt_command="gpg --passphrase-fd 0 --no-verbose --batch --output - %f"
@@ -37,7 +37,7 @@ set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs 
 set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r" 
 set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r" 
 set pgp_sign_as="0x65D8AA6A"
-set pgp_replyencrypt=yes
+set pgp_replyencrypt=no
 set pgp_timeout=1800
 set pgp_good_sign="^gpg: Good signature from"
 # Use `pycarddav' to find contacts
