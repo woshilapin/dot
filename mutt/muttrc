@@ -26,6 +26,8 @@ set mail_check=90
 set mailcap_path="$my_mutt/mailcap"
 # Set the directory where to cache messages
 set message_cachedir="$my_mutt/cache/messages"
+# Display a part of the index at the top in the pager
+set pager_index_lines=8
 # All about PGP signatures and encryptions
 set pgp_autosign=no
 set pgp_decode_command="gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
