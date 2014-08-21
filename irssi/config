@@ -111,8 +111,9 @@ chatnets = {
 };
 
 channels = (
-		{ name = "#xwiki"; chatnet = "Freenode"; autojoin = "Yes"; },
+		{ name = "#alumsi"; chatnet = "Freenode"; autojoin = "Yes"; },
 		{ name = "#limsi"; chatnet = "Freenode"; autojoin = "Yes"; },
+		{ name = "#xwiki"; chatnet = "Freenode"; autojoin = "Yes"; },
 		{ name = "#cjdns"; chatnet = "Hype"; autojoin = "Yes"; },
 		{ name = "#hyperboria"; chatnet = "Hype"; autojoin = "Yes"; },
 		{ name = "#archlinux-fr"; chatnet = "Freenode"; autojoin = "No"; },
