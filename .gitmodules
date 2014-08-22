@@ -34,3 +34,6 @@
 [submodule "mutt/carddav/pycarddav"]
 	path = mutt/carddav/pycarddav
 	url = git@github.com:geier/pycarddav.git
+[submodule "vim/bundle/vim-less"]
+	path = vim/bundle/vim-less
+	url = https://github.com/genoma/vim-less
