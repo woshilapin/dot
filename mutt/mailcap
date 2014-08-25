@@ -16,3 +16,4 @@ image/*; display
 text/html; firefox %s; nametemplate=%s.html
 text/html; lynx -dump %s ; copiousoutput ; nametemplate=%s.html
 video/*; mplayer -
+audio/*; mplayer -
