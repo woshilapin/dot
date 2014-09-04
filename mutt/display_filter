@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+MAIL="cache/mail"
+MAIL_DATE="cache/mail.date"
+cat /dev/stdin > $MAIL
+cat $MAIL | grep 'Date: *' | sed -e 's/Date: *//g' > $MAIL_DATE
+LOCALE_DATE=$( date --file=$MAIL_DATE '+%A %d %B %Y, %H:%M:%S (%Z)' )
+cat $MAIL | sed -e "/Date: */a\
+	Locale-Date: $LOCALE_DATE"

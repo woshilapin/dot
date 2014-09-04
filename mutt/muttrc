@@ -13,6 +13,8 @@ bind editor <Tab> complete-query
 
 # Where the certificate are stored
 set certificate_file="$my_mutt/certificates"
+# Filter the message before being displayed
+set display_filter="$my_mutt/display_filter"
 # Allow you to edit headers in the message composer
 set edit_headers=yes
 # Set the directory where to cache headers
