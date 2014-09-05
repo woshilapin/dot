@@ -1,9 +1,21 @@
 #!/usr/bin/env bash
 
-MAIL="cache/mail"
-MAIL_DATE="cache/mail.date"
+# Trace what's being executed (useful for debug)
+# set -o xtrace
+# Exit on error
+set -o errexit
+# Exit on unset variables
+set -o nounset
+# Catch the error code of the program who crashed in piping commands
+set -o pipefail
+
+declare -r __ROOT_PATH__="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+declare -r MAIL="${__ROOT_PATH__}/cache/mail"
+declare -r MAIL_DATE="${__ROOT_PATH__}/cache/mail.date"
+
 cat /dev/stdin > $MAIL
 cat $MAIL | grep 'Date: *' | sed -e 's/Date: *//g' > $MAIL_DATE
-LOCALE_DATE=$( date --file=$MAIL_DATE '+%A %d %B %Y, %H:%M:%S (%Z)' )
+
+declare -r LOCALE_DATE=$( date --file=$MAIL_DATE '+%A %d %B %Y, %H:%M:%S (%Z)' )
 cat $MAIL | sed -e "/Date: */a\
 	Locale-Date: $LOCALE_DATE"
