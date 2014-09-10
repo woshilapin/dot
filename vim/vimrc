@@ -279,8 +279,6 @@ if has("autocmd")
 		autocmd BufReadPost mutt-* normal! gg
 		" Find the first empty line
 		autocmd BufReadPost mutt-* execute search('^\s*$')
-		" Add an empty line just below
-		autocmd BufReadPost mutt-* normal! yypk
 		" Go into insert mode
 		autocmd BufReadPost mutt-* startinsert
 	augroup END
