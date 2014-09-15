@@ -16,6 +16,6 @@ declare -r MAIL_DATE="${__ROOT_PATH__}/cache/mail.date"
 cat /dev/stdin > $MAIL
 cat $MAIL | grep 'Date: *' | sed -e 's/Date: *//g' > $MAIL_DATE
 
-declare -r LOCALE_DATE=$( date --file=$MAIL_DATE '+%A %d %B %Y, %H:%M:%S (%Z)' )
+declare -r LOCALE_DATE=$( date --file=$MAIL_DATE '+%A %d %B %Y, %H:%M:%S (%Z)' 2> /dev/null )
 cat $MAIL | sed -e "/Date: */a\
 	Locale-Date: $LOCALE_DATE"
