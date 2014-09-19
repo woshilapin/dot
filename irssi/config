@@ -2,7 +2,7 @@ servers = (
 	{
 		address = "irc.hypeirc.net";
 		chatnet = "Hype"; 
-		autoconnect = "Yes";
+		autoconnect = "No";
 	},
 	{ 
 		address = "chat.freenode.net";
