@@ -54,3 +54,6 @@
 	path = vim/bundle/vim-jade
 	url = https://github.com/digitaltoad/vim-jade
 	branch = master
+[submodule "vim/bundle/vim-velocity"]
+	path = vim/bundle/vim-velocity
+	url = https://github.com/lepture/vim-velocity.git
