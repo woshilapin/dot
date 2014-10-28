@@ -8,30 +8,8 @@ repository is fully functional.
 First of all, you need to create GPG encrypted files for the mail accounts
 loaded (see the beginning of the `muttrc` file).
 
-This is a template that you can use to create these mail accounts' files (put
-them in the `accounts` directory).
-
-    set my_account_host="host.com"
-    set my_account_login="mymail@$my_account_host"
-    set my_account_pass="mypassword"
-    
-    set imap_authenticators="login"
-    set imap_passive="no"
-    set ssl_starttls="yes"
-    set imap_user="$my_account_login"
-    set imap_pass="$my_account_pass"
-    set folder="imaps://$my_account_login@imap.$my_account_host:993/"
-    set spoolfile="+INBOX"
-    set postponed="+Drafts"
-    set record="+Sent"
-    
-    set smtp_url="smtp://$my_account_login@smtp.$my_account_host:587/"
-    set smtp_pass="$my_account_pass"
-    set from="$my_account_login"
-    set hostname="$my_account_host"
-    
-    unmailboxes *
-    mailboxes "+INBOX" "+Sent" "+Drafts"
+There is a template that you can use to create these mail accounts' files (put
+them in the `accounts` directory) in the file `accounts/muttrc.example`.
 
 Then you can encrypt these files using the following command (`my_key` be the ID
 of your GPG key).
