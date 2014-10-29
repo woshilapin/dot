@@ -25,8 +25,8 @@
 
 "" Activate the pathogen plugin to rule all other plugin
 set nocompatible
-call pathogen#infect()
-call pathogen#helptags()
+execute pathogen#infect()
+execute pathogen#helptags()
 
 "" Activer les différents greffons
 " Autoriser le chargement des greffons généraux
@@ -57,10 +57,6 @@ nmap <Leader>mu :UndotreeToggle<Enter>
 " Afficher l'explorateur
 vmap <Leader>c gc
 nmap <Leader>c gcc
-" Afficher l'aide
-noremap <F1> <Esc>:help 
-" Changer de fenêtre
-noremap <F2> <C-W><C-W>
 
 """" OPTIONS
 " Set the mouse abilities in the terminal
