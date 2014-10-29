@@ -101,6 +101,10 @@ You can now connect to the container using the password `skype` (see the
     $ ssh skype-docker
 
 You may copy your SSH keys to avoid to type the password each time you connect.
+
+    $ ssh-copy-id -i ~/.ssh/your_key.pub skype-docker
+
 You can also run directly the Skype software by calling the created binary.
 
     $ ssh skype-docker skype-pulseaudio
+
