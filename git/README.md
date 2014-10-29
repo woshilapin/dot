@@ -61,3 +61,5 @@ you want to merge by prefixing your Github login.  Then you give the branch on
 top of which you want to merge.  Finally, you give a link to the repository to which
 you want to make a pull request (in this case, the repository is `myproject`
 created by a name whose login is `theguy`).
+
+See http://stackoverflow.com/questions/4528869/how-do-you-attach-a-new-pull-request-to-an-existing-issue-on-github for more information.
