@@ -57,3 +57,8 @@
 [submodule "vim/bundle/vim-velocity"]
 	path = vim/bundle/vim-velocity
 	url = https://github.com/lepture/vim-velocity.git
+	branch = master
+[submodule "vim/bundle/vim-characterize"]
+	path = vim/bundle/vim-characterize
+	url = https://github.com/tpope/vim-characterize.git
+	branch = master
