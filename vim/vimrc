@@ -25,6 +25,7 @@
 
 "" Activate the pathogen plugin to rule all other plugin
 set nocompatible
+runtime bundle/pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 execute pathogen#helptags()
 
