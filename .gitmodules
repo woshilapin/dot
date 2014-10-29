@@ -62,3 +62,7 @@
 	path = vim/bundle/vim-characterize
 	url = https://github.com/tpope/vim-characterize.git
 	branch = master
+[submodule "vim/bundle/clickable"]
+	path = vim/bundle/clickable
+	url = https://github.com/Rykka/clickable.vim.git
+	branch = master
