@@ -15,7 +15,8 @@ declare -r __FILE__="${__ROOT_PATH__}/${__BASE__}"
 # This script is about running Skype into Docker
 # See https://github.com/woshilapin/dot/tree/master/docker/skype
 # You can create a link into `/usr/local/bin/skype` and add a icon into
-#`/usr/share/icons` in order to be able to launch it from Gnome menu
+#`/usr/share/icons` or `/usr/share/pixmaps` in order to be able to launch it
+#from Gnome menu
 
 # Remove any old snapshot called latest
 docker rm skype_container || true
