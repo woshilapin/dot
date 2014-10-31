@@ -39,6 +39,8 @@ alias grm="git rm"
 alias gss="git status"
 alias gls="git ls"
 
+alias node="nodejs"
+
 function concat-path() {
 	DIRNAME="$1"
 	BASENAME="$2"
