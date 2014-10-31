@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# Trace what's being executed (useful for debug)
+# set -o xtrace
+# Exit on error
+set -o errexit
+# Exit on unset variables
+set -o nounset
+# Catch the error code of the program who crashed in piping commands
+set -o pipefail
+
+declare -r __ROOT_PATH__="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+declare -r __BASE__="$(basename "${BASH_SOURCE[0]}")"
+declare -r __FILE__="${__ROOT_PATH__}/${__BASE__}"
+
+# This script is about running Skype into Docker
+# See https://github.com/woshilapin/dot/tree/master/docker/skype
+
+# Remove any old snapshot called latest
+docker rm skype_container || true
+
+# Run a container named 'skype_container' based on the latest snapshot
+docker run -d -p 55555:22 --device=/dev/video0 --name="skype_container" skype:latest
+
+# Wait before the container starts
+sleep 1s
+
+# Connect to the container with SSH
+ssh skype-docker skype-pulseaudio
+
+# Create a snapshot based on 'skype_container' container
+docker commit skype_container skype:latest
+
+# Finally stop the container
+docker stop skype_container
