@@ -66,3 +66,6 @@
 	path = vim/bundle/clickable
 	url = https://github.com/Rykka/clickable.vim.git
 	branch = master
+[submodule "vim/bundle/os"]
+	path = vim/bundle/os
+	url = git@github.com:Rykka/os.vim.git
