@@ -21,6 +21,9 @@ declare -r __FILE__="${__ROOT_PATH__}/${__BASE__}"
 # Remove any old snapshot called latest
 docker rm skype_container || true
 
+# Ensure that the TCP module is runned
+pactl load-module module-native-protocol-tcp
+
 # Run a container named 'skype_container' based on the latest snapshot
 docker run -d -p 55555:22 --device=/dev/video0 --name="skype_container" skype:latest
 
