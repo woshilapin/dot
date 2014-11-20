@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# Trace what's being executed (useful for debug)
+# set -o xtrace
+# Exit on error
+set -o errexit
+# Exit on unset variables
+set -o nounset
+# Catch the error code of the program who crashed in piping commands
+set -o pipefail
+
+declare -r __ROOT_PATH__="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+declare -r __BASE__="$(basename "${BASH_SOURCE[0]}")"
+declare -r __FILE__="${__ROOT_PATH__}/${__BASE__}"
+
+declare -r LIST_ORIGIN=/tmp/mplayyoutube-dl.origin.list
+declare -r LIST_NEW=/tmp/mplayyoutube-dl.new.list
+
+if [ $# -lt 1 ]
+then
+	echo "${__BASE__}: error: Thie script takes at least one URL of a video on a website (see youtube-dl documentation)."
+	exit 1
+fi
+ls -1 > $LIST_ORIGIN
+youtube-dl --no-part $1 &
+sleep 5s
+ls -1 > $LIST_NEW
+declare -r VIDEO_FILENAME="$( diff -d $LIST_NEW $LIST_ORIGIN | grep '^\(<\|>\)' | sed 's/^..//' )"
+if [ -f "$VIDEO_FILENAME" ]
+then
+	mplayer "$VIDEO_FILENAME"
+else
+	echo "${__BASE__}: error: An unexpected error happened."
+	exit 2
+fi
+rm -f $LIST_ORIGIN $LIST_NEW
