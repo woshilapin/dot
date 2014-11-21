@@ -12,6 +12,7 @@ declare -r __ROOT_PATH__="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 declare -r __BASE__="$(basename "${BASH_SOURCE[0]}")"
 declare -r __FILE__="${__ROOT_PATH__}/${__BASE__}"
 
+declare -r MOVIES_PATH=~/Movies
 declare -r LIST_ORIGIN=/tmp/mplayyoutube-dl.origin.list
 declare -r LIST_NEW=/tmp/mplayyoutube-dl.new.list
 
@@ -20,13 +21,13 @@ then
 	echo "${__BASE__}: error: Thie script takes at least one URL of a video on a website (see youtube-dl documentation)."
 	exit 1
 fi
-for $URL in $*
+for URL in $*
 do
-	ls -1 > $LIST_ORIGIN
-	youtube-dl --no-part $URL &
+	ls -1 $MOVIES_PATH > $LIST_ORIGIN
+	youtube-dl --no-part --quiet --output "${MOVIES_PATH}/%(title)s.%(ext)s" $URL &
 	sleep 5s
-	ls -1 > $LIST_NEW
-	declare -r VIDEO_FILENAME="$( diff -d $LIST_NEW $LIST_ORIGIN | grep '^\(<\|>\)' | sed 's/^..//' )"
+	ls -1 $MOVIES_PATH > $LIST_NEW
+	declare -r VIDEO_FILENAME="${MOVIES_PATH}/$( diff -d $LIST_NEW $LIST_ORIGIN | grep '^\(<\|>\)' | sed 's/^..//' )"
 	if [ -f "$VIDEO_FILENAME" ]
 	then
 		mplayer "$VIDEO_FILENAME"
@@ -35,4 +36,12 @@ do
 		exit 2
 	fi
 	rm -f $LIST_ORIGIN $LIST_NEW
+	echo -n "Do you want to delete this file, [(y)es] or (n)o?"
+	read INPUT
+	if [ "$INPUT" == "n" -o "$INPUT" == "N" ]
+	then
+		echo "Your file is saved at '${VIDEO_FILENAME}'."
+	else
+		rm "$VIDEO_FILENAME"
+	fi
 done
