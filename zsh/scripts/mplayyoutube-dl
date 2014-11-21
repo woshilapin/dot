@@ -20,16 +20,19 @@ then
 	echo "${__BASE__}: error: Thie script takes at least one URL of a video on a website (see youtube-dl documentation)."
 	exit 1
 fi
-ls -1 > $LIST_ORIGIN
-youtube-dl --no-part $1 &
-sleep 5s
-ls -1 > $LIST_NEW
-declare -r VIDEO_FILENAME="$( diff -d $LIST_NEW $LIST_ORIGIN | grep '^\(<\|>\)' | sed 's/^..//' )"
-if [ -f "$VIDEO_FILENAME" ]
-then
-	mplayer "$VIDEO_FILENAME"
-else
-	echo "${__BASE__}: error: An unexpected error happened."
-	exit 2
-fi
-rm -f $LIST_ORIGIN $LIST_NEW
+for $URL in $*
+do
+	ls -1 > $LIST_ORIGIN
+	youtube-dl --no-part $URL &
+	sleep 5s
+	ls -1 > $LIST_NEW
+	declare -r VIDEO_FILENAME="$( diff -d $LIST_NEW $LIST_ORIGIN | grep '^\(<\|>\)' | sed 's/^..//' )"
+	if [ -f "$VIDEO_FILENAME" ]
+	then
+		mplayer "$VIDEO_FILENAME"
+	else
+		echo "${__BASE__}: error: An unexpected error happened."
+		exit 2
+	fi
+	rm -f $LIST_ORIGIN $LIST_NEW
+done
