@@ -25,3 +25,5 @@
 [user]
 	name = Jean SIMARD
 	email = woshilapin@gmail.com
+[diff]
+	tool = vimdiff
