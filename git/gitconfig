@@ -1,7 +1,7 @@
 [alias]
 	ls = ls-files -v --cached
 	lg = log --pretty=oneline --abbrev-commit --graph
-	df = diff --color-words
+	df = diff
 	patch = diff -p --src-prefix '' --dst-prefix '' --relative -- 
 [core]
 	editor = vim
@@ -11,6 +11,7 @@
 	diff = auto
 	branch = auto
 	status = auto
+	ui = auto
 [i18n]
 	commitEncoding = UTF-8
 	logOutputEncoding = UTF-8
@@ -28,3 +29,5 @@
 	email = woshilapin@gmail.com
 [diff]
 	tool = vimdiff
+[color "diff"]
+	whitespace = green reverse
