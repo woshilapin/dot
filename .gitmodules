@@ -69,3 +69,6 @@
 [submodule "vim/bundle/os"]
 	path = vim/bundle/os
 	url = git@github.com:Rykka/os.vim.git
+[submodule "irssi/scripts/scripts.irssi.org"]
+	path = irssi/scripts/scripts.irssi.org
+	url = git@github.com:irssi/scripts.irssi.org.git
