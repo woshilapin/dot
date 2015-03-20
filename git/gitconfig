@@ -26,7 +26,7 @@
 	default = matching
 [user]
 	name = Jean SIMARD
-	email = woshilapin@gmail.com
+	email = woshilapin@tuziwo.info
 [diff]
 	tool = vimdiff
 [color "diff"]
