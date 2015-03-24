@@ -99,3 +99,8 @@ function bak() {
 }
 alias bak="bak"
 alias bd='. bd -s'
+
+# Dictionaries
+alias dicte="dict -d gcide"
+alias dictef="dict -d fd-eng-fra"
+alias dictfe="dict -d fd-fra-eng"
