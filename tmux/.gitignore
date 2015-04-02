@@ -1,0 +1,3 @@
+plugins/
+# Don't ignore the Tmux Package Manager
+!plugins/tpm

@@ -72,3 +72,6 @@
 [submodule "irssi/scripts/scripts.irssi.org"]
 	path = irssi/scripts/scripts.irssi.org
 	url = git@github.com:irssi/scripts.irssi.org.git
+[submodule "tmux/plugins/tpm"]
+	path = tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
