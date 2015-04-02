@@ -68,7 +68,7 @@ nmap <Leader>c gcc
 
 " Set the clipboard option to copy each selected and yanked text into the 
 " clipboard of the system
-set clipboard=autoselect
+set clipboard=unnamedplus,unnamed,autoselectplus,autoselect,html
 " Replace all occurences in a line by default
 set gdefault
 " Autosave the file on the call of some command (':quit', ':edit', ...)
