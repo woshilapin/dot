@@ -1,5 +1,6 @@
 plugins/
 sidebar/
+resurrect/
 
 # Don't ignore the Tmux Package Manager
 !plugins/tpm
