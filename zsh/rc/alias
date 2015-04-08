@@ -99,6 +99,7 @@ function bak() {
 }
 alias bak="bak"
 alias bd='. bd -s'
+alias xmlformat="xmllint --format"
 
 # Dictionaries
 alias dicte="dict -d gcide"
