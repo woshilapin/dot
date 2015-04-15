@@ -78,3 +78,6 @@
 [submodule "vim/bundle/vim-tmux"]
 	path = vim/bundle/vim-tmux
 	url = git@github.com:tmux-plugins/vim-tmux.git
+[submodule "vim/bundle/vim-tcpdump"]
+	path = vim/bundle/vim-tcpdump
+	url = https://github.com/1995parham/vim-tcpdump.git
