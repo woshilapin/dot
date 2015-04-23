@@ -299,3 +299,4 @@ settings = {
   };
   "fe-text" = { actlist_sort = "refnum"; };
 };
+ignores = ( { level = "MODES"; servertag = "Slack"; } );
