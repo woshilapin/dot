@@ -40,11 +40,11 @@
 	branch = master
 [submodule "zsh/scripts/google-translate-cli"]
 	path = zsh/scripts/google-translate-cli
-	url = git@github.com:soimort/google-translate-cli.git
+	url = https://github.com/soimort/google-translate-cli.git
 	branch = master
 [submodule "mutt/carddav/pycarddav"]
 	path = mutt/carddav/pycarddav
-	url = git@github.com:geier/pycarddav.git
+	url = https://github.com/geier/pycarddav.git
 	branch = master
 [submodule "vim/bundle/vim-less"]
 	path = vim/bundle/vim-less
@@ -68,16 +68,16 @@
 	branch = master
 [submodule "vim/bundle/os"]
 	path = vim/bundle/os
-	url = git@github.com:Rykka/os.vim.git
+	url = https://github.com/Rykka/os.vim.git
 [submodule "irssi/scripts/scripts.irssi.org"]
 	path = irssi/scripts/scripts.irssi.org
-	url = git@github.com:irssi/scripts.irssi.org.git
+	url = https://github.com/irssi/scripts.irssi.org.git
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
 [submodule "vim/bundle/vim-tmux"]
 	path = vim/bundle/vim-tmux
-	url = git@github.com:tmux-plugins/vim-tmux.git
+	url = https://github.com/tmux-plugins/vim-tmux.git
 [submodule "vim/bundle/vim-tcpdump"]
 	path = vim/bundle/vim-tcpdump
 	url = https://github.com/1995parham/vim-tcpdump.git
