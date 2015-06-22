@@ -1,0 +1,50 @@
+###############################################################################
+# International Holiday Data provided by Holidata.net
+# http://holidata.net/fr-FR/2015.json
+###############################################################################
+
+holiday.2015.newyear.name=Jour de l'an
+holiday.2015.newyear.date=01012015
+holiday.2015.easter.name=Lundi de Pâques
+holiday.2015.easter.date=06042015
+holiday.2015.workday.name=Fête du premier mai
+holiday.2015.workday.date=01052015
+holiday.2015.armistice1945.name=Armistice 1945
+holiday.2015.armistice1945.date=08052015
+holiday.2015.ascension.name=Ascencion
+holiday.2015.ascension.date=14052015
+holiday.2015.pentecost.name=Pentecôte
+holiday.2015.pentecost.date=24052015
+holiday.2015.nationalday.name=Fête nationale
+holiday.2015.nationalday.date=14072015
+holiday.2015.assumption.name=Assomption
+holiday.2015.assumption.date=15082015
+holiday.2015.allsaintsday.name=Toussaint
+holiday.2015.allsaintsday.date=01112015
+holiday.2015.armistice1918.name=Armistice 1918
+holiday.2015.armistice1918.date=11112015
+holiday.2015.christmas.name=Noël
+holiday.2015.christmas.date=25122015
+
+holiday.2016.newyear.name=Jour de l'an
+holiday.2016.newyear.date=01012016
+holiday.2016.easter.name=Lundi de Pâques
+holiday.2016.easter.date=28032016
+holiday.2016.workday.name=Fête du premier mai
+holiday.2016.workday.date=01052016
+holiday.2016.armistice1945.name=Armistice 1945
+holiday.2016.armistice1945.date=08052016
+holiday.2016.ascension.name=Ascencion
+holiday.2016.ascension.date=05052016
+holiday.2016.pentecost.name=Pentecôte
+holiday.2016.pentecost.date=15052016
+holiday.2016.nationalday.name=Fête nationale
+holiday.2016.nationalday.date=14072016
+holiday.2016.assumption.name=Assomption
+holiday.2016.assumption.date=15082016
+holiday.2016.allsaintsday.name=Toussaint
+holiday.2016.allsaintsday.date=01112016
+holiday.2016.armistice1918.name=Armistice 1918
+holiday.2016.armistice1918.date=11112016
+holiday.2016.christmas.name=Noël
+holiday.2016.christmas.date=25122016

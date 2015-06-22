@@ -233,23 +233,4 @@ weekstart=monday
 # xterm.title                     no
 
 ## Holidays
-holiday.jourdelan.name=Jour de l'an
-holiday.jourdelan.date=01012012
-holiday.travail.name=Fête du premier mai
-holiday.travail.date=01052012
-holiday.victoire.name=la Fête de Victoire 45
-holiday.victoire.date=08052012
-holiday.ascencion.name=l'Ascencion
-holiday.ascencion.date=02062012
-holiday.pentecôte.name=la Pentecôte
-holiday.pentecôte.date=12062012
-holiday.bastille.name=Fête nationale
-holiday.bastille.date=14072012
-holiday.assomption.name=Assomption
-holiday.assomption.date=15082012
-holiday.toussaint.name=La Toussaint
-holiday.toussaint.date=01112012
-holiday.armistice.name=Jour d'armistice
-holiday.armistice.date=11112012
-holiday.noël.name=Noël
-holiday.noël.date=25122012
+include ~/.task/holidays.rc
