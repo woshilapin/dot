@@ -106,3 +106,9 @@ docker run \
 
 Note the `--volumes-from=skype-data` that has been added and will bind volumes
 from the container `skype-data` into the new `skype` container.
+
+On GNOME
+--------
+If you want this Skype container instance to be launched as a normal GNOME
+application, take a look into the `usr/` folder and copy or make symbolic links
+to all of these files.
