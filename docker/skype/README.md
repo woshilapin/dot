@@ -1,110 +1,109 @@
 Documentation
 =============
 
-This docker is about configuring a Skype instance which will run inside a
-container.  The configuration of sound and video will be taken care of.  For the
-sake of the explanation, I'll try to precise if the commands are for the hosting
-machine or for the container.
+This docker is about using a Skype instance which will run inside a
+Docker container.  The configuration of sound and video will be taken care of.
 
-Install docker.io
------------------
-First of all, we need to install Docker on the hosting machine.
+Build the image
+---------------
 
-    $ sudo apt-get install docker.io
+In order to use this Skype image, you have to build it from the `Dockerfile`.
+To build it, you can use the following command.
 
-In order to use Docker as a normal user (and not as root), you need to add your
-user ID in the `docker` group.
+```
+docker build --tag=skype - < /path/to/Dockerfile
+```
 
-    $ sudo adduser jsimard docker
+You can alternatively build it from the folder that contains the `Dockerfile`
+with the following command.
 
-You'll probably need to logout and login for updating groups.  You can also
-(only temporary in your terminal), do a `su -l your_uid`.  To check if you're in
-the `docker` group, use the `groups` command, it will display all the groups
-you're in.
-
-Now, we will build the docker image with the `Dockerfile` file.  These file is
-based on solution of [`Terr`](https://github.com/Terr/docker-skype-pulseaudio)
-which is itself mainly based on solution of
-[`tomparys`](https://github.com/tomparys/docker-skype-pulseaudio).  We will
-build the image and give it the name `skype`.
-
-    $ docker build -t skype - < Dockerfile
-
-If you look into this file, you'll see that it installs PulseAudio and drivers
-for camera.  It also creates a `skype` user with the same password.  Finally, it
-creates a script to launch Skype which contains a few variables for
-configuration.  `PULSE_SERVER` to redirect the sound; `PULSE_LATENCY_MSEC`to
-solve a
-[problem](https://wiki.debian.org/skype#Frequently_Ask_Questions_.28F.A.Q..29_for_64_bits)
-with sound; `LD_PRELOAD` to solve a
-[problem](https://wiki.debian.org/skype#Frequently_Ask_Questions_.28F.A.Q..29_for_64_bits)
-with camera.
-
-Install PulseAudio
-------------------
-
-On the host machine, we need to install PulseAudio because it will act as a
-server; the docker container will forward sounds to this server.  [Colin
-Guthrie](http://lists.freedesktop.org/archives/pulseaudio-discuss/2011-May/009997.html)
-give some help about having PulseAudio works on a Debian with `systemd`.  First
-of all, install PulseAudio.
-
-    $ sudo apt-get install pulseaudio
-
-You can check if it's running by using the following command (it should output
-something).
-
-    $ xprop -root | grep PULSE_COOKIE
-
-If it doesn't run, then run it (or reboot the computer, it should work too).
-
-    $ start-pulseaudio-x11
-
-We also need to ensure that the TCP native protocole module is loaded.  To
-check, use the following command (it should output something).
-
-    $ pacmd list-modules | grep module-native-protocol-tcp
-
-To start it, use this.
-
-    $ pactl load-module module-native-protocol-tcp
-
-It should be OK now.
+```
+docker build --tag=skype .
+```
 
 Run the container
 -----------------
 
-You can start the container with the following command
+Now, you can run the container with the following command.
 
-    $ docker run -d -p 55555:22 --device=/dev/video0 skype
+```
+docker run \
+	--name=skype \
+	--rm \
+	--env=DISPLAY=unix$DISPLAY \
+	--env=LD_PRELOAD=/usr/lib/i386-linux-gnu/libv4l/v4l1compat.so \
+	--device=/dev/video0 \
+	--volume=/tmp/.X11-unix:/tmp/.X11-unix:ro \
+	--volume=/run/user/${UID}/pulse:/run/pulse:ro \
+	skype \
+	/usr/bin/skype
+```
 
-See that we are binding the camera with `--device` (thanks to
-[`Terr`](https://github.com/Terr/docker-skype-pulseaudio)).
+Here is a few explanations about each of the options:
+* `--name=skype` gives a name to the running container
+* `--rm` removes the container when exits
+* `--env=DISPLAY=unix$DISPLAY` define the target screen for displaying on X11
+  [1][2]
+* `--env=LD_PRELOAD=/usr/lib/i386-linux-gnu/libv4l/v4l1compat.so` in order to
+  explicitely load the i386 webcam's libraries [3]
+* `--device=/dev/video0` to allow the video device in the container
+* `--volume=/tmp/.X11-unix:/tmp/.X11-unix:ro` will bind X11 facilities between
+  host and container
+* `--volume=/run/user/${UID}/pulse:/run/pulse:ro` will bind Pulseaudio socket
+  between host and container [4]
+* `skype` is the name of the image to run
+* `/usr/bin/skype` is the command to launch on the container
 
-Configure SSH access
---------------------
+Concept of data container
+-------------------------
 
-You will connect to the container with a few parameters like a forward of a
-port, X11 activated, etc.  You can put the following configuration into your
-`~/.ssh/config` file.
+In order to save data and configuration generated by Skype, the folder
+`/home/skype/.Skype` must be saved.  The persistence of data is done through the
+`VOLUME /home/skype` line in the `Dockerfile`.  However, we can now rely on the
+concept of data containers.  The basic idea is that if you want to update your
+software, you'll just throw the container and create a new one with a new
+version of the software.  However, this delete the links with the volume (which
+do the persistence of data).  One solution is to create a container specifically
+for the data; and then create a second container that will use this first
+container as a volume [5][6].
 
-    Host          skype-docker
-    User          skype
-    Port          55555
-    HostName      127.0.0.1
-    RemoteForward 64713 localhost:4713
-    ForwardX11    yes
+To run the data container of Skype, do as following.
 
-You can now connect to the container using the password `skype` (see the
-`Dockerfile`).
+```
+docker run \
+	--name=skype-data \
+	skype \
+	true
+```
 
-    $ ssh skype-docker
+With `--name=skype-data` for naming the container; `skype` in order to use the
+same image for data persistence [7]; and `true` the command to send to the
+container (which basically do nothing).
 
-You may copy your SSH keys to avoid to type the password each time you connect.
+Then now, you can run the skype container with a very similar command than the
+one we already saw in previous section.
 
-    $ ssh-copy-id -i ~/.ssh/your_key.pub skype-docker
+```
+docker run \
+	--name=skype \
+	--rm \
+	--volumes-from=skype-data \
+	--env=DISPLAY=unix$DISPLAY \
+	--env=LD_PRELOAD=/usr/lib/i386-linux-gnu/libv4l/v4l1compat.so \
+	--device=/dev/video0 \
+	--volume=/tmp/.X11-unix:/tmp/.X11-unix:ro \
+	--volume=/run/user/${UID}/pulse:/run/pulse:ro \
+	skype \
+	/usr/bin/skype
+```
 
-You can also run directly the Skype software by calling the created binary.
+Note the `--volumes-from=skype-data` that has been added and will bind volumes
+from the container `skype-data` into the new `skype` container.
 
-    $ ssh skype-docker skype-pulseaudio
-
+[1] https://stackoverflow.com/questions/25281992/alternatives-to-ssh-x11-forwarding-for-docker-containers/25334301#25334301
+[2] http://golangcloud.blogspot.de/2014/06/run-x11-application-inside-docker.html
+[3] https://wiki.debian.org/skype#Frequently_Ask_Questions_.28F.A.Q..29_for_64_bits
+[4] https://github.com/terlar/docker-spotify-pulseaudio
+[5] https://docs.docker.com/userguide/dockervolumes/
+[6] https://stackoverflow.com/questions/18496940/how-to-deal-with-persistent-storage-e-g-databases-in-docker/20652410#20652410
+[7] http://container42.com/2014/11/18/data-only-container-madness/
