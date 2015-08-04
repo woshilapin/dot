@@ -1,30 +1,20 @@
 Documentation
 =============
 
-Here is a few hints about Docker.
+This is about how to install Docker on a Debian.
 
-List the containers
--------------------
+Install docker.io
+-----------------
+First of all, we need to install Docker on the hosting machine.
 
-    $ docker ps
+    $ sudo apt-get install docker.io
 
-You may want to add the `-a` argument to list all of them.
+In order to use Docker as a normal user (and not as root), you need to add your
+user ID in the `docker` group.
 
-    $ docker ps -a
+    $ sudo adduser jsimard docker
 
-Remove a container
-------------------
-
-    $ docker rm <container_id>
-
-List the images
----------------
-
-    $ docker images -a
-
-You may want to add the `-a` argument to list all of them.
-
-Remove an image
----------------
-
-    $ docker rmi <image_id>
+You'll probably need to logout and login for updating groups.  You can also
+(only temporary in your terminal), do a `su -l your_uid`.  To check if you're in
+the `docker` group, use the `groups` command, it will display all the groups
+you're in.
