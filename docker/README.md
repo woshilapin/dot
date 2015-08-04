@@ -26,9 +26,10 @@ When you delete containers, volumes are preserved.  However, once a container is
 deleted, it's hard to get back links towards a volume.  And for example, it's
 difficult to delete them.
 
-To do that, you can use the `docker-cleanup-volumes.sh` script [1].  It will remove
-all the volumes that are not related to any containers.  Note that this script
-must be launched with root permissions.
+To do that, you can use the [`docker-cleanup-volumes.sh`
+script](https://github.com/chadoe/docker-cleanup-volumes).  It will remove all
+the volumes that are not related to any containers.  Note that this script must
+be launched with root permissions.
 
 ```
 sudo docker-cleanup-volumes.sh
@@ -36,5 +37,3 @@ sudo docker-cleanup-volumes.sh
 
 In order to simulate the actions that will be triggered, you may run it first
 with a `--dry-run` option.
-
-[1] https://github.com/chadoe/docker-cleanup-volumes
