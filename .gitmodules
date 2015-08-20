@@ -90,3 +90,18 @@
 [submodule "docker/docker-cleanup-volumes"]
 	path = docker/docker-cleanup-volumes
 	url = https://github.com/chadoe/docker-cleanup-volumes.git
+[submodule "docker/cozy/cozy-conf"]
+	path = docker/cozy/cozy-conf
+	url = https://github.com/spiroid/cozy-conf
+[submodule "docker/cozy/cozy-couchdb-data"]
+	path = docker/cozy/cozy-couchdb-data
+	url = https://github.com/spiroid/cozy-couchdb-data
+[submodule "docker/cozy/cozy-couchdb"]
+	path = docker/cozy/cozy-couchdb
+	url = https://github.com/spiroid/cozy-couchdb
+[submodule "docker/cozy/cozy-data-indexer"]
+	path = docker/cozy/cozy-data-indexer
+	url = https://github.com/spiroid/cozy-data-indexer
+[submodule "docker/cozy/cozy-controller"]
+	path = docker/cozy/cozy-controller
+	url = https://github.com/woshilapin/cozy-controller

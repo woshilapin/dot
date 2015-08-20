@@ -1,0 +1,38 @@
+configuration-data:
+    build: cozy-conf
+
+couchdb-data:
+    build: cozy-couchdb-data
+
+couchdb:
+    build: cozy-couchdb
+    hostname: couchdb
+    restart: always
+    volumes_from:
+        - couchdb-data
+        - configuration-data
+
+data-indexer:
+    build: cozy-data-indexer
+    hostname: dataindexer
+    restart: always
+    volumes_from:
+        - configuration-data
+
+controller:
+    build: cozy-controller
+    restart: always
+    environment:
+        NODE_ENV: production
+        COUCH_HOST: couchdb
+        COUCH_PORT: 5984
+        INDEXER_HOST: dataindexer
+        INDEXER_PORT: 9102
+    links:
+        - couchdb
+        - data-indexer
+    volumes_from:
+        - configuration-data
+        - data-indexer
+    ports:
+        - "127.0.0.1:9104:9104"
