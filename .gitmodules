@@ -105,3 +105,6 @@
 [submodule "docker/cozy/cozy-controller"]
 	path = docker/cozy/cozy-controller
 	url = https://github.com/woshilapin/cozy-controller
+[submodule "vim/bundle/tern"]
+	path = vim/bundle/tern
+	url = https://github.com/marijnh/tern_for_vim.git
