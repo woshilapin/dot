@@ -8,10 +8,10 @@ servers = (
     address = "openfoodfacts.irc.slack.com";
     chatnet = "Slack";
     port = "6667";
-	password = "openfoodfacts.MDYCtwvc5L3ajoshrJmV";
+    password = "openfoodfacts.MDYCtwvc5L3ajoshrJmV";
     use_ssl = "yes";
     ssl_verify = "yes";
-    autoconnect = "yes";
+    autoconnect = "no";
   },
   {
     address = "chat.freenode.net";
@@ -120,6 +120,7 @@ chatnets = {
 
 channels = (
   { name = "#xwiki"; chatnet = "Freenode"; autojoin = "Yes"; },
+  { name = "#xwiki-labs"; chatnet = "Freenode"; autojoin = "Yes"; },
   { name = "#limsi"; chatnet = "Freenode"; autojoin = "Yes"; },
   { name = "#alumsi"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#cjdns"; chatnet = "Hype"; autojoin = "Yes"; },
@@ -298,5 +299,6 @@ settings = {
     nick = "woshilapin";
   };
   "fe-text" = { actlist_sort = "refnum"; };
+  "fe-common/core" = { beep_msg_level = "MSGS DCC DCCMSGS HILIGHT"; };
 };
 ignores = ( { level = "MODES"; servertag = "Slack"; } );
