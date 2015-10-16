@@ -41,7 +41,17 @@ servers = (
   { address = "irc.webchat.org"; chatnet = "WebChat"; port = "6667"; },
   { address = "irc.rizon.net"; chatnet = "Rizon"; port = "6667"; },
   { address = "irc.link-net.org"; chatnet = "LinkNet"; port = "6667"; },
-  { address = "silc.silcnet.org"; chatnet = "SILC"; port = "706"; }
+  { address = "silc.silcnet.org"; chatnet = "SILC"; port = "706"; },
+  {
+    address = "irc.gitter.im";
+    chatnet = "Gitter";
+    nick = "woshilapin";
+    password = "c5afebdfac273527b0aa201fe0c90cfebe7098d7";
+    port = "6667";
+    use_ssl = "yes";
+    ssl_verify = "yes";
+    autoconnect = "yes";
+  }
 );
 
 chatnets = {
@@ -116,12 +126,14 @@ chatnets = {
   };
   SILC = { type = "SILC"; };
   Slack = { type = "IRC"; };
+  gitter = { type = "IRC"; };
 };
 
 channels = (
   { name = "#xwiki"; chatnet = "Freenode"; autojoin = "Yes"; },
   { name = "#xwiki-labs"; chatnet = "Freenode"; autojoin = "Yes"; },
   { name = "#limsi"; chatnet = "Freenode"; autojoin = "Yes"; },
+  { name = "#xwiki/public"; chatnet = "Gitter"; autojoin = "Yes"; },
   { name = "#alumsi"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#cjdns"; chatnet = "Hype"; autojoin = "Yes"; },
   { name = "#hyperboria"; chatnet = "Hype"; autojoin = "No"; },
