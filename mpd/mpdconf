@@ -1,0 +1,29 @@
+# Répertoire contenant les musiques
+music_directory		"~/Music"
+# Mise à jour automatique de la liste des musiques
+auto_update     "yes"
+
+# fichiers permettant de retenir des informations sur la liste de lecture de mpd
+# Pensez à créer le dossier ~/.mpd
+db_file			"~/.mpd/tag_cache"
+pid_file			"~/.mpd/pid"
+state_file			"~/.mpd/state"
+# Répertoire des listes de lecture. Pensez à le créer
+playlist_directory		"~/.mpd/playlists"
+
+# Le nom d'utilisateur qui lance mpd (pour ne pas être lancé en tant que root)
+user				"jsimard"
+
+# On ne veut pas diffuser ici.
+bind_to_address		"localhost"
+port "6700"
+
+# La liste de lecture contient le chemin complet des fichiers
+save_absolute_paths_in_playlists	"yes"
+
+# Le son reste le même au changement de chanson
+volume_normalization		"yes"
+
+# Respect de l'UTF-8 dans les noms de fichier
+filesystem_charset		"UTF-8"
+id3v1_encoding			"UTF-8"
