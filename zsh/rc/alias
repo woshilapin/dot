@@ -42,6 +42,7 @@ alias gls="git ls"
 # Alias for Tmux
 alias tns="tmux new-session -s"
 alias tas="tmux attach -t"
+alias tls="tmux list-sessions"
 
 function concat-path() {
 	DIRNAME="$1"
