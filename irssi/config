@@ -131,7 +131,7 @@ chatnets = {
 
 channels = (
   { name = "#xwiki"; chatnet = "Freenode"; autojoin = "Yes"; },
-  { name = "#xwiki-labs"; chatnet = "Freenode"; autojoin = "Yes"; },
+  { name = "#xwiki-labs"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#limsi"; chatnet = "Freenode"; autojoin = "Yes"; },
   { name = "#xwiki/public"; chatnet = "Gitter"; autojoin = "Yes"; },
   { name = "#alumsi"; chatnet = "Freenode"; autojoin = "No"; },
