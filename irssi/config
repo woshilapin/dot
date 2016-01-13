@@ -136,6 +136,7 @@ channels = (
   { name = "#xwiki/public"; chatnet = "Gitter"; autojoin = "Yes"; },
   { name = "#alumsi"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#cjdns"; chatnet = "Hype"; autojoin = "Yes"; },
+  { name = "#paris"; chatnet = "Hype"; autojoin = "Yes"; },
   { name = "#hyperboria"; chatnet = "Hype"; autojoin = "No"; },
   { name = "#archlinux-fr"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
