@@ -40,7 +40,7 @@ alias gss="git status"
 alias gls="git ls"
 
 # Alias for Tmux
-alias tns="tmux new-session -s"
+alias tns="tmuxinator start"
 alias tas="tmux attach -t"
 alias tls="tmux list-sessions"
 
