@@ -30,10 +30,9 @@ root: ~/Projects/learnpad/learnpad
 windows:
     - server:
         layout: main-horizontal
-        root: ~/Projects/learnpad/learnpad/lp-platform/
         panes:
             - clear
-            - tail -f out/xwiki.log
+            - tail -f lp-platform/out/xwiki.log
     - transformation:
         layout: even-horizontal
         root: ~/Projects/learnpad/learnpad/lp-collaborative-workspace/lp-cw-bridge/lp-cw-bridge-transformer/
