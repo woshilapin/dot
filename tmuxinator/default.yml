@@ -7,7 +7,7 @@ root: ~/
 # socket_name: foo
 
 # Runs before everything. Use it to start daemons etc.
-pre: sudo gdb /home/jsimard/Projects/woshilapin/cjdns/cjdroute -ex 'set follow-fork-mode child' -ex 'r < /home/jsimard/.cjdns/cjdroute.conf > /home/jsimard/.cjdns/cjdroute.log'
+pre: sudo /home/jsimard/Projects/woshilapin/cjdns/cjdroute < /home/jsimard/.cjdns/cjdroute.conf > /home/jsimard/.cjdns/cjdroute.log 2>&1
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 # pre_window: rbenv shell 2.0.0-p247
@@ -29,3 +29,5 @@ pre: sudo gdb /home/jsimard/Projects/woshilapin/cjdns/cjdroute -ex 'set follow-f
 
 windows:
     - irc: irssi
+      # To debug it
+      # sudo gdb /home/jsimard/Projects/woshilapin/cjdns/cjdroute -ex 'set follow-fork-mode child' -ex 'r < /home/jsimard/.cjdns/cjdroute.conf > /home/jsimard/.cjdns/cjdroute.log' &

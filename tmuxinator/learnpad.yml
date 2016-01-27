@@ -30,14 +30,17 @@ root: ~/Projects/learnpad/learnpad
 windows:
     - server:
         layout: main-horizontal
-        root: ~/Project/learnpad/learnpad/lp-platform/
+        root: ~/Projects/learnpad/learnpad/lp-platform/
         panes:
             - clear
             - tail -f out/xwiki.log
-    - transformation: 
-        root: ~/Project/learnpad/learnpad/lp-collaborative-workspace/lp-cw-bridge/lp-cw-transformer/
-    - application:
+    - transformation:
         layout: even-horizontal
+        root: ~/Projects/learnpad/learnpad/lp-collaborative-workspace/lp-cw-bridge/lp-cw-bridge-transformer/
+        panes:
+            - clear
+    - application:
+        layout: even-vertical
         root: ~/Projects/learnpad/learnpad/lp-collaborative-workspace/lp-cw-component/
         panes:
             - cd ./lp-cw-application/; clear
