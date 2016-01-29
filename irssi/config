@@ -1,6 +1,6 @@
 servers = (
   { 
-    address = "irc.hypeirc.net";
+    address = "irc.fc00.io";
     chatnet = "Hype";
     autoconnect = "Yes";
   },
