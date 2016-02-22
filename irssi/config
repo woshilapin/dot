@@ -50,7 +50,7 @@ servers = (
     port = "6667";
     use_ssl = "yes";
     ssl_verify = "yes";
-    autoconnect = "yes";
+    autoconnect = "no";
   }
 );
 
