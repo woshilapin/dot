@@ -98,27 +98,7 @@
 	path = docker/docker-cleanup-volumes
 	url = https://github.com/chadoe/docker-cleanup-volumes.git
 	branch = master
-[submodule "docker/cozy/cozy-conf"]
-	path = docker/cozy/cozy-conf
-	url = https://github.com/spiroid/cozy-conf
-	branch = master
-[submodule "docker/cozy/cozy-couchdb-data"]
-	path = docker/cozy/cozy-couchdb-data
-	url = https://github.com/spiroid/cozy-couchdb-data
-	branch = master
-[submodule "docker/cozy/cozy-couchdb"]
-	path = docker/cozy/cozy-couchdb
-	url = https://github.com/spiroid/cozy-couchdb
-	branch = master
-[submodule "docker/cozy/cozy-data-indexer"]
-	path = docker/cozy/cozy-data-indexer
-	url = https://github.com/spiroid/cozy-data-indexer
-	branch = master
 [submodule "vim/bundle/tern"]
 	path = vim/bundle/tern
 	url = https://github.com/marijnh/tern_for_vim.git
-	branch = master
-[submodule "docker/cozy/cozy-controller"]
-	path = docker/cozy/cozy-controller
-	url = https://github.com/spiroid/cozy-controller
 	branch = master

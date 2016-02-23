@@ -1,39 +1,32 @@
 configuration-data:
-    build: cozy-conf
+    image: spiroid/cozy-conf
 
 couchdb-data:
-    build: cozy-couchdb-data
+    image: spiroid/cozy-couchdb-data
 
 couchdb:
-    build: cozy-couchdb
-    hostname: couchdb
+    image: spiroid/cozy-couchdb
     restart: always
     volumes_from:
         - couchdb-data
         - configuration-data
 
-data-indexer:
-    build: cozy-data-indexer
+dataindexer:
+    image: spiroid/cozy-data-indexer
     hostname: dataindexer
     restart: always
     volumes_from:
         - configuration-data
 
 controller:
-    build: cozy-controller
+    image: spiroid/cozy-controller
     restart: always
-    environment:
-        NODE_ENV: production
-        COUCH_HOST: couchdb
-        COUCH_PORT: 5984
-        INDEXER_HOST: dataindexer
-        INDEXER_PORT: 9102
     links:
         - couchdb
-        - data-indexer
+        - dataindexer
     volumes_from:
         - configuration-data
-        - data-indexer
+        - dataindexer
     ports:
         - "127.0.0.1:9002:9002"
         - "127.0.0.1:9104:9104"
