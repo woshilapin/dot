@@ -1,0 +1,120 @@
+#!/bin/bash
+function print_err {
+	echo "`basename $0`: error: $1"
+	exit 1
+}
+
+function print_info {
+	echo -e "---> $1"
+}
+
+HELP='slide v0.1
+Create animation slide effect (right-to-left) from 2 pictures
+
+$> $0 [<options>] <picture1> <picture2> <videofile>
+
+The script can remove a dirt on a photography given the coordinates of the
+dirt.
+
+<picture1>    The first picture that will disappear to the left
+<picture2>    The second picture that will appear from the right
+<videofile>   The resulting video file
+
+OPTIONS
+-------
+-s|--size <num>x<num>  The size of the image [default=size of picture1]
+-t|--time <num>        Time of the slide effect in milliseconds [default=400]
+-h|--help              Display this message
+'
+
+if [ $# -eq 0 ]
+then
+	printf '%s\n' "$HELP"
+	exit 1
+fi
+ARGS=("$@")
+
+PIC1_FILE=
+PIC2_FILE=
+OUT_FILE=
+SIZE=
+TIME=400
+FPS=25
+JUMP=0
+for i in `seq 0 $(($# - 1))`
+do
+	ARG=${ARGS[$i]}
+	if [ $JUMP -eq 1 ]
+	then
+		JUMP=0
+		continue
+	fi
+	case $ARG in
+		"-h"|"--help")
+			printf '%s\n' $HELP
+			exit 0
+			;;
+		"-s"|"--size")
+			SIZE=${ARGS[$((i+1))]}
+			JUMP=1
+			;;
+		"-t"|"--time")
+			TIME=${ARGS[$((i+1))]}
+			JUMP=1
+			;;
+		*)
+			if [ -z $PIC1_FILE ]
+			then
+				PIC1_FILE=$ARG
+			elif [ -z $PIC2_FILE ]
+			then
+				PIC2_FILE=$ARG
+			elif [ -z $OUT_FILE ]
+			then
+				OUT_FILE=$ARG
+			else
+				print_err "Too many arguments. See '--help'."
+			fi
+			;;
+	esac
+done
+if [ -z "$PIC1_FILE" -o -z "$PIC2_FILE" ]
+then
+	print_err "You must give 2 pictures as input files."
+fi
+if [ -z "$OUT_FILE" ]
+then
+	print_err "You must give an output file."
+fi
+if [ -z "$SIZE" ]
+then
+	SIZE=$( identify $PIC1_FILE | cut --delimiter=' ' --fields=3 )
+fi
+
+SIZE_W=$( echo $SIZE | cut --delimiter='x' --fields=1 )
+SIZE_H=$( echo $SIZE | cut --delimiter='x' --fields=2 )
+SIZE_2W=$(( 2 * $SIZE_W ))
+NUM_PICS=$(( $FPS * $TIME / 1000 ))
+RANDOM_TMP='/tmp/ffmpeg.slide/'$( date | md5sum | cut --delimiter=' ' --field=1 )
+rm -rf $RANDOM_TMP
+mkdir -p $RANDOM_TMP
+for NUM in $( seq 0 $NUM_PICS )
+do
+	FRAME_NAME=$RANDOM_TMP'/frame-'$( printf '%0'${#NUM_PICS}'i' $NUM )'.png'
+	OFFSET=$(( $SIZE_W * $NUM / $NUM_PICS ))
+	CROP=$SIZE'+'$OFFSET'+0!'
+	echo 'Compiling '$FRAME_NAME
+	convert \
+		-size $SIZE_2W'x'$SIZE_H \
+		xc:white \
+		$PIC1_FILE \
+		-geometry $SIZE'+0+0!' \
+		-composite \
+		$PIC2_FILE \
+		-geometry $SIZE'+'$SIZE_W'+0!' \
+		-composite \
+		-crop $CROP \
+		$FRAME_NAME
+done
+echo 'Compiling '$OUT_FILE
+avconv -r $FPS -i $RANDOM_TMP'/frame-%0'${#NUM_PICS}'d.png' $OUT_FILE
