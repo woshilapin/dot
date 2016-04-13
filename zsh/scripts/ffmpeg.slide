@@ -8,10 +8,10 @@ function print_info {
 	echo -e "---> $1"
 }
 
-HELP='slide v0.1
+HELP="slide v0.1
 Create animation slide effect (right-to-left) from 2 pictures
 
-$> $0 [<options>] <picture1> <picture2> <videofile>
+$> $( basename $0 ) [<options>] <picture1> <picture2> <videofile>
 
 The script can remove a dirt on a photography given the coordinates of the
 dirt.
@@ -25,7 +25,7 @@ OPTIONS
 -s|--size <num>x<num>  The size of the image [default=size of picture1]
 -t|--time <num>        Time of the slide effect in milliseconds [default=400]
 -h|--help              Display this message
-'
+"
 
 if [ $# -eq 0 ]
 then
@@ -51,7 +51,7 @@ do
 	fi
 	case $ARG in
 		"-h"|"--help")
-			printf '%s\n' $HELP
+			printf '%s\n' "$HELP"
 			exit 0
 			;;
 		"-s"|"--size")
@@ -96,6 +96,7 @@ SIZE_H=$( echo $SIZE | cut --delimiter='x' --fields=2 )
 SIZE_2W=$(( 2 * $SIZE_W ))
 NUM_PICS=$(( $FPS * $TIME / 1000 ))
 RANDOM_TMP='/tmp/ffmpeg.slide/'$( date | md5sum | cut --delimiter=' ' --field=1 )
+print_info "Create temporary folder '$RANDOM_TMP'"
 rm -rf $RANDOM_TMP
 mkdir -p $RANDOM_TMP
 for NUM in $( seq 0 $NUM_PICS )
@@ -103,8 +104,9 @@ do
 	FRAME_NAME=$RANDOM_TMP'/frame-'$( printf '%0'${#NUM_PICS}'i' $NUM )'.png'
 	OFFSET=$(( $SIZE_W * $NUM / $NUM_PICS ))
 	CROP=$SIZE'+'$OFFSET'+0!'
-	echo 'Compiling '$FRAME_NAME
+	print_info "Compiling $( basename $FRAME_NAME )"
 	convert \
+		-filter Mitchell \
 		-size $SIZE_2W'x'$SIZE_H \
 		xc:white \
 		$PIC1_FILE \
@@ -116,5 +118,5 @@ do
 		-crop $CROP \
 		$FRAME_NAME
 done
-echo 'Compiling '$OUT_FILE
+print_info "Compiling $( basename $OUT_FILE )"
 avconv -r $FPS -i $RANDOM_TMP'/frame-%0'${#NUM_PICS}'d.png' $OUT_FILE
