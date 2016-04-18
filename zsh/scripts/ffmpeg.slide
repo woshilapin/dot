@@ -33,12 +33,13 @@ then
 	exit 1
 fi
 ARGS=("$@")
+ROOT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 PIC1_FILE=
 PIC2_FILE=
 OUT_FILE=
 SIZE=
-TIME=400
+TIME=1000
 FPS=25
 JUMP=0
 for i in `seq 0 $(($# - 1))`
@@ -119,4 +120,15 @@ do
 		$FRAME_NAME
 done
 print_info "Compiling $( basename $OUT_FILE )"
-avconv -r $FPS -i $RANDOM_TMP'/frame-%0'${#NUM_PICS}'d.png' $OUT_FILE
+ffmpeg \
+	-nostdin \
+	-loglevel quiet \
+	-r $FPS \
+	-i $RANDOM_TMP'/frame-%0'${#NUM_PICS}'d.png' \
+	-i $ROOT_PATH/diapo.ogg \
+	-map 0:v \
+	-map 1:a \
+	-strict -2 \
+	-shortest \
+	-y \
+	$OUT_FILE
