@@ -122,13 +122,15 @@ done
 print_info "Compiling $( basename $OUT_FILE )"
 ffmpeg \
 	-nostdin \
-	-loglevel quiet \
 	-r $FPS \
 	-i $RANDOM_TMP'/frame-%0'${#NUM_PICS}'d.png' \
 	-i $ROOT_PATH/diapo.ogg \
+	-c:v libx264 \
+	-pix_fmt yuv420p \
+	-c:a copy \
+	-strict -2 \
 	-map 0:v \
 	-map 1:a \
-	-strict -2 \
 	-shortest \
 	-y \
 	$OUT_FILE
