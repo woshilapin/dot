@@ -120,17 +120,23 @@ do
 		$FRAME_NAME
 done
 print_info "Compiling $( basename $OUT_FILE )"
+IMG_SEC_TIME=$(( $TIME / 1000 ))
+IMG_MSEC_TIME=$(( $TIME - $IMG_SEC_TIME*1000 ))
+IMG_TIME=$IMG_SEC_TIME'.'$( printf '%03i' $IMG_MSEC_TIME )
 ffmpeg \
 	-nostdin \
+	-loglevel quiet \
 	-r $FPS \
 	-i $RANDOM_TMP'/frame-%0'${#NUM_PICS}'d.png' \
 	-i $ROOT_PATH/diapo.ogg \
-	-c:v libx264 \
-	-pix_fmt yuv420p \
-	-c:a copy \
-	-strict -2 \
 	-map 0:v \
 	-map 1:a \
+	-c:v libx264 \
+	-c:a aac \
+	-b:a 192k \
+	-strict -2 \
 	-shortest \
+	-af 'volume=0.25' \
+	-t $IMG_TIME \
 	-y \
 	$OUT_FILE
