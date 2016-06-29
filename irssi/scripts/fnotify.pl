@@ -33,8 +33,8 @@ $VERSION = '0.0.3';
 
 sub privatemessage {
 	my ($server, $msg, $nick, $address, $target) = @_;
-	filewrite($nick . " " . $msg);
-	notify("IRC [private]", $msg);
+	filewrite ($nick . " " . $msg);
+	notify ("IRC [private]", $msg);
 }
 
 #--------------------------------------------------------------------
@@ -43,10 +43,14 @@ sub privatemessage {
 
 sub highlight {
 	my ($dest, $text, $stripped) = @_;
-	if ($dest->{level} & MSGLEVEL_HILIGHT) {
-		filewrite($dest->{target} . " " . $stripped);
-		notify("IRC [" . $dest->{target} . "]", $stripped);
+	open (FILE, "<$ENV{HOME}/.irssi/fnotify.keywords") || die $!;
+	while (my $keyword = <FILE>) {
+		if ($stripped =~ /$keyword/i) {
+			filewrite ($dest->{target} . " " . $stripped);
+			notify ("IRC [" . $dest->{target} . "]", $stripped);
+		}
 	}
+	close (FILE) || die $!;
 }
 
 #--------------------------------------------------------------------
@@ -55,20 +59,20 @@ sub highlight {
 
 sub filewrite {
 	my ($text) = @_;
-	open(FILE, ">>$ENV{HOME}/.irssi/fnotify");
+	open (FILE, ">>$ENV{HOME}/.irssi/fnotify.log");
 	print FILE $text . "\n";
 	close (FILE);
 }
 sub notify {
 	my ($title, $msg) = @_;
-	system "notify-send", "--app-name=irssi", "--icon=/usr/share/icons/gnome/32x32/apps/irssi.png", "--urgency=normal", "--expire-time=3000", $title, $msg;
+	system "notify-send", "--app-name=irssi", "--icon=/usr/share/pixmaps/irssi.xpm", "--urgency=normal", "--expire-time=3000", $title, $msg;
 }
 
 #--------------------------------------------------------------------
 # Irssi::signal_add_last / Irssi::command_bind
 #--------------------------------------------------------------------
 
-Irssi::signal_add_last("message private", "privatemessage");
-Irssi::signal_add_last("print text", "highlight");
+Irssi::signal_add_last ("message private", "privatemessage");
+Irssi::signal_add_last ("print text", "highlight");
 
 #- end
