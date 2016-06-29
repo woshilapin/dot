@@ -10,6 +10,7 @@ then
 	LIBRARY_PATH=/opt/local/lib:$LIBRARY_PATH
 fi
 PATH=$PATH:~/.zsh/scripts
+PATH=$PATH:/opt/woshilapin/bin
 export PATH
 export LIBRARY_PATH
 # TRASH initialisations

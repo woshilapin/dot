@@ -37,7 +37,7 @@ $@
 
 if [ $? -eq 0 ]; then
   RESULT="SUCCESS"
-  echo $RESULT    
+  echo $RESULT
   say
 else
   RESULT="FAILURE"
