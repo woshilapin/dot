@@ -30,7 +30,7 @@ RUN apt-get update && \
 	wget
 
 # Install Skype
-RUN wget -O skype-install.deb http://www.skype.com/go/getskype-linux-deb
+RUN wget --no-check-certificate -O skype-install.deb https://www.skype.com/go/getskype-linux-deb
 RUN dpkg -i skype-install.deb || true
 # Automatically detect and install dependencies
 RUN apt-get install --fix-broken --assume-yes
