@@ -28,13 +28,24 @@ $VERSION = '0.0.3';
 #--------------------------------------------------------------------
 
 #--------------------------------------------------------------------
+# Utils
+#--------------------------------------------------------------------
+
+sub trim($)
+{
+	my $string = shift;
+	$string =~ s/^\s+|\s+$//g;
+	return $string;
+}
+
+#--------------------------------------------------------------------
 # Private message parsing
 #--------------------------------------------------------------------
 
 sub privatemessage {
 	my ($server, $msg, $nick, $address, $target) = @_;
 	filewrite ($nick . " " . $msg);
-	notify ("IRC [private]", $msg);
+	notify ("IRC [private]", "<" . $nick . "> " . $msg);
 }
 
 #--------------------------------------------------------------------
@@ -43,12 +54,16 @@ sub privatemessage {
 
 sub highlight {
 	my ($dest, $text, $stripped) = @_;
+	my $msg = trim($stripped);
+	$msg =~ s/<(.*?)>\s*//; # Extract nickname
+	my $nick = trim($1); # Get back the nickname from last regexp
 	open (KEYWORDSFILE, "<$ENV{HOME}/.irssi/fnotify.keywords") || die $!;
 	foreach my $keyword (<KEYWORDSFILE>) {
 		chomp $keyword;
-		if ($stripped =~ qr/$keyword/i) {
-			filewrite ($dest->{target} . " " . $stripped);
-			notify ("IRC [" . $dest->{target} . "]", $stripped);
+		if ( ($dest->{level} & MSGLEVEL_PUBLIC) && ($msg =~ qr/$keyword/i) ) {
+			my $room = trim($dest->{target});
+			filewrite ("<" . $room . ">" . $msg);
+			notify ("IRC [" . $room . "]", "<" . $nick . "> " . $msg);
 		}
 	}
 	close (KEYWORDSFILE) || die $!;
