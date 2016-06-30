@@ -43,14 +43,15 @@ sub privatemessage {
 
 sub highlight {
 	my ($dest, $text, $stripped) = @_;
-	open (FILE, "<$ENV{HOME}/.irssi/fnotify.keywords") || die $!;
-	while (my $keyword = <FILE>) {
-		if ($stripped =~ /$keyword/i) {
+	open (KEYWORDSFILE, "<$ENV{HOME}/.irssi/fnotify.keywords") || die $!;
+	foreach my $keyword (<KEYWORDSFILE>) {
+		chomp $keyword;
+		if ($stripped =~ qr/$keyword/i) {
 			filewrite ($dest->{target} . " " . $stripped);
 			notify ("IRC [" . $dest->{target} . "]", $stripped);
 		}
 	}
-	close (FILE) || die $!;
+	close (KEYWORDSFILE) || die $!;
 }
 
 #--------------------------------------------------------------------
@@ -59,9 +60,9 @@ sub highlight {
 
 sub filewrite {
 	my ($text) = @_;
-	open (FILE, ">>$ENV{HOME}/.irssi/fnotify.log");
-	print FILE $text . "\n";
-	close (FILE);
+	open (LOGFILE, ">>$ENV{HOME}/.irssi/fnotify.log");
+	print LOGFILE $text . "\n";
+	close (LOGFILE);
 }
 sub notify {
 	my ($title, $msg) = @_;
