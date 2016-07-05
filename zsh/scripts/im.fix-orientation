@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+function print_err {
+	echo "`basename $0`: error: $1"
+	exit 1
+}
+
+function print_info {
+	echo -e "---> $1"
+}
+
+HELP='fix-orientation v0.1
+Fix the orientation of an image by not relying on the EXIF metadata.
+
+$> $0 <infile> <outfile>
+
+Sometimes, photos have been taken with a mobile and the taken has a 90 degres clockwise rotation.  In order to display it correctly in applications, the metadata contains information about this rotation.  However, some applications are not able to understand this information.  `fix-orientation` rotate the image and remove the metadata.
+
+<infile>    The image input file to fix
+<outfile>   The name of the output image
+
+OPTIONS
+-------
+-h|--help     Display this message
+'
+
+if [ $# -eq 0 ]
+then
+	printf '%s\n' "$HELP"
+	exit 1
+fi
+ARGS=("$@")
+
+IN_FILE=
+OUT_FILE=
+for i in `seq 0 $(($# - 1))`
+do
+	ARG=${ARGS[$i]}
+	case $ARG in
+		"-h"|"--help")
+			printf '%s\n' $HELP
+			exit 0
+			;;
+		*)
+			if [ -z $IN_FILE ]
+			then
+				IN_FILE=$ARG
+			elif [ -z $OUT_FILE ]
+			then
+				OUT_FILE=$ARG
+			else
+				print_err "Too many arguments. See '--help'."
+			fi
+			;;
+	esac
+done
+
+ORIENTATION=$( exiftool "$IN_FILE" | grep -i orientation | awk -F': ' '{print $2;}' )
+echo "<$ORIENTATION>"
+if [ \! -z "${ORIENTATION}" -a "${ORIENTATION}" = "Rotate 90 CW" ]
+then
+	convert "$IN_FILE" -rotate 90 "$OUT_FILE"
+	exiftool "$OUT_FILE" -Orientation=
+fi
