@@ -1,3 +1,6 @@
+# Navigate along the unread messages
+bind index <Tab> next-unread
+bind index <BackTab> previous-unread
 # A vim-like way of moving in a message
 bind pager \cd next-page
 bind pager \cu previous-page
