@@ -43,29 +43,37 @@ sub trim($)
 #--------------------------------------------------------------------
 
 sub privatemessage {
-	my ($server, $msg, $nick, $address, $target) = @_;
-	filewrite ($nick . " " . $msg);
-	notify ("IRC [private]", "<" . $nick . "> " . $msg);
+	my ($server, $text, $nick, $address, $target) = @_;
+	my $title = "[private]";
+	my $msg = "<" . $nick . "> " . $text;
+	filewrite ($title . " " . $msg);
+	notify ("IRC " . $title, $msg);
 }
 
 #--------------------------------------------------------------------
 # Printing hilight's
 #--------------------------------------------------------------------
 
-sub highlight {
+my $prevnick = "";
+sub publicmessage {
 	my ($dest, $text, $stripped) = @_;
-	my $msg = trim($stripped);
-	$msg =~ s/<(.*?)>\s*//; # Extract nickname
+	my $text = trim($stripped);
+	$text =~ s/<(.*?)>\s*//; # Extract nickname
 	my $nick = trim($1); # Get back the nickname from last regexp
 	open (KEYWORDSFILE, "<$ENV{HOME}/.irssi/fnotify.keywords") || die $!;
 	foreach my $keyword (<KEYWORDSFILE>) {
 		chomp $keyword;
-		if ( ($dest->{level} & MSGLEVEL_PUBLIC) && ($msg =~ qr/$keyword/i) ) {
+		if ( (($dest->{level} & MSGLEVEL_PUBLIC) && ($text =~ qr/$keyword/i)) # Check if the keyword is in the text
+			|| (($prevnick =~ qr/$keyword/i) && ($nick !~ qr/$keyword/i)) ) { # Check if the message is a response
 			my $room = trim($dest->{target});
-			filewrite ("<" . $room . ">" . $msg);
-			notify ("IRC [" . $room . "]", "<" . $nick . "> " . $msg);
+			my $title = "[" . $room . "]";
+			my $msg = "<" . $nick . "> " . $text;
+			filewrite ($title . " " . $msg);
+			notify ("IRC " . $title, $msg);
+			last;
 		}
 	}
+	$prevnick = $nick;
 	close (KEYWORDSFILE) || die $!;
 }
 
@@ -89,6 +97,6 @@ sub notify {
 #--------------------------------------------------------------------
 
 Irssi::signal_add_last ("message private", "privatemessage");
-Irssi::signal_add_last ("print text", "highlight");
+Irssi::signal_add_last ("print text", "publicmessage");
 
 #- end
