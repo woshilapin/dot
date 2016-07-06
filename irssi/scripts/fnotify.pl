@@ -58,8 +58,12 @@ my $prevnick = "";
 sub publicmessage {
 	my ($dest, $text, $stripped) = @_;
 	my $text = trim($stripped);
-	$text =~ s/<(.*?)>\s*//; # Extract nickname
-	my $nick = trim($1); # Get back the nickname from last regexp
+	my $nick = "";
+	if ($text =~ s/<(.*?)>\s*// ) { # Extract nickname
+		$nick = trim($1); # Get back the nickname from last regexp
+	} else {
+		return;
+	}
 	open (KEYWORDSFILE, "<$ENV{HOME}/.irssi/fnotify.keywords") || die $!;
 	foreach my $keyword (<KEYWORDSFILE>) {
 		chomp $keyword;
