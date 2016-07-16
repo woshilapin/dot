@@ -51,6 +51,14 @@ servers = (
     use_ssl = "yes";
     ssl_verify = "yes";
     autoconnect = "no";
+  },
+  {
+    address = "irc.mozilla.org";
+    chatnet = "Mozilla";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
   }
 );
 
@@ -127,6 +135,13 @@ chatnets = {
   SILC = { type = "SILC"; };
   Slack = { type = "IRC"; };
   gitter = { type = "IRC"; };
+  Mozilla = {
+    type = "IRC";
+    max_kicks = "4";
+    max_msgs = "5";
+    max_whois = "4";
+    max_query_chans = "5";
+  };
 };
 
 channels = (
@@ -143,6 +158,7 @@ channels = (
   { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
   { name = "silc"; chatnet = "silc"; autojoin = "No"; },
   { name = "#firefoxos"; chatnet = "Slack"; autojoin = "yes"; }
+  { name = "#servo"; chatnet = "Mozilla"; autojoin = "yes"; }
 );
 
 aliases = {
