@@ -28,7 +28,7 @@ pre: sudo /opt/woshilapin/cjdns/cjdroute < ~/.cjdns/cjdroute.conf > ~/.cjdns/cjd
 # post: tmux -CC attach -t default
 
 windows:
-    - mutt: cd ~/Downloads/ ; mutt # Go inside ~/Downloads so when attachments are downloaded, they end up inside ~/Downloads
+    - mutt: mutt
     - irc: irssi
       # To debug it
       # sudo gdb /home/jsimard/Projects/woshilapin/cjdns/cjdroute -ex 'set follow-fork-mode child' -ex 'r < /home/jsimard/.cjdns/cjdroute.conf > /home/jsimard/.cjdns/cjdroute.log' &
