@@ -102,3 +102,6 @@
 	path = vim/bundle/tern
 	url = https://github.com/marijnh/tern_for_vim.git
 	branch = master
+[submodule "vim/bundle/rust.vim"]
+	path = vim/bundle/rust.vim
+	url = https://github.com/rust-lang/rust.vim.git
