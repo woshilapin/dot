@@ -27,7 +27,12 @@
 [user]
 	name = Jean SIMARD
 	email = woshilapin@tuziwo.info
+	signingkey = 7D7767B4
 [diff]
 	tool = vimdiff
 [color "diff"]
 	whitespace = green reverse
+[gpg]
+	program = gpg2
+[commit]
+	gpgsign = true
