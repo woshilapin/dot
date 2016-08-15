@@ -17,8 +17,4 @@ set smtp_pass="$my_account_pass"
 set from="$my_account_login"
 set hostname="$my_account_host"
 
-unmailboxes *
-mailboxes "+INBOX" "+Sent" "+Drafts"
-
-source "$my_mutt/filters/muttrc.filters.example"
-set signature="$my_mutt/signatures/example.sgn"
+source "$my_mutt/configs/muttrc.config.example"

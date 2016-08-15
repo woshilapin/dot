@@ -1,0 +1,3 @@
+set realname="Les Lapins Chinois"
+set signature="$my_mutt/signatures/lapin.chinois.sgn"
+source "$my_mutt/filters/muttrc.filters.lapin.chinois"

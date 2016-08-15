@@ -1,2 +1,3 @@
 set realname="woshilapin"
 set signature="$my_mutt/signatures/woshilapin.sgn"
+source "$my_mutt/filters/muttrc.filters.woshilapin"
