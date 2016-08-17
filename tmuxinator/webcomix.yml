@@ -28,4 +28,4 @@ root: ~/Projects/woshilapin/webcomix
 # post: tmux -CC attach -t default
 
 windows: 
-    - default: clear
+    - default: vim -c "NERDTree"
