@@ -11,12 +11,12 @@ function print_info {
 HELP='fix-orientation v0.2
 Fix the orientation of an image by not relying on the EXIF metadata.
 
-$> '$( basename "$0" )' <infile> <outfile>
+$> '$( basename "$0" )' <infile> [outfile]
 
 Sometimes, photos have been taken with a mobile and the taken has a 90 degrees clockwise or 180 degrees rotation.  In order to display it correctly in applications, the metadata contains information about this rotation.  However, some applications are not able to understand this information.  `fix-orientation` rotate the image and remove the metadata.
 
 <infile>    The image input file to fix
-<outfile>   The name of the output image
+<outfile>   The name of the output image (default will suffix original name with rotation angle)
 
 OPTIONS
 -------
@@ -66,6 +66,10 @@ then
 	then
 		ROTATE=180
 	fi
+	if [ -z "${OUT_FILE}" ]
+	then
+		OUT_FILE=$( echo ${IN_FILE} | sed -e 's/\(\.[^.]*\)$/\.'$ROTATE'\1/' )
+	fi
 	convert "${IN_FILE}" -rotate "${ROTATE}" "${OUT_FILE}"
-	exiftool "${OUT_FILE}" -Orientation=
+	exiftool -P -overwrite_original_in_place "${OUT_FILE}" -Orientation=
 fi
