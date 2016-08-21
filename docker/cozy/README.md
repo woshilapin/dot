@@ -1,23 +1,32 @@
-Cozy docker
-===========
+# Initialization
+This Cozy is launch on Docker with multiple containers orchestrated with Docker
+Compose.
 
-Cozy has been split into multiple services.  In order to run them all, you can
-use [`docker-compose`](https://docs.docker.com/compose/).  Install it and then,
-run the following command from the same folder than contains
-`docker-compose.yml`.
+Launch it with
 
-    docker-compose up
+```
+docker-compose up
+```
 
-It will build every image so it may take a while.  Once done, you'll have to
-initialize the controller of Cozy.
+Then initialize it with
 
-    docker exec cozy_controller_1 cozy-init.sh
+```
+docker exec -it cozy_controller_1 cozy-init.sh
+```
 
-Please be sure that your image is called `cozy_controller_1` using `docker ps`.
+# Daily maintenance
+To stop the containers, you can hit `CTRL-C` when it is has been launched with
+in a non-daemon mode.  To launch it in daemon mode, you can use the `-d` option.
 
-# Install `docker-compose`
-In order to install `docker-compose`, execute the following command with root
-privilege.
+```
+docker-compose up -d
+```
 
-    curl -L https://github.com/docker/compose/releases/download/1.4.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-    chmod +x /usr/local/bin/docker-compose
+You can then stop it with
+```
+docker-compose stop
+```
+
+Note: every `docker-compose` should be launched from the folder where
+`docker-compose.yml` file is.  If not, you can specify which file should be used
+with `--file /path/to/docker-compose.yml`.
