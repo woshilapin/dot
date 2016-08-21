@@ -50,5 +50,5 @@ then
 fi
 PULSE_LATENCY_MSEC=60
 
-export NVM_DIR="/home/jsimard/.nvm"
+export NVM_DIR="/home/${USER}/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
