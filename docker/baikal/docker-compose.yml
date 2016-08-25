@@ -1,0 +1,15 @@
+mariadb:
+    image: mariadb
+    environment:
+        MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        MYSQL_DATABASE: 'baikal'
+        MYSQL_USER: 'baikal'
+        MYSQL_PASSWORD: 'baikal'
+
+baikal:
+    build: baikal
+    restart: always
+    links:
+        - mariadb
+    ports:
+        - "127.0.0.1:8888:80"
