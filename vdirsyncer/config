@@ -1,0 +1,60 @@
+# An example configuration for vdirsyncer.
+
+[general]
+status_path = ~/.vdirsyncer/status/
+
+# CARDDAV
+[pair contacts]
+a = contacts_local
+b = contacts_remote
+
+collections = ["from a", "from b"]
+metadata = ["color", "displayname"]
+conflict_resolution = a wins
+
+[storage contacts_local]
+type = filesystem
+path = ~/.contacts/
+fileext = .vcf
+
+[storage contacts_remote]
+type = carddav
+url = https://carddav.tuziwo.info/dav.php/addressbooks/woshilapin/default/
+# To get the fingerprint, run the following on server
+# openssl x509 -in /path/to/fullchain.pem -noout -fingerprint
+#
+# or from client
+# echo -n | openssl s_client -connect carddav.tuziwo.info:443 | openssl x509 -noout -fingerprint
+verify_fingerprint = "39:1E:7F:4A:68:BD:E7:23:CE:42:D2:B4:2B:2B:7F:F4:DB:CA:BD:CA"
+verify = true
+username.fetch = ["command", "gpg2", "--quiet", "--recipient", "woshilapin", "--decrypt", "/home/woshilapin/.vdirsyncer/username.gpg"]
+password.fetch = ["command", "gpg2", "--quiet", "--recipient", "woshilapin", "--decrypt", "/home/woshilapin/.vdirsyncer/password.gpg"]
+auth = digest
+
+# CALDAV
+[pair calendars]
+a = calendars_local
+b = calendars_remote
+
+collections = ["from a", "from b"]
+metadata = ["color", "displayname"]
+conflict_resolution = a wins
+
+[storage calendars_local]
+type = filesystem
+path = ~/.calendars/
+fileext = .ics
+
+[storage calendars_remote]
+type = caldav
+url = https://caldav.tuziwo.info/dav.php/calendars/woshilapin/default/
+# To get the fingerprint, run the following on server
+# openssl x509 -in /path/to/fullchain.pem -noout -fingerprint
+#
+# or from client
+# echo -n | openssl s_client -connect carddav.tuziwo.info:443 | openssl x509 -noout -fingerprint
+verify_fingerprint = "39:1E:7F:4A:68:BD:E7:23:CE:42:D2:B4:2B:2B:7F:F4:DB:CA:BD:CA"
+verify = true
+username.fetch = ["command", "gpg2", "--quiet", "--recipient", "woshilapin", "--decrypt", "/home/woshilapin/.vdirsyncer/username.gpg"]
+password.fetch = ["command", "gpg2", "--quiet", "--recipient", "woshilapin", "--decrypt", "/home/woshilapin/.vdirsyncer/password.gpg"]
+auth = digest

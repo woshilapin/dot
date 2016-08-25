@@ -12,6 +12,7 @@ task
 tmux
 tmuxinator
 urlview
+vdirsyncer
 vim
 vimperatorrc
 zsh
