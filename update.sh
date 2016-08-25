@@ -12,8 +12,9 @@ dot_file()
 		if test -f ~/.$2
 		then
 			print_msg "WARNING: File ~/.$2 already exists"
-			print_msg "INFO: File ~/.$2 backup to ~/.$2.`date +'%Y%m%d-%H%M%S'`"
-			mv ~/.$2 ~/.$2.`date +'%Y%m%d-%H%M%S'`
+			DATE=$( date +'%Y%m%d-%H%M%S' )
+			print_msg "INFO: File ~/.$2 backup to ~/.$2.${DATE}"
+			mv ~/.$2 ~/.$2.${DATE}
 		fi
 		print_msg "UPDATE: Create link ~/.$2 to $1/$2"
 		ln -s $1/$2 ~/.$2
@@ -28,8 +29,9 @@ dot_dir()
 		if test -f ~/.$2
 		then
 			print_msg "WARNING: Directory ~/.$2 already exists"
-			print_msg "INFO: Directory ~/.$2 backup to ~/.$2.`date +'%Y%m%d-%H%M%S'`"
-			mv ~/.$2 ~/.$2.`date +'%Y%m%d-%H%M%S'`
+			DATE=$( date +'%Y%m%d-%H%M%S' )
+			print_msg "INFO: Directory ~/.$2 backup to ~/.$2.${DATE}"
+			mv ~/.$2 ~/.$2.${DATE}
 		fi
 		print_msg "UPDATE: Create link ~/.$2 to $1/$2"
 		ln -s $1/$2 ~/.$2
