@@ -25,7 +25,7 @@ create_link()
 			ln --symbolic "${SRC}" "${DST}"
 		else
 			# Mention all file or directories that are not symbolic links
-			print_msg "INFO: ${DST} already exists"
+			print_msg "INFO: ${DST} already exists and is not a symbolic link"
 		fi
 	fi
 	if test -d "${SRC}"
