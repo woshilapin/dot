@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+if [ $# -lt 1 ]
+then
+	echo "Please give the name of the pip package you want to use"
+	exit 1
+fi
+PACKAGE_NAME=$1
+PACKAGE_VIRTUALENV="${HOME}/.virtualenvs/${PACKAGE_NAME}"
+VIRTUALENV=virtualenv
+PIP="${PACKAGE_VIRTUALENV}/bin/pip"
+PYTHON="${PACKAGE_VIRTUALENV}/bin/python"
+BINARY_PATH="${PACKAGE_VIRTUALENV}/bin/${PACKAGE_NAME}"
+if [ \! -f "${BINARY_PATH}" ]
+then
+	${VIRTUALENV} --python=python3 "${PACKAGE_VIRTUALENV}"
+	${PIP} install ${PACKAGE_NAME}
+fi
+${PYTHON} ${BINARY_PATH} ${@:2}
