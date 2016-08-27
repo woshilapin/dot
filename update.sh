@@ -5,42 +5,33 @@ print_msg()
 	echo "dot-files: ${1}"
 }
 
-dot_file()
+create_link()
 {
 	ROOT_DIR="${1}"
-	FILE="${2}"
-	if test ! -L "${HOME}/.${FILE}"
+	DOT="${2}"
+	DST="${3}"
+	SRC="${ROOT_DIR}/${DOT}"
+	if test -z "${DST}"
 	then
-		if test -f "${HOME}/.${FILE}"
-		then
-			print_msg "WARNING: File ${HOME}/.${FILE} already exists"
-			DATE=$( date +'%Y%m%d-%H%M%S' )
-			print_msg "INFO: File ${HOME}/.${FILE} backup to ${HOME}/.${FILE}.${DATE}"
-			mv "${HOME}/.${FILE}" "${HOME}/.${FILE}.${DATE}"
-		fi
-		print_msg "UPDATE: Create link ${HOME}/.${FILE} to ${ROOT_DIR}/${FILE}"
-		ln -s "${ROOT_DIR}/${FILE}" "${HOME}/.${FILE}"
+		# Default goes to a hidden file in ${HOME}
+		DST="${HOME}/.${DOT}"
 	fi
-	return 0
-}
-
-dot_dir()
-{
-	ROOT_DIR="${1}"
-	DIR="${2}"
-	if test ! -L "${HOME}/.${DIR}"
+	if test ! -L "${DST}"
 	then
-		if test -d "${HOME}/.${DIR}"
+		# Create symbolic link only if there is no file nor directory
+		if test ! -f "${DST}" -a ! -d "${DST}"
 		then
-			print_msg "WARNING: Directory ${HOME}/.${DIR} already exists"
-			DATE=$( date +'%Y%m%d-%H%M%S' )
-			print_msg "INFO: Directory ${HOME}/.${DIR} backup to ${HOME}/.${DIR}.${DATE}"
-			mv "${HOME}/.${DIR}" "${HOME}/.${DIR}.${DATE}"
+			print_msg "UPDATE: Create link '${DST}' to '${SRC}'"
+			ln --symbolic "${SRC}" "${DST}"
+		else
+			# Mention all file or directories that are not symbolic links
+			print_msg "INFO: ${DST} already exists"
 		fi
-		print_msg "UPDATE: Create link ${HOME}/.${DIR} to ${ROOT_DIR}/${DIR}"
-		ln -s "${ROOT_DIR}/${DIR}" "${HOME}/.${DIR}"
 	fi
-	bash "${0}" "${HOME}/.${DIR}"
+	if test -d "${SRC}"
+	then
+		bash "${0}" "${SRC}"
+	fi
 	return 0
 }
 
@@ -54,13 +45,14 @@ DOT_FILES="${DOT_PATH}/.dotfiles"
 
 if test -f "${DOT_FILES}"
 then
-	while read ELEMENT
+	while read DOT_FILE_CONFIGURATION
 	do
-		if test -d "${ELEMENT}"
+		DOT_ELEMENT="$(echo "${DOT_FILE_CONFIGURATION}" | awk '{print $1;}' )"
+		WHERE="$(echo "${DOT_FILE_CONFIGURATION}" | awk '{print $2;}' )"
+		if test ! -z "${WHERE}"
 		then
-			dot_dir "${DOT_PATH}" "${ELEMENT}"
-		else
-			dot_file "${DOT_PATH}" "${ELEMENT}"
+			WHERE="${HOME}/${WHERE}"
 		fi
+		create_link "${DOT_PATH}" "${DOT_ELEMENT}" "${WHERE}"
 	done < "${DOT_FILES}"
 fi
