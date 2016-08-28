@@ -1,18 +1,84 @@
 #!/usr/bin/env bash
-if [ $# -lt 1 ]
+HELP="""virtualenv-launcher v0.1
+Install a python binay with virtualenv and launch it
+
+$> $0 [<options>] <binary> -- [<args>]
+
+The script will launch the python <binary> which has been installed with 'pip'.
+In the case the binary has not yet been installed, '$0' will install it with
+'virtualenv'.
+
+<args>                  Arguments sent to the binary without modifications
+
+OPTIONS
+-------
+-h|--help               Display this message
+-p|--package <package>  Name of the package in which the binary is installed
+
+'${0}' will basically check for the presence of '<binary>' in
+'~/.virtualenvs/<package>/bin'.  If <binary> is not installed, it will install
+<package> with 'pip' in '~/.virtualenvs'.  Note that if <package> is not given,
+'$0' will assume that <package> is the same than <binary>.
+"""
+if test ${#} -lt 1
 then
-	echo "Please give the name of the pip package you want to use"
+	echo "${HELP}"
 	exit 1
 fi
-PACKAGE_NAME=$1
+READ_PACKAGE="false"
+READ_ARGUMENTS="false"
+BINARY_NAME=""
+PACKAGE_NAME=""
+ARGUMENTS=""
+for ARG in $*
+do
+	if test "${READ_PACKAGE}" == "true"
+	then
+		PACKAGE_NAME="${ARG}"
+		READ_PACKAGE="false"
+		continue
+	fi
+	if test "${READ_ARGUMENTS}" == "true"
+	then
+		ARGUMENTS="${ARGUMENTS} ${ARG}"
+		continue
+	fi
+	case "${ARG}" in
+		"-h"|"--help")
+			echo "${HELP}"
+			exit 0
+			;;
+		"-p"|"--package")
+			READ_PACKAGE="true"
+			;;
+		"--")
+			READ_ARGUMENTS="true"
+			;;
+		*)
+			if test -z "${BINARY_NAME}"
+			then
+				BINARY_NAME="${ARG}"
+			else
+				echo "ERROR: can have only one binary name."
+				echo "${HELP}"
+				exit 1
+			fi
+			;;
+	esac
+done
+# If package name is empty, assume it's the same as the binary
+if test -z "${PACKAGE_NAME}"
+then
+	PACKAGE_NAME="${BINARY_NAME}"
+fi
 PACKAGE_VIRTUALENV="${HOME}/.virtualenvs/${PACKAGE_NAME}"
 VIRTUALENV=virtualenv
 PIP="${PACKAGE_VIRTUALENV}/bin/pip"
 PYTHON="${PACKAGE_VIRTUALENV}/bin/python"
-BINARY_PATH="${PACKAGE_VIRTUALENV}/bin/${PACKAGE_NAME}"
+BINARY_PATH="${PACKAGE_VIRTUALENV}/bin/${BINARY_NAME}"
 if [ \! -f "${BINARY_PATH}" ]
 then
 	${VIRTUALENV} --python=python3 "${PACKAGE_VIRTUALENV}"
 	${PIP} install ${PACKAGE_NAME}
 fi
-${PYTHON} ${BINARY_PATH} ${@:2}
+${PYTHON} ${BINARY_PATH} ${ARGUMENTS}
