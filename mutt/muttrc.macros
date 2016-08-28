@@ -10,3 +10,8 @@ macro index,pager d "<save-message>+Trash<enter>" "Delete the message (move to '
 
 # Use of `urlview' to parse a message and find URLs
 macro pager \cv "<pipe-entry>urlview<enter>" "List URL in the message"
+
+# Save an email address to contacts
+macro index,pager A \
+		  "<pipe-message>khard add-email<return>" \
+		  "add the sender email address to khard"

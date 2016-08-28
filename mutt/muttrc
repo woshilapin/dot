@@ -50,8 +50,7 @@ set pgp_sign_as="0x23F4C683"
 set pgp_replyencrypt=no
 set pgp_timeout=1800
 set pgp_good_sign="^gpg: Good signature from"
-# Use `pycarddav' to find contacts
-set query_command="python2 $my_mutt/carddav/pycarddav/bin/pc_query -c ~/.mutt/carddav/pycarddav.conf -m '%s'"
+set query_command="~/.virtualenvs/khard/bin/python3 ~/.virtualenv/khard/bin/khard email --parsable --search-in-source-files %s"
 # Sort the messages in index by threads
 set sort="threads"
 # Since the messages are sorted by threads, 'sort_aux' will sort the threads in
