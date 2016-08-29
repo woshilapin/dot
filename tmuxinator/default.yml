@@ -29,6 +29,8 @@ pre: sudo /opt/woshilapin/cjdns/cjdroute < ~/.cjdns/cjdroute.conf > ~/.cjdns/cjd
 
 windows:
     - mutt: mutt
-    - irc: irssi
-      # To debug it
-      # sudo gdb /home/jsimard/Projects/woshilapin/cjdns/cjdroute -ex 'set follow-fork-mode child' -ex 'r < /home/jsimard/.cjdns/cjdroute.conf > /home/jsimard/.cjdns/cjdroute.log' &
+    - irc: 
+        layout: main-horizontal
+        panes:
+            - irssi
+            - sudo gdb /opt/woshilapin/bin/cjdroute -ex 'set follow-fork-mode child' -ex 'r < /home/woshilapin/.cjdns/cjdroute.conf'
