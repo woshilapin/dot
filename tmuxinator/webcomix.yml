@@ -11,6 +11,7 @@ root: ~/Projects/woshilapin/webcomix
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 # pre_window: rbenv shell 2.0.0-p247
+pre_window: nvm use stable
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -28,4 +29,8 @@ root: ~/Projects/woshilapin/webcomix
 # post: tmux -CC attach -t default
 
 windows: 
-    - default: vim -c "NERDTree"
+    - default:
+        layout: main-horizontal
+        panes:
+            - vim -c "NERDTree"
+            - broccoli serve --port 8080
