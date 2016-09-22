@@ -33,4 +33,4 @@ windows:
         layout: main-horizontal
         panes:
             - vim -c "NERDTree"
-            - broccoli serve --port 8080
+            - npm start
