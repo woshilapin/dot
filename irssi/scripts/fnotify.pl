@@ -54,9 +54,10 @@ sub privatemessage {
 # Printing hilight's
 #--------------------------------------------------------------------
 
-my $prevnick = "";
+my %prevnick = ();
 sub publicmessage {
 	my ($dest, $text, $stripped) = @_;
+	my $room = trim($dest->{target});
 	my $text = trim($stripped);
 	my $nick = "";
 	if ($text =~ s/<(.*?)>\s*// ) { # Extract nickname
@@ -68,8 +69,7 @@ sub publicmessage {
 	foreach my $keyword (<KEYWORDSFILE>) {
 		chomp $keyword;
 		if ( (($dest->{level} & MSGLEVEL_PUBLIC) && ($text =~ qr/$keyword/i)) # Check if the keyword is in the text
-			|| (($prevnick =~ qr/$keyword/i) && ($nick !~ qr/$keyword/i)) ) { # Check if the message is a response
-			my $room = trim($dest->{target});
+			|| (($prevnick{$room} =~ qr/$keyword/i) && ($nick !~ qr/$keyword/i)) ) { # Check if the message is a response
 			my $title = "[" . $room . "]";
 			my $msg = "<" . $nick . "> " . $text;
 			filewrite ($title . " " . $msg);
@@ -77,7 +77,7 @@ sub publicmessage {
 			last;
 		}
 	}
-	$prevnick = $nick;
+	$prevnick{$room} = $nick;
 	close (KEYWORDSFILE) || die $!;
 }
 

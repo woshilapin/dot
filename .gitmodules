@@ -101,3 +101,6 @@
 [submodule "vim/bundle/rust.vim"]
 	path = vim/bundle/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
+[submodule "vim/bundle/vim-es6"]
+	path = vim/bundle/vim-es6
+	url = https://github.com/isRuslan/vim-es6.git
