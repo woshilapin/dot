@@ -1,0 +1,11 @@
+version: '2'
+services:
+    lapinchinois:
+        image: ghost:0.11.0
+        restart: always
+        environment:
+            NODE_ENV: production
+        ports:
+            - "127.0.0.1:2368:2368"
+        volumes:
+            - "/var/local/lapinchinois:/var/lib/ghost"
