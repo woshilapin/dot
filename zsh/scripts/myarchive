@@ -15,7 +15,6 @@ SRC_DIRNAME=$( dirname "${SRC}" )
 SRC_BASENAME=$( basename "${SRC}" )
 ARCHIVE_FILENAME=$( date "+%Y-%m-%d_%H%M%S" )".tar.gz"
 tar \
-	--verbose \
 	--create \
 	--gzip \
 	--file "${DST}/${ARCHIVE_FILENAME}" \
