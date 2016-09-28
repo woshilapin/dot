@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+if test $# -lt 1
+then
+	echo "${0}: error: You need the give source folder as an argument"
+	exit 1
+fi
+if test $# -lt 2
+then
+	echo "${0}: error: You need the give destination folder as an argument"
+	exit 1
+fi
+SRC=$1
+DST=$2
+SRC_DIRNAME=$( dirname "${SRC}" )
+SRC_BASENAME=$( basename "${SRC}" )
+ARCHIVE_FILENAME=$( date "+%Y-%m-%d_%H%M%S" )
+tar \
+	--verbose \
+	--create \
+	--gzip \
+	--file "${DST}/${ARCHIVE_FILENAME}" \
+	--directory "${SRC_DIRNAME}" \
+	"${SRC_BASENAME}"
