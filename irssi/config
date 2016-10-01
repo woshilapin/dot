@@ -159,6 +159,8 @@ channels = (
   { name = "silc"; chatnet = "silc"; autojoin = "No"; },
   { name = "#firefoxos"; chatnet = "Slack"; autojoin = "yes"; }
   { name = "#servo"; chatnet = "Mozilla"; autojoin = "yes"; }
+  { name = "#rust-beginners"; chatnet = "Mozilla"; autojoin = "yes"; }
+  { name = "#rust"; chatnet = "Mozilla"; autojoin = "yes"; }
 );
 
 aliases = {
