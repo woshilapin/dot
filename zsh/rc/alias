@@ -111,5 +111,3 @@ alias xmlformat="xmllint --format"
 alias dicte="dict -d gcide"
 alias dictef="dict -d fd-eng-fra"
 alias dictfe="dict -d fd-fra-eng"
-
-alias mpc="mpc --format '[%track%\t][\[%time%\]\t][[%artist% - ][%album% - ]%title%]|[%file%]'"
