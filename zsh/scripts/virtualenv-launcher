@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-HELP="""virtualenv-launcher v0.1
+HELP="virtualenv-launcher v0.1
 Install a python binay with virtualenv and launch it
 
 $> $0 [<options>] <binary> -- [<args>]
@@ -14,28 +14,38 @@ OPTIONS
 -------
 -h|--help               Display this message
 -p|--package <package>  Name of the package in which the binary is installed
+--python <binary>       Python's binary [default: python3]
 
 '${0}' will basically check for the presence of '<binary>' in
 '~/.virtualenvs/<package>/bin'.  If <binary> is not installed, it will install
 <package> with 'pip' in '~/.virtualenvs'.  Note that if <package> is not given,
 '$0' will assume that <package> is the same than <binary>.
-"""
+"
+
 if test ${#} -lt 1
 then
 	echo "${HELP}"
 	exit 1
 fi
 READ_PACKAGE="false"
+READ_PYTHON="false"
 READ_ARGUMENTS="false"
 BINARY_NAME=""
 PACKAGE_NAME=""
+PYTHON_BINARY="python3"
 ARGUMENTS=""
-for ARG in $*
+for ARG in ${*}
 do
 	if test "${READ_PACKAGE}" == "true"
 	then
 		PACKAGE_NAME="${ARG}"
 		READ_PACKAGE="false"
+		continue
+	fi
+	if test "${READ_PYTHON}" == "true"
+	then
+		PYTHON_BINARY="${ARG}"
+		READ_PYTHON="false"
 		continue
 	fi
 	if test "${READ_ARGUMENTS}" == "true"
@@ -50,6 +60,9 @@ do
 			;;
 		"-p"|"--package")
 			READ_PACKAGE="true"
+			;;
+		"--python")
+			READ_PYTHON="true"
 			;;
 		"--")
 			READ_ARGUMENTS="true"
@@ -76,9 +89,9 @@ VIRTUALENV=virtualenv
 PIP="${PACKAGE_VIRTUALENV}/bin/pip"
 PYTHON="${PACKAGE_VIRTUALENV}/bin/python"
 BINARY_PATH="${PACKAGE_VIRTUALENV}/bin/${BINARY_NAME}"
-if [ \! -f "${BINARY_PATH}" ]
+if test \! -f "${BINARY_PATH}"
 then
-	${VIRTUALENV} --python=python3 "${PACKAGE_VIRTUALENV}"
-	${PIP} install ${PACKAGE_NAME}
+	${VIRTUALENV} --python="${PYTHON_BINARY}" "${PACKAGE_VIRTUALENV}"
+	${PIP} install "${PACKAGE_NAME}"
 fi
-${PYTHON} ${BINARY_PATH} ${ARGUMENTS}
+${PYTHON} "${BINARY_PATH}" ${ARGUMENTS}
