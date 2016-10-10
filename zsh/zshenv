@@ -9,8 +9,8 @@ then
 	PATH=/opt/local/bin:/opt/local/sbin:$PATH
 	LIBRARY_PATH=/opt/local/lib:$LIBRARY_PATH
 fi
-PATH=$PATH:~/.zsh/scripts
-PATH=$PATH:/opt/woshilapin/bin
+PATH=~/.zsh/scripts:$PATH
+PATH=/opt/woshilapin/bin:$PATH
 export PATH
 export LIBRARY_PATH
 # TRASH initialisations
