@@ -1,11 +1,9 @@
-bowerrc
 config
 docker
 git
 gnuplot
 irssi
 latexmkrc
-mpd
 mutt
 ncmpcpp
 nvm
