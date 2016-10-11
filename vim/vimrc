@@ -472,6 +472,12 @@ if filereadable(s:source_conf_filename) && s:source_directory != s:home_director
 	execute "source " . substitute(s:source_conf_filename, " ", "\\ ", "g")
 endif
 
+" Configuration of Syntastic plugin
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " Configuration of Powerline plugin
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
