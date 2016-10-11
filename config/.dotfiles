@@ -1,4 +1,5 @@
 khal .config/khal
 khard .config/khard
 mpd .config/mpd
+powerline .config/powerline
 systemd .config/systemd
