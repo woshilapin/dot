@@ -103,3 +103,6 @@
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "irssi/scripts/irssi-powerline"]
+	path = irssi/scripts/irssi-powerline
+	url = https://github.com/darac/irssi-powerline.git
