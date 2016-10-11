@@ -34,7 +34,7 @@ BINARY_NAME=""
 PACKAGE_NAME=""
 PYTHON_BINARY="python3"
 ARGUMENTS=""
-for ARG in ${*}
+for ARG in "$@"
 do
 	if test "${READ_PACKAGE}" == "true"
 	then

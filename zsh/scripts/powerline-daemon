@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-virtualenv-launcher --package powerline-status powerline-daemon -- $*
+virtualenv-launcher --package powerline-status powerline-daemon -- "$@"

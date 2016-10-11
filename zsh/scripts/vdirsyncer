@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-virtualenv-launcher vdirsyncer -- $*
+virtualenv-launcher vdirsyncer -- "$@"
