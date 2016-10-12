@@ -55,10 +55,6 @@ nmap <Leader>me :NERDTreeToggle<Enter>R
 nmap <Leader>mE :NERDTree 
 " Afficher l'explorateur
 nmap <Leader>mu :UndotreeToggle<Enter>
-" Comment the current selection
-vmap <Leader>c gc
-" Comment the current line
-nmap <Leader>c gcc
 
 """" OPTIONS
 " Set the mouse abilities in the terminal
