@@ -81,6 +81,8 @@ set backspace=eol,start,indent
 "" DISPLAY
 " Print the line numbers
 set number
+" Print line numbers relative to the current edited line
+set relativenumber
 " Don't make it look like there are line breaks where there aren't:
 set wrap
 " Display long lines on 2 lines
