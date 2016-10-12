@@ -151,24 +151,6 @@ highlight CursorLine term=reverse cterm=reverse
 highlight CursorColumn term=reverse cterm=reverse
 nmap <Leader>h :set cursorline! cursorcolumn!<bar>set cursorline? cursorcolumn?<CR><CR>
 
-"""" STATUSLINE
-" Use "[RO]" for "[readonly]" to save space in the message line:
-set shortmess=rnm
-" Set the display of the line at the bottom of the screen
-set statusline=%#StatusLineFile#%f%#StatusLine# " The relative path filename
-set statusline+=%m " For modified files, it prints [+] else, it prints nothing
-set statusline+=%y " The filetype with brackets 
-set statusline+=[%{&ff},%{&fenc}] " Print the type (dos, unix, etc.) and encoding of the file
-set statusline+=%#StatusLineW#%r%#StatusLine# " Print [RO] for Read-Only files
-set statusline+=%h " Print [help] for help pages
-set statusline+=%w " Print [Preview] for preview pages
-"set statusline+=\ %#StatusLineGB#<git:%{GitBranchInfoTokens()[0]}> " Print the Git branch of file
-set statusline+=%= " Put the right/left separation
-set statusline+=\ %< " To troncate the line if it is too long
-set statusline+=char(%b,0x%B)\  " Print the decimal and hexadecimal encoding value of the character
-set statusline+=pos(%c%V,%l)\  " Print the cursor position in the file
-set statusline+=%#StatusLineB#%P%#StatusLine# " Print the position of buffer in the file
-
 " Have fifty lines of command-line (etc) history:
 set history=50
 " Remember all of these between sessions, but only 10 search terms; also
