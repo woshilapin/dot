@@ -1,5 +1,5 @@
 servers = (
-  { 
+  {
     address = "irc.fc00.io";
     chatnet = "Hype";
     autoconnect = "Yes";
@@ -157,9 +157,9 @@ channels = (
   { name = "#archlinux-fr"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
   { name = "silc"; chatnet = "silc"; autojoin = "No"; },
-  { name = "#firefoxos"; chatnet = "Slack"; autojoin = "yes"; }
-  { name = "#servo"; chatnet = "Mozilla"; autojoin = "yes"; }
-  { name = "#rust-beginners"; chatnet = "Mozilla"; autojoin = "yes"; }
+  { name = "#firefoxos"; chatnet = "Slack"; autojoin = "yes"; },
+  { name = "#servo"; chatnet = "Mozilla"; autojoin = "yes"; },
+  { name = "#rust-beginners"; chatnet = "Mozilla"; autojoin = "yes"; },
   { name = "#rust"; chatnet = "Mozilla"; autojoin = "yes"; }
 );
 
@@ -359,7 +359,7 @@ settings = {
   "fe-common/core" = {
     theme = "scripts/irssi-powerline/solarized-powerline";
     hilight_color = "%R";
-	beep_msg_level = "MSGS DCC DCCMSGS HILIGHT";
+    beep_msg_level = "MSGS DCC DCCMSGS HILIGHT";
   };
   "perl/core/scripts" = {
     ### For Solarized adv_windowlist.pl script
@@ -377,3 +377,6 @@ settings = {
   };
 };
 ignores = ( { level = "MODES"; servertag = "Slack"; } );
+keyboard = ( 
+  { key = "meta-[M"; id = "command"; data = "mouse_xterm"; }
+);
