@@ -145,24 +145,7 @@ set infercase
 """" COLORS
 " Change the panel of colors to 16 (instead of 8)
 set t_Co=16
-" Change from white to 'Gray' the color of normal text
-highlight Normal ctermfg=Gray
-" Change the default colors for the search mode
-highlight Search ctermfg=DarkGray ctermbg=Yellow
-" Change the default colors for diff mode
-highlight DiffAdd cterm=none ctermfg=Black ctermbg=LightGreen
-highlight DiffDelete cterm=none ctermfg=Black ctermbg=DarkGray
-highlight DiffChange cterm=none ctermfg=Black ctermbg=DarkGray
-highlight DiffText cterm=none ctermfg=Black ctermbg=LightRed
-" Change the colors of pop-up menus
-highlight Pmenu ctermbg=LightBlue ctermfg=Black cterm=NONE
-highlight PmenuSel ctermbg=Gray ctermfg=DarkBlue cterm=bold
-" Change the 'StatusLine' highlighting from 'White' to 'Dark' for the background
-highlight StatusLine ctermbg=Gray ctermfg=Black cterm=NONE
-highlight StatusLineB ctermbg=Gray ctermfg=Black cterm=bold
-highlight StatusLineW ctermbg=Gray ctermfg=DarkRed cterm=bold
-highlight StatusLineFile ctermbg=Gray ctermfg=DarkMagenta cterm=bold
-highlight StatusLineGB ctermbg=Gray ctermfg=LightBlue cterm=bold
+colorscheme elflord
 " To highlight the column and line of the current cursor position
 highlight CursorLine term=reverse cterm=reverse
 highlight CursorColumn term=reverse cterm=reverse
