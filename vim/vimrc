@@ -272,45 +272,6 @@ endif
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-"" About searching selected text
-" http://vim.wikia.com/wiki/VimTip171
-let s:save_cpo = &cpo | set cpo&vim
-" The 'g:search_exact_space_number' is about searching the exact number of spaces
-" For example, if this variable is off, 'hello world', 'hello     world' and 'hello\n   \tworld' will be found for the same search.
-if !exists('g:search_exact_space_number')
-	let g:search_exact_space_number = 1
-endif
-function! s:VSetSearch(cmd)
-	let old_reg = getreg('"')
-	let old_regtype = getregtype('"')
-	normal! gvy
-	if @@ =~? '^[0-9a-z,_]*$' || @@ =~? '^[0-9a-z ,_]*$' && g:search_exact_space_number
-		let @/ = @@
-	else
-		let pat = escape(@@, a:cmd.'\')
-		if g:search_exact_space_number
-			let pat = substitute(pat, '\n', '\\n', 'g')
-		else
-			let pat = substitute(pat, '^\_s\+', '\\s\\+', '')
-			let pat = substitute(pat, '\_s\+$', '\\s\\*', '')
-			let pat = substitute(pat, '\_s\+', '\\_s\\+', 'g')
-		endif
-		let @/ = '\V'.pat
-	endif
-	normal! gV
-	call setreg('"', old_reg, old_regtype)
-endfunction
-vnoremap <silent> * :<C-U>call <SID>VSetSearch('/')<CR>/<C-R>/<CR>
-vnoremap <silent> # :<C-U>call <SID>VSetSearch('?')<CR>?<C-R>/<CR>
-vmap <kMultiply> *
-" Toggle the 'g:search_exact_space_number' variable
-nmap <silent> <Plug>VLToggle :let g:search_exact_space_number = !g:search_exact_space_number
-			\\| echo "search_exact_space_number " . (g:search_exact_space_number ? "On" : "Off")<CR>
-if !hasmapto("<Plug>VLToggle")
-	nmap <unique> <Leader>vl <Plug>VLToggle
-endif
-let &cpo = s:save_cpo | unlet s:save_cpo
-
 " To paste without setting 'paste' (it is automatic)
 if &term =~ "xterm.*"
     let &t_ti = &t_ti . "\e[?2004h"
