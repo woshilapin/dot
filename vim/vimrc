@@ -441,6 +441,12 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" Make quickfix window of syntastic smaller if possible
+function! SyntasticCheckHook(errors)
+	if !empty(a:errors)
+		let g:syntastic_loc_list_height = min([len(a:errors), 10])
+	endif
+endfunction
 
 " Configuration of Powerline plugin
 python from powerline.vim import setup as powerline_setup
