@@ -144,6 +144,8 @@ set infercase
 " Change the panel of colors to 256 (instead of 8)
 set t_Co=256
 colorscheme elflord
+highlight NonText ctermfg=DarkGray
+highlight SpecialKey ctermfg=DarkGray
 
 " To highlight the column and line of the current cursor position
 highlight CursorLine term=reverse cterm=reverse
