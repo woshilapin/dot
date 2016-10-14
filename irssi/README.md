@@ -22,3 +22,10 @@ IRC.  `fnotify` will create this notifications in two cases:
 To make that work, you'll have to install the `libnotify-bin` package.  Then,
 you can modify the list of keywords (regular expressions) in the file
 `~/.irssi/fnotify.keywords`.
+
+In case you modify the script and want to reload it in a running `irssi`, you
+can do the following command in `irssi`.
+
+```
+/script load fnotify.pl
+```
