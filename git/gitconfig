@@ -36,3 +36,5 @@
 	program = gpg2
 [commit]
 	gpgsign = true
+[github]
+	user = woshilapin
