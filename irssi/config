@@ -354,12 +354,15 @@ settings = {
     real_name = "woshilapin";
     user_name = "woshilapin";
     nick = "woshilapin";
+    recode_out_default_charset = "UTF-8";
+    recode_fallback = "ISO-8859-15";
   };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = {
     theme = "scripts/irssi-powerline/solarized-powerline";
     hilight_color = "%R";
     beep_msg_level = "MSGS DCC DCCMSGS HILIGHT";
+    term_charset = "UTF-8";
   };
   "perl/core/scripts" = {
     ### For Solarized adv_windowlist.pl script
