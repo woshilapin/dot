@@ -5,13 +5,13 @@ use Irssi;
 
 $VERSION = '0.0.3';
 %IRSSI = (
-	authors     => 'Jean SIMARD',
-	contact     => 'woshilapin@gmail.com',
+	authors     => 'woshilapin',
+	contact     => 'woshilapin@tuziwo.info',
 	name        => 'fnotify',
 	description => 'Write a notification to a file and to the notification system that shows who is talking to you in which channel.',
-	url         => 'http://hole.tuziwo.info/files/fnotify.pl',
+	url         => 'https://github.com/woshilapin/dot/tree/master/irssi/scripts/fnotify.pl',
 	license     => 'GNU General Public License',
-	changed     => '$Date: 2014-01-17 12:00:00 +0100$'
+	changed     => '$Date: 2016-10-16 15:30:00 +0100$'
 );
 
 #--------------------------------------------------------------------
@@ -60,8 +60,10 @@ sub publicmessage {
 	my $room = trim($dest->{target});
 	my $text = trim($stripped);
 	my $nick = "";
-	if ($text =~ s/<(.*?)>\s*// ) { # Extract nickname
-		$nick = trim($1); # Get back the nickname from last regexp
+	# Extract nickname (first for default and second if 'powerline' is on)
+	if ($text =~ s{^<(.*?)>\s*}{} || $text =~ s{^(?:\s|@)(\w+) }{}) {
+		# Get back the nickname from last regexp
+		$nick = trim($1);
 	} else {
 		return;
 	}
