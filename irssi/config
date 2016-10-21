@@ -1,9 +1,5 @@
 servers = (
-  {
-    address = "irc.fc00.io";
-    chatnet = "Hype";
-    autoconnect = "Yes";
-  },
+  { address = "irc.fc00.io"; chatnet = "Hype"; autoconnect = "Yes"; },
   {
     address = "openfoodfacts.irc.slack.com";
     chatnet = "Slack";
