@@ -51,8 +51,8 @@ fi
 PULSE_LATENCY_MSEC=60
 
 export MPD_HOST="${HOME}/.config/mpd/mpd.socket"
-export NVM_DIR="/home/${USER}/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="/home/${USER}/.dot/nvm"
+[ -s "${NVM_DIR}/nvm.sh" ] && bash "${NVM_DIR}/nvm.sh"  # This loads nvm
 export PATH="${HOME}/.cargo/bin:${PATH}"
 
 # Disable automatic titles (useful for correct naming of tmux tabs with tmuxinator)
