@@ -429,4 +429,14 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['pom.xml', '.p4ignore']
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+" Configuration for 'vim-javascript' plugin
+let g:javascript_plugin_jsdoc = 1
+
+" Configuration for 'vim-jsdoc' plugin
+let g:jsdoc_allow_input_prompt = 1
+let g:jsdoc_input_description = 1
+let g:jsdoc_additional_descriptions = 1
+" Look for the main function the cursor is currently in
+nmap <silent> <C-l> :set hlsearch!<CR>(/function<CR>:set hlsearch!<CR>:nohlsearch<CR><Plug>(jsdoc)
+
 " End of woshilapin's .vimrc
