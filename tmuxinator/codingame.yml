@@ -31,5 +31,5 @@ windows:
     - default:
         layout: main-horizontal
         panes:
-            - vim -c "NERDTree"
+            - clear;
             - clear;
