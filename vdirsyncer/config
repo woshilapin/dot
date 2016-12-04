@@ -25,7 +25,7 @@ url = https://carddav.tuziwo.info/dav.php/addressbooks/woshilapin/default/
 #
 # or from client
 # echo -n | openssl s_client -connect carddav.tuziwo.info:443 | openssl x509 -noout -fingerprint
-verify_fingerprint = "39:1E:7F:4A:68:BD:E7:23:CE:42:D2:B4:2B:2B:7F:F4:DB:CA:BD:CA"
+verify_fingerprint = "14:14:C8:23:95:3D:CF:92:4B:8C:F0:0E:4D:74:30:71:47:2E:6F:7D"
 verify = true
 username.fetch = ["command", "gpg2", "--quiet", "--recipient", "woshilapin", "--decrypt", "/home/woshilapin/.vdirsyncer/username.gpg"]
 password.fetch = ["command", "gpg2", "--quiet", "--recipient", "woshilapin", "--decrypt", "/home/woshilapin/.vdirsyncer/password.gpg"]
@@ -53,7 +53,7 @@ url = https://caldav.tuziwo.info/dav.php/calendars/woshilapin/default/
 #
 # or from client
 # echo -n | openssl s_client -connect carddav.tuziwo.info:443 | openssl x509 -noout -fingerprint
-verify_fingerprint = "39:1E:7F:4A:68:BD:E7:23:CE:42:D2:B4:2B:2B:7F:F4:DB:CA:BD:CA"
+verify_fingerprint = "14:14:C8:23:95:3D:CF:92:4B:8C:F0:0E:4D:74:30:71:47:2E:6F:7D"
 verify = true
 username.fetch = ["command", "gpg2", "--quiet", "--recipient", "woshilapin", "--decrypt", "/home/woshilapin/.vdirsyncer/username.gpg"]
 password.fetch = ["command", "gpg2", "--quiet", "--recipient", "woshilapin", "--decrypt", "/home/woshilapin/.vdirsyncer/password.gpg"]
