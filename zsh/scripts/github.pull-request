@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+read -p "GitHub username: " -ei $(git config --get github.user) USERNAME
+read -sp "GitHub password: " PASSWORD
+echo
+read -p "Submit pull request to user: " TO_USER
+read -p "Submit pull request to repository: " TO_REPO
+read -p "Submit pull request to branch: " -ei master TO_BRANCH
+read -p "Submit pull request from user: " -ei $USERNAME FROM_USER
+read -p "Submit pull request from branch: " FROM_BRANCH
+read -p "Issue number to attach pull request to: " ISSUE
+
+read -p "Submit pull request? (y/n) "
+
+if [[ $REPLY =~ ^[Yy]  ]]
+then
+	curl \
+		--request POST \
+		--header "Content-Type: application/json" \
+		--user "$USERNAME:$PASSWORD" \
+		--data-urlencode "{\"issue\":\"$ISSUE\",\"head\":\"$FROM_USER:$FROM_BRANCH\",\"base\":\"$TO_BRANCH\"}" \
+		"https://api.github.com/repos/$TO_USER/$TO_REPO/pulls" \
+fi
