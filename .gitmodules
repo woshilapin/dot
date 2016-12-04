@@ -18,10 +18,6 @@
 	path = vim/bundle/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
 	branch = master
-[submodule "vim/bundle/vim-autotags"]
-	path = vim/bundle/vim-autotags
-	url = https://github.com/basilgor/vim-autotags.git
-	branch = master
 [submodule "zsh/oh-my-zsh"]
 	path = zsh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
@@ -29,10 +25,6 @@
 [submodule "vim/bundle/vim-gnupg"]
 	path = vim/bundle/vim-gnupg
 	url = https://github.com/jamessan/vim-gnupg.git
-	branch = master
-[submodule "vim/bundle/riv"]
-	path = vim/bundle/riv
-	url = https://github.com/Rykka/riv.vim
 	branch = master
 [submodule "vim/bundle/vim-asciidoc"]
 	path = vim/bundle/vim-asciidoc
@@ -57,14 +49,6 @@
 [submodule "vim/bundle/vim-characterize"]
 	path = vim/bundle/vim-characterize
 	url = https://github.com/tpope/vim-characterize.git
-	branch = master
-[submodule "vim/bundle/clickable"]
-	path = vim/bundle/clickable
-	url = https://github.com/Rykka/clickable.vim.git
-	branch = master
-[submodule "vim/bundle/os"]
-	path = vim/bundle/os
-	url = https://github.com/Rykka/os.vim.git
 	branch = master
 [submodule "irssi/scripts/scripts.irssi.org"]
 	path = irssi/scripts/scripts.irssi.org
