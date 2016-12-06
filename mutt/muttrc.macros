@@ -1,8 +1,9 @@
 # Change between accounts
 macro index,pager <F1> '<sync-mailbox><enter-command>source $my_source_simard_jean<enter><change-folder>!<enter>' "Go to simard.jean mailbox"
 macro index,pager <F2> '<sync-mailbox><enter-command>source $my_source_woshilapin<enter><change-folder>!<enter>' "Go to woshilapin mailbox"
-macro index,pager <F3> '<sync-mailbox><enter-command>source $my_source_simard_jean_travail<enter><change-folder>!<enter>' "Go to simard.jean.travail mailbox"
-macro index,pager <F4> '<sync-mailbox><enter-command>source $my_source_lapin_chinois<enter><change-folder>!<enter>' "Go to lapin.chinois mailbox"
+macro index,pager <F3> '<sync-mailbox><enter-command>source $my_source_hubware<enter><change-folder>!<enter>' "Go to Hubware mailbox"
+macro index,pager <F4> '<sync-mailbox><enter-command>source $my_source_simard_jean_travail<enter><change-folder>!<enter>' "Go to simard.jean.travail mailbox"
+# macro index,pager <F5> '<sync-mailbox><enter-command>source $my_source_lapin_chinois<enter><change-folder>!<enter>' "Go to lapin.chinois mailbox"
 # macro index,pager <F5> '<sync-mailbox><enter-command>source $my_source_xwiki<enter><change-folder>!<enter>' "Go to XWiki mailbox"
 
 # Replace the delete function in order to move to Trash directory

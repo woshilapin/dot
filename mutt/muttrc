@@ -1,13 +1,15 @@
 set my_mutt="~/.mutt"
 set my_source_simard_jean="gpg2 -dq $my_mutt/accounts/muttrc.simard.jean.gpg |"
 set my_source_woshilapin="gpg2 -dq $my_mutt/accounts/muttrc.woshilapin.gpg |"
+set my_source_hubware="gpg2 -dq $my_mutt/accounts/muttrc.hubwa.re.gpg |"
 set my_source_simard_jean_travail="gpg2 -dq $my_mutt/accounts/muttrc.simard.jean.travail.gpg |"
 set my_source_lapin_chinois="gpg2 -dq $my_mutt/accounts/muttrc.lapin.chinois.gpg |"
 # set my_source_xwiki= "gpg2 -dq $my_mutt/accounts/muttrc.xwiki.gpg |"
 folder-hook "simard.jean@gmail.com" 'source $my_source_simard_jean'
 folder-hook "woshilapin@gmail.com" 'source $my_source_woshilapin'
+folder-hook "jean@hubwa.re" 'source $my_source_hubware'
 folder-hook "simard.jean.travail@gmail.com" 'source $my_source_simard_jean_travail'
-folder-hook "lapin.chinois@gmail.com" 'source $my_source_lapin_chinois'
+# folder-hook "lapin.chinois@gmail.com" 'source $my_source_lapin_chinois'
 # folder-hook "jean.simard@xwiki.com" 'source $my_source_xwiki'
 source $my_source_simard_jean
 
