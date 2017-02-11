@@ -1,0 +1,14 @@
+postgres:
+    image: postgres:9.6
+    environment:
+        POSTGRES_DB: 'freshrss'
+        POSTGRES_USER: 'freshrss'
+        POSTGRES_PASSWORD: 'freshrss'
+
+freshrss:
+    build: freshrss
+    restart: always
+    links:
+        - postgres
+    ports:
+        - "127.0.0.1:8889:80"
