@@ -22,5 +22,4 @@ RUN docker-php-ext-install pdo_pgsql pgsql
 RUN wget -O /var/www/freshrss.zip https://github.com/FreshRSS/FreshRSS/archive/1.6.2.zip
 RUN unzip -d /var/www/ /var/www/freshrss.zip
 RUN mv /var/www/FreshRSS* /var/www/freshrss
-RUN chown -R www-data:www-data /var/www/freshrss/data
-
+RUN chown -R www-data:www-data /var/www/freshrss
