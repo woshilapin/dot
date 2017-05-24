@@ -1,7 +1,7 @@
 # ~/.tmuxinator/default.yml
 
 name: hubware
-root: ~/Projects/hubware
+root: ~/Projects/hubware/hubware-app
 
 # Optional tmux socket
 # socket_name: foo
@@ -31,5 +31,5 @@ windows:
     - default:
         layout: main-horizontal
         panes:
-            - clear;
+            - vim -c "NERDTree"
             - clear;
