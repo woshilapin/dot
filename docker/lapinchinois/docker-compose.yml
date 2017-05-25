@@ -1,7 +1,7 @@
 version: '2'
 services:
     lapinchinois:
-        image: ghost:0.11.7
+        image: ghost:0.11.8
         restart: always
         environment:
             NODE_ENV: production
