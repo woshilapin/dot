@@ -31,3 +31,7 @@ Here is the configuration used to build `vim`.
 	--enable-acl \
 	--enable-nls
 ```
+
+Then build and install it
+
+    make && sudo make install
