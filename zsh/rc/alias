@@ -18,7 +18,13 @@ alias lla="ll -a"
 alias less=$PAGER
 alias zless=$PAGER
 alias vless=/opt/local/share/vim/vim73/macros/less.sh
-alias grep="grep --color=auto"
+GREP="grep"
+if [ "$( command -v egrep )" != '' ] 
+then
+	GREP="egrep"
+fi
+alias grep="${GREP} --color=auto"
+alias sed="sed -E"
 alias bc="bc -ql"
 alias moc="mocp"
 if [ "$( command -v tree )" = '' ] 
