@@ -119,3 +119,6 @@ alias xmlformat="xmllint --format"
 alias dicte="dict -d gcide"
 alias dictef="dict -d fd-eng-fra"
 alias dictfe="dict -d fd-fra-eng"
+
+# TaskWarrior
+alias tin="task add +inbox"
