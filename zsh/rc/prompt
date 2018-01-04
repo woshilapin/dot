@@ -25,7 +25,23 @@ ZSH_THEME_GIT_PROMPT_DIRTY="$FG[202]+%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="$FG[255]>%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_AHEAD="$FG[202]*%{$reset_color%}"
 
-PROMPT='$BG[232]$FG[244]--- $BG[233]%n@%m [%D{%d/%m/%y}-%*]$BG[232] ---%{$reset_color%}
+# TaskWarrior
+task_pending() {
+	PENDING_TASK=$( task +in +PENDING count )
+	case ${PENDING_TASK} in
+		1)
+			echo "${PENDING_TASK} task in inbox"
+			;;
+		[1-9]*)
+			echo "${PENDING_TASK} tasks in inbox"
+			;;
+		*)
+			;;
+	esac
+}
+
+PROMPT='$BG[232]$FG[244]--- $BG[233]%n@%m [%D{%d/%m/%y}-%*]$BG[232] ---%{$reset_color%} \
+%{$fg[yellow]$(task_pending)%}%{$reset_color%}
 $FG[105]%~/\
 $FG[255]%(!.#.>)%{$reset_color%} '
 PROMPT2='%{$fg[yellow]%}%_> %{$reset_color%}'
