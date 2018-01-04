@@ -27,7 +27,7 @@ ZSH_THEME_GIT_PROMPT_AHEAD="$FG[202]*%{$reset_color%}"
 
 # TaskWarrior
 task_pending() {
-	PENDING_TASK=$( task +in +PENDING count )
+	PENDING_TASK=$( task +inbox +PENDING count )
 	case ${PENDING_TASK} in
 		1)
 			echo "${PENDING_TASK} task in inbox"
