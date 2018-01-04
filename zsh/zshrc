@@ -58,9 +58,10 @@ zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %
 zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*' substitute 1
 zstyle ':completion:*' verbose true
-zstyle :compinstall filename '/Users/lapin/.zshrc'
+zstyle :compinstall filename '${HOME}/.zshrc'
 
-autoload -U compinit && compinit
+
+autoload -Uz compinit && compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zshhist
