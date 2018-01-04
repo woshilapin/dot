@@ -248,3 +248,7 @@ report.inbox.columns = id,description
 report.inbox.description = Inbox
 report.inbox.filter = status:pending limit:page (+inbox)
 report.inbox.labels = ID,Description
+
+context.work=+@work or +@computer or +@online
+context.home=-@work and ( +@home or +@online )
+context.out=-@work or -@computer
