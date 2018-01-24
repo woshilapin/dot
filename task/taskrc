@@ -180,7 +180,7 @@ report.next.columns=id,project,priority,due,description
 report.next.description=Lists the most urgent tasks
 report.next.filter=status:pending limit:page depends.none: -later
 report.next.labels=ID,Project,Pri,Due,Description
-report.next.sort=priority-,due+,project+,description+
+report.next.sort=urgency-,due+,priority-,project+,description+
 # report.oldest.columns           id,project,priority,due,active,age,description
 # report.oldest.description       Shows the oldest tasks
 # report.oldest.filter            status:pending limit:10
