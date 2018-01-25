@@ -176,10 +176,10 @@ report.ls.sort=due+,priority-,project-,description+
 # report.newest.filter            status:pending limit:10
 # report.newest.labels            ID,Project,Pri,Due,Active,Age,Description
 # report.newest.sort              id-
-report.next.columns=id,project,priority,due,description
+report.next.columns=id,project,priority,due,description,urgency
 report.next.description=Lists the most urgent tasks
 report.next.filter=status:pending limit:page depends.none: -later
-report.next.labels=ID,Project,Pri,Due,Description
+report.next.labels=ID,Project,Pri,Due,Description,Urgency
 report.next.sort=urgency-,due+,priority-,project+,description+
 # report.oldest.columns           id,project,priority,due,active,age,description
 # report.oldest.description       Shows the oldest tasks
@@ -257,3 +257,4 @@ report.later.labels = ID,Description,Project
 
 context.work=-@home and ( +@work or +@computer or +@online )
 context.home=-@work and ( +@home or +@online )
+context=work
