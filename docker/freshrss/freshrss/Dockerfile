@@ -1,7 +1,7 @@
-# VERSION 1.9.0
+# VERSION 1.10.0
 FROM php:5.6-apache
 MAINTAINER woshilapin "woshilapin@tuziwo.info"
-LABEL version="1.9.0"
+LABEL version="1.10.0"
 
 # Install 'wget' and 'unzip' needed to download and extract Baikal sources
 RUN DEBIAN_FRONTEND=noninteractive apt update -y && \
@@ -19,7 +19,7 @@ RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql
 RUN docker-php-ext-install pdo_pgsql pgsql
 
 # Install FreshRSS
-RUN wget -O /var/www/freshrss.zip https://github.com/FreshRSS/FreshRSS/archive/1.9.0.zip
+RUN wget -O /var/www/freshrss.zip https://github.com/FreshRSS/FreshRSS/archive/1.10.0.zip
 RUN unzip -d /var/www/ /var/www/freshrss.zip
 RUN mv /var/www/FreshRSS* /var/www/freshrss
 RUN chown -R www-data:www-data /var/www/freshrss

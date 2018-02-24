@@ -9,7 +9,7 @@ services:
 
     freshrss:
         build: freshrss
-        image: freshrss:1.9.0
+        image: freshrss:1.10.0
         restart: always
         links:
             - postgres
