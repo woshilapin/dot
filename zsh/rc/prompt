@@ -27,17 +27,20 @@ ZSH_THEME_GIT_PROMPT_AHEAD="$FG[202]*%{$reset_color%}"
 
 # TaskWarrior
 task_pending() {
-	PENDING_TASK=$( task +inbox +PENDING count )
-	case ${PENDING_TASK} in
-		1)
-			echo "${PENDING_TASK} task in inbox"
-			;;
-		[1-9]*)
-			echo "${PENDING_TASK} tasks in inbox"
-			;;
-		*)
-			;;
-	esac
+	if command -v task
+	then
+		PENDING_TASK=$( task +inbox +PENDING count )
+		case ${PENDING_TASK} in
+			1)
+				echo "${PENDING_TASK} task in inbox"
+				;;
+			[1-9]*)
+				echo "${PENDING_TASK} tasks in inbox"
+				;;
+			*)
+				;;
+		esac
+	fi
 }
 
 PROMPT='$BG[232]$FG[244]--- $BG[233]%n@%m [%D{%d/%m/%y}-%*]$BG[232] ---%{$reset_color%} \
