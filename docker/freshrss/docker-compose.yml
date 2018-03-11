@@ -8,14 +8,16 @@ services:
             POSTGRES_PASSWORD: 'freshrss'
 
     freshrss:
-        build: freshrss
-        image: freshrss:1.10.0
+        image: freshrss/freshrss:1.10.2
         restart: always
         links:
             - postgres
         volumes:
             - type: 'bind'
+              source: './freshrss-data'
+              target: '/var/www/FreshRSS/data'
+            - type: 'bind'
               source: './freshrss-extensions'
-              target: '/var/www/freshrss/extensions'
+              target: '/var/www/FreshRSS/extensions'
         ports:
             - "127.0.0.1:8889:80"
