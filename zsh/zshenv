@@ -47,6 +47,12 @@ then
 			break
 		fi
 	done
+elif [ $UNAME = 'Darwin' ]
+then
+	# Use '/usr/libexec/java_home -V' to determine available versions
+	# Edit file '.java_version' to change your current version
+	# If version is '1.8.0_144', you can put only '1.8.0' or '1.8'
+	export JAVA_HOME=$( /usr/libexec/java_home -v $( cat ~/.java_version ) )
 fi
 PULSE_LATENCY_MSEC=60
 
