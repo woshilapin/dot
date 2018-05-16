@@ -122,3 +122,33 @@ alias dictfe="dict -d fd-fra-eng"
 
 # TaskWarrior
 alias tin="task add +inbox"
+
+# Java
+function default-java-version() {
+	JAVA_VERSION=$1
+	if [[ -z "$1" || "$1" == "-h" || "$1" == "--help" ]]
+	then
+		echo """Usage: default-java-version [-h] <version>
+
+Arguments:
+\t-h | --help	Get this help message"""
+		if [[ "$1" == "-h" || "$1" == "--help" ]]
+		then
+			return 0;
+		else
+			return 1
+		fi
+	fi
+	if [ $UNAME = 'Darwin' ]
+	then
+		if /usr/libexec/java_home -V 2>&1 | grep "${JAVA_VERSION}" > /dev/null
+		then
+			echo "${JAVA_VERSION}" > ~/.java_version
+			source ~/.zshenv
+			echo "\e[32mDefault Java version is now ${JAVA_VERSION}\e[m"
+		else
+			echo "\e[0;31mERROR: Please choose a version among the available\e[m"
+			/usr/libexec/java_home -V
+		fi
+	fi
+}
