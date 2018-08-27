@@ -4,6 +4,7 @@ docker
 git
 gnuplot
 irssi
+java_version
 latexmkrc
 mutt
 mvn
