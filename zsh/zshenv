@@ -36,6 +36,7 @@ export PAGER=/usr/bin/less
 declare -x TEXINPUTS=.:$HOME/.texmf:
 # For java
 JAVA_HOME_LIST=/usr/lib/jvm/java-6-sun:/usr/lib/jvm/default-java
+MAVEN_OPTS="--active-profiles SECURITY --define http.proxyHost=proxy3.us.dominos.com --define http.proxyPort=8080 --define https.proxyHost=proxy3.us.dominos.com --define https.proxyPort=8080 --define http.nonProxyHosts=localhost\|*.us.dominos.com\|*.dominos.com --define java.awt.headless=true"
 # Select the first available directory for JAVA_HOME
 if [ $UNAME = 'Linux' ]
 then
