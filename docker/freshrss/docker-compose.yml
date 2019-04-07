@@ -8,7 +8,7 @@ services:
             POSTGRES_PASSWORD: 'freshrss'
 
     freshrss:
-        image: freshrss/freshrss:1.10.2
+        image: freshrss/freshrss:1.14.0
         restart: always
         links:
             - postgres
