@@ -8,13 +8,14 @@ vim configuration files
 Here is the configuration used to build `vim`.
 
 ```
+git clone https://github.com/vim/vim.git
+cd vim/
 ./configure \
+	--prefix=/usr
 	--disable-gui \
-	--disable-gtk-check \
 	--disable-motif-check \
 	--disable-athena-check \
 	--disable-gtk2-check \
-	--disable-kde-check \
 	--with-features=huge \
 	--enable-mzschemeinterp=yes \
 	--enable-luainterp=yes \
@@ -30,8 +31,6 @@ Here is the configuration used to build `vim`.
 	--enable-largefile \
 	--enable-acl \
 	--enable-nls
+make
+sudo make install
 ```
-
-Then build and install it
-
-    make && sudo make install
