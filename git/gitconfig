@@ -1,6 +1,6 @@
 [alias]
 	ls = ls-files -v --cached
-	lg = log --pretty=oneline --abbrev-commit --graph
+	lg = log --graph --pretty=format:'%C(red)%h%C(reset) %C(bold blue)<%an>%C(reset) %s %C(green)%cd%C(reset)%C(yellow)%d%C(reset)' --date=relative
 	df = diff
 	patch = diff -p --src-prefix '' --dst-prefix '' --relative -- 
 [core]
@@ -22,6 +22,8 @@
 	ff = true
 [mergetool]
 	keepBackup = false
+[pull]
+	rebase = preserve
 [push]
 	default = matching
 [user]
