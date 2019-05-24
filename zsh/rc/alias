@@ -15,6 +15,7 @@ fi
 alias ll="ls -lh"
 alias la="ls -ha"
 alias lla="ll -a"
+alias vi=vim
 alias less=$PAGER
 alias zless=$PAGER
 alias vless=/opt/local/share/vim/vim73/macros/less.sh

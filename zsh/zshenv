@@ -30,13 +30,8 @@ export TRASH_DIR
 export LANG=fr_FR.UTF-8
 export LANGUAGE=fr_FR:fr:en_US:en_GB:en
 unset LC_ALL
-if [ $UNAME = 'Darwin' ]
-then
-	export EDITOR=/opt/local/bin/vim
-else
-	export EDITOR=/usr/bin/vim
-fi
-export PAGER=/usr/bin/less
+export EDITOR=vim
+export PAGER=less
 declare -x TEXINPUTS=.:$HOME/.texmf:
 # For java
 JAVA_HOME_LIST=/usr/lib/jvm/java-6-sun:/usr/lib/jvm/default-java
