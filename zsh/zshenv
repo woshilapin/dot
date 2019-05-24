@@ -3,16 +3,20 @@
 UNAME=`uname`
 if [ $UNAME = "Linux" ]
 then
-	PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
+	export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
 elif [ $UNAME = "Darwin" ]
 then
-	PATH=/opt/local/bin:/opt/local/sbin:$PATH
-	LIBRARY_PATH=/opt/local/lib:$LIBRARY_PATH
+	export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+	export LIBRARY_PATH=/opt/local/lib:$LIBRARY_PATH
 fi
-PATH=~/.zsh/scripts:$PATH
-PATH=/opt/woshilapin/bin:$PATH
-export PATH
-export LIBRARY_PATH
+if [[ ! "$PATH" =~ '.zsh/scripts' ]]
+then
+	export PATH=~/.zsh/scripts:$PATH
+fi
+if [[ ! "$PATH" =~ '/opt/woshilapin/bin' ]]
+then
+	export PATH=/opt/woshilapin/bin:$PATH
+fi
 # TRASH initialisations
 if [ $UNAME = "Linux" ]
 then
@@ -60,7 +64,10 @@ PULSE_LATENCY_MSEC=60
 export MPD_HOST="${HOME}/.config/mpd/mpd.socket"
 export NVM_DIR="$HOME/.dot/nvm"
 [ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-export PATH="${HOME}/.cargo/bin:${PATH}"
+if [[ ! "$PATH" =~ '.cargo/bin' ]]
+then
+	export PATH="${HOME}/.cargo/bin:${PATH}"
+fi
 
 # Disable automatic titles (useful for correct naming of tmux tabs with tmuxinator)
 export DISABLE_AUTO_TITLE=true
