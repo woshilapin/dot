@@ -80,3 +80,14 @@ fi
 if [[ ! "$SSH_AUTH_SOCK" ]]; then
     eval "$(<~/.ssh-agent-pid)"
 fi
+
+# Pyenv
+if [[ ! "$PYENV_ROOT" ]]
+then
+	export PYENV_ROOT="$HOME/.pyenv"
+	export PATH="$PYENV/bin:$PATH"
+	if command -v pyenv 1>/dev/null 2>&1
+	then
+		eval "$(pyenv init -)"
+	fi
+fi
