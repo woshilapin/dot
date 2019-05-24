@@ -77,7 +77,8 @@ BASE16_SHELL="/home/woshilapin/.local/share/base16-manager/chriskempson/base16-s
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     ssh-agent > ~/.ssh-agent-pid
 fi
-if [[ ! "$SSH_AUTH_SOCK" ]]; then
+if [[ ! "$SSH_AUTH_SOCK" ]]
+then
     eval "$(<~/.ssh-agent-pid)"
 fi
 
