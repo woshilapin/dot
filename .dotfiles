@@ -12,6 +12,7 @@ ncmpcpp
 nvm
 octaverc
 pyenv
+pyenv-virtualenv .pyenv/plugins/pyenv-virtualenv
 task
 tmux
 tmuxinator
