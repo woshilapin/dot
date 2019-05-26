@@ -34,3 +34,18 @@ cd vim/
 make
 sudo make install
 ```
+
+# Configuration for Rust
+For Rust auto-compilation and auto-completion to work, you'll need a few
+extra-component to install.
+
+## Auto-completion
+Auto-completion is achieved through the `asyncomplete` vim plugin. However, it
+also needs [Racer](https://github.com/racer-rust/racer) to be installed.
+
+## Auto-compilation
+Auto-compilation is achieved thanks to the LSP protocol.
+[`vim-lsp`](https://github.com/prabirshrestha/vim-lsp) is the Vim plugin that is
+capable of reading LSP protocol. However, you might need to install a few Rust
+component for it (see
+[documentation](https://github.com/prabirshrestha/vim-lsp/wiki/Servers-Rust)).

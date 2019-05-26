@@ -10,19 +10,17 @@ setlocal softtabstop=0
 setlocal expandtab
 setlocal list
 compiler cargo
-map <F5> <Esc>:make check<Enter>
-map <F6> <Esc>:make test<Enter>
+map <F5> <Esc>:make check --all-features<Enter>
+map <F6> <Esc>:make test --all-features<Enter>
 
-""" Setup Rust, based on https://unexpectedeof.net/rust-vim.html
-" Deactivate Syntactic (vim-lsp should do the job instead)
-let g:syntastic_rust_checkers = ['cargo']
+let g:syntastic_rust_checkers = []
 let g:autofmt_autosave = 1
 
 if executable('rls')
 	au User lsp_setup call lsp#register_server({
 				\ 'name': 'rls',
-				\ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls', '--all-features']},
-				\ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
+				\ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+				\ 'workspace_config': {'rust': {'all_features': 'true', 'clippy_preference': 'on'}},
 				\ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'Cargo.toml'))},
 				\ 'whitelist': ['rust']
 				\ })
