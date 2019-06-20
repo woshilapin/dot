@@ -471,6 +471,6 @@ inoremap <silent><expr> <TAB>
 	\ asyncomplete#force_refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-noremap <expr> gd lsp#ui#vim#definition()
+noremap gd :LspDefinition<Enter>
 
 " End of woshilapin's .vimrc
