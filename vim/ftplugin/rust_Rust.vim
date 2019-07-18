@@ -10,8 +10,8 @@ setlocal softtabstop=0
 setlocal expandtab
 setlocal list
 compiler cargo
-map <F5> <Esc>:make check --all-features<Enter>
-map <F6> <Esc>:make test --all-features<Enter>
+noremap <F5> <Esc>:Cargo check --all-features<Enter>
+noremap <F6> <Esc>:Cargo test --all-features<Enter>
 
 let g:syntastic_rust_checkers = []
 let g:autofmt_autosave = 1
