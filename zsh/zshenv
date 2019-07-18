@@ -1,27 +1,27 @@
 #!/bin/zsh
 # PATH initialisations
 UNAME=`uname`
-if [ $UNAME = "Linux" ]
+if [ ${UNAME} = "Linux" ]
 then
-	export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
-elif [ $UNAME = "Darwin" ]
+	export PATH=${PATH}:/usr/local/sbin:/usr/sbin:/sbin
+elif [ ${UNAME} = "Darwin" ]
 then
-	export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-	export LIBRARY_PATH=/opt/local/lib:$LIBRARY_PATH
+	export PATH=/opt/local/bin:/opt/local/sbin:${PATH}
+	export LIBRARY_PATH=/opt/local/lib:${LIBRARY_PATH}
 fi
-if [[ ! "$PATH" =~ '.zsh/scripts' ]]
+if [[ ! "${PATH}" =~ '.zsh/scripts' ]]
 then
-	export PATH=~/.zsh/scripts:$PATH
+	export PATH=~/.zsh/scripts:${PATH}
 fi
-if [[ ! "$PATH" =~ '/opt/woshilapin/bin' ]]
+if [[ ! "${PATH}" =~ '/opt/woshilapin/bin' ]]
 then
-	export PATH=/opt/woshilapin/bin:$PATH
+	export PATH=/opt/woshilapin/bin:${PATH}
 fi
 # TRASH initialisations
-if [ $UNAME = "Linux" ]
+if [ ${UNAME} = "Linux" ]
 then
 	TRASH_DIR=~/.trash ;
-elif [ $UNAME = "Darwin" ]
+elif [ ${UNAME} = "Darwin" ]
 then
 	TRASH_DIR=~/.Trash ;
 fi
@@ -32,22 +32,22 @@ export LANGUAGE=fr_FR:fr:en_US:en_GB:en
 unset LC_ALL
 export EDITOR=vim
 export PAGER=less
-declare -x TEXINPUTS=.:$HOME/.texmf:
+declare -x TEXINPUTS=.:${HOME}/.texmf:
 # For java
 JAVA_HOME_LIST=/usr/lib/jvm/java-6-sun:/usr/lib/jvm/default-java
 MAVEN_OPTS="--active-profiles SECURITY --define http.proxyHost=proxy3.us.dominos.com --define http.proxyPort=8080 --define https.proxyHost=proxy3.us.dominos.com --define https.proxyPort=8080 --define http.nonProxyHosts=localhost\|*.us.dominos.com\|*.dominos.com --define java.awt.headless=true"
 # Select the first available directory for JAVA_HOME
-if [ $UNAME = 'Linux' ]
+if [ ${UNAME} = 'Linux' ]
 then
-	for dir in `echo $JAVA_HOME_LIST | sed 's/:/ /g'`                                                                                                                   
+	for dir in `echo ${JAVA_HOME_LIST} | sed 's/:/ /g'`                                                                                                                   
 	do
-		if test -d $dir
+		if test -d ${dir}
 		then
-			export JAVA_HOME=$dir
+			export JAVA_HOME=${dir}
 			break
 		fi
 	done
-elif [ $UNAME = 'Darwin' ]
+elif [ ${UNAME} = 'Darwin' ]
 then
 	# Use '/usr/libexec/java_home -V' to determine available versions
 	# Edit file '.java_version' to change your current version
@@ -57,9 +57,9 @@ fi
 PULSE_LATENCY_MSEC=60
 
 export MPD_HOST="${HOME}/.config/mpd/mpd.socket"
-export NVM_DIR="$HOME/.dot/nvm"
-[ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-if [[ ! "$PATH" =~ '.cargo/bin' ]]
+export NVM_DIR="${HOME}/.dot/nvm"
+[ -s "${NVM_DIR}/nvm.sh"  ] && \. "${NVM_DIR}/nvm.sh"  # This loads nvm
+if [[ ! "${PATH}" =~ '.cargo/bin' ]]
 then
 	export PATH="${HOME}/.cargo/bin:${PATH}"
 fi
@@ -83,9 +83,9 @@ then
 fi
 
 # Pyenv
-if [[ ! "$PYENV_ROOT" ]]
+if [[ ! "${PYENV_ROOT}" ]]
 then
-	export PYENV_ROOT="$HOME/.pyenv"
+	export PYENV_ROOT="${HOME}/.pyenv"
 	if command -v pyenv 1>/dev/null 2>&1
 	then
 		eval "$(pyenv init -)"

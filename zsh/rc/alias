@@ -1,10 +1,10 @@
 #!/bin/zsh
 alias rm="rm -v"
-if [ $UNAME = "Darwin" ]
+if [ ${UNAME} = "Darwin" ]
 then
 	alias ls="ls -GFT" ;
 	alias cp="cp -H" ;
-elif [ $UNAME = "Linux" ]
+elif [ ${UNAME} = "Linux" ]
 then
 	alias ls="ls -F --color=auto" ;
 	alias cp="cp --dereference" ;
@@ -16,8 +16,8 @@ alias ll="ls -lh"
 alias la="ls -ha"
 alias lla="ll -a"
 alias vi=vim
-alias less=$PAGER
-alias zless=$PAGER
+alias less=${PAGER}
+alias zless=${PAGER}
 alias vless=/opt/local/share/vim/vim73/macros/less.sh
 GREP="grep"
 if [ "$( command -v egrep )" != '' ] 
@@ -58,20 +58,20 @@ function concat-path() {
 	DIRNAME="$1"
 	BASENAME="$2"
 	EXTNAME="$3"
-	if [ $DIRNAME = "." ]
+	if [ ${DIRNAME} = "." ]
 	then
-		if [ -z $EXTNAME ]
+		if [ -z ${EXTNAME} ]
 		then
-			echo $BASENAME
+			echo ${BASENAME}
 		else
-			echo $BASENAME"."$EXTNAME
+			echo ${BASENAME}"."${EXTNAME}
 		fi
 	else
-		if [ -z $EXTNAME ]
+		if [ -z ${EXTNAME} ]
 		then
-			echo $DIRNAME"/"$BASENAME
+			echo ${DIRNAME}"/"${BASENAME}
 		else
-			echo $DIRNAME"/"$BASENAME"."$EXTNAME
+			echo ${DIRNAME}"/"${BASENAME}"."${EXTNAME}
 		fi
 	fi
 }
@@ -82,14 +82,14 @@ function insert-date() {
 		DIRNAME=`dirname $1`
 		FILENAME=`basename $1`
 		DATE="`date +%Y-%m-%d_%H-%M-%S`"
-		concat-path "$DIRNAME" "$FILENAME" "$DATE"
+		concat-path "${DIRNAME}" "${FILENAME}" "${DATE}"
 	else
 		DIRNAME=`dirname $1`
 		FILENAME=`basename $1`
 		BASE="${FILENAME%.[^.]*}"
 		EXT="${FILENAME:${#BASE}+1}"
-		OUTBASE="$BASE"."`date +%Y-%m-%d_%H-%M-%S`"
-		concat-path "$DIRNAME" "$OUTBASE" "$EXT"
+		OUTBASE="${BASE}"."`date +%Y-%m-%d_%H-%M-%S`"
+		concat-path "${DIRNAME}" "${OUTBASE}" "${EXT}"
 	fi
 	unset DIRNAME FILENAME BASE EXT OUTBASE
 }
@@ -99,8 +99,8 @@ function remove-date() {
 	FILENAME=`basename $1`
 	BASE="${FILENAME%.[^.]*}"
 	EXT="${FILENAME:${#BASE}+1}"
-	OUTBASE=`echo $BASE | sed 's/\.[0-9-]\{10\}_[0-9-]\{8\}$//g'`
-	concat-path "$DIRNAME" "$OUTBASE" "$EXT"
+	OUTBASE=`echo ${BASE} | sed 's/\.[0-9-]\{10\}_[0-9-]\{8\}$//g'`
+	concat-path "${DIRNAME}" "${OUTBASE}" "${EXT}"
 	unset DIRNAME FILENAME BASE EXT OUTBASE
 }
 
@@ -140,7 +140,7 @@ Arguments:
 			return 1
 		fi
 	fi
-	if [ $UNAME = 'Darwin' ]
+	if [ ${UNAME} = 'Darwin' ]
 	then
 		if /usr/libexec/java_home -V 2>&1 | grep "${JAVA_VERSION}" > /dev/null
 		then

@@ -20,18 +20,18 @@
 
 
 # Load the oh-my-zsh configuration
-ZSH=$HOME/.zsh/oh-my-zsh
+ZSH=${HOME}/.zsh/oh-my-zsh
 CASE_SENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 plugins=(adb bower brew cargo cp docker encode64 extract git gitignore git-extras git-flow gpg-agent macports mvn node npm nvm osx pass pip postgres python rsync rust systemd urltools taskwarrior tmux tmuxinator vagrant)
-source $ZSH/oh-my-zsh.sh
+source ${ZSH}/oh-my-zsh.sh
 
 # Load the external files
-for file in $HOME/.zsh/rc/* ;
+for file in ${HOME}/.zsh/rc/* ;
 do
-	source $file ;
+	source ${file} ;
 done
-fpath=(~/.zsh/completion $fpath)
+fpath=(~/.zsh/completion ${fpath})
 
 zstyle ':completion:*' add-space true
 zstyle ':completion:*' auto-description 'Complete with: %d'
