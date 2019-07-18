@@ -29,7 +29,9 @@
 	email = woshilapin@tuziwo.info
 	signingkey = 7D7767B4
 [diff]
+	algorithm = minimal
 	tool = vimdiff
+	wordRegex = .
 [color "diff"]
 	whitespace = green reverse
 [gpg]
