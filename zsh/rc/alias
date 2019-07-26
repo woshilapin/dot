@@ -12,9 +12,17 @@ else
 	alias ls="ls -F --color=auto" ;
 	alias cp="cp --dereference" ;
 fi
-alias ll="ls -lh"
-alias la="ls -ha"
-alias lla="ll -a"
+if [ "$( command -v exa )" = '' ]
+then
+	alias ll="ls -lh"
+	alias la="ls -ha"
+	alias lla="ll -a"
+else
+	alias ls="exa"
+	alias ll="exa --long"
+	alias la="exa --all"
+	alias lla="ll --all"
+fi
 alias vi=vim
 alias less=${PAGER}
 alias zless=${PAGER}
