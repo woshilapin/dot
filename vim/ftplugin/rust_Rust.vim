@@ -13,11 +13,15 @@ compiler cargo
 noremap <F5> <Esc>:Cargo check --all-features<Enter>
 noremap <F6> <Esc>:Cargo test --all-features<Enter>
 
+if has("autocmd")
+	autocmd BufWritePre <buffer> call rustfmt#Format()
+endif
+
 let g:syntastic_rust_checkers = []
 let g:autofmt_autosave = 1
 
 if executable('rls')
-	au User lsp_setup call lsp#register_server({
+	autocmd User lsp_setup call lsp#register_server({
 				\ 'name': 'rls',
 				\ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
 				\ 'workspace_config': {'rust': {'all_features': 'true', 'clippy_preference': 'on'}},

@@ -144,3 +144,6 @@
 [submodule "pyenv-virtualenv"]
 	path = pyenv-virtualenv
 	url = https://github.com/pyenv/pyenv-virtualenv.git
+[submodule "vim/bundle/vim-autoread"]
+	path = vim/bundle/vim-autoread
+	url = https://github.com/djoshea/vim-autoread

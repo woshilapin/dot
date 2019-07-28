@@ -68,6 +68,8 @@ nmap <Leader>mu :UndotreeToggle<Enter>
 set clipboard=unnamedplus,unnamed,autoselectplus,autoselect,html
 " Replace all occurences in a line by default
 set gdefault
+" Automatically read files when they have been changed on disk outside of Vim
+set autoread
 " Autosave the file on the call of some command (':quit', ':edit', ...)
 set autowriteall
 " normally don't automatically format `text' as it is typed, IE only do this
@@ -222,6 +224,13 @@ let g:git_branch_check_write=1
 " To have folding on XML files
 let g:xml_syntax_folding=1
 au FileType xml setlocal foldmethod=syntax
+
+" Improve the autoread functionality
+if has("autocmd")
+	autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime
+	autocmd FileChangedShellPost *
+				\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+endif
 
 " To come back to the last edited line
 if has("autocmd")
