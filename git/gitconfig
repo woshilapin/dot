@@ -5,7 +5,7 @@
 	patch = diff -p --src-prefix '' --dst-prefix '' --relative -- 
 [core]
 	editor = vim
-	excludesfile = /Users/lapin/.gitignore
+	excludesfile = ~/.gitignore
 	compression = -1
 [color]
 	diff = auto
