@@ -1,0 +1,10 @@
+set line-graphics = utf-8
+set tab-size = 4
+set truncation-delimiter = utf-8
+
+# blame-view
+set blame-view-line-number-display = yes
+
+# main-view
+set main-view-date-display = relative
+set main-view-id-display = yes
