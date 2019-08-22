@@ -482,4 +482,6 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 noremap gd :LspDefinition<Enter>
 
+source /usr/share/doc/fzf/examples/fzf.vim
+noremap <C-p> :GFiles<Enter>
 " End of woshilapin's .vimrc
