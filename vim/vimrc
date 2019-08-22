@@ -482,6 +482,10 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 noremap gd :LspDefinition<Enter>
 
-source /usr/share/doc/fzf/examples/fzf.vim
-noremap <C-p> :GFiles<Enter>
+if has("mac")
+	source /usr/local/Cellar/fzf/0.18.0/plugin/fzf.vim
+elseif has("unix")
+	source /usr/share/doc/fzf/examples/fzf.vim
+endif
+noremap <C-p> :Files .<Enter>
 " End of woshilapin's .vimrc
