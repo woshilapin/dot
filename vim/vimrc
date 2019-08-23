@@ -145,6 +145,7 @@ set infercase
 """" COLORS
 " Change the panel of colors to 256 (instead of 8)
 set t_Co=256
+set colorcolumn=81
 colorscheme base16-default-dark
 highlight NonText ctermfg=DarkGray
 highlight SpecialKey ctermfg=DarkGray
