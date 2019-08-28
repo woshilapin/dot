@@ -86,15 +86,15 @@ fi
 if [[ ! "${PYENV_ROOT}" ]]
 then
 	export PYENV_ROOT="${HOME}/.pyenv"
-	if command -v pyenv 1>/dev/null 2>&1
-	then
-		eval "$(pyenv init -)"
-		eval "$(pyenv virtualenv-init -)"
-	fi
 fi
 if [[ ! "${PATH}" =~ "${PYENV_ROOT}/bin" ]]
 then
 	export PATH="${PYENV_ROOT}/bin:${PATH}"
+fi
+if command -v pyenv 1>/dev/null 2>&1
+then
+	eval "$(pyenv init -)"
+	eval "$(pyenv virtualenv-init -)"
 fi
 
 export FZF_DEFAULT_OPTS="--reverse --border --inline-info --tabstop=4 --color=dark --preview='test -e {} && echo -n \"\033[1;34m\" && file --brief {} && echo -n \"\033[0m\" && head -$LINES {}'"
