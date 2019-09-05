@@ -75,4 +75,4 @@ bindkey -e
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 test -e "/usr/share/doc/fzf/examples/key-bindings.zsh" && source "/usr/share/doc/fzf/examples/key-bindings.zsh"
-
+test -e "/usr/local/Cellar/fzf/0.18.0/shell/key-bindings.zsh" && source "/usr/local/Cellar/fzf/0.18.0/shell/key-bindings.zsh"
