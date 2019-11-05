@@ -472,6 +472,7 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 noremap gd :LspDefinition<Enter>
 
+" For fzf plugin
 if has("mac")
 	source /usr/local/Cellar/fzf/0.18.0/plugin/fzf.vim
 elseif has("unix")
