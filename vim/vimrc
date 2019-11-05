@@ -92,7 +92,7 @@ set linebreak
 " Define the beginning of a breaking line
 set showbreak=>
 " Display the current mode and partially-typed commands in the status line:
-set showmode
+set noshowmode
 " Display the status line
 set laststatus=2
 " Display the current typing command
@@ -420,17 +420,6 @@ function! SyntasticCheckHook(errors)
 		let g:syntastic_loc_list_height = min([len(a:errors), 10])
 	endif
 endfunction
-
-" Configuration of Powerline plugin
-if has('python')
-	python from powerline.vim import setup as powerline_setup
-	python powerline_setup()
-	python del powerline_setup
-	set runtimepath+=/home/woshilapin/.virtualenvs/powerline-status/lib/python3.6/site-packages/powerline/bindings/vim
-	set laststatus=2 " Always display the statusline in all windows
-	set showtabline=2 " Always display the tabline, even if there is only one tab
-	set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
-endif
 
 " Configuration of CtrlP plugin
 let g:ctrlp_map = '<C-p>'
