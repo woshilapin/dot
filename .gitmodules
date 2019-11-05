@@ -123,18 +123,6 @@
 [submodule "vim/bundle/base16-vim"]
 	path = vim/bundle/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
-[submodule "vim/bundle/async.vim"]
-	path = vim/bundle/async.vim
-	url = https://github.com/prabirshrestha/async.vim.git
-[submodule "vim/bundle/asyncomplete.vim"]
-	path = vim/bundle/asyncomplete.vim
-	url = https://github.com/prabirshrestha/asyncomplete.vim.git
-[submodule "vim/bundle/vim-lsp.vim"]
-	path = vim/bundle/vim-lsp.vim
-	url = https://github.com/prabirshrestha/vim-lsp.git
-[submodule "vim/bundle/asyncomplete-lsp.vim"]
-	path = vim/bundle/asyncomplete-lsp.vim
-	url = https://github.com/prabirshrestha/asyncomplete-lsp.vim.git
 [submodule "pyenv"]
 	path = pyenv
 	url = https://github.com/pyenv/pyenv.git
