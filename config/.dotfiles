@@ -1,3 +1,4 @@
+bat .config/bat
 i3 .config/i3
 khal .config/khal
 khard .config/khard
