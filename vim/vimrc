@@ -440,7 +440,7 @@ nmap <silent> <C-l> :set hlsearch!<CR>{/function<CR>:set hlsearch!<CR>:nohlsearc
 
 " For fzf plugin
 if has("mac")
-	source /usr/local/Cellar/fzf/0.18.0/plugin/fzf.vim
+	source /usr/local/Cellar/fzf/0.20.0/plugin/fzf.vim
 elseif has("unix")
 	source /usr/share/doc/fzf/examples/fzf.vim
 endif
