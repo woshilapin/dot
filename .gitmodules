@@ -53,7 +53,7 @@
 [submodule "irssi/scripts/scripts.irssi.org"]
 	path = irssi/scripts/scripts.irssi.org
 	url = https://github.com/irssi/scripts.irssi.org.git
-	branch = gh-pages
+	branch = master
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
