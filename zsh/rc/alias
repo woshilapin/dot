@@ -164,4 +164,5 @@ Arguments:
 if [ "$( command -v bat )" != '' ] 
 then
 	alias cat="bat"
+	alias less="bat"
 fi
