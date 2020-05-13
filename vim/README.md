@@ -7,11 +7,14 @@ vim configuration files
 
 Here is the configuration used to build `vim`.
 
-```
-git clone https://github.com/vim/vim.git
+```bash
+# You can either `git clone` from official repository
+# git clone https://github.com/vim/vim.git
+# or get the last release from
+# https://github.com/vim/vim/releases
 cd vim/
 ./configure \
-	--prefix=/usr
+	--prefix=/usr \
 	--disable-gui \
 	--disable-motif-check \
 	--disable-athena-check \
