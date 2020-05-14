@@ -2,3 +2,4 @@ view/
 eclim/
 plugin/eclim.vim
 .netrwhist
+.netrwbook

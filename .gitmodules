@@ -2,14 +2,6 @@
 	path = vim/bundle/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
 	branch = master
-[submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-	branch = master
-[submodule "vim/bundle/undotree"]
-	path = vim/bundle/undotree
-	url = https://github.com/mbbill/undotree.git
-	branch = master
 [submodule "vim/bundle/vim-signature"]
 	path = vim/bundle/vim-signature
 	url = https://github.com/kshenoy/vim-signature.git

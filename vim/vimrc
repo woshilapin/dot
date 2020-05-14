@@ -18,9 +18,9 @@
 
 " Vim configuration file
 " Language: Vim (ft=vim)
-" Last Change: Mon 22 Oct 2012 (09:35)
-" Version: 0.1
-" Maintainer: woshilapin <woshilapin@gmail.com>
+" Last Change: Wed 13 May 2020 (17:43)
+" Version: 0.2
+" Maintainer: woshilapin <woshilapin@tuziwo.info>
 " License: This file is placed in the public domain.
 
 "" Activate the pathogen plugin to rule all other plugin
@@ -30,16 +30,18 @@ execute pathogen#infect()
 execute pathogen#helptags()
 
 "" Activer les différents greffons
-" Autoriser le chargement des greffons généraux
-set loadplugins
-" Activer la coloration syntaxique
-syntax on
-" Activer la détection des types de fichiers
-filetype on
-" Activer les greffons pour les types de fichier
-filetype plugin on
-" Activer les fichiers d'indentation
-filetype indent on
+if version >= 600
+	" Autoriser le chargement des greffons généraux
+	set loadplugins
+	" Activer la coloration syntaxique
+	syntax on
+	" Activer la détection des types de fichiers
+	filetype on
+	" Activer les greffons pour les types de fichier
+	filetype plugin on
+	" Activer les fichiers d'indentation
+	filetype indent on
+endif
 
 """" MAPPAGES
 "" Les préfixes de mappages
@@ -47,14 +49,6 @@ filetype indent on
 let mapleader="@"
 " Définition de la chaîne pour les mappages locaux
 let maplocalleader="="
-
-"" Définition de mappages
-" Afficher l'explorateur
-nmap <Leader>me :NERDTreeToggle<Enter>R
-" Afficher l'explorateur en précisant le répertoire racine
-nmap <Leader>mE :NERDTree 
-" Afficher l'explorateur
-nmap <Leader>mu :UndotreeToggle<Enter>
 
 """" OPTIONS
 " Set the mouse abilities in the terminal
@@ -165,6 +159,13 @@ set history=50
 " 100 lines of registers; including @10 in there should restrict input buffer
 " but it causes an error for me:
 set viminfo=!,%,/256,'256,r/mnt/zip,r/mnt/floppy,f0,h,\"100
+
+" Configuration of netrw
+let g:netrw_banner=0
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_liststyle=3
+let g:netrw_preview=1
+let g:netrw_winsize=25
 
 " * Keystrokes -- Moving Around
 
