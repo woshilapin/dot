@@ -34,10 +34,6 @@
 	path = vim/bundle/vim-jade
 	url = https://github.com/digitaltoad/vim-jade
 	branch = master
-[submodule "vim/bundle/vim-velocity"]
-	path = vim/bundle/vim-velocity
-	url = https://github.com/lepture/vim-velocity.git
-	branch = master
 [submodule "vim/bundle/vim-characterize"]
 	path = vim/bundle/vim-characterize
 	url = https://github.com/tpope/vim-characterize.git
@@ -66,10 +62,6 @@
 	path = docker/docker-cleanup-volumes
 	url = https://github.com/chadoe/docker-cleanup-volumes.git
 	branch = master
-[submodule "vim/bundle/tern"]
-	path = vim/bundle/tern
-	url = https://github.com/marijnh/tern_for_vim.git
-	branch = master
 [submodule "vim/bundle/rust.vim"]
 	path = vim/bundle/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
@@ -85,9 +77,6 @@
 [submodule "vim/bundle/vim-speeddating"]
 	path = vim/bundle/vim-speeddating
 	url = https://github.com/tpope/vim-speeddating.git
-[submodule "vim/bundle/auto-pairs"]
-	path = vim/bundle/auto-pairs
-	url = https://github.com/jiangmiao/auto-pairs.git
 [submodule "vim/bundle/vim-gitgutter"]
 	path = vim/bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
@@ -127,9 +116,6 @@
 [submodule "vim/bundle/fzf.vim"]
 	path = vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
-[submodule "vim/bundle/goyo.vim"]
-	path = vim/bundle/goyo.vim
-	url = https://github.com/junegunn/goyo.vim
 [submodule "vim/bundle/limelight.vim"]
 	path = vim/bundle/limelight.vim
 	url = https://github.com/junegunn/limelight.vim

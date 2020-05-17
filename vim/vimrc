@@ -93,6 +93,8 @@ set laststatus=2
 set showcmd
 " Print the current line and column number
 set ruler
+" Redraw window only when needed
+set lazyredraw
 " Display hidden characters
 set list
 " when using list, keep tabs at their full width and display `arrows':
@@ -139,8 +141,6 @@ set complete=.,w,b,t,k,s
 set infercase
 
 """" COLORS
-" Change the panel of colors to 256 (instead of 8)
-set t_Co=256
 set colorcolumn=81
 colorscheme base16-default-dark
 highlight NonText ctermfg=DarkGray
@@ -227,7 +227,9 @@ let g:git_branch_check_write=1
 
 " To have folding on XML files
 let g:xml_syntax_folding=1
-au FileType xml setlocal foldmethod=syntax
+if has("autocmd")
+	autocmd FileType xml setlocal foldmethod=syntax
+endif
 
 " Improve the autoread functionality
 if has("autocmd")
@@ -521,7 +523,7 @@ nmap <leader>f  <Plug>(coc-format-selected)
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  autocmd FileType typescript,json setlocal formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
