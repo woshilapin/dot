@@ -98,7 +98,7 @@ set lazyredraw
 " Display hidden characters
 set list
 " when using list, keep tabs at their full width and display `arrows':
-set listchars=space:·,eol:$,tab:>-,trail:·,extends:>,precedes:<
+set listchars=space:·,eol:$,tab:»·,trail:·,extends:>,precedes:<
 "" INDENTATION
 " use indents of 2 spaces, and have them copied down lines:
 " Size of the tabulation display
