@@ -68,7 +68,7 @@ set autoread
 set autowriteall
 " normally don't automatically format `text' as it is typed, IE only do this
 " with comments, at 79 characters:
-set formatoptions=
+set formatoptions=tcroqwan2mB1jp
 set textwidth=80
 " Have % bounce between angled brackets, as well as the other kinds:
 set matchpairs=(:),{:},[:],<:>
