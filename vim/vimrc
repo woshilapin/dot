@@ -59,7 +59,7 @@ let maplocalleader="="
 
 " Set the clipboard option to copy each selected and yanked text into the 
 " clipboard of the system
-set clipboard=unnamedplus,unnamed,autoselectplus,autoselect,html
+set clipboard=unnamedplus,unnamed
 " Replace all occurences in a line by default
 set gdefault
 " Automatically read files when they have been changed on disk outside of Vim
