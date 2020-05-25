@@ -116,6 +116,7 @@ function! s:rust_execute_test()
 	let cargo_arguments = "test --all-features"
 	let file_path = []
 	for segment in split(expand("%:p:r"), '/')
+		" Before 'src', discard every segment of the path
 		if segment == "src"
 			let cargo_arguments .= " --lib"
 			let state = FILE_SEARCH_STATE
@@ -123,7 +124,11 @@ function! s:rust_execute_test()
 			let cargo_arguments .= " --test " . expand("%:t:r")
 			break
 		elseif state == FILE_SEARCH_STATE
-			let file_path += [segment]
+			" Every segment of the path is now a module (folder or files) at the 
+			" exception of `lib.rs` and `main.rs`
+			if segment != "lib" && segment != "main"
+				let file_path += [segment]
+			endif
 		endif
 	endfor
 	let test_path = file_path + reverse(test_path)
