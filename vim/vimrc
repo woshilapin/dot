@@ -67,8 +67,8 @@ set autoread
 " Autosave the file on the call of some command (':quit', ':edit', ...)
 set autowriteall
 " normally don't automatically format `text' as it is typed, IE only do this
-" with comments, at 79 characters:
-set formatoptions=tcroqwan2mB1jp
+" with comments, at 79 characters: Leave the default and customize per filetype
+set formatoptions=tcq
 set textwidth=80
 " Have % bounce between angled brackets, as well as the other kinds:
 set matchpairs=(:),{:},[:],<:>
