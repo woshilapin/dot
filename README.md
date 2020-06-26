@@ -64,4 +64,4 @@ python3.7 ~/.dot/vim/bundle/YouCompleteMe/install.py --clangd-completer
 
 To update all submodules, use the following command.
 
-    git submodule foreach git pull origin master
+    git submodule update --rebase --remote
