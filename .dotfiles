@@ -3,6 +3,7 @@ chktexrc
 docker
 git
 gnuplot
+inputrc
 irssi
 java_version
 latexmkrc

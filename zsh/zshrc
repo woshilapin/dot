@@ -70,6 +70,7 @@ SAVEHIST=1000
 setopt appendhistory autocd extendedglob
 unsetopt beep nomatch
 bindkey -e
+set -o vi
 
 # End of lines configured by zsh-newuser-install
 
