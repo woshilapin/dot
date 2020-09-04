@@ -447,7 +447,7 @@ nmap <silent> <C-l> :set hlsearch!<CR>{/function<CR>:set hlsearch!<CR>:nohlsearc
 if has("mac")
 	source /usr/local/Cellar/fzf/0.20.0/plugin/fzf.vim
 elseif has("unix")
-	source /usr/share/doc/fzf/examples/fzf.vim
+	source ${HOME}/.vim/bundle/fzf/plugin/fzf.vim
 endif
 noremap <C-p> :Files .<Enter>
 
