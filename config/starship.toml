@@ -1,0 +1,16 @@
+[character]
+use_symbol_for_status = true
+
+[cmd_duration]
+min_time = 1_000
+show_milliseconds = true
+
+[docker_context]
+only_with_files = true
+disabled = false
+
+[memory_usage]
+disabled = false
+
+[time]
+disabled = false

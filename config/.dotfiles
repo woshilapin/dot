@@ -5,4 +5,5 @@ khard .config/khard
 mpd .config/mpd
 nvim .config/nvim
 powerline .config/powerline
+starship.toml .config/starship.toml
 systemd .config/systemd
