@@ -8,6 +8,7 @@ setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal softtabstop=0
 setlocal expandtab
+setlocal comments=sr:/*,mb:*,ex:*/,://!,:///,://
 setlocal list
 compiler cargo
 noremap <F5> <Esc>:Cargo check --all-features<Enter>
