@@ -4,12 +4,13 @@ endif
 let b:did_ftplugin = 1
 
 """" PARAMETERS
-setlocal tabstop=4
+setlocal comments=sr:/*,mb:*,ex:*/,://!,:///,://
+setlocal expandtab
+setlocal formatoptions=croqwanjp
+setlocal list
 setlocal shiftwidth=4
 setlocal softtabstop=0
-setlocal expandtab
-setlocal comments=sr:/*,mb:*,ex:*/,://!,:///,://
-setlocal list
+setlocal tabstop=4
 compiler cargo
 noremap <F5> <Esc>:Cargo check --all-features<Enter>
 noremap <F6> <Esc>:call <SID>rust_execute_test()<Enter>
