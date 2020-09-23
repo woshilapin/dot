@@ -142,9 +142,6 @@ set infercase
 
 """" COLORS
 set colorcolumn=81
-colorscheme base16-default-dark
-highlight NonText ctermfg=DarkGray
-highlight SpecialKey ctermfg=DarkGray
 
 " To highlight the column and line of the current cursor position
 highlight CursorLine term=reverse cterm=reverse
@@ -452,7 +449,7 @@ endif
 noremap <C-p> :Files .<Enter>
 
 " Coc
-let g:coc_global_extensions = ['coc-fzf-preview', 'coc-css', 'coc-highlight', 'coc-html', 'coc-json', 'coc-prettier', 'coc-python', 'coc-rust-analyzer', 'coc-xml', 'coc-yaml']
+let g:coc_global_extensions = ['coc-fzf-preview', 'coc-css', 'coc-explorer', 'coc-highlight', 'coc-html', 'coc-json', 'coc-markdownlint', 'coc-prettier', 'coc-python', 'coc-rust-analyzer', 'coc-xml', 'coc-yaml']
 " TextEdit might fail if hidden is not set.
 set hidden
 
