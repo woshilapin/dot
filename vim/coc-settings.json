@@ -1,2 +1,36 @@
 {
+  "diagnostic.refreshOnInsertMode": true,
+  "diagnostic.errorSign": "🔴",
+  "diagnostic.warningSign": "🟠",
+  "diagnostic.infoSign": "🟢",
+  "diagnostic.hintSign": "🔵",
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "coc.preferences.hoverTarget": "preview",
+  "coc.preferences.formatOnInsertLeave": true,
+  "coc.preferences.jumpCommand": "tabe",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "Markdown",
+    "json",
+    "javascript",
+    "javascriptreact",
+    "rust",
+    "typescript",
+    "typescriptreact",
+    "xml"
+  ],
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnTypeFiletypes": [
+    "css",
+    "markdown",
+    "Markdown",
+    "json",
+    "javascript",
+    "javascriptreact",
+    "rust",
+    "typescript",
+    "typescriptreact",
+    "xml"
+  ]
 }
