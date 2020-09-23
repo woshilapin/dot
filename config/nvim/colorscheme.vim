@@ -1,1 +1,1 @@
-colorscheme base16-default-dark
+colorscheme base16-gruvbox-dark-light
