@@ -132,3 +132,6 @@
 [submodule "vim/bundle/fzf"]
 	path = vim/bundle/fzf
 	url = https://github.com/junegunn/fzf
+[submodule "vim/bundle/vim-rust-syntax-ext"]
+	path = vim/bundle/vim-rust-syntax-ext
+	url = https://github.com/arzg/vim-rust-syntax-ext
