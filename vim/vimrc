@@ -452,6 +452,7 @@ endif
 noremap <C-p> :Files .<Enter>
 
 " Coc
+let g:coc_global_extensions = ['coc-fzf-preview', 'coc-css', 'coc-highlight', 'coc-html', 'coc-json', 'coc-prettier', 'coc-python', 'coc-rust-analyzer', 'coc-xml', 'coc-yaml']
 " TextEdit might fail if hidden is not set.
 set hidden
 
