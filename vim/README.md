@@ -51,21 +51,6 @@ should keep both [`fzf`] and [`fzf.vim`] in synchronization (same maintainer).
 [`fzf.vim`]: https://github.com/junegunn/fzf.vim
 [`fzf`]: https://github.com/junegunn/fzf
 
-# Configuration for Rust
-For Rust auto-compilation and auto-completion to work, you'll need a few
-extra-component to install.
-
-## Auto-completion
-Auto-completion is achieved through the `coc` vim plugin. However, it also needs
-[RLS] and [rust-analyzer] to be installed.
-
-Once this is done, you also need to install a few Coc extensions. Open Vim and
-type the following commands (needed only once).
-
-```vim
-:CocInstall coc-rust-analyzer
-:CocInstall coc-rls
-```
-
-[RLS]: https://github.com/rust-lang/rls
-[rust-analyzer]: https://github.com/rust-analyzer/rust-analyzer
+# Auto-completion
+Auto-completion is achieved through the `coc` vim plugin. NodeJS must be
+installed. Try `:CocUpdate` to see if all the extensions are installed.
