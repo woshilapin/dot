@@ -437,8 +437,6 @@ let g:javascript_plugin_jsdoc = 1
 let g:jsdoc_allow_input_prompt = 1
 let g:jsdoc_input_description = 1
 let g:jsdoc_additional_descriptions = 1
-" Look for the main function the cursor is currently in
-nmap <silent> <C-l> :set hlsearch!<CR>{/function<CR>:set hlsearch!<CR>:nohlsearch<CR><Plug>(jsdoc)
 
 " For fzf plugin
 if has("mac")
