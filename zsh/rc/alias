@@ -23,6 +23,12 @@ else
 	alias la="exa --all"
 	alias lla="ll --all"
 fi
+if [ "$( command -v eva )" = '' ]
+then
+	alias bc="bc -ql"
+else
+	alias bc="eva"
+fi
 alias vi=vim
 alias less=${PAGER}
 alias zless=${PAGER}
@@ -34,7 +40,6 @@ then
 fi
 alias grep="${GREP} --color=auto"
 alias sed="sed -E"
-alias bc="bc -ql"
 alias moc="mocp"
 if [ "$( command -v tree )" = '' ] 
 then
