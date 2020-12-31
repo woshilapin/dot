@@ -6,7 +6,6 @@
   "diagnostic.hintSign": "🔵",
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.hoverTarget": "preview",
-  "coc.preferences.formatOnInsertLeave": true,
   "coc.preferences.jumpCommand": "tabe",
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
