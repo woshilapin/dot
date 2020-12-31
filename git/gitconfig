@@ -7,6 +7,7 @@
 	editor = vim
 	excludesfile = ~/.gitignore
 	compression = -1
+	pager = delta
 [color]
 	diff = auto
 	branch = auto
@@ -15,6 +16,8 @@
 [i18n]
 	commitEncoding = UTF-8
 	logOutputEncoding = UTF-8
+[interactive]
+	diffFilter = delta --color-only
 [merge]
 	tool = vimdiff
 	verbosity = 2
@@ -30,6 +33,7 @@
 	signingkey = 7D7767B4
 [diff]
 	algorithm = minimal
+	colorMoved = default
 	tool = vimdiff
 	wordRegex = .
 [color "diff"]
@@ -40,3 +44,9 @@
 	gpgsign = true
 [github]
 	user = woshilapin
+[delta]
+	features = line-numbers side-by-side line-numbers decorations
+	line-numbers = true
+	side-by-side = false
+[pull]
+	rebase = true
