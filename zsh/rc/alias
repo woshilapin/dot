@@ -29,6 +29,12 @@ then
 else
 	alias bc="eva"
 fi
+if [ "$( command -v procs )" = '' ]
+then
+	alias top="top"
+else
+	alias top="procs"
+fi
 alias vi=vim
 alias less=${PAGER}
 alias zless=${PAGER}
