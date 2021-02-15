@@ -32,5 +32,6 @@
     "typescriptreact",
     "xml"
   ],
-  "python.jediEnabled": false
+  "python.jediEnabled": false,
+  "rust-analyzer.updates.channel": "nightly"
 }
