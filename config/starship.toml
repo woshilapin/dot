@@ -14,3 +14,14 @@ disabled = false
 
 [time]
 disabled = false
+
+[custom]
+
+[custom.tab]
+description = "The current tab in the tab terminal multiplexer"
+command = "tab --starship | cut --delimiter=' ' --fields=2"
+when = "tab --starship"
+shell = ["sh"]
+format = "[$symbol $output]($style) "
+style = "bold blue"
+symbol = "⍄"
