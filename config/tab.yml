@@ -1,0 +1,19 @@
+tab: home
+doc: "woshilapin's home"
+
+workspace:
+    - tab: fofil
+      doc: "the transit data converter"
+      dir: projects/woshilapin/fofil/
+    - tab: tartare
+      doc: "transit data orchestrator"
+      dir: projects/kisio/tartare/
+    - tab: tartare2
+      doc: "transit data orchestrator (next generation)"
+      dir: projects/kisio/tartare2/
+    - tab: tartare-tools
+      doc: "navitia transit data tools"
+      dir: projects/kisio/tartare-tools/
+    - tab: transit-model
+      doc: "navitia transit data converter"
+      dir: projects/kisio/transit_model/
