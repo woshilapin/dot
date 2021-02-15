@@ -1,0 +1,10 @@
+kak-lsp
+#####
+
+To install `kak-lsp`, it needs to be cloned and compiled.
+
+```sh
+git clone git@github.com:kak-lsp/kak-lsp.git
+cd kak-lsp/
+cargo install --locked --force --path .
+```
