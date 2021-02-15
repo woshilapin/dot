@@ -1,6 +1,8 @@
 alacritty .config/alacritty
 bat .config/bat
 i3 .config/i3
+kak .config/kak
+kak-lsp .config/kak-lsp
 khal .config/khal
 khard .config/khard
 mpd .config/mpd

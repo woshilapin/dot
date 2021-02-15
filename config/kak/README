@@ -1,0 +1,13 @@
+# Kakoune
+
+## Installation
+
+Kakoune can be installed from source with the following to support the latest
+functionalities. In particular, inlay hints are not included in latest releases.
+
+```sh
+git clone https://github.com/mawww/kakoune
+cd kakoune/src
+make
+sudo sh -c "PREFIX=/usr make install"
+```
