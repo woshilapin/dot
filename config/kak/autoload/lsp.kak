@@ -5,3 +5,5 @@ set-option global lsp_diagnostic_line_error_sign '🔴'
 set-option global lsp_diagnostic_line_warning_sign '🟠'
 
 lsp-inlay-diagnostics-enable global
+
+map -docstring 'lsp options' global user l ':enter-user-mode lsp<ret>'
