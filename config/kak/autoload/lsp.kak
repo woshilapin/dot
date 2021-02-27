@@ -7,5 +7,3 @@ set-option global lsp_diagnostic_line_warning_sign '🟠'
 lsp-inlay-diagnostics-enable global
 
 map -docstring 'lsp options' global user l ':enter-user-mode lsp<ret>'
-
-hook window BufWritePre .* lsp-formatting-sync

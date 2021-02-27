@@ -27,5 +27,5 @@ define-command -hidden -params 1 increment-number %{
         printf 'exec h"_/\d<ret><a-i>na%s1<esc>|bc<ret>\n' "$1"
     }
 }
-map global normal <c-a> ':increment-number +<ret>'
-map global normal <c-x> ':increment-number -<ret>'
+map global normal <c-a> ': increment-number +<ret>'
+map global normal <c-x> ': increment-number -<ret>'
