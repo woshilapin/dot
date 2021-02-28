@@ -136,5 +136,5 @@
 	path = vim/bundle/vim-rust-syntax-ext
 	url = https://github.com/arzg/vim-rust-syntax-ext
 [submodule "config/kak/autoload/fzf"]
-	path = config/kak/autoload/fzf
+	path = config/kak/plugins/fzf
 	url = https://github.com/andreyorst/fzf.kak
