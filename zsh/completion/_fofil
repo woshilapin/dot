@@ -1,0 +1,120 @@
+#compdef fofil
+
+autoload -U is-at-least
+
+_fofil() {
+    typeset -A opt_args
+    typeset -a _arguments_options
+    local ret=1
+
+    if is-at-least 5.2; then
+        _arguments_options=(-s -S -C)
+    else
+        _arguments_options=(-s -C)
+    fi
+
+    local context curcontext="$curcontext" state line
+    _arguments "${_arguments_options[@]}" \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+":: :_fofil_commands" \
+"*::: :->fofil-cli" \
+&& ret=0
+    case $state in
+    (fofil-cli)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:fofil-command-$line[1]:"
+        case $line[1] in
+            (completion)
+_arguments "${_arguments_options[@]}" \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+':shell:(bash elvish fish powershell zsh)' \
+&& ret=0
+;;
+(convert)
+_arguments "${_arguments_options[@]}" \
+'-i+[Path to the folder for input transit data]' \
+'--input=[Path to the folder for input transit data]' \
+'-f+[Format of the input transit data: ntfs]: :(ntfs)' \
+'--from=[Format of the input transit data: ntfs]: :(ntfs)' \
+'-o+[Path where to output the result of the conversion]' \
+'--output=[Path where to output the result of the conversion]' \
+'-t+[Format of the output transit data: ntfs]: :(ntfs)' \
+'--to=[Format of the output transit data: ntfs]: :(ntfs)' \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+&& ret=0
+;;
+(stats)
+_arguments "${_arguments_options[@]}" \
+'-i+[Path to the folder for input transit data]' \
+'--input=[Path to the folder for input transit data]' \
+'-f+[Format of the input transit data: ntfs]: :(ntfs)' \
+'--from=[Format of the input transit data: ntfs]: :(ntfs)' \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+}
+
+(( $+functions[_fofil_commands] )) ||
+_fofil_commands() {
+    local commands; commands=(
+        "completion:Provides shell completion scripts for fofil" \
+"convert:Convert transit data from one format to another" \
+"stats:Provides statistics about a transit data model" \
+"help:Prints this message or the help of the given subcommand(s)" \
+    )
+    _describe -t commands 'fofil commands' commands "$@"
+}
+(( $+functions[_fofil__completion_commands] )) ||
+_fofil__completion_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'fofil completion commands' commands "$@"
+}
+(( $+functions[_fofil__convert_commands] )) ||
+_fofil__convert_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'fofil convert commands' commands "$@"
+}
+(( $+functions[_fofil__help_commands] )) ||
+_fofil__help_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'fofil help commands' commands "$@"
+}
+(( $+functions[_fofil__stats_commands] )) ||
+_fofil__stats_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'fofil stats commands' commands "$@"
+}
+
+_fofil "$@"
