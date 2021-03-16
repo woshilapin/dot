@@ -1,0 +1,1753 @@
+#compdef _argo argo
+
+
+function _argo {
+  local -a commands
+
+  _arguments -C \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]' \
+    "1: :->cmnds" \
+    "*::arg:->args"
+
+  case $state in
+  cmnds)
+    commands=(
+      "archive:manage the workflow archive"
+      "auth:manage authentication settings"
+      "cluster-template:manipulate cluster workflow templates"
+      "completion:output shell completion code for the specified shell (bash or zsh)"
+      "cron:manage cron workflows"
+      "delete:delete workflows"
+      "get:display details about a workflow"
+      "lint:validate files or directories of workflow manifests"
+      "list:list workflows"
+      "logs:view logs of a pod or workflow"
+      "node:perform action on a node in a workflow"
+      "resubmit:resubmit one or more workflows"
+      "resume:resume zero or more workflows"
+      "retry:retry zero or more workflows"
+      "server:start the Argo Server"
+      "stop:stop zero or more workflows allowing all exit handlers to run"
+      "submit:submit a workflow"
+      "suspend:suspend zero or more workflow"
+      "template:manipulate workflow templates"
+      "terminate:terminate zero or more workflows immediately"
+      "version:print version information"
+      "wait:waits for workflows to complete"
+      "watch:watch a workflow until it completes"
+    )
+    _describe "command" commands
+    ;;
+  esac
+
+  case "$words[1]" in
+  archive)
+    _argo_archive
+    ;;
+  auth)
+    _argo_auth
+    ;;
+  cluster-template)
+    _argo_cluster-template
+    ;;
+  completion)
+    _argo_completion
+    ;;
+  cron)
+    _argo_cron
+    ;;
+  delete)
+    _argo_delete
+    ;;
+  get)
+    _argo_get
+    ;;
+  lint)
+    _argo_lint
+    ;;
+  list)
+    _argo_list
+    ;;
+  logs)
+    _argo_logs
+    ;;
+  node)
+    _argo_node
+    ;;
+  resubmit)
+    _argo_resubmit
+    ;;
+  resume)
+    _argo_resume
+    ;;
+  retry)
+    _argo_retry
+    ;;
+  server)
+    _argo_server
+    ;;
+  stop)
+    _argo_stop
+    ;;
+  submit)
+    _argo_submit
+    ;;
+  suspend)
+    _argo_suspend
+    ;;
+  template)
+    _argo_template
+    ;;
+  terminate)
+    _argo_terminate
+    ;;
+  version)
+    _argo_version
+    ;;
+  wait)
+    _argo_wait
+    ;;
+  watch)
+    _argo_watch
+    ;;
+  esac
+}
+
+
+function _argo_archive {
+  local -a commands
+
+  _arguments -C \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]' \
+    "1: :->cmnds" \
+    "*::arg:->args"
+
+  case $state in
+  cmnds)
+    commands=(
+      "delete:delete a workflow in the archive"
+      "get:get a workflow in the archive"
+      "list:list workflows in the archive"
+    )
+    _describe "command" commands
+    ;;
+  esac
+
+  case "$words[1]" in
+  delete)
+    _argo_archive_delete
+    ;;
+  get)
+    _argo_archive_get
+    ;;
+  list)
+    _argo_archive_list
+    ;;
+  esac
+}
+
+function _argo_archive_delete {
+  _arguments \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_archive_get {
+  _arguments \
+    '(-o --output)'{-o,--output}'[Output format. One of: json|yaml|wide]:' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_archive_list {
+  _arguments \
+    '--chunk-size[Return large lists in chunks rather than all at once. Pass 0 to disable.]:' \
+    '(-o --output)'{-o,--output}'[Output format. One of: json|yaml|wide]:' \
+    '(-l --selector)'{-l,--selector}'[Selector (label query) to filter on, not including uninitialized ones]:' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+
+function _argo_auth {
+  local -a commands
+
+  _arguments -C \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]' \
+    "1: :->cmnds" \
+    "*::arg:->args"
+
+  case $state in
+  cmnds)
+    commands=(
+      "token:Print the auth token"
+    )
+    _describe "command" commands
+    ;;
+  esac
+
+  case "$words[1]" in
+  token)
+    _argo_auth_token
+    ;;
+  esac
+}
+
+function _argo_auth_token {
+  _arguments \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+
+function _argo_cluster-template {
+  local -a commands
+
+  _arguments -C \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]' \
+    "1: :->cmnds" \
+    "*::arg:->args"
+
+  case $state in
+  cmnds)
+    commands=(
+      "create:create a cluster workflow template"
+      "delete:delete a cluster workflow template"
+      "get:display details about a cluster workflow template"
+      "lint:validate files or directories of cluster workflow template manifests"
+      "list:list cluster workflow templates"
+    )
+    _describe "command" commands
+    ;;
+  esac
+
+  case "$words[1]" in
+  create)
+    _argo_cluster-template_create
+    ;;
+  delete)
+    _argo_cluster-template_delete
+    ;;
+  get)
+    _argo_cluster-template_get
+    ;;
+  lint)
+    _argo_cluster-template_lint
+    ;;
+  list)
+    _argo_cluster-template_list
+    ;;
+  esac
+}
+
+function _argo_cluster-template_create {
+  _arguments \
+    '(-o --output)'{-o,--output}'[Output format. One of: name|json|yaml|wide]:' \
+    '--strict[perform strict workflow validation]' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_cluster-template_delete {
+  _arguments \
+    '--all[Delete all cluster workflow templates]' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_cluster-template_get {
+  _arguments \
+    '(-o --output)'{-o,--output}'[Output format. One of: json|yaml|wide]:' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_cluster-template_lint {
+  _arguments \
+    '--format[Linting results output format. One of: pretty|simple]:' \
+    '--strict[perform strict workflow validation]' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_cluster-template_list {
+  _arguments \
+    '(-o --output)'{-o,--output}'[Output format. One of: wide|name]:' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_completion {
+  _arguments \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+
+function _argo_cron {
+  local -a commands
+
+  _arguments -C \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]' \
+    "1: :->cmnds" \
+    "*::arg:->args"
+
+  case $state in
+  cmnds)
+    commands=(
+      "create:create a cron workflow"
+      "delete:delete a cron workflow"
+      "get:display details about a cron workflow"
+      "lint:validate files or directories of cron workflow manifests"
+      "list:list cron workflows"
+      "resume:resume zero or more cron workflows"
+      "suspend:suspend zero or more cron workflows"
+    )
+    _describe "command" commands
+    ;;
+  esac
+
+  case "$words[1]" in
+  create)
+    _argo_cron_create
+    ;;
+  delete)
+    _argo_cron_delete
+    ;;
+  get)
+    _argo_cron_get
+    ;;
+  lint)
+    _argo_cron_lint
+    ;;
+  list)
+    _argo_cron_list
+    ;;
+  resume)
+    _argo_cron_resume
+    ;;
+  suspend)
+    _argo_cron_suspend
+    ;;
+  esac
+}
+
+function _argo_cron_create {
+  _arguments \
+    '--entrypoint[override entrypoint]:' \
+    '--generate-name[override metadata.generateName]:' \
+    '(-l --labels)'{-l,--labels}'[Comma separated labels to apply to the workflow. Will override previous values.]:' \
+    '--name[override metadata.name]:' \
+    '(-o --output)'{-o,--output}'[Output format. One of: name|json|yaml|wide]:' \
+    '(*-p *--parameter)'{\*-p,\*--parameter}'[pass an input parameter]:' \
+    '(-f --parameter-file)'{-f,--parameter-file}'[pass a file containing all input parameters]:' \
+    '--schedule[override cron workflow schedule]:' \
+    '--serviceaccount[run all pods in the workflow using specified serviceaccount]:' \
+    '--strict[perform strict workflow validation]' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_cron_delete {
+  _arguments \
+    '--all[Delete all workflow templates]' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_cron_get {
+  _arguments \
+    '(-o --output)'{-o,--output}'[Output format. One of: json|yaml|wide]:' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_cron_lint {
+  _arguments \
+    '--format[Linting results output format. One of: pretty|simple]:' \
+    '--strict[perform strict validation]' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_cron_list {
+  _arguments \
+    '(-A --all-namespaces)'{-A,--all-namespaces}'[Show workflows from all namespaces]' \
+    '(-o --output)'{-o,--output}'[Output format. One of: wide|name]:' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_cron_resume {
+  _arguments \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_cron_suspend {
+  _arguments \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_delete {
+  _arguments \
+    '--all[Delete all workflows]' \
+    '(-A --all-namespaces)'{-A,--all-namespaces}'[Delete workflows from all namespaces]' \
+    '--completed[Delete completed workflows]' \
+    '--dry-run[Do not delete the workflow, only print what would happen]' \
+    '--field-selector[Selector (field query) to filter on, supports '\''='\'', '\''=='\'', and '\''!='\''.(e.g. --field-selectorkey1=value1,key2=value2). The server only supports a limited number of field queries per type.]:' \
+    '--older[Delete completed workflows finished before the specified duration (e.g. 10m, 3h, 1d)]:' \
+    '--prefix[Delete workflows by prefix]:' \
+    '--resubmitted[Delete resubmitted workflows]' \
+    '(-l --selector)'{-l,--selector}'[Selector (label query) to filter on, not including uninitialized ones]:' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_get {
+  _arguments \
+    '--no-color[Disable colorized output]' \
+    '--no-utf8[Use plain 7-bits ascii characters]' \
+    '--node-field-selector[selector of node to display, eg: --node-field-selector phase=abc]:' \
+    '(-o --output)'{-o,--output}'[Output format. One of: json|yaml|wide]:' \
+    '--status[Filter by status (Pending, Running, Succeeded, Skipped, Failed, Error)]:' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_lint {
+  _arguments \
+    '--all-kinds[Lint all kinds, not just workflows]' \
+    '--format[Linting results output format. One of: pretty|simple]:' \
+    '--strict[Perform strict workflow validation]' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_list {
+  _arguments \
+    '(-A --all-namespaces)'{-A,--all-namespaces}'[Show workflows from all namespaces]' \
+    '--chunk-size[Return large lists in chunks rather than all at once. Pass 0 to disable.]:' \
+    '--completed[Show completed workflows. Mutually exclusive with --running.]' \
+    '--field-selector[Selector (field query) to filter on, supports '\''='\'', '\''=='\'', and '\''!='\''.(e.g. --field-selectorkey1=value1,key2=value2). The server only supports a limited number of field queries per type.]:' \
+    '--no-headers[Don'\''t print headers (default print headers).]' \
+    '--older[List completed workflows finished before the specified duration (e.g. 10m, 3h, 1d)]:' \
+    '(-o --output)'{-o,--output}'[Output format. One of: wide|name]:' \
+    '--prefix[Filter workflows by prefix]:' \
+    '--resubmitted[Show resubmitted workflows]' \
+    '--running[Show running workflows. Mutually exclusive with --completed.]' \
+    '(-l --selector)'{-l,--selector}'[Selector (label query) to filter on, supports '\''='\'', '\''=='\'', and '\''!='\''.(e.g. -l key1=value1,key2=value2)]:' \
+    '--since[Show only workflows created after than a relative duration]:' \
+    '*--status[Filter by status (comma separated)]:' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_logs {
+  _arguments \
+    '(-c --container)'{-c,--container}'[Print the logs of this container]:' \
+    '(-f --follow)'{-f,--follow}'[Specify if the logs should be streamed.]' \
+    '--no-color[Disable colorized output]' \
+    '(-p --previous)'{-p,--previous}'[Specify if the previously terminated container logs should be returned.]' \
+    '--since[Only return logs newer than a relative duration like 5s, 2m, or 3h. Defaults to all logs. Only one of since-time / since may be used.]:' \
+    '--since-time[Only return logs after a specific date (RFC3339). Defaults to all logs. Only one of since-time / since may be used.]:' \
+    '--tail[If set, the number of lines from the end of the logs to show. If not specified, logs are shown from the creation of the container or sinceSeconds or sinceTime]:' \
+    '--timestamps[Include timestamps on each line in the log output]' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_node {
+  _arguments \
+    '(-m --message)'{-m,--message}'[Set the message of a node, eg: --message "Hello, world!"]:' \
+    '--node-field-selector[Selector of node to set, eg: --node-field-selector inputs.paramaters.myparam.value=abc]:' \
+    '(*-p *--output-parameter)'{\*-p,\*--output-parameter}'[Set a "supplied" output parameter of node, eg: --output-parameter parameter-name="Hello, world!"]:' \
+    '--phase[Phase to set the node to, eg: --phase Succeeded]:' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_resubmit {
+  _arguments \
+    '--log[log the workflow until it completes]' \
+    '--memoized[re-use successful steps & outputs from the previous run (experimental)]' \
+    '(-o --output)'{-o,--output}'[Output format. One of: name|json|yaml|wide]:' \
+    '--priority[workflow priority]:' \
+    '(-w --wait)'{-w,--wait}'[wait for the workflow to complete]' \
+    '--watch[watch the workflow until it completes]' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_resume {
+  _arguments \
+    '--node-field-selector[selector of node to resume, eg: --node-field-selector inputs.paramaters.myparam.value=abc]:' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_retry {
+  _arguments \
+    '--log[log the workflow until it completes]' \
+    '--node-field-selector[selector of nodes to reset, eg: --node-field-selector inputs.paramaters.myparam.value=abc]:' \
+    '(-o --output)'{-o,--output}'[Output format. One of: name|json|yaml|wide]:' \
+    '--restart-successful[indicates to restart successful nodes matching the --node-field-selector]' \
+    '(-w --wait)'{-w,--wait}'[wait for the workflow to complete]' \
+    '--watch[watch the workflow until it completes]' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_server {
+  _arguments \
+    '--access-control-allow-origin[Set Access-Control-Allow-Origin header in HTTP responses.]:' \
+    '*--auth-mode[API server authentication mode. Any 1 or more length permutation of: client,server,sso]:' \
+    '--basehref[Value for base href in index.html. Used if the server is running behind reverse proxy under subpath different from /. Defaults to the environment variable BASE_HREF.]:' \
+    '(-b --browser)'{-b,--browser}'[enable automatic launching of the browser [local mode]]' \
+    '--configmap[Name of K8s configmap to retrieve workflow controller configuration]:' \
+    '--event-operation-queue-size[how many events operations that can be queued at once]:' \
+    '--event-worker-count[how many event workers to run]:' \
+    '--hsts[Whether or not we should add a HTTP Secure Transport Security header. This only has effect if secure is enabled.]' \
+    '--managed-namespace[namespace that watches, default to the installation namespace]:' \
+    '--namespaced[run as namespaced mode]' \
+    '(-p --port)'{-p,--port}'[Port to listen on]:' \
+    '--x-frame-options[Set X-Frame-Options header in HTTP responses.]:' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_stop {
+  _arguments \
+    '--message[Message to add to previously running nodes]:' \
+    '--node-field-selector[selector of node to stop, eg: --node-field-selector inputs.paramaters.myparam.value=abc]:' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_submit {
+  _arguments \
+    '--dry-run[modify the workflow on the client-side without creating it]' \
+    '--entrypoint[override entrypoint]:' \
+    '--from[Submit from an existing `kind/name` E.g., --from=cronwf/hello-world-cwf]:' \
+    '--generate-name[override metadata.generateName]:' \
+    '(-l --labels)'{-l,--labels}'[Comma separated labels to apply to the workflow. Will override previous values.]:' \
+    '--log[log the workflow until it completes]' \
+    '--name[override metadata.name]:' \
+    '--node-field-selector[selector of node to display, eg: --node-field-selector phase=abc]:' \
+    '(-o --output)'{-o,--output}'[Output format. One of: name|json|yaml|wide]:' \
+    '(*-p *--parameter)'{\*-p,\*--parameter}'[pass an input parameter]:' \
+    '(-f --parameter-file)'{-f,--parameter-file}'[pass a file containing all input parameters]:filename:_files -g "json" -g "yaml" -g "yml"' \
+    '--priority[workflow priority]:' \
+    '--server-dry-run[send request to server with dry-run flag which will modify the workflow without creating it]' \
+    '--serviceaccount[run all pods in the workflow using specified serviceaccount]:' \
+    '--status[Filter by status (Pending, Running, Succeeded, Skipped, Failed, Error). Should only be used with --watch.]:' \
+    '--strict[perform strict workflow validation]' \
+    '(-w --wait)'{-w,--wait}'[wait for the workflow to complete]' \
+    '--watch[watch the workflow until it completes]' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_suspend {
+  _arguments \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+
+function _argo_template {
+  local -a commands
+
+  _arguments -C \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]' \
+    "1: :->cmnds" \
+    "*::arg:->args"
+
+  case $state in
+  cmnds)
+    commands=(
+      "create:create a workflow template"
+      "delete:delete a workflow template"
+      "get:display details about a workflow template"
+      "lint:validate a file or directory of workflow template manifests"
+      "list:list workflow templates"
+    )
+    _describe "command" commands
+    ;;
+  esac
+
+  case "$words[1]" in
+  create)
+    _argo_template_create
+    ;;
+  delete)
+    _argo_template_delete
+    ;;
+  get)
+    _argo_template_get
+    ;;
+  lint)
+    _argo_template_lint
+    ;;
+  list)
+    _argo_template_list
+    ;;
+  esac
+}
+
+function _argo_template_create {
+  _arguments \
+    '(-o --output)'{-o,--output}'[Output format. One of: name|json|yaml|wide]:' \
+    '--strict[perform strict workflow validation]' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_template_delete {
+  _arguments \
+    '--all[Delete all workflow templates]' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_template_get {
+  _arguments \
+    '(-o --output)'{-o,--output}'[Output format. One of: json|yaml|wide]:' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_template_lint {
+  _arguments \
+    '--format[Linting results output format. One of: pretty|simple]:' \
+    '--strict[perform strict workflow validation]' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_template_list {
+  _arguments \
+    '(-A --all-namespaces)'{-A,--all-namespaces}'[Show workflows from all namespaces]' \
+    '(-o --output)'{-o,--output}'[Output format. One of: wide|name]:' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_terminate {
+  _arguments \
+    '--dry-run[Do not terminate the workflow, only print what would happen]' \
+    '--field-selector[Selector (field query) to filter on, supports '\''='\'', '\''=='\'', and '\''!='\''.(e.g. --field-selectorkey1=value1,key2=value2). The server only supports a limited number of field queries per type.]:' \
+    '(-l --selector)'{-l,--selector}'[Selector (label query) to filter on, not including uninitialized ones]:' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_version {
+  _arguments \
+    '--short[print just the version number]' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_wait {
+  _arguments \
+    '--ignore-not-found[Ignore the wait if the workflow is not found]' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
+function _argo_watch {
+  _arguments \
+    '--node-field-selector[selector of node to display, eg: --node-field-selector phase=abc]:' \
+    '--status[Filter by status (Pending, Running, Succeeded, Skipped, Failed, Error)]:' \
+    '--argo-base-href[An path to use with HTTP client (e.g. due to BASE_HREF). Defaults to the ARGO_BASE_HREF environment variable.]:' \
+    '--argo-http1[If true, use the HTTP client. Defaults to the ARGO_HTTP1 environment variable.]' \
+    '(-s --argo-server)'{-s,--argo-server}'[API server `host:port`. e.g. localhost:2746. Defaults to the ARGO_SERVER environment variable.]:' \
+    '--as[Username to impersonate for the operation]:' \
+    '*--as-group[Group to impersonate for the operation, this flag can be repeated to specify multiple groups.]:' \
+    '--certificate-authority[Path to a cert file for the certificate authority]:' \
+    '--client-certificate[Path to a client certificate file for TLS]:' \
+    '--client-key[Path to a client key file for TLS]:' \
+    '--cluster[The name of the kubeconfig cluster to use]:' \
+    '--context[The name of the kubeconfig context to use]:' \
+    '--gloglevel[Set the glog logging level]:' \
+    '--insecure-skip-tls-verify[If true, the server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure]' \
+    '(-k --insecure-skip-verify)'{-k,--insecure-skip-verify}'[If true, the Argo Server'\''s certificate will not be checked for validity. This will make your HTTPS connections insecure. Defaults to the ARGO_INSECURE_SKIP_VERIFY environment variable.]' \
+    '--instanceid[submit with a specific controller'\''s instance id label. Default to the ARGO_INSTANCEID environment variable.]:' \
+    '--kubeconfig[Path to a kube config. Only required if out-of-cluster]:' \
+    '--loglevel[Set the logging level. One of: debug|info|warn|error]:' \
+    '(-n --namespace)'{-n,--namespace}'[If present, the namespace scope for this CLI request]:' \
+    '--password[Password for basic authentication to the API server]:' \
+    '--request-timeout[The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don'\''t timeout requests.]:' \
+    '(-e --secure)'{-e,--secure}'[Whether or not the server is using TLS with the Argo Server. Defaults to the ARGO_SECURE environment variable.]' \
+    '--server[The address and port of the Kubernetes API server]:' \
+    '--tls-server-name[If provided, this name will be used to validate server certificate. If this is not provided, hostname used to contact the server is used.]:' \
+    '--token[Bearer token for authentication to the API server]:' \
+    '--user[The name of the kubeconfig user to use]:' \
+    '--username[Username for basic authentication to the API server]:' \
+    '(-v --verbose)'{-v,--verbose}'[Enabled verbose logging, i.e. --loglevel debug]'
+}
+
