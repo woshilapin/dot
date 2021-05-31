@@ -1,0 +1,202 @@
+#compdef zellij
+
+autoload -U is-at-least
+
+_zellij() {
+    typeset -A opt_args
+    typeset -a _arguments_options
+    local ret=1
+
+    if is-at-least 5.2; then
+        _arguments_options=(-s -S -C)
+    else
+        _arguments_options=(-s -C)
+    fi
+
+    local context curcontext="$curcontext" state line
+    _arguments "${_arguments_options[@]}" \
+'--max-panes=[Maximum panes on screen, caution: opening more panes will close old ones]' \
+'--data-dir=[Change where zellij looks for layouts and plugins]' \
+'--server=[Run server listening at the specified socket path]' \
+'-s+[Specify name of a new session]' \
+'--session=[Specify name of a new session]' \
+'-l+[Name of a layout file in the layout directory]' \
+'--layout=[Name of a layout file in the layout directory]' \
+'--layout-path=[Path to a layout yaml file]' \
+'-c+[Change where zellij looks for the configuration file]' \
+'--config=[Change where zellij looks for the configuration file]' \
+'--config-dir=[Change where zellij looks for the configuration directory]' \
+'-d[]' \
+'--debug[]' \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+":: :_zellij_commands" \
+"*::: :->zellij" \
+&& ret=0
+    case $state in
+    (zellij)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:zellij-command-$line[1]:"
+        case $line[1] in
+            (options)
+_arguments "${_arguments_options[@]}" \
+'--simplified-ui[Allow plugins to use a more simplified layout that is compatible with more fonts]' \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+&& ret=0
+;;
+(setup)
+_arguments "${_arguments_options[@]}" \
+'--generate-completion=[]' \
+'--dump-config[Dump the default configuration file to stdout]' \
+'--clean[Disables loading of configuration file at default location, loads the defaults that zellij ships with]' \
+'--check[Checks the configuration of zellij and displays currently used directories]' \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+&& ret=0
+;;
+(ls)
+_arguments "${_arguments_options[@]}" \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+&& ret=0
+;;
+(list-sessions)
+_arguments "${_arguments_options[@]}" \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+&& ret=0
+;;
+(a)
+_arguments "${_arguments_options[@]}" \
+'-f[Force attach- session will detach from the other zellij client (if any) and attach to this]' \
+'--force[Force attach- session will detach from the other zellij client (if any) and attach to this]' \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+':session-name -- Name of the session to attach to:_files' \
+&& ret=0
+;;
+(a)
+_arguments "${_arguments_options[@]}" \
+'-f[Force attach- session will detach from the other zellij client (if any) and attach to this]' \
+'--force[Force attach- session will detach from the other zellij client (if any) and attach to this]' \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+':session-name -- Name of the session to attach to:_files' \
+&& ret=0
+;;
+(attach)
+_arguments "${_arguments_options[@]}" \
+'-f[Force attach- session will detach from the other zellij client (if any) and attach to this]' \
+'--force[Force attach- session will detach from the other zellij client (if any) and attach to this]' \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+':session-name -- Name of the session to attach to:_files' \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+}
+
+(( $+functions[_zellij_commands] )) ||
+_zellij_commands() {
+    local commands; commands=(
+        "options:Change the behaviour of zellij" \
+"setup:Setup zellij and check its configuration" \
+"list-sessions:List active sessions" \
+"attach:Attach to session" \
+"help:Prints this message or the help of the given subcommand(s)" \
+    )
+    _describe -t commands 'zellij commands' commands "$@"
+}
+(( $+functions[_a_commands] )) ||
+_a_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'a commands' commands "$@"
+}
+(( $+functions[_zellij__a_commands] )) ||
+_zellij__a_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'zellij a commands' commands "$@"
+}
+(( $+functions[_zellij__attach_commands] )) ||
+_zellij__attach_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'zellij attach commands' commands "$@"
+}
+(( $+functions[_zellij__help_commands] )) ||
+_zellij__help_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'zellij help commands' commands "$@"
+}
+(( $+functions[_zellij__list-sessions_commands] )) ||
+_zellij__list-sessions_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'zellij list-sessions commands' commands "$@"
+}
+(( $+functions[_ls_commands] )) ||
+_ls_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'ls commands' commands "$@"
+}
+(( $+functions[_zellij__ls_commands] )) ||
+_zellij__ls_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'zellij ls commands' commands "$@"
+}
+(( $+functions[_zellij__options_commands] )) ||
+_zellij__options_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'zellij options commands' commands "$@"
+}
+(( $+functions[_zellij__setup_commands] )) ||
+_zellij__setup_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'zellij setup commands' commands "$@"
+}
+
+_zellij "$@"
