@@ -1,0 +1,6 @@
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
+set number
+set relativenumber
+set foldlevelstart=99
