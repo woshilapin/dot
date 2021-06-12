@@ -67,6 +67,7 @@ GO_BIN_PATH="/usr/local/go/bin"
 if [[ -d "${GO_BIN_PATH}" && ! "${PATH}" =~ "${GO_BIN_PATH}" ]]
 then
 	export PATH="${GO_BIN_PATH}:${PATH}"
+	export GOPATH="${GO_BIN_PATH}"
 fi
 
 # Disable automatic titles (useful for correct naming of tmux tabs with tmuxinator)
