@@ -69,6 +69,8 @@ then
 	export PATH="${GO_BIN_PATH}:${PATH}"
 	export GOPATH="${GO_BIN_PATH}"
 fi
+# Use the new Docker buildkit
+export  DOCKER_BUILDKIT=1
 
 # Disable automatic titles (useful for correct naming of tmux tabs with tmuxinator)
 export DISABLE_AUTO_TITLE=true
