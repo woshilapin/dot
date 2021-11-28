@@ -9,7 +9,7 @@ show_notifications = true
 min_time_to_notify = 15_000
 
 [kubernetes]
-disabled = false
+disabled = true
 
 [memory_usage]
 disabled = false
