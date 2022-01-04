@@ -8,7 +8,7 @@ services:
             POSTGRES_PASSWORD: 'freshrss'
 
     freshrss:
-        image: freshrss/freshrss:1.18.1
+        image: freshrss/freshrss:1.19.1
         restart: always
         links:
             - postgres
@@ -21,3 +21,5 @@ services:
               target: '/var/www/FreshRSS/extensions'
         ports:
             - "127.0.0.1:8889:80"
+        environment:
+            - CRON_MIN=13,43
