@@ -88,3 +88,5 @@ if [ "$( command -v zoxide )" != '' ]
 then
 	eval "$(zoxide init zsh)"
 fi
+
+source /home/woshilapin/.config/broot/launcher/bash/br
