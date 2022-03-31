@@ -90,3 +90,5 @@ then
 fi
 
 source /home/woshilapin/.config/broot/launcher/bash/br
+
+complete -o nospace -C /usr/bin/terraform terraform
