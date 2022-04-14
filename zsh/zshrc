@@ -92,3 +92,6 @@ fi
 source /home/woshilapin/.config/broot/launcher/bash/br
 
 complete -o nospace -C /usr/bin/terraform terraform
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/mc mc
