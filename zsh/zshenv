@@ -3,7 +3,7 @@
 UNAME=`uname`
 if [ ${UNAME} = "Linux" ]
 then
-	export PATH=${PATH}:/usr/local/sbin:/usr/sbin:/sbin
+	export PATH=${HOME}/.local/bin:${PATH}:/usr/local/sbin:/usr/sbin:/sbin
 elif [ ${UNAME} = "Darwin" ]
 then
 	export PATH=/opt/local/bin:/opt/local/sbin:${PATH}
