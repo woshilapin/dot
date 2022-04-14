@@ -1,6 +1,9 @@
 [[battery.display]]
 threshold = 25
 
+[aws]
+disabled = true
+
 [cmd_duration]
 min_time = 1_000
 show_milliseconds = true
