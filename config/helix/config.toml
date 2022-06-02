@@ -1,0 +1,9 @@
+[editor]
+line-number = "relative"
+idle-timeout = 0
+completion-trigger-len = 1
+rulers = [80]
+whitespace.render = "all"
+
+[editor.lsp]
+display-messages = true
