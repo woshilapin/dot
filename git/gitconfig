@@ -4,7 +4,7 @@
 	df = diff
 	patch = diff -p --src-prefix '' --dst-prefix '' --relative -- 
 [core]
-	editor = vim
+	editor = hx
 	excludesfile = ~/.gitignore
 	compression = -1
 	pager = delta
