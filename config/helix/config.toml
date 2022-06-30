@@ -1,8 +1,12 @@
 [editor]
-line-number = "relative"
-idle-timeout = 0
+auto-pairs = false
 completion-trigger-len = 1
+idle-timeout = 0
+line-number = "relative"
 whitespace.render = "all"
 
 [editor.lsp]
 display-messages = true
+
+[editor.cursor-shape]
+insert = "bar"
