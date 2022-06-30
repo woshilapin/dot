@@ -91,7 +91,19 @@ fi
 
 source /home/woshilapin/.config/broot/launcher/bash/br
 
-complete -o nospace -C /usr/bin/terraform terraform
-
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/mc mc
+
+if [ "$( command -v terraform )" != '' ]
+then
+	complete -o nospace -C "$( which terraform )" terraform
+fi
+
+if [ "$( command -v mc )" != '' ]
+then
+	complete -o nospace -C "$( which mc )" mc
+fi
+
+if [ "$( command -v aws_completer )" != '' ]
+then
+	complete -o nospace -C "$( which aws_completer )" aws
+fi
