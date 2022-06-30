@@ -7,6 +7,7 @@ kak-lsp .config/kak-lsp
 khal .config/khal
 khard .config/khard
 mpd .config/mpd
+ncspot .config/ncspot
 nvim .config/nvim
 powerline .config/powerline
 starship.toml .config/starship.toml
