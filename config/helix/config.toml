@@ -1,12 +1,19 @@
 [editor]
 auto-pairs = false
 completion-trigger-len = 1
+cursorline = true
 idle-timeout = 0
+indent-guides.render = true
 line-number = "relative"
 whitespace.render = "all"
+
+[editor.cursor-shape]
+insert = "bar"
 
 [editor.lsp]
 display-messages = true
 
-[editor.cursor-shape]
-insert = "bar"
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-encoding"]
+center = ["diagnostics"]
+right = ["selections", "position", "position-percentage"]
