@@ -11,7 +11,7 @@
 # Use the command 'task show' to see all defaults and overrides
 
 # Files
-data.location=~/.task
+data.location=$XDG_DATA_HOME/task
 
 # Color theme (uncomment one to use)
 #include /opt/local/share/doc/task/rc/light-16.theme
@@ -233,7 +233,7 @@ weekstart=monday
 # xterm.title                     no
 
 ## Holidays
-include ~/.task/holidays.rc
+include $XDG_CONFIG_HOME/task/holidays.rc
 
 ## Review in tasksh
 uda.reviewed.type=date
@@ -255,6 +255,7 @@ report.later.description = Later tasks
 report.later.filter = status:pending limit:page +later
 report.later.labels = ID,Description,Project
 
-context.work=-@home and ( +@work or +@computer or +@online )
-context.home=-@work and ( +@home or +@online )
-context=work
+context.home.read=-@work and ( +@home or +@online )
+context.home.write=-@work and ( +@home or +@online )
+context.work.read=-@home and ( +@work or +@computer or +@online )
+context.work.write=-@home and ( +@work or +@computer or +@online )

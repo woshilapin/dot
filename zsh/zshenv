@@ -29,6 +29,8 @@ export UNAME
 export TRASH_DIR
 export LANG=fr_FR.UTF-8
 export LANGUAGE=fr_FR:fr:en_US:en_GB:en
+export XDG_CONFIG_HOME=${HOME}/.config
+export XDG_DATA_HOME=${HOME}/.local/share
 export XDG_CACHE_HOME=${HOME}/.cache
 unset LC_ALL
 export EDITOR=vim
