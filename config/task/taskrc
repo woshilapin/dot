@@ -255,7 +255,11 @@ report.later.description = Later tasks
 report.later.filter = status:pending limit:page +later
 report.later.labels = ID,Description,Project
 
-context.home.read=-@work and ( +@home or +@online )
-context.home.write=-@work and ( +@home or +@online )
-context.work.read=-@home and ( +@work or +@computer or +@online )
-context.work.write=-@home and ( +@work or +@computer or +@online )
+news.version=2.6.0
+context.work.read=project:work
+context.work.write=project:work
+context.home.read=project:home
+context.home.write=project:home
+context=fofil
+context.fofil.read=project:fofil
+context.fofil.write=project:fofil
