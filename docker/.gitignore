@@ -1,1 +1,4 @@
+scan/
+.buildNodeID
+.token_seed*
 config.json
