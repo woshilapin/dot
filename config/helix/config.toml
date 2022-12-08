@@ -1,5 +1,7 @@
 [editor]
 auto-pairs = false
+auto-save = true
+bufferline = "multiple"
 completion-trigger-len = 1
 cursorline = true
 idle-timeout = 0
