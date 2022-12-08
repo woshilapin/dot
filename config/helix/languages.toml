@@ -6,3 +6,9 @@ rulers = [80, 120]
 name = "ocaml"
 auto-format = true
 formatter = { command = "ocamlformat", args = ["--impl", "-"] }
+
+[[language]]
+name = "rust"
+
+[language.config]
+cargo = { allFeatures = true }
