@@ -11,4 +11,4 @@ formatter = { command = "ocamlformat", args = ["--impl", "-"] }
 name = "rust"
 
 [language.config]
-cargo = { allFeatures = true }
+cargo = { features = "all" }
