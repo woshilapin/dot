@@ -107,3 +107,6 @@ if [ "$( command -v aws_completer )" != '' ]
 then
 	complete -o nospace -C "$( which aws_completer )" aws
 fi
+
+# opam configuration
+[[ ! -r /home/woshilapin/.opam/opam-init/init.zsh ]] || source /home/woshilapin/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
