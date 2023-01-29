@@ -121,3 +121,4 @@ export FZF_DEFAULT_COMMAND="find -L . -mindepth 1 -type f -print -o -type l -pri
 export KUBECONFIG=$HOME/.kube/config:${HOME}/projects/kisio/tartare2/deploy/kubeconfig/config
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+export BAT_THEME=gruvbox-dark
