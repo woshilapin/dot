@@ -45,8 +45,13 @@
 [github]
 	user = woshilapin
 [delta]
+	dark = true
+	diff-so-fancy = true
 	features = line-numbers side-by-side line-numbers decorations
+	hyperlinks = true
+	light = false
 	line-numbers = true
+	navigate = true
 	side-by-side = false
 [pull]
 	rebase = true
