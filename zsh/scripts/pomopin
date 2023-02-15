@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+POMOPIN_APP_NAME=pomopin
+# possible values: critical, normal, low (the latter might not be displayed at all)
+POMOPIN_URGENCY=normal
+POMOPIN_ICON=/home/woshilapin/Images/tomato.png
+# 25 minutes in seconds
+POMOPIN_DURATION=$(( 25 * 60 ))
+# 5 minutes before the end, in seconds
+POMOPIN_REMINDER=$(( 5 * 60 ))
+
+POMOPIN_DURATION_MINUTE=$(( ${POMOPIN_DURATION} / 60 ))
+POMOPIN_REMINDER_MINUTE=$(( ${POMOPIN_REMINDER} / 60 ))
+echo "notify-send \
+	--app-name='${APP_NAME}' \
+	--urgency=${POMOPIN_URGENCY} \
+	--expire-time=2000 \
+	--icon=${POMOPIN_ICON} \
+	'${POMOPIN_REMINDER_MINUTE} minutes left 🕚'" |
+	at now + $(( ${POMOPIN_DURATION_MINUTE} - ${POMOPIN_REMINDER_MINUTE} )) minute
+echo "notify-send \
+	--app-name='${APP_NAME}' \
+	--urgency=${POMOPIN_URGENCY} \
+	--expire-time=5000 \
+	--icon=${POMOPIN_ICON} \
+	'time is up ⏰'" |
+	at now + ${POMOPIN_DURATION_MINUTE} minute
