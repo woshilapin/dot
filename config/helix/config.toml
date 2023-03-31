@@ -13,9 +13,14 @@ whitespace.render = "all"
 insert = "bar"
 
 [editor.lsp]
+auto-signature-help = false
 display-messages = true
+display-inlay-hints = true
 
 [editor.statusline]
-left = ["mode", "spinner", "file-name", "file-encoding"]
-center = ["diagnostics"]
+left = ["mode", "spinner", "file-name", "file-modification-indicator", "file-encoding"]
+center = ["version-control", "spacer", "diagnostics"]
 right = ["selections", "position", "position-percentage"]
+
+[editor.soft-wrap]
+enable = true
