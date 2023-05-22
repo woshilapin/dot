@@ -1,0 +1,26 @@
+[proton-woshilapin]
+default = true
+email = "woshilapin@tuziwo.info"
+
+email-listing-page-size = 20
+folder-listing-page-size = 20
+
+display-name = "woshilapin"
+downloads-dir = "~/Downloads/"
+signature = "~/.config/himalaya/signature"
+
+backend = "imap"
+imap-host = "127.0.0.1"
+imap-port = 1143
+imap-login = "woshilapin@tuziwo.info"
+imap-passwd-cmd = "pass woshilapin/protonmail/bridge"
+imap-starttls = true
+imap-insecure = true
+
+sender = "smtp"
+smtp-host = "127.0.0.1"
+smtp-port = 1025
+smtp-login = "woshilapin@tuziwo.info"
+smtp-passwd-cmd = "pass woshilapin/protonmail/bridge"
+smtp-starttls = true
+smtp-insecure = true

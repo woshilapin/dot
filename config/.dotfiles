@@ -1,6 +1,7 @@
 alacritty .config/alacritty
 bat .config/bat
 helix .config/helix
+himalaya .config/himalaya
 i3 .config/i3
 kak .config/kak
 kak-lsp .config/kak-lsp
