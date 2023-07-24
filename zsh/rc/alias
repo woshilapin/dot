@@ -73,6 +73,11 @@ alias tas="tmux attach -t"
 alias tls="tmux list-sessions"
 alias mux="tmuxinator"
 
+# New tools, give some hints about them
+# `dysk` instead of `df`
+alias df="echo -e '\e[1;4;5;34mNOTE\e[0m\e[5m - Did you try \`dysk\` as an alternative to \`df\`?\e[0m'; df"
+alias dysk="dysk --cols label+"
+
 function concat-path() {
 	DIRNAME="$1"
 	BASENAME="$2"
