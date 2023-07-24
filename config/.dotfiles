@@ -15,3 +15,4 @@ starship.toml .config/starship.toml
 systemd .config/systemd
 tab.yml .config/tab.yml
 task .config/task
+wezterm .config/wezterm
