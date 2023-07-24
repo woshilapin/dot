@@ -23,18 +23,8 @@ else
 	alias la="ls --all"
 	alias lla="ll --all"
 fi
-if [ "$( command -v eva )" = '' ]
-then
-	alias bc="bc -ql"
-else
-	alias bc="eva"
-fi
-if [ "$( command -v procs )" = '' ]
-then
-	alias top="top"
-else
-	alias top="procs"
-fi
+alias bc="hint-wrapper 'kalc\` or \`eva' bc -ql"
+alias top="hint-wrapper procs top"
 alias vi=vim
 alias less=${PAGER}
 alias zless=${PAGER}
@@ -75,7 +65,7 @@ alias mux="tmuxinator"
 
 # New tools, give some hints about them
 # `dysk` instead of `df`
-alias df="echo -e '\e[1;4;5;34mNOTE\e[0m\e[5m - Did you try \`dysk\` as an alternative to \`df\`?\e[0m'; df"
+alias df="hint-wrapper dysk df"
 alias dysk="dysk --cols label+"
 
 function concat-path() {

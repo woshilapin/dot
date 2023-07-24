@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+HINT=$1
+REAL=$2
+shift
+echo -e "\e[1;4;5;34mNOTE\e[0m\e[5m - Did you try \`${HINT}\` as an alternative to \`${REAL}\`?\e[0m"
+$@
