@@ -2,25 +2,38 @@
 auto-pairs = false
 auto-save = true
 bufferline = "multiple"
+color-modes = true
 completion-trigger-len = 1
 cursorline = true
 idle-timeout = 0
-indent-guides.render = true
 line-number = "relative"
-whitespace.render = "all"
 
 [editor.cursor-shape]
 insert = "bar"
 
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+render = true
+character = "┆"
+skip-levels = 1
+
 [editor.lsp]
 auto-signature-help = false
-display-messages = true
 display-inlay-hints = true
+display-messages = true
+
+[editor.soft-wrap]
+enable = true
 
 [editor.statusline]
 left = ["mode", "spinner", "file-name", "file-modification-indicator", "file-encoding"]
 center = ["version-control", "spacer", "diagnostics"]
 right = ["selections", "position", "position-percentage"]
 
-[editor.soft-wrap]
-enable = true
+[editor.whitespace]
+render = "all"
+
+[editor.whitespace.characters]
+tabpad = " "
