@@ -12,9 +12,16 @@ end
 
 -- This is where you actually apply your config choices
 
+-- Start full-screen
+wezterm.on("gui-startup", function(cmd)
+  local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
+  window:gui_window():maximize()
+end)
+
 -- For example, changing the color scheme:
 config.color_scheme = 'GruvboxDark'
 config.font = wezterm.font 'JetBrains Mono'
+config.font_size = 50.0 / 3.0
 
 config.hyperlink_rules = wezterm.default_hyperlink_rules()
 
