@@ -9,6 +9,7 @@ khal .config/khal
 khard .config/khard
 mpd .config/mpd
 ncspot .config/ncspot
+nix .config/nix
 nvim .config/nvim
 powerline .config/powerline
 starship.toml .config/starship.toml

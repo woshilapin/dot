@@ -12,19 +12,16 @@ else
 	alias ls="ls -F --color=auto" ;
 	alias cp="cp --dereference" ;
 fi
-if [ "$( command -v exa )" = '' ]
-then
-	alias ll="ls -lh"
-	alias la="ls -ha"
-	alias lla="ll -a"
-else
-	alias ls="exa --classify --icons"
-	alias ll="ls --long"
-	alias la="ls --all"
-	alias lla="ll --all"
-fi
+alias ll="ls -lh"
+alias la="ls -ha"
+alias lla="ll -a"
+alias ls="hint-wrapper 'lsd\` or \`eza\` or \`exa' ls"
+alias lsd="lsd --classify --header --group-dirs first --total-size --versionsort --hyperlink auto"
+alias exa="exa --classify --icons"
 alias bc="hint-wrapper 'kalc\` or \`eva' bc -ql"
 alias top="hint-wrapper procs top"
+alias du="hint-wrapper dui du"
+alias sysctl="hint-wrapper systeroid sysctl"
 alias vi=vim
 alias less=${PAGER}
 alias zless=${PAGER}
