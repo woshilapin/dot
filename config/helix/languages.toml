@@ -7,9 +7,10 @@ name = "ocaml"
 auto-format = true
 formatter = { command = "ocamlformat", args = ["--impl", "-"] }
 
+[language-server.rust-analyzer.config]
+cargo = { features = "all" }
+checkOnSave = { overrideCommand = ["cargo", "clippy", "--message-format=json", "--workspace", "--all-features", "--all-targets", "--", "--warn", "clippy::pedantic"] }
+
 [[language]]
 name = "rust"
 
-[language.config]
-cargo = { features = "all" }
-checkOnSave = { overrideCommand = ["cargo", "clippy", "--message-format=json", "--workspace", "--all-features", "--all-targets", "--", "--warn", "clippy::pedantic"] }
