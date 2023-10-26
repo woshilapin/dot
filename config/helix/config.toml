@@ -1,5 +1,5 @@
 [editor]
-auto-pairs = false
+auto-pairs = true
 auto-save = true
 bufferline = "multiple"
 color-modes = true
@@ -30,7 +30,7 @@ enable = true
 [editor.statusline]
 left = ["mode", "spinner", "file-name", "file-modification-indicator", "file-encoding"]
 center = ["version-control", "spacer", "diagnostics"]
-right = ["selections", "position", "position-percentage"]
+right = ["selections", "register", "position", "position-percentage"]
 
 [editor.whitespace]
 render = "all"
