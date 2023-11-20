@@ -89,7 +89,10 @@ then
 	eval "$(zoxide init zsh)"
 fi
 
-source /home/woshilapin/.config/broot/launcher/bash/br
+if [[ -f "$HOME/.config/broot/launcher/bash/br" ]]
+then
+	source $HOME/.config/broot/launcher/bash/br
+fi
 
 autoload -U +X bashcompinit && bashcompinit
 
