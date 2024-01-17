@@ -14,6 +14,7 @@ nvm
 octaverc
 pyenv
 pyenv-virtualenv .pyenv/plugins/pyenv-virtualenv
+ripgreprc
 tigrc
 tmux
 tmuxinator
