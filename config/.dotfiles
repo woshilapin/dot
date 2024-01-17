@@ -17,3 +17,4 @@ systemd .config/systemd
 tab.yml .config/tab.yml
 task .config/task
 wezterm .config/wezterm
+zellij .config/zellij
