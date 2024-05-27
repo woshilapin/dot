@@ -39,7 +39,7 @@
 [color "diff"]
 	whitespace = green reverse
 [gpg]
-	program = gpg2
+	program = gpg
 [commit]
 	gpgsign = true
 [github]
