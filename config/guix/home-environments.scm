@@ -42,6 +42,7 @@
                                           "password-store"
                                           "pinentry-tty"
                                           "podman"
+                                          "podman-compose"
                                           "ripgrep"
                                           "tig"
                                           "vim")))

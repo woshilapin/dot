@@ -180,11 +180,13 @@ USER."
     (initrd dummy-initrd)
     (initrd-modules '())
     (firmware '())
-    (file-systems (list (file-system
+    (file-systems (cons (file-system
                           (device "/dev/sdb")
                           (mount-point "/")
                           (type "ext4")
-                          (mount? #t))))
+                          (mount? #t))
+                        ;; Add these for support of 'cgroup2', useful for 'podman'
+                        %control-groups))
     (users (cons* (user-account
                     (name "woshilapin")
                     (group "users")
@@ -198,6 +200,7 @@ USER."
                   %base-user-accounts))
     (services
      (list (service guix-service-type)
+           (service udev-service-type) ;needed for 'podman'
            (service guix-home-service-type
                     `(("woshilapin" ,woshilapin-home-environment)))
            ;; Autosave the current 'operating-system.scm' into '/etc/config.scm'
