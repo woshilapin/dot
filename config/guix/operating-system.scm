@@ -53,9 +53,12 @@ USER."
                                                     "/run/current-system")
                                              (let ((shepherd-socket
                                                     "/var/run/shepherd/socket"))
+                                               ;; Clean up this file so we can wait for it later.
                                                (when (file-exists?
                                                       shepherd-socket)
                                                  (delete-file shepherd-socket))
+
+                                               ;; Child process boots the system and is replaced by shepherd.
                                                (when (zero? (primitive-fork))
                                                  (let* ((system-generation (readlink
                                                                             "/var/guix/profiles/system"))
@@ -75,9 +78,12 @@ USER."
                                                           "--no-auto-compile"
                                                           (string-append
                                                            system "/boot"))))
+
+                                               ;; Parent process waits for shepherd before continuing.
                                                (while (not (file-exists?
                                                             shepherd-socket))
                                                       (sleep 1))))
+
                                            (let* ((pw (getpw #$user))
                                                   (shell (passwd:shell pw))
                                                   (sudo #+(file-append sudo
@@ -89,28 +95,39 @@ USER."
                                                                 "/run/user/"
                                                                 (number->string
                                                                  uid))))
+                                             ;; Save the value of $PATH set by WSL.  Useful for finding
+                                             ;; Windows binaries to run with WSL's binfmt interop.
                                              (setenv "WSLPATH"
                                                      (getenv "PATH"))
+
+                                             ;; /run is mounted with the nosuid flag by WSL.  This prevents
+                                             ;; running the /run/setuid-programs.  Remount it without this flag
+                                             ;; as a workaround.  See:
+                                             ;; https://github.com/microsoft/WSL/issues/8716.
                                              (mount #f
                                                     "/run"
                                                     #f
                                                     MS_REMOUNT
                                                     #:update-mtab? #f)
-                                             ;; special creation of '/run/user' on WSL
-                                             ;; https://issues.guix.gnu.org/issue/59132
+
+                                             ;; Create XDG_RUNTIME_DIR for the login user.
                                              (unless (file-exists? runtime-dir)
                                                (mkdir runtime-dir)
                                                (chown runtime-dir uid gid))
+                                             (setenv "XDG_RUNTIME_DIR"
+                                                     runtime-dir)
+
+                                             ;; Start login shell as user.
                                              (apply execl
-                                                    sudo
-                                                    "sudo"
-                                                    "--preserve-env=WSLPATH"
-                                                    "-u"
-                                                    #$user
-                                                    "--"
-                                                    shell
-                                                    "-l"
-                                                    args))))))
+                                              sudo
+                                              "sudo"
+                                              "--preserve-env=WSLPATH,XDG_RUNTIME_DIR"
+                                              "-u"
+                                              #$user
+                                              "--"
+                                              shell
+                                              "-l"
+                                              args))))))
 
 (define dummy-package
   (package
@@ -139,13 +156,12 @@ USER."
               (package
                 dummy-package)
               (configuration-file "/dev/null")
+              ;; Deviates from /gnu/system/images/wsl2.scm
+              ;; See https://lists.gnu.org/archive/html/help-guix/2024-03/msg00042.html
               (configuration-file-generator (lambda* rest
                                               (computed-file
                                                "dummy-bootloader"
                                                #~(mkdir #$output))))
-              ;; (configuration-file-generator
-              ;; (lambda (. _rest)
-              ;; (plain-file "dummy-bootloader" "")))
               (installer #~(const #t))))
 
 (define dummy-kernel
