@@ -5,6 +5,7 @@
 ;; See the "Replicating Guix" section in the manual.
 
 (define-module (home-environments)
+  #:use-module (gnu)
   #:use-module (gnu home)
   #:use-module (gnu home services)
   #:use-module (gnu home services gnupg)
@@ -12,40 +13,46 @@
   #:use-module (gnu home services shells)
   #:use-module (gnu home services ssh)
   #:use-module (gnu packages)
-  #:use-module (gnu packages base)
-  #:use-module (gnu packages containers)
-  #:use-module (gnu packages crates-io)
-  #:use-module (gnu packages gnupg)
-  #:use-module (gnu packages password-utils)
-  #:use-module (gnu packages rust)
-  #:use-module (gnu packages rust-apps)
-  #:use-module (gnu packages package-management)
-  #:use-module (gnu packages ssh)
-  #:use-module (gnu packages terminals)
-  #:use-module (gnu packages vim)
   #:use-module (gnu services)
+  #:use-module (gnu system)
   #:use-module (guix gexp)
   #:use-module (guix channels)
+  #:use-module (saayix packages fonts)
   #:use-module (channels))
+
+(use-package-modules base
+                     containers
+                     crates-io
+                     gnupg
+                     password-utils
+                     rust
+                     rust-apps
+                     ssh
+                     terminals
+                     version-control
+                     vim)
 
 (define-public woshilapin-home-environment
   (home-environment
     ;; Below is the list of packages that will show up in your
     ;; Home profile, under ~/.guix-home/profile.
-    (packages (specifications->packages '("alacritty" "bat"
-                                          "fd"
-                                          "helix"
-                                          "git"
-                                          "glibc-locales"
-                                          "gnupg"
-                                          "openssh"
-                                          "password-store"
-                                          "pinentry-tty"
-                                          "podman"
-                                          "podman-compose"
-                                          "ripgrep"
-                                          "tig"
-                                          "vim")))
+    (packages (cons* alacritty
+                     bat
+                     fd
+                     font-nerd-fira-code
+                     git
+                     glibc-locales
+                     gnupg
+                     openssh
+                     password-store
+                     pinentry-tty
+                     podman
+                     podman-compose
+                     ripgrep
+                     tig
+                     vim
+                     ;; 'helix' package is not yet publicly exposed with 'define-public'
+                     (specifications->packages '("helix"))))
 
     ;; Below is the list of Home services.  To search for available
     ;; services, run 'guix home search KEYWORD' in a terminal.
