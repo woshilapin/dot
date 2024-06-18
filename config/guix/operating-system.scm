@@ -220,21 +220,6 @@ USER."
                                                          (string-append
                                                           "root:0:65536\n"
                                                           "woshilapin:100000:65536\n")))))
-           (simple-service 'etc-container
-                           etc-service-type
-                           ;; Setup Podman policy to allow for pulling from any repository
-                           (list `("containers/policy.json" ,(plain-file
-                                                              "policy.json"
-                                                              "{\"default\": [{\"type\": \"insecureAcceptAnything\"}]}"))
-
-                           ;; Use a fast storage ('overlayfs') instead of the default ('vfs') for Podman
-                           `("containers/storage.conf" ,(plain-file
-                                                         "storage.conf"
-                                                         "[storage]\ndriver = \"overlay\""))
-                           ;; Configure the authorized registries for podman
-                           `("containers/registries.conf" ,(plain-file
-                                                            "registries.conf"
-                                                            "unqualified-search-registries = ['docker.io', 'ghcr.io']"))))
            (service special-files-service-type
                     `(("/bin/sh" ,(file-append zsh "/bin/zsh"))
                       ("/bin/mount" ,(file-append util-linux "/bin/mount"))

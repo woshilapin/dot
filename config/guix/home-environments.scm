@@ -38,21 +38,21 @@
     ;; Below is the list of packages that will show up in your
     ;; Home profile, under ~/.guix-home/profile.
     (packages (list alacritty
-                     bat
-                     fd
-                     font-nerd-fira-code
-                     git
-                     glibc-locales
-                     gnupg
-                     helix
-                     openssh
-                     password-store
-                     pinentry-tty
-                     podman
-                     podman-compose
-                     ripgrep
-                     tig
-                     vim))
+                    bat
+                    fd
+                    font-nerd-fira-code
+                    git
+                    glibc-locales
+                    gnupg
+                    helix
+                    openssh
+                    password-store
+                    pinentry-tty
+                    podman
+                    podman-compose
+                    ripgrep
+                    tig
+                    vim))
 
     ;; Below is the list of Home services.  To search for available
     ;; services, run 'guix home search KEYWORD' in a terminal.
@@ -76,7 +76,17 @@
                       ("nix/nix.conf" ,(local-file
                                         "/home/woshilapin/.dot/config/nix/nix.conf"))
                       ("zellij/config.kdl" ,(local-file
-                                             "/home/woshilapin/.dot/config/zellij/config.kdl"))))
+                                             "/home/woshilapin/.dot/config/zellij/config.kdl"))
+                      ("containers/policy.json" ,(plain-file "policy.json"
+                                                  "{\"default\": [{\"type\": \"insecureAcceptAnything\"}]}"))
+
+                      ;; Use a fast storage ('overlayfs') instead of the default ('vfs') for Podman
+                      ("containers/storage.conf" ,(plain-file "storage.conf"
+                                                   "[storage]\ndriver = \"overlay\""))
+                      ;; Configure the authorized registries for podman
+                      ("containers/registries.conf" ,(plain-file
+                                                      "registries.conf"
+                                                      "unqualified-search-registries = ['docker.io', 'ghcr.io']"))))
            (service home-zsh-service-type
                     (home-zsh-configuration (zshrc (list
                                                     ;; https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html#Invoking-GPG_002dAGENT
