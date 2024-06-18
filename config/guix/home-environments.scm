@@ -61,7 +61,8 @@
                            channels)
            (simple-service 'environment-variables-service
                            home-environment-variables-service-type
-                           `(("DISPLAY" . ":0") ("COLORTERM" . "truecolor")))
+                           `(("DISPLAY" . ":0") ("COLORTERM" . "truecolor")
+                             ("EDITOR" . "hx")))
            (service home-xdg-configuration-files-service-type
                     `(("alacritty/alacritty.yml" ,(local-file
                                                    "/home/woshilapin/.dot/config/alacritty/alacritty.yml"))
