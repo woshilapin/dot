@@ -18,6 +18,7 @@
   #:use-module (guix gexp)
   #:use-module (guix channels)
   #:use-module (saayix packages fonts)
+  #:use-module (saayix packages text-editors)
   #:use-module (channels))
 
 (use-package-modules base
@@ -36,13 +37,14 @@
   (home-environment
     ;; Below is the list of packages that will show up in your
     ;; Home profile, under ~/.guix-home/profile.
-    (packages (cons* alacritty
+    (packages (list alacritty
                      bat
                      fd
                      font-nerd-fira-code
                      git
                      glibc-locales
                      gnupg
+                     helix
                      openssh
                      password-store
                      pinentry-tty
@@ -50,9 +52,7 @@
                      podman-compose
                      ripgrep
                      tig
-                     vim
-                     ;; 'helix' package is not yet publicly exposed with 'define-public'
-                     (specifications->packages '("helix"))))
+                     vim))
 
     ;; Below is the list of Home services.  To search for available
     ;; services, run 'guix home search KEYWORD' in a terminal.
