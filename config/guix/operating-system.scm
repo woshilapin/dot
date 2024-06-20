@@ -199,7 +199,22 @@ USER."
                     (shell (wsl-boot-program "woshilapin")))
                   %base-user-accounts))
     (services
-     (list (service guix-service-type)
+     (list (service guix-service-type
+                    (guix-configuration (substitute-urls (append (list
+                                                                  "https://substitutes.nonguix.org")
+                                                          %default-substitute-urls))
+                                        (authorized-keys (append (list (plain-file
+                                                                        "non-guix.pub"
+                                                                        (string-append
+                                                                         "(public-key\n"
+                                                                         "  (ecc\n"
+                                                                         "    (curve Ed25519)\n"
+                                                                         "    (q #C1FD53E5D4CE971933EC50C9F307AE2171A2D3B52C804642A7A35F84F3A4EA98#)
+
+"
+                                                                         "  )\n"
+                                                                         ")")))
+                                                          %default-authorized-guix-keys))))
            (service udev-service-type) ;needed for 'podman'
            (service guix-home-service-type
                     `(("woshilapin" ,woshilapin-home-environment)))
