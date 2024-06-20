@@ -17,6 +17,7 @@
   #:use-module (gnu system)
   #:use-module (guix gexp)
   #:use-module (guix channels)
+  #:use-module (nongnu packages mozilla)
   #:use-module (saayix packages fonts)
   #:use-module (saayix packages text-editors)
   #:use-module (channels))
@@ -40,6 +41,7 @@
     (packages (list alacritty
                     bat
                     fd
+                    firefox
                     font-nerd-fira-code
                     git
                     glibc-locales
