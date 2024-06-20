@@ -20,6 +20,7 @@
   #:use-module (nongnu packages mozilla)
   #:use-module (saayix packages fonts)
   #:use-module (saayix packages text-editors)
+  #:use-module (tuziwo packages starship)
   #:use-module (channels))
 
 (use-package-modules base
@@ -53,6 +54,7 @@
                     podman
                     podman-compose
                     ripgrep
+                    starship
                     tig
                     vim))
 
@@ -94,7 +96,9 @@
                     (home-zsh-configuration (zshrc (list
                                                     ;; https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html#Invoking-GPG_002dAGENT
                                                     (plain-file "gpg-tty"
-                                                     "export GPG_TTY=$(tty)")))))
+                                                     "export GPG_TTY=$(tty)")
+                                                    (plain-file "starship-init"
+                                                     "eval \"$(starship init zsh)\"")))))
            (service home-gpg-agent-service-type
                     (home-gpg-agent-configuration (pinentry-program (file-append
                                                                      pinentry-tty
