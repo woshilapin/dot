@@ -20,7 +20,17 @@
                                 (openpgp-fingerprint
                                  "3FFA 7335 973E 0A49 47FC  0A8C 38D5 96BE 07D3 34AB")))))
 
+(define tuziwo
+  (channel
+    (name 'tuziwo)
+    (branch "main")
+    (url "https://gitlab.com/woshilapin/tuziwo-channel")
+    (introduction
+     (make-channel-introduction "0deff2a94032f2d96e82f93edeb61f35da879987"
+                                (openpgp-fingerprint
+                                 "5554 54E7 6611 9F60 80F1  2F63 B041 63DC 7020 116A")))))
+
 (define-public channels
-  (cons* saayix %default-channels))
+  (cons* nonguix saayix tuziwo %default-channels))
 
 channels
