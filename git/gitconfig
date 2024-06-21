@@ -57,3 +57,10 @@
 	rebase = true
 [init]
 	defaultBranch = main
+# Configuration with 'hydroxide' (protonmail-bridge)
+[sendemail]
+	smtpserver = localhost
+	smtpserverport = 1025
+	smtpencryption = none
+	smtpuser = woshilapin
+	smtpsslcertpath = ""
