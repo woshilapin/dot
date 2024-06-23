@@ -1,7 +1,6 @@
 config
 chktexrc
 docker
-git
 gnuplot
 inputrc
 irssi

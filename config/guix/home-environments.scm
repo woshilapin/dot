@@ -71,9 +71,9 @@
                     `(("alacritty/alacritty.yml" ,(local-file
                                                    "/home/woshilapin/.dot/config/alacritty/alacritty.yml"))
                       ("git/config" ,(local-file
-                                      "/home/woshilapin/.dot/git/gitconfig"))
+                                      "/home/woshilapin/.dot/config/git/config"))
                       ("git/ignore" ,(local-file
-                                      "/home/woshilapin/.dot/git/gitignore"))
+                                      "/home/woshilapin/.dot/config/git/ignore"))
                       ("helix/config.toml" ,(local-file
                                              "/home/woshilapin/.dot/config/helix/config.toml"))
                       ("helix/languages.toml" ,(local-file

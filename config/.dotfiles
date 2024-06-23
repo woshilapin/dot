@@ -1,5 +1,6 @@
 alacritty .config/alacritty
 bat .config/bat
+git .config/git
 guix .config/guix
 helix .config/helix
 himalaya .config/himalaya
