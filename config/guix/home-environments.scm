@@ -21,6 +21,7 @@
   #:use-module (saayix packages fonts)
   #:use-module (saayix packages text-editors)
   #:use-module (tuziwo packages starship)
+  #:use-module (tuziwo packages hydroxide)
   #:use-module (channels))
 
 (use-package-modules base
@@ -48,6 +49,7 @@
                     glibc-locales
                     gnupg
                     helix
+                    hydroxide
                     openssh
                     password-store
                     pinentry-tty
