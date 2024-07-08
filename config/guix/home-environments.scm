@@ -31,6 +31,7 @@
                      password-utils
                      rust
                      rust-apps
+                     shellutils
                      ssh
                      terminals
                      version-control
@@ -42,6 +43,7 @@
     ;; Home profile, under ~/.guix-home/profile.
     (packages (list alacritty
                     bat
+                    direnv
                     fd
                     firefox
                     font-nerd-fira-code
@@ -86,9 +88,10 @@
                                         "/home/woshilapin/.dot/config/nix/nix.conf"))
                       ("zellij/config.kdl" ,(local-file
                                              "/home/woshilapin/.dot/config/zellij/config.kdl"))
+                      ("direnv/direnv.toml" ,(plain-file "direnv.toml"
+                                                         "[global]\nload_dotenv = true\nstrict_env = true"))
                       ("containers/policy.json" ,(plain-file "policy.json"
                                                   "{\"default\": [{\"type\": \"insecureAcceptAnything\"}]}"))
-
                       ;; Use a fast storage ('overlayfs') instead of the default ('vfs') for Podman
                       ("containers/storage.conf" ,(plain-file "storage.conf"
                                                    "[storage]\ndriver = \"overlay\""))
@@ -101,8 +104,11 @@
                                                     ;; https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html#Invoking-GPG_002dAGENT
                                                     (plain-file "gpg-tty"
                                                      "export GPG_TTY=$(tty)")
-                                                    (plain-file "starship-init"
-                                                     "eval \"$(starship init zsh)\"")))))
+                                                    (plain-file
+                                                     "starship-init"
+                                                     "eval \"$(starship init zsh)\"")
+                                                    (plain-file "direnv-init"
+                                                     "eval \"$(direnv hook zsh)\"")))))
            (service home-gpg-agent-service-type
                     (home-gpg-agent-configuration (pinentry-program (file-append
                                                                      pinentry-tty
