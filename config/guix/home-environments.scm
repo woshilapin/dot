@@ -46,6 +46,7 @@
                     firefox
                     font-nerd-fira-code
                     git
+                    `(,git "send-email")
                     git-delta
                     glibc-locales
                     gnupg
