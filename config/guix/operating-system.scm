@@ -200,20 +200,34 @@ USER."
                   %base-user-accounts))
     (services
      (list (service guix-service-type
-                    (guix-configuration (substitute-urls (append (list
-                                                                  "https://substitutes.nonguix.org")
-                                                          %default-substitute-urls))
-                                        (authorized-keys (append (list (plain-file
-                                                                        "non-guix.pub"
-                                                                        (string-append
-                                                                         "(public-key\n"
-                                                                         "  (ecc\n"
-                                                                         "    (curve Ed25519)\n"
-                                                                         "    (q #C1FD53E5D4CE971933EC50C9F307AE2171A2D3B52C804642A7A35F84F3A4EA98#)
+                    (guix-configuration (substitute-urls
+                                         ;; Reverse the list so official 'guix' substitutes (%default-substitute-urls) are first
+                                         (reverse (cons*
+                                                   "https://substitutes.nonguix.org" ;nonguix
+                                                   "https://cuirass.genenetwork.org" ;guix (new, so not in default)
+                                                   %default-substitute-urls)))
+                                        (authorized-keys (cons* (plain-file
+                                                                 "genenetwork.pub"
+                                                                 (string-append
+                                                                  "(public-key\n"
+                                                                  "  (ecc\n"
+                                                                  "    (curve Ed25519)\n"
+                                                                  "    (q #9578AD6CDB23BA51F9C4185D5D5A32A7EEB47ACDD55F1CCB8CEE4E0570FBF961#)
 
 "
-                                                                         "  )\n"
-                                                                         ")")))
+                                                                  "  )\n"
+                                                                  ")"))
+                                                          (plain-file
+                                                           "nonguix.pub"
+                                                           (string-append
+                                                            "(public-key\n"
+                                                            "  (ecc\n"
+                                                            "    (curve Ed25519)\n"
+                                                            "    (q #C1FD53E5D4CE971933EC50C9F307AE2171A2D3B52C804642A7A35F84F3A4EA98#)
+
+"
+                                                            "  )\n"
+                                                            ")"))
                                                           %default-authorized-guix-keys))))
            (service udev-service-type) ;needed for 'podman'
            (service guix-home-service-type
