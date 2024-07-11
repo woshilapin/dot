@@ -85,6 +85,8 @@
                       ("containers/registries.conf" ,(plain-file
                                                       "registries.conf"
                                                       "unqualified-search-registries = ['docker.io', 'ghcr.io']"))
+                      ("direnv/direnv.toml" ,(plain-file "direnv.toml"
+                                                         "[global]\nload_dotenv = true\nstrict_env = true"))
                       ("git/config" ,(local-file
                                       "/home/woshilapin/.dot/config/git/config"))
                       ("git/ignore" ,(local-file
