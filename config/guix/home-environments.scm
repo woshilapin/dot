@@ -76,6 +76,15 @@
            (service home-xdg-configuration-files-service-type
                     `(("alacritty/alacritty.yml" ,(local-file
                                                    "/home/woshilapin/.dot/config/alacritty/alacritty.yml"))
+                      ("containers/policy.json" ,(plain-file "policy.json"
+                                                  "{\"default\": [{\"type\": \"insecureAcceptAnything\"}]}"))
+                      ;; Use a fast storage ('overlayfs') instead of the default ('vfs') for Podman
+                      ("containers/storage.conf" ,(plain-file "storage.conf"
+                                                   "[storage]\ndriver = \"overlay\""))
+                      ;; Configure the authorized registries for podman
+                      ("containers/registries.conf" ,(plain-file
+                                                      "registries.conf"
+                                                      "unqualified-search-registries = ['docker.io', 'ghcr.io']"))
                       ("git/config" ,(local-file
                                       "/home/woshilapin/.dot/config/git/config"))
                       ("git/ignore" ,(local-file
@@ -89,18 +98,7 @@
                       ("starship.toml" ,(local-file
                                          "/home/woshilapin/.dot/config/starship.toml"))
                       ("zellij/config.kdl" ,(local-file
-                                             "/home/woshilapin/.dot/config/zellij/config.kdl"))
-                      ("direnv/direnv.toml" ,(plain-file "direnv.toml"
-                                                         "[global]\nload_dotenv = true\nstrict_env = true"))
-                      ("containers/policy.json" ,(plain-file "policy.json"
-                                                  "{\"default\": [{\"type\": \"insecureAcceptAnything\"}]}"))
-                      ;; Use a fast storage ('overlayfs') instead of the default ('vfs') for Podman
-                      ("containers/storage.conf" ,(plain-file "storage.conf"
-                                                   "[storage]\ndriver = \"overlay\""))
-                      ;; Configure the authorized registries for podman
-                      ("containers/registries.conf" ,(plain-file
-                                                      "registries.conf"
-                                                      "unqualified-search-registries = ['docker.io', 'ghcr.io']"))))
+                                             "/home/woshilapin/.dot/config/zellij/config.kdl"))))
            (service home-zsh-service-type
                     (home-zsh-configuration (zshrc (list
                                                     ;; https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html#Invoking-GPG_002dAGENT
