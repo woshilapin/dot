@@ -11,6 +11,17 @@ show_notifications = true
 # Command that last for more than 15 seconds will be notified when finished
 min_time_to_notify = 15_000
 
+[direnv]
+disabled = false
+format = "via [$symbol loaded:$loaded, allowed:$allowed]($style) "
+style = "bold blue"
+symbol = "direnv"
+allowed_msg = "🔓"
+not_allowed_msg = "🔒"
+denied_msg = "⛔"
+loaded_msg = "✔️"
+unloaded_msg = "❌"
+
 [guix_shell]
 format = "[guix $symbol]($style)"
 
