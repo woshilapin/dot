@@ -86,6 +86,8 @@
                                                 "/home/woshilapin/.dot/config/helix/languages.toml"))
                       ("nix/nix.conf" ,(local-file
                                         "/home/woshilapin/.dot/config/nix/nix.conf"))
+                      ("starship.toml" ,(local-file
+                                         "/home/woshilapin/.dot/config/starship.toml"))
                       ("zellij/config.kdl" ,(local-file
                                              "/home/woshilapin/.dot/config/zellij/config.kdl"))
                       ("direnv/direnv.toml" ,(plain-file "direnv.toml"
