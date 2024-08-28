@@ -21,13 +21,13 @@
   #:use-module (saayix packages fonts)
   #:use-module (saayix packages text-editors)
   #:use-module (tuziwo packages starship)
-  #:use-module (tuziwo packages hydroxide)
   #:use-module (channels))
 
 (use-package-modules base
                      containers
                      crates-io
                      gnupg
+                     mail
                      password-utils
                      rust
                      rust-apps
