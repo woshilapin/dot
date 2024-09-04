@@ -73,7 +73,7 @@
                            home-environment-variables-service-type
                            `(("DISPLAY" . ":0") ("COLORTERM" . "truecolor")
                              ("EDITOR" . "hx")
-                             ("PATH" . "${HOME}/.cargo/bin:${PATH}")))
+                             ("PATH" . "${HOME}/.local/bin:${HOME}/.cargo/bin:${PATH}")))
            (service home-xdg-configuration-files-service-type
                     `(("alacritty/alacritty.yml" ,(local-file
                                                    "/home/woshilapin/.dot/config/alacritty/alacritty.yml"))
