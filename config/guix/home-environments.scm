@@ -24,6 +24,7 @@
   #:use-module (channels))
 
 (use-package-modules base
+                     commencement
                      containers
                      crates-io
                      gnupg
@@ -47,6 +48,7 @@
                     fd
                     firefox
                     font-nerd-fira-code
+                    gcc-toolchain
                     git
                     `(,git "send-email")
                     git-delta
@@ -73,6 +75,7 @@
                            home-environment-variables-service-type
                            `(("DISPLAY" . ":0") ("COLORTERM" . "truecolor")
                              ("EDITOR" . "hx")
+                             ("LD_LIBRARY_PATH" . "${LIBRARY_PATH}")
                              ("PATH" . "${HOME}/.local/bin:${HOME}/.cargo/bin:${PATH}")))
            (service home-xdg-configuration-files-service-type
                     `(("alacritty/alacritty.yml" ,(local-file
