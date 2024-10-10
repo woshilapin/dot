@@ -119,6 +119,7 @@
                     (home-gpg-agent-configuration (pinentry-program (file-append
                                                                      pinentry-tty
                                                                      "/bin/pinentry-tty"))))
+           (service home-ssh-agent-service-type (home-ssh-agent-configuration))
            (service home-openssh-service-type
                     (home-openssh-configuration (add-keys-to-agent "yes")
                                                 (hosts (list (openssh-host (name
