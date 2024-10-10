@@ -108,6 +108,8 @@
            (service home-zsh-service-type
                     (home-zsh-configuration (zshrc (list
                                                     ;; https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html#Invoking-GPG_002dAGENT
+                                                    (plain-file "zsh-fpath"
+                                                     "fpath=(${HOME}/.dot/zsh/completion ${fpath})")
                                                     (plain-file "completion-init"
                                                      "autoload -Uz compinit && compinit")
                                                     (plain-file "gpg-tty"
