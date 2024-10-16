@@ -21,6 +21,7 @@
   #:use-module (saayix packages fonts)
   #:use-module (saayix packages text-editors)
   #:use-module (tuziwo packages starship)
+  #:use-module (tuziwo packages podman-compose)
   #:use-module (channels))
 
 (use-package-modules base
@@ -60,7 +61,7 @@
                     password-store
                     pinentry-tty
                     podman
-                    podman-compose
+                    podman-compose-1.2
                     ripgrep
                     starship
                     tig
