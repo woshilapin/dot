@@ -256,16 +256,3 @@ report.later.filter = status:pending limit:page +later
 report.later.labels = ID,Description,Project
 
 news.version=2.6.0
-context.work.read=project:work
-context.work.write=project:work
-context.home.read=project:home
-context.home.write=project:home
-context.oss.read=project:oss
-context.oss.write=project:oss
-context.kirin.read=project:work.kirin
-context.kirin.write=project:work.kirin
-context.fofil.read=project:oss.fofil
-context.fofil.write=project:oss.fofil
-context.loki.read=project:work.loki
-context.loki.write=project:work.loki
-context=work

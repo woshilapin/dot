@@ -35,6 +35,7 @@
                      rust-apps
                      shellutils
                      ssh
+                     task-management
                      terminals
                      version-control
                      vim)
@@ -64,6 +65,7 @@
                     podman-compose-1.2
                     ripgrep
                     starship
+                    taskwarrior
                     tig
                     vim))
 
@@ -104,6 +106,10 @@
                                         "/home/woshilapin/.dot/config/nix/nix.conf"))
                       ("starship.toml" ,(local-file
                                          "/home/woshilapin/.dot/config/starship.toml"))
+                      ("task/taskrc" ,(local-file
+                                         "/home/woshilapin/.dot/config/task/taskrc"))
+                      ("task/holidays.rc" ,(local-file
+                                         "/home/woshilapin/.dot/config/task/holidays.rc"))
                       ("zellij/config.kdl" ,(local-file
                                              "/home/woshilapin/.dot/config/zellij/config.kdl"))))
            (service home-zsh-service-type
