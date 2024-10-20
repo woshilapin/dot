@@ -92,6 +92,9 @@
                       ("containers/registries.conf" ,(plain-file
                                                       "registries.conf"
                                                       "unqualified-search-registries = ['docker.io', 'ghcr.io']"))
+                      ("containers/containers.conf" ,(plain-file
+                                                      "containers.conf"
+                                                      "[engine]\ncgroup_manager=\"cgroupfs\"\ncompose_provider = [\"podman-compose\"]\ncompose_warning_logs = false"))
                       ("direnv/direnv.toml" ,(plain-file "direnv.toml"
                                                          "[global]\nload_dotenv = true\nstrict_env = true"))
                       ("git/config" ,(local-file
