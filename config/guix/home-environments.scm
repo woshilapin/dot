@@ -127,7 +127,9 @@
                                                      "starship-init"
                                                      "eval \"$(starship init zsh)\"")
                                                     (plain-file "direnv-init"
-                                                     "eval \"$(direnv hook zsh)\"")))))
+                                                     "eval \"$(direnv hook zsh)\"")
+                                                    (plain-file "atuin-init"
+                                                     "eval \"$(atuin init zsh)\"")))))
            (service home-gpg-agent-service-type
                     (home-gpg-agent-configuration (pinentry-program (file-append
                                                                      pinentry-tty
