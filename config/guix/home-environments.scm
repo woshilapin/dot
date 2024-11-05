@@ -82,6 +82,8 @@
            (service home-xdg-configuration-files-service-type
                     `(("alacritty/alacritty.yml" ,(local-file
                                                    "/home/woshilapin/.dot/config/alacritty/alacritty.yml"))
+                      ("atuin/config.toml" ,(local-file
+                                         "/home/woshilapin/.dot/config/atuin/config.toml"))
                       ("containers/policy.json" ,(plain-file "policy.json"
                                                   "{\"default\": [{\"type\": \"insecureAcceptAnything\"}]}"))
                       ;; Use a fast storage ('overlayfs') instead of the default ('vfs') for Podman
