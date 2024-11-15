@@ -131,7 +131,9 @@
                                                     (plain-file "direnv-init"
                                                      "eval \"$(direnv hook zsh)\"")
                                                     (plain-file "atuin-init"
-                                                     "eval \"$(atuin init zsh)\"")))))
+                                                     "eval \"$(atuin init zsh)\"")
+                                                    (plain-file "himalaya-init"
+                                                     "eval \"$(himalaya completion zsh)\"")))))
            (service home-gpg-agent-service-type
                     (home-gpg-agent-configuration (pinentry-program (file-append
                                                                      pinentry-tty
