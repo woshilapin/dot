@@ -180,5 +180,21 @@
                                                                            (user
                                                                             "git")
                                                                            (identity-file
+                                                                            "/home/woshilapin/.ssh/woshilapin@gmail.com.rsa"))
+                                                             (openssh-host (name
+                                                                            "codeberg")
+                                                                           (host-name
+                                                                            "codeberg.org")
+                                                                           (user
+                                                                            "git")
+                                                                           (identity-file
+                                                                            "/home/woshilapin/.ssh/woshilapin@gmail.com.rsa"))
+                                                             (openssh-host (name
+                                                                            "codeberg.org")
+                                                                           (host-name
+                                                                            "codeberg.org")
+                                                                           (user
+                                                                            "git")
+                                                                           (identity-file
                                                                             "/home/woshilapin/.ssh/woshilapin@gmail.com.rsa"))))))))))
 woshilapin-home-environment
