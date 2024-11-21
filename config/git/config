@@ -5,7 +5,6 @@
 	patch = diff -p --src-prefix '' --dst-prefix '' --relative -- 
 [core]
 	editor = hx
-	excludesfile = ~/.gitignore
 	compression = -1
 	pager = delta
 [color]
