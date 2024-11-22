@@ -1,4 +1,5 @@
 enter_accept = true
+filter_mode = "directory"
 inline_height = 16
 show_tabs = false
 style = "compact"
