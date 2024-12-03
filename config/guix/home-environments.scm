@@ -76,6 +76,9 @@
            (simple-service 'environment-variables-service
                            home-environment-variables-service-type
                            `(("DISPLAY" . ":0") ("COLORTERM" . "truecolor")
+                             ;; For marksman, which depends on ICU which I don't know how to install
+                             ;; therefore, setting this variable deactivate ICU for .Net binaries
+                             ("DOTNET_SYSTEM_GLOBALIZATION_INVARIANT" . "1")
                              ("EDITOR" . "hx")
                              ("LD_LIBRARY_PATH" . "${LIBRARY_PATH}")
                              ("PATH" . "${HOME}/.local/bin:${HOME}/.cargo/bin:${PATH}")))
