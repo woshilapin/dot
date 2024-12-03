@@ -75,7 +75,7 @@
                            channels)
            (simple-service 'environment-variables-service
                            home-environment-variables-service-type
-                           `(("DISPLAY" . ":0") ("COLORTERM" . "truecolor")
+                           `(("COLORTERM" . "truecolor") ("DISPLAY" . ":0")
                              ;; For marksman, which depends on ICU which I don't know how to install
                              ;; therefore, setting this variable deactivate ICU for .Net binaries
                              ("DOTNET_SYSTEM_GLOBALIZATION_INVARIANT" . "1")
