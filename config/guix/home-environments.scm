@@ -109,6 +109,8 @@
                                              "/home/woshilapin/.dot/config/helix/config.toml"))
                       ("helix/languages.toml" ,(local-file
                                                 "/home/woshilapin/.dot/config/helix/languages.toml"))
+                      ("jj/config.toml" ,(local-file
+                                             "/home/woshilapin/.dot/config/jj/config.toml"))
                       ("nix/nix.conf" ,(local-file
                                         "/home/woshilapin/.dot/config/nix/nix.conf"))
                       ("starship.toml" ,(local-file
