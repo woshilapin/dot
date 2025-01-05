@@ -5,6 +5,7 @@ guix .config/guix
 helix .config/helix
 himalaya .config/himalaya
 i3 .config/i3
+jj .config/jj
 kak .config/kak
 kak-lsp .config/kak-lsp
 khal .config/khal
