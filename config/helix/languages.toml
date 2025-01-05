@@ -1,3 +1,7 @@
+[language-server.harper]
+command = "harper-ls"
+args = ["--stdio"]
+
 [[language]]
 name = "markdown"
 rulers = [80, 120]
