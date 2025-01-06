@@ -3,5 +3,6 @@
 .DS_Store
 Thumbs.db
 .*.swp
+.envrc
 .python-version
 flake.nix
