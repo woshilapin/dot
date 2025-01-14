@@ -6,3 +6,4 @@ Thumbs.db
 .envrc
 .python-version
 flake.nix
+manifest.scm
