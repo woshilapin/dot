@@ -11,3 +11,22 @@ diff-editor = ":builtin"
 name = "Jean SIMARD"
 email = "woshilapin@tuziwo.info"
 
+[template-aliases]
+'should_sign_off()'   = 'false'
+
+[templates]
+draft_commit_description = '''
+concat(
+  description,
+  "\n",
+  if(
+    should_sign_off() && !description.contains("Signed-off-by: " ++ author.name() ++ " <" ++ author.email() ++ ">"),
+    "\nSigned-off-by: " ++ author.name() ++ " <" ++ author.email() ++ ">",
+  ),
+  "\n",
+  surround(
+    "\nJJ: This commit contains the following changes:\n", "",
+    indent("JJ:     ", diff.summary()),
+  ),
+)
+'''
