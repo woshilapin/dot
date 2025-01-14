@@ -5,12 +5,9 @@ key = "7D7767B4"
 
 [ui]
 default-command = ["log", "--reversed"]
-diff-editor = "meld"
+diff-editor = ":builtin"
 
 [user]
 name = "Jean SIMARD"
 email = "woshilapin@tuziwo.info"
 
-[merge-tools.meld]
-program = "guix"
-edit-args = ["shell", "meld", "--", "meld", "--newtab", "$left", "$right"]
