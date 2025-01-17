@@ -82,6 +82,9 @@
                              ("EDITOR" . "hx")
                              ("LD_LIBRARY_PATH" . "${LIBRARY_PATH}")
                              ("PATH" . "${HOME}/.local/bin:${HOME}/.cargo/bin:${PATH}")))
+           (service home-files-service-type
+                    `((".cargo/config.toml" ,(local-file
+                                              "/home/woshilapin/.dot/cargo/config.toml"))))
            (service home-xdg-configuration-files-service-type
                     `(("alacritty/alacritty.toml" ,(local-file
                                                     "/home/woshilapin/.dot/config/alacritty/alacritty.toml"))
