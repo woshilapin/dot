@@ -6,6 +6,10 @@ key = "7D7767B4"
 [ui]
 default-command = ["log", "--reversed"]
 diff-editor = ":builtin"
+pager = "delta"
+
+[ui.diff]
+format = "git"
 
 [user]
 name = "Jean SIMARD"
