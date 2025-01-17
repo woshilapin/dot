@@ -83,8 +83,8 @@
                              ("LD_LIBRARY_PATH" . "${LIBRARY_PATH}")
                              ("PATH" . "${HOME}/.local/bin:${HOME}/.cargo/bin:${PATH}")))
            (service home-xdg-configuration-files-service-type
-                    `(("alacritty/alacritty.yml" ,(local-file
-                                                   "/home/woshilapin/.dot/config/alacritty/alacritty.yml"))
+                    `(("alacritty/alacritty.toml" ,(local-file
+                                                   "/home/woshilapin/.dot/config/alacritty/alacritty.toml"))
                       ("atuin/config.toml" ,(local-file
                                          "/home/woshilapin/.dot/config/atuin/config.toml"))
                       ("containers/policy.json" ,(plain-file "policy.json"
