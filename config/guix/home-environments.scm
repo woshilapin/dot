@@ -84,9 +84,9 @@
                              ("PATH" . "${HOME}/.local/bin:${HOME}/.cargo/bin:${PATH}")))
            (service home-xdg-configuration-files-service-type
                     `(("alacritty/alacritty.toml" ,(local-file
-                                                   "/home/woshilapin/.dot/config/alacritty/alacritty.toml"))
+                                                    "/home/woshilapin/.dot/config/alacritty/alacritty.toml"))
                       ("atuin/config.toml" ,(local-file
-                                         "/home/woshilapin/.dot/config/atuin/config.toml"))
+                                             "/home/woshilapin/.dot/config/atuin/config.toml"))
                       ("containers/policy.json" ,(plain-file "policy.json"
                                                   "{\"default\": [{\"type\": \"insecureAcceptAnything\"}]}"))
                       ;; Use a fast storage ('overlayfs') instead of the default ('vfs') for Podman
@@ -110,15 +110,15 @@
                       ("helix/languages.toml" ,(local-file
                                                 "/home/woshilapin/.dot/config/helix/languages.toml"))
                       ("jj/config.toml" ,(local-file
-                                             "/home/woshilapin/.dot/config/jj/config.toml"))
+                                          "/home/woshilapin/.dot/config/jj/config.toml"))
                       ("nix/nix.conf" ,(local-file
                                         "/home/woshilapin/.dot/config/nix/nix.conf"))
                       ("starship.toml" ,(local-file
                                          "/home/woshilapin/.dot/config/starship.toml"))
                       ("task/taskrc" ,(local-file
-                                         "/home/woshilapin/.dot/config/task/taskrc"))
+                                       "/home/woshilapin/.dot/config/task/taskrc"))
                       ("task/holidays.rc" ,(local-file
-                                         "/home/woshilapin/.dot/config/task/holidays.rc"))
+                                            "/home/woshilapin/.dot/config/task/holidays.rc"))
                       ("zellij/config.kdl" ,(local-file
                                              "/home/woshilapin/.dot/config/zellij/config.kdl"))))
            (service home-zsh-service-type
@@ -126,7 +126,8 @@
                                                     ;; https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html#Invoking-GPG_002dAGENT
                                                     (plain-file "zsh-fpath"
                                                      "fpath=(${HOME}/.dot/zsh/completion ${fpath})")
-                                                    (plain-file "completion-init"
+                                                    (plain-file
+                                                     "completion-init"
                                                      "autoload -Uz compinit && compinit")
                                                     (plain-file "gpg-tty"
                                                      "export GPG_TTY=$(tty)")
@@ -137,13 +138,15 @@
                                                      "eval \"$(direnv hook zsh)\"")
                                                     (plain-file "atuin-init"
                                                      "eval \"$(atuin init zsh)\"")
-                                                    (plain-file "himalaya-init"
+                                                    (plain-file
+                                                     "himalaya-init"
                                                      "eval \"$(himalaya completion zsh)\"")))))
            (service home-gpg-agent-service-type
                     (home-gpg-agent-configuration (pinentry-program (file-append
                                                                      pinentry-tty
                                                                      "/bin/pinentry-tty"))))
-           (service home-ssh-agent-service-type (home-ssh-agent-configuration))
+           (service home-ssh-agent-service-type
+                    (home-ssh-agent-configuration))
            (service home-openssh-service-type
                     (home-openssh-configuration (add-keys-to-agent "yes")
                                                 (hosts (list (openssh-host (name
