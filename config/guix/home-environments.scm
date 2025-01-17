@@ -36,6 +36,7 @@
                      ssh
                      task-management
                      terminals
+                     tls
                      version-control
                      vim)
 
@@ -58,6 +59,7 @@
                     helix
                     hydroxide
                     openssh
+                    openssl
                     password-store
                     pinentry-tty
                     podman
