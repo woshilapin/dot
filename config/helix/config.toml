@@ -5,7 +5,6 @@ bufferline = "multiple"
 color-modes = true
 completion-trigger-len = 1
 cursorline = true
-end-of-line-diagnostics = "hint"
 idle-timeout = 0
 line-number = "relative"
 
@@ -22,7 +21,6 @@ skip-levels = 1
 
 [editor.inline-diagnostics]
 cursor-line = "warning"
-other-lines = "error"
 
 [editor.lsp]
 auto-signature-help = false
