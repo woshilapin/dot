@@ -7,3 +7,4 @@ Thumbs.db
 .python-version
 flake.nix
 manifest.scm
+guix.scm
