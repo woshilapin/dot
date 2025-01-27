@@ -20,7 +20,6 @@
   #:use-module (nongnu packages mozilla)
   #:use-module (saayix packages fonts)
   #:use-module (saayix packages text-editors)
-  #:use-module (tuziwo packages starship)
   #:use-module (channels))
 
 (use-package-modules base
