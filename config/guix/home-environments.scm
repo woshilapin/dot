@@ -105,6 +105,8 @@
                                                       "[engine]\ncgroup_manager=\"cgroupfs\"\ncompose_provider = [\"podman-compose\"]\ncompose_warning_logs = false"))
                       ("direnv/direnv.toml" ,(plain-file "direnv.toml"
                                                          "[global]\nload_dotenv = true\nstrict_env = true"))
+                      ("direnv/direnvrc" ,(local-file
+                                      "/home/woshilapin/.dot/config/direnv/direnvrc"))
                       ("git/config" ,(local-file
                                       "/home/woshilapin/.dot/config/git/config"))
                       ("git/ignore" ,(local-file
