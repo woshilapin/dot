@@ -14,7 +14,7 @@
   (channel
     (name 'saayix)
     (branch "main")
-    (url "https://codeberg.org/look/saayix")
+    (url "https://codeberg.org/look/saayix.git")
     (introduction
      (make-channel-introduction "12540f593092e9a177eb8a974a57bb4892327752"
                                 (openpgp-fingerprint
