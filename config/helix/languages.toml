@@ -2,6 +2,9 @@
 command = "harper-ls"
 args = ["--stdio"]
 
+[language-server.rust-analyzer.config]
+cargo.targetDir = true
+
 [[language]]
 name = "markdown"
 rulers = [80, 120]
