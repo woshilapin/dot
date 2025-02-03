@@ -4,6 +4,7 @@
 Thumbs.db
 .*.swp
 .envrc
+.guix-profile
 .python-version
 flake.nix
 manifest.scm
