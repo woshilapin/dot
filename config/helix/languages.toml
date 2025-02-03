@@ -6,6 +6,10 @@ args = ["--from", "basedpyright", "basedpyright-langserver", "--stdio"]
 command = "harper-ls"
 args = ["--stdio"]
 
+[language-server.pylsp]
+command = "uvx"
+args = ["--from", "python-lsp-server", "pylsp"]
+
 [language-server.rust-analyzer.config]
 cargo.targetDir = true
 
