@@ -1,3 +1,7 @@
+[language-server.basedpyright]
+command = "uvx"
+args = ["--from", "basedpyright", "basedpyright-langserver", "--stdio"]
+
 [language-server.harper]
 command = "harper-ls"
 args = ["--stdio"]
