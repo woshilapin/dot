@@ -10,6 +10,10 @@ args = ["--stdio"]
 command = "uvx"
 args = ["--from", "python-lsp-server", "pylsp"]
 
+[language-server.ruff]
+command = "uvx"
+args = ["ruff", "server"]
+
 [language-server.rust-analyzer.config]
 cargo.targetDir = true
 
