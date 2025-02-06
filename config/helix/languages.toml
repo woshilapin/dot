@@ -25,3 +25,9 @@ rulers = [80, 120]
 name = "ocaml"
 auto-format = true
 formatter = { command = "ocamlformat", args = ["--impl", "-"] }
+
+[[language]]
+name = "python"
+auto-format = true
+formatter = { command = "uvx", args = ["ruff", "format"] }
+language-servers = ["pylsp", "ruff", "basedpyright"]
