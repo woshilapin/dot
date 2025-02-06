@@ -1,0 +1,44 @@
+hide-cursor-when-typing = true
+confirm-before-quit = false
+
+[cursor]
+shape = 'beam'
+blinking = true
+blinking-interval = 400
+
+[editor]
+program = "hx"
+
+[fonts]
+size = 14
+extras = [{ family = "FiraCode Nerd Font" }]
+family = "FiraCode Nerd Font"
+
+[fonts.regular]
+family = "FiraCode Nerd Font"
+style = "Normal"
+
+[fonts.bold]
+family = "FiraCode Nerd Font"
+style = "Normal"
+
+[fonts.italic]
+family = "FiraCode Nerd Font"
+style = "Italic"
+
+[fonts.bold-italic]
+family = "FiraCode Nerd Font"
+style = "Italic"
+
+[navigation]
+mode = "plain"
+
+[platform]
+# Microsoft Windows overwrite
+windows.shell.program = "wsl"
+windows.shell.args = ["--cd", "/home/woshilapin", "zellij", "attach", "guix"]
+
+[window]
+mode = "fullscreen"
+decorations = "disabled"
+
