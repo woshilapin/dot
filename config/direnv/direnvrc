@@ -9,6 +9,6 @@ use_guix() {
     source "$cache_dir/etc/profile"
   else
     echo "direnvrc: building $cache_dir"
-    eval "$(guix shell --development --root="$cache_dir" --search-paths)"
+    eval "$(guix shell --root="$cache_dir" --search-paths)"
   fi
 }
