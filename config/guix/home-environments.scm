@@ -119,6 +119,8 @@
                                           "/home/woshilapin/.dot/config/jj/config.toml"))
                       ("nix/nix.conf" ,(local-file
                                         "/home/woshilapin/.dot/config/nix/nix.conf"))
+                      ("rio/config.toml" ,(local-file
+                                         "/home/woshilapin/.dot/config/rio/config.toml"))
                       ("starship.toml" ,(local-file
                                          "/home/woshilapin/.dot/config/starship.toml"))
                       ("task/taskrc" ,(local-file
