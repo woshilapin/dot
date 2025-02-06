@@ -4,7 +4,7 @@ backend = "gpg"
 key = "7D7767B4"
 
 [ui]
-default-command = ["log", "--reversed"]
+default-command = ["log"]
 diff-editor = ":builtin"
 pager = "delta"
 
