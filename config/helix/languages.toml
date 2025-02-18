@@ -6,6 +6,10 @@ args = ["--from", "basedpyright", "basedpyright-langserver", "--stdio"]
 command = "harper-ls"
 args = ["--stdio"]
 
+[language-server.jedi]
+command = "uvx"
+args = ["jedi-language-server"]
+
 [language-server.pylsp]
 command = "uvx"
 args = ["--from", "python-lsp-server", "pylsp"]
@@ -29,5 +33,4 @@ formatter = { command = "ocamlformat", args = ["--impl", "-"] }
 [[language]]
 name = "python"
 auto-format = true
-formatter = { command = "uvx", args = ["ruff", "format"] }
-language-servers = ["pylsp", "ruff", "basedpyright"]
+language-servers = ["ruff", "pylsp", "jedi", "basedpyright"]
