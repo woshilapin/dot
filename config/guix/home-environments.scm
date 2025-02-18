@@ -106,7 +106,7 @@
                       ("direnv/direnv.toml" ,(plain-file "direnv.toml"
                                                          "[global]\nload_dotenv = true\nstrict_env = true"))
                       ("direnv/direnvrc" ,(local-file
-                                      "/home/woshilapin/.dot/config/direnv/direnvrc"))
+                                           "/home/woshilapin/.dot/config/direnv/direnvrc"))
                       ("git/config" ,(local-file
                                       "/home/woshilapin/.dot/config/git/config"))
                       ("git/ignore" ,(local-file
@@ -120,7 +120,7 @@
                       ("nix/nix.conf" ,(local-file
                                         "/home/woshilapin/.dot/config/nix/nix.conf"))
                       ("rio/config.toml" ,(local-file
-                                         "/home/woshilapin/.dot/config/rio/config.toml"))
+                                           "/home/woshilapin/.dot/config/rio/config.toml"))
                       ("starship.toml" ,(local-file
                                          "/home/woshilapin/.dot/config/starship.toml"))
                       ("task/taskrc" ,(local-file
