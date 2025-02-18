@@ -95,16 +95,25 @@
                                                   "{\"default\": [{\"type\": \"insecureAcceptAnything\"}]}"))
                       ;; Use a fast storage ('overlayfs') instead of the default ('vfs') for Podman
                       ("containers/storage.conf" ,(plain-file "storage.conf"
-                                                   "[storage]\ndriver = \"overlay\""))
+                                                              (string-join '("[storage]"
+                                                                             "driver = \"overlay\"")
+                                                                           "\n")))
                       ;; Configure the authorized registries for podman
                       ("containers/registries.conf" ,(plain-file
                                                       "registries.conf"
                                                       "unqualified-search-registries = ['docker.io', 'ghcr.io']"))
                       ("containers/containers.conf" ,(plain-file
                                                       "containers.conf"
-                                                      "[engine]\ncgroup_manager=\"cgroupfs\"\ncompose_provider = [\"podman-compose\"]\ncompose_warning_logs = false"))
+                                                      (string-join '("[engine]"
+                                                                     "cgroup_manager=\"cgroupfs\""
+                                                                     "compose_provider = [\"podman-compose\"]"
+                                                                     "compose_warning_logs = false")
+                                                                   "\n")))
                       ("direnv/direnv.toml" ,(plain-file "direnv.toml"
-                                                         "[global]\nload_dotenv = true\nstrict_env = true"))
+                                                         (string-join '("[global]"
+                                                                        "load_dotenv = true"
+                                                                        "strict_env = true")
+                                                                      "\n")))
                       ("direnv/direnvrc" ,(local-file
                                            "/home/woshilapin/.dot/config/direnv/direnvrc"))
                       ("git/config" ,(local-file
