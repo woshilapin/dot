@@ -85,7 +85,12 @@
                              ("PATH" . "${HOME}/.local/bin:${HOME}/.cargo/bin:${PATH}")))
            (service home-files-service-type
                     `((".cargo/config.toml" ,(local-file
-                                              "/home/woshilapin/.dot/cargo/config.toml"))))
+                                              "/home/woshilapin/.dot/cargo/config.toml"))
+                      (".guile" ,(plain-file "guile"
+                                             (string-join '("(use-modules (ice-9 readline) (ice-9 colorized))"
+                                                            "(activate-readline)"
+                                                            "(activate-colorized)")
+                                                          "\n")))))
            (service home-xdg-configuration-files-service-type
                     `(("alacritty/alacritty.toml" ,(local-file
                                                     "/home/woshilapin/.dot/config/alacritty/alacritty.toml"))
