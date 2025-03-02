@@ -1,5 +1,8 @@
+[git]
+sign-on-push = true
+
 [signing]
-sign-all = true
+behavior = "drop"
 backend = "gpg"
 key = "7D7767B4"
 
