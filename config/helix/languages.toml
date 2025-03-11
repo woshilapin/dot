@@ -10,6 +10,9 @@ args = ["--stdio"]
 command = "uvx"
 args = ["jedi-language-server"]
 
+[language-server.just]
+command = "just-lsp"
+
 [language-server.pylsp]
 command = "uvx"
 args = ["--from", "python-lsp-server", "pylsp"]
@@ -20,6 +23,10 @@ args = ["ruff", "server"]
 
 [language-server.rust-analyzer.config]
 cargo.targetDir = true
+
+[[language]]
+name = "just"
+language-servers = [ "just" ]
 
 [[language]]
 name = "markdown"
