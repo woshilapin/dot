@@ -3,3 +3,4 @@ pane_frames false
 
 pane_viewport_serialization true
 scrollback_lines_to_serialize 0
+show_startup_tips false
