@@ -49,6 +49,7 @@
                     fd
                     firefox
                     font-nerd-fira-code
+                    fzf
                     gcc-toolchain
                     git
                     `(,git "send-email")
@@ -160,6 +161,8 @@
                                                      "eval \"$(direnv hook zsh)\"")
                                                     (plain-file "atuin-init"
                                                      "eval \"$(atuin init zsh)\"")
+                                                    (plain-file "zoxide-init"
+                                                     "eval \"$(zoxide init zsh)\"")
                                                     (plain-file
                                                      "himalaya-init"
                                                      "eval \"$(himalaya completion zsh)\"")))))
