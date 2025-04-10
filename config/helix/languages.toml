@@ -2,6 +2,10 @@
 command = "uvx"
 args = ["--from", "basedpyright", "basedpyright-langserver", "--stdio"]
 
+[language-server.guile-lsp-server]
+command = "guix"
+args = ["shell", "guile-lsp-server", "--", "guile-lsp-server", "--stdio"]
+
 [language-server.harper]
 command = "harper-ls"
 args = ["--stdio"]
@@ -23,6 +27,10 @@ args = ["ruff", "server"]
 
 [language-server.rust-analyzer.config]
 cargo.targetDir = true
+
+[[language]]
+name = "scheme"
+language-servers = ["guile-lsp-server"]
 
 [[language]]
 name = "just"
