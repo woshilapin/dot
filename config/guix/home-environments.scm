@@ -82,6 +82,7 @@
                              ;; therefore, setting this variable deactivate ICU for .Net binaries
                              ("DOTNET_SYSTEM_GLOBALIZATION_INVARIANT" . "1")
                              ("EDITOR" . "hx")
+                             ("GPG_TTY" . ,(literal-string "$(tty)"))
                              ("LD_LIBRARY_PATH" . "${LIBRARY_PATH}")
                              ("PATH" . "${HOME}/.local/bin:${HOME}/.cargo/bin:${PATH}")))
            (service home-files-service-type
@@ -152,8 +153,6 @@
                                                     (plain-file
                                                      "completion-init"
                                                      "autoload -Uz compinit && compinit")
-                                                    (plain-file "gpg-tty"
-                                                     "export GPG_TTY=$(tty)")
                                                     (plain-file
                                                      "starship-init"
                                                      "eval \"$(starship init zsh)\"")
