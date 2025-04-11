@@ -146,7 +146,14 @@
                       ("zellij/config.kdl" ,(local-file
                                              "/home/woshilapin/.dot/config/zellij/config.kdl"))))
            (service home-zsh-service-type
-                    (home-zsh-configuration (zshrc (list
+                    (home-zsh-configuration (zshenv (list
+                                                     ;; Cannot use `home-environment-variables-service-type` because we need
+                                                     ;; DIRENV_LOG_FORMAT=$'something' but the service can only do
+                                                     ;; DIRENV_LOG_FORMAT="$'something'" or DIRENV_LOG_FORMAT='$\'something\'' (with literal-string)
+                                                     (plain-file
+                                                      "direnv-format"
+                                                      (string-append "export DIRENV_LOG_FORMAT=" (string #\$ #\') "\\033[2mdirenv: %s\\033[0m" (string #\')))))
+                                            (zshrc (list
                                                     ;; https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html#Invoking-GPG_002dAGENT
                                                     (plain-file "zsh-fpath"
                                                      "fpath=(${HOME}/.dot/zsh/completion ${fpath})")
