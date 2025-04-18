@@ -82,7 +82,6 @@
                              ;; therefore, setting this variable deactivate ICU for .Net binaries
                              ("DOTNET_SYSTEM_GLOBALIZATION_INVARIANT" . "1")
                              ("EDITOR" . "hx")
-                             ("GPG_TTY" . ,(literal-string "$(tty)"))
                              ("LD_LIBRARY_PATH" . "${LIBRARY_PATH}")
                              ("PATH" . "${HOME}/.local/bin:${HOME}/.cargo/bin:${PATH}")))
            (service home-files-service-type
@@ -155,6 +154,11 @@
                                                       (string-append "export DIRENV_LOG_FORMAT=" (string #\$ #\') "\\033[2mdirenv: %s\\033[0m" (string #\')))))
                                             (zshrc (list
                                                     ;; https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html#Invoking-GPG_002dAGENT
+                                                    ;; /!\ Cannot be done in 'home-environment-variables-service-type'
+                                                    ;; because `$(tty)` must be written litteraly and `literal-string` will wrap it
+                                                    ;; with single quotes `'$(tty)'` which forbid evaluation when logging in
+                                                    (plain-file "gpg-tty"
+                                                     "export GPG_TTY=$(tty)")
                                                     (plain-file "zsh-fpath"
                                                      "fpath=(${HOME}/.dot/zsh/completion ${fpath})")
                                                     (plain-file
