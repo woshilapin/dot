@@ -80,7 +80,6 @@
                              ;; therefore, setting this variable deactivate ICU for .Net binaries
                              ("DOTNET_SYSTEM_GLOBALIZATION_INVARIANT" . "1")
                              ("EDITOR" . "hx")
-                             ("LD_LIBRARY_PATH" . "${LIBRARY_PATH}")
                              ("PATH" . "${HOME}/.local/bin:${HOME}/.cargo/bin:${PATH}")))
            (service home-files-service-type
                     `((".cargo/config.toml" ,(local-file
