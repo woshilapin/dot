@@ -27,6 +27,7 @@
                      crates-io
                      gnupg
                      mail
+                     package-management
                      password-utils
                      rust
                      rust-apps
@@ -56,6 +57,7 @@
                     gnupg
                     helix
                     hydroxide
+                    nix
                     openssh
                     openssl
                     password-store
