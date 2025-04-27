@@ -168,6 +168,8 @@
                                                      "eval \"$(starship init zsh)\"")
                                                     (plain-file "direnv-init"
                                                      "eval \"$(direnv hook zsh)\"")
+                                                    (plain-file "nix-init"
+                                                      "source ${HOME}/.local/state/nix/profiles/profile/etc/profile.d/nix.sh")
                                                     (plain-file "atuin-init"
                                                      "eval \"$(atuin init zsh)\"")
                                                     (plain-file "zoxide-init"
