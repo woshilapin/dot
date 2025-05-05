@@ -19,7 +19,7 @@ _jj() {
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -48,12 +48,13 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'-s[Do not print every abandoned commit on a separate line]' \
-'--summary[Do not print every abandoned commit on a separate line]' \
+'-s[]' \
+'--summary[]' \
+'--retain-bookmarks[Do not delete bookmarks pointing to the revisions to abandon]' \
 '--restore-descendants[Do not modify the content of the children of the abandoned commits]' \
 '--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
 '--ignore-immutable[Allow rewriting immutable commits]' \
@@ -76,7 +77,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -100,7 +101,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -119,7 +120,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -149,7 +150,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -172,7 +173,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -192,7 +193,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -212,7 +213,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -232,10 +233,11 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
+'--include-remotes[When forgetting a local bookmark, also forget any corresponding remote bookmarks]' \
 '--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
 '--ignore-immutable[Allow rewriting immutable commits]' \
 '--debug[Enable debug logging]' \
@@ -252,10 +254,11 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
+'--include-remotes[When forgetting a local bookmark, also forget any corresponding remote bookmarks]' \
 '--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
 '--ignore-immutable[Allow rewriting immutable commits]' \
 '--debug[Enable debug logging]' \
@@ -273,11 +276,12 @@ _arguments "${_arguments_options[@]}" : \
 '*--revisions=[Show bookmarks whose local targets are in the given revisions]:REVSETS:_default' \
 '-T+[Render each bookmark using the given template]:TEMPLATE:_default' \
 '--template=[Render each bookmark using the given template]:TEMPLATE:_default' \
+'*--sort=[Sort bookmarks based on the given key (or multiple keys)]:SORT_KEY:(name name- author-name author-name- author-email author-email- author-date author-date- committer-name committer-name- committer-email committer-email- committer-date committer-date-)' \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -304,11 +308,12 @@ _arguments "${_arguments_options[@]}" : \
 '*--revisions=[Show bookmarks whose local targets are in the given revisions]:REVSETS:_default' \
 '-T+[Render each bookmark using the given template]:TEMPLATE:_default' \
 '--template=[Render each bookmark using the given template]:TEMPLATE:_default' \
+'*--sort=[Sort bookmarks based on the given key (or multiple keys)]:SORT_KEY:(name name- author-name author-name- author-email author-email- author-date author-date- committer-name committer-name- committer-email committer-email- committer-date committer-date-)' \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -330,13 +335,15 @@ _arguments "${_arguments_options[@]}" : \
 ;;
 (move)
 _arguments "${_arguments_options[@]}" : \
+'*-f+[Move bookmarks from the given revisions]:REVSETS:_default' \
 '*--from=[Move bookmarks from the given revisions]:REVSETS:_default' \
+'-t+[Move bookmarks to this revision]:REVSET:_default' \
 '--to=[Move bookmarks to this revision]:REVSET:_default' \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -354,13 +361,15 @@ _arguments "${_arguments_options[@]}" : \
 ;;
 (m)
 _arguments "${_arguments_options[@]}" : \
+'*-f+[Move bookmarks from the given revisions]:REVSETS:_default' \
 '*--from=[Move bookmarks from the given revisions]:REVSETS:_default' \
+'-t+[Move bookmarks to this revision]:REVSET:_default' \
 '--to=[Move bookmarks to this revision]:REVSET:_default' \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -382,7 +391,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -403,7 +412,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -427,7 +436,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -452,7 +461,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -474,7 +483,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -494,7 +503,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -514,7 +523,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -538,7 +547,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -568,7 +577,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -591,7 +600,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -611,7 +620,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -631,7 +640,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -651,10 +660,11 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
+'--include-remotes[When forgetting a local bookmark, also forget any corresponding remote bookmarks]' \
 '--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
 '--ignore-immutable[Allow rewriting immutable commits]' \
 '--debug[Enable debug logging]' \
@@ -671,10 +681,11 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
+'--include-remotes[When forgetting a local bookmark, also forget any corresponding remote bookmarks]' \
 '--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
 '--ignore-immutable[Allow rewriting immutable commits]' \
 '--debug[Enable debug logging]' \
@@ -692,11 +703,12 @@ _arguments "${_arguments_options[@]}" : \
 '*--revisions=[Show bookmarks whose local targets are in the given revisions]:REVSETS:_default' \
 '-T+[Render each bookmark using the given template]:TEMPLATE:_default' \
 '--template=[Render each bookmark using the given template]:TEMPLATE:_default' \
+'*--sort=[Sort bookmarks based on the given key (or multiple keys)]:SORT_KEY:(name name- author-name author-name- author-email author-email- author-date author-date- committer-name committer-name- committer-email committer-email- committer-date committer-date-)' \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -723,11 +735,12 @@ _arguments "${_arguments_options[@]}" : \
 '*--revisions=[Show bookmarks whose local targets are in the given revisions]:REVSETS:_default' \
 '-T+[Render each bookmark using the given template]:TEMPLATE:_default' \
 '--template=[Render each bookmark using the given template]:TEMPLATE:_default' \
+'*--sort=[Sort bookmarks based on the given key (or multiple keys)]:SORT_KEY:(name name- author-name author-name- author-email author-email- author-date author-date- committer-name committer-name- committer-email committer-email- committer-date committer-date-)' \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -749,13 +762,15 @@ _arguments "${_arguments_options[@]}" : \
 ;;
 (move)
 _arguments "${_arguments_options[@]}" : \
+'*-f+[Move bookmarks from the given revisions]:REVSETS:_default' \
 '*--from=[Move bookmarks from the given revisions]:REVSETS:_default' \
+'-t+[Move bookmarks to this revision]:REVSET:_default' \
 '--to=[Move bookmarks to this revision]:REVSET:_default' \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -773,13 +788,15 @@ _arguments "${_arguments_options[@]}" : \
 ;;
 (m)
 _arguments "${_arguments_options[@]}" : \
+'*-f+[Move bookmarks from the given revisions]:REVSETS:_default' \
 '*--from=[Move bookmarks from the given revisions]:REVSETS:_default' \
+'-t+[Move bookmarks to this revision]:REVSET:_default' \
 '--to=[Move bookmarks to this revision]:REVSET:_default' \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -801,7 +818,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -822,7 +839,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -846,7 +863,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -871,7 +888,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -893,7 +910,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -913,7 +930,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -933,7 +950,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -951,52 +968,6 @@ _arguments "${_arguments_options[@]}" : \
     ;;
 esac
 ;;
-(cat)
-_arguments "${_arguments_options[@]}" : \
-'-r+[The revision to get the file contents from]:REVSET:_default' \
-'--revision=[The revision to get the file contents from]:REVSET:_default' \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-'*::paths -- Paths to print:_files' \
-&& ret=0
-;;
-(chmod)
-_arguments "${_arguments_options[@]}" : \
-'-r+[The revision to update]:REVSET:_default' \
-'--revision=[The revision to update]:REVSET:_default' \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-':mode:((n\:"Make a path non-executable (alias\: normal)"
-x\:"Make a path executable (alias\: executable)"))' \
-'*::paths -- Paths to change the executable bit for:_files' \
-&& ret=0
-;;
 (commit)
 _arguments "${_arguments_options[@]}" : \
 '--tool=[Specify diff editor to be used (implies --interactive)]:NAME:_default' \
@@ -1007,7 +978,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1030,7 +1001,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1057,7 +1028,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1078,7 +1049,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1099,7 +1070,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1119,7 +1090,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1141,7 +1112,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1167,7 +1138,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1191,7 +1162,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1212,7 +1183,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1233,7 +1204,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1256,7 +1227,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1279,7 +1250,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1301,7 +1272,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1327,7 +1298,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1354,7 +1325,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1365,7 +1336,7 @@ _arguments "${_arguments_options[@]}" : \
 '--no-pager[Disable the pager]' \
 '-h[Print help (see more with '\''--help'\'')]' \
 '--help[Print help (see more with '\''--help'\'')]' \
-'::revision -- Show changes in this revision, compared to its parent(s):_default' \
+'::revision -- Show file copies detected in changed files in this revision, compared to its parent(s):_default' \
 && ret=0
 ;;
 (fileset)
@@ -1374,7 +1345,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1394,7 +1365,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1407,13 +1378,33 @@ _arguments "${_arguments_options[@]}" : \
 '--help[Print help (see more with '\''--help'\'')]' \
 && ret=0
 ;;
+(init-simple)
+_arguments "${_arguments_options[@]}" : \
+'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
+'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
+'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
+'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
+'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
+'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
+'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
+'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
+'--ignore-immutable[Allow rewriting immutable commits]' \
+'--debug[Enable debug logging]' \
+'--quiet[Silence non-primary command output]' \
+'--no-pager[Disable the pager]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'::destination -- The destination directory:_files -/' \
+&& ret=0
+;;
 (local-working-copy)
 _arguments "${_arguments_options[@]}" : \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1436,7 +1427,7 @@ all\:"Show both the view and the operation"))' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1460,7 +1451,7 @@ all\:"Show both the view and the operation"))' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1480,7 +1471,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1499,7 +1490,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1519,7 +1510,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1538,7 +1529,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1562,7 +1553,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1582,7 +1573,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1609,7 +1600,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1628,7 +1619,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1647,7 +1638,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1666,7 +1657,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1689,7 +1680,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1709,19 +1700,20 @@ esac
 (describe)
 _arguments "${_arguments_options[@]}" : \
 '*-r+[]:REVSETS:_default' \
-'*-m+[The change description to use (don'\''t open editor)]:MESSAGE:_default' \
-'*--message=[The change description to use (don'\''t open editor)]:MESSAGE:_default' \
+'(--stdin)*-m+[The change description to use (don'\''t open editor)]:MESSAGE:_default' \
+'(--stdin)*--message=[The change description to use (don'\''t open editor)]:MESSAGE:_default' \
 '(--reset-author)--author=[Set author to the provided string]:AUTHOR:_default' \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
 '--stdin[Read the change description from stdin]' \
-'--no-edit[Don'\''t open an editor]' \
+'(--edit)--no-edit[Don'\''t open an editor]' \
+'--edit[Open an editor]' \
 '--reset-author[Reset the author to the configured user]' \
 '--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
 '--ignore-immutable[Allow rewriting immutable commits]' \
@@ -1736,19 +1728,20 @@ _arguments "${_arguments_options[@]}" : \
 (desc)
 _arguments "${_arguments_options[@]}" : \
 '*-r+[]:REVSETS:_default' \
-'*-m+[The change description to use (don'\''t open editor)]:MESSAGE:_default' \
-'*--message=[The change description to use (don'\''t open editor)]:MESSAGE:_default' \
+'(--stdin)*-m+[The change description to use (don'\''t open editor)]:MESSAGE:_default' \
+'(--stdin)*--message=[The change description to use (don'\''t open editor)]:MESSAGE:_default' \
 '(--reset-author)--author=[Set author to the provided string]:AUTHOR:_default' \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
 '--stdin[Read the change description from stdin]' \
-'--no-edit[Don'\''t open an editor]' \
+'(--edit)--no-edit[Don'\''t open an editor]' \
+'--edit[Open an editor]' \
 '--reset-author[Reset the author to the configured user]' \
 '--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
 '--ignore-immutable[Allow rewriting immutable commits]' \
@@ -1762,19 +1755,19 @@ _arguments "${_arguments_options[@]}" : \
 ;;
 (diff)
 _arguments "${_arguments_options[@]}" : \
-'-r+[Show changes in this revision, compared to its parent(s)]:REVSET:_default' \
-'--revision=[Show changes in this revision, compared to its parent(s)]:REVSET:_default' \
-'(-r --revision)-f+[Show changes from this revision]:REVSET:_default' \
-'(-r --revision)--from=[Show changes from this revision]:REVSET:_default' \
-'(-r --revision)-t+[Show changes to this revision]:REVSET:_default' \
-'(-r --revision)--to=[Show changes to this revision]:REVSET:_default' \
+'*-r+[Show changes in these revisions]:REVSETS:_default' \
+'*--revisions=[Show changes in these revisions]:REVSETS:_default' \
+'(-r --revisions)-f+[Show changes from this revision]:REVSET:_default' \
+'(-r --revisions)--from=[Show changes from this revision]:REVSET:_default' \
+'(-r --revisions)-t+[Show changes to this revision]:REVSET:_default' \
+'(-r --revisions)--to=[Show changes to this revision]:REVSET:_default' \
 '--tool=[Generate diff by external command]:TOOL:_default' \
 '--context=[Number of lines of context to show]:CONTEXT:_default' \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1812,7 +1805,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1841,7 +1834,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1861,7 +1854,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1882,7 +1875,6 @@ _arguments "${_arguments_options[@]}" : \
 '--revision=[]:REVSET:_default' \
 '-n+[Limit number of revisions to show]:LIMIT:_default' \
 '--limit=[Limit number of revisions to show]:LIMIT:_default' \
-'(-n --limit)-l+[]:LIMIT:_default' \
 '-T+[Render each revision using the given template]:TEMPLATE:_default' \
 '--template=[Render each revision using the given template]:TEMPLATE:_default' \
 '--tool=[Generate diff by external command]:TOOL:_default' \
@@ -1891,10 +1883,11 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
+'--reversed[Show revisions in the opposite order (older revisions first)]' \
 '--no-graph[Don'\''t show the graph, show a flat list of revisions]' \
 '-p[Show patch compared to the previous version of this change]' \
 '--patch[Show patch compared to the previous version of this change]' \
@@ -1922,7 +1915,6 @@ _arguments "${_arguments_options[@]}" : \
 '--revision=[]:REVSET:_default' \
 '-n+[Limit number of revisions to show]:LIMIT:_default' \
 '--limit=[Limit number of revisions to show]:LIMIT:_default' \
-'(-n --limit)-l+[]:LIMIT:_default' \
 '-T+[Render each revision using the given template]:TEMPLATE:_default' \
 '--template=[Render each revision using the given template]:TEMPLATE:_default' \
 '--tool=[Generate diff by external command]:TOOL:_default' \
@@ -1931,10 +1923,11 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
+'--reversed[Show revisions in the opposite order (older revisions first)]' \
 '--no-graph[Don'\''t show the graph, show a flat list of revisions]' \
 '-p[Show patch compared to the previous version of this change]' \
 '--patch[Show patch compared to the previous version of this change]' \
@@ -1962,7 +1955,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -1987,11 +1980,13 @@ _arguments "${_arguments_options[@]}" : \
 _arguments "${_arguments_options[@]}" : \
 '-r+[an optional revision to start at]:REVSET:_default' \
 '--revision=[an optional revision to start at]:REVSET:_default' \
+'-T+[Render each line using the given template]:TEMPLATE:_default' \
+'--template=[Render each line using the given template]:TEMPLATE:_default' \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2013,7 +2008,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2033,11 +2028,13 @@ x\:"Make a path executable (alias\: executable)"))' \
 _arguments "${_arguments_options[@]}" : \
 '-r+[The revision to list files in]:REVSET:_default' \
 '--revision=[The revision to list files in]:REVSET:_default' \
+'-T+[Render each file entry using the given template]:TEMPLATE:_default' \
+'--template=[Render each file entry using the given template]:TEMPLATE:_default' \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2059,7 +2056,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2079,7 +2076,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2099,7 +2096,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2117,28 +2114,6 @@ _arguments "${_arguments_options[@]}" : \
     ;;
 esac
 ;;
-(files)
-_arguments "${_arguments_options[@]}" : \
-'-r+[The revision to list files in]:REVSET:_default' \
-'--revision=[The revision to list files in]:REVSET:_default' \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-'*::paths -- Only list files matching these prefixes (instead of all files):_files' \
-&& ret=0
-;;
 (fix)
 _arguments "${_arguments_options[@]}" : \
 '*-s+[Fix files in the specified revision(s) and their descendants. If no revisions are specified, this defaults to the \`revsets.fix\` setting, or \`reachable(@, mutable())\` if it is not set]:REVSETS:_default' \
@@ -2147,7 +2122,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2168,7 +2143,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2197,7 +2172,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2209,7 +2184,7 @@ _arguments "${_arguments_options[@]}" : \
 '--no-pager[Disable the pager]' \
 '-h[Print help (see more with '\''--help'\'')]' \
 '--help[Print help (see more with '\''--help'\'')]' \
-':source -- URL or path of the Git repo to clone:_files -/' \
+':source -- URL or path of the Git repo to clone:_urls' \
 '::destination -- Specifies the target directory for the Jujutsu repository clone. If not provided, defaults to a directory named after the last component of the source URL. The full directory path will be created if it doesn'\''t exist:_files -/' \
 && ret=0
 ;;
@@ -2219,7 +2194,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2241,7 +2216,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2261,7 +2236,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2281,7 +2256,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2305,19 +2280,20 @@ _arguments "${_arguments_options[@]}" : \
 '*--revisions=[Push bookmarks pointing to these commits (can be repeated)]:REVSETS:_default' \
 '*-c+[Push this commit by creating a bookmark based on its change ID (can be repeated)]:REVSETS:_default' \
 '*--change=[Push this commit by creating a bookmark based on its change ID (can be repeated)]:REVSETS:_default' \
+'*--named=[Specify a new bookmark name and a revision to push under that name, e.g. '\''--named myfeature=@'\'']:NAME=REVISION:_default' \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--all[Push all bookmarks (including new and deleted bookmarks)]' \
-'--tracked[Push all tracked bookmarks (including deleted bookmarks)]' \
-'--deleted[Push all deleted bookmarks]' \
-'(--all --deleted --tracked)-N[Allow pushing new bookmarks]' \
-'(--all --deleted --tracked)--allow-new[Allow pushing new bookmarks]' \
+'--all[Push all bookmarks (including new bookmarks)]' \
+'--tracked[Push all tracked bookmarks]' \
+'(-b --bookmark -c --change -r --revisions --named)--deleted[Push all deleted bookmarks]' \
+'(--all --tracked)-N[Allow pushing new bookmarks]' \
+'(--all --tracked)--allow-new[Allow pushing new bookmarks]' \
 '--allow-empty-description[Allow pushing commits with empty descriptions]' \
 '--allow-private[Allow pushing commits that are private]' \
 '--dry-run[Only display what will change on the remote]' \
@@ -2336,7 +2312,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2363,7 +2339,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2375,7 +2351,7 @@ _arguments "${_arguments_options[@]}" : \
 '-h[Print help (see more with '\''--help'\'')]' \
 '--help[Print help (see more with '\''--help'\'')]' \
 ':remote -- The remote'\''s name:_default' \
-':url -- The remote'\''s URL:_default' \
+':url -- The remote'\''s URL or path:_urls' \
 && ret=0
 ;;
 (list)
@@ -2384,7 +2360,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2403,7 +2379,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2423,7 +2399,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2444,7 +2420,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2456,49 +2432,20 @@ _arguments "${_arguments_options[@]}" : \
 '-h[Print help (see more with '\''--help'\'')]' \
 '--help[Print help (see more with '\''--help'\'')]' \
 ':remote -- The remote'\''s name:_default' \
-':url -- The desired url for `remote`:_default' \
+':url -- The desired URL or path for `remote`:_urls' \
 && ret=0
 ;;
         esac
     ;;
 esac
 ;;
-(submodule)
+(root)
 _arguments "${_arguments_options[@]}" : \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-":: :_jj__git__submodule_commands" \
-"*::: :->submodule" \
-&& ret=0
-
-    case $state in
-    (submodule)
-        words=($line[1] "${words[@]}")
-        (( CURRENT += 1 ))
-        curcontext="${curcontext%:*:*}:jj-git-submodule-command-$line[1]:"
-        case $line[1] in
-            (print-gitmodules)
-_arguments "${_arguments_options[@]}" : \
-'-r+[Read .gitmodules from the given revision]:REVSET:_default' \
-'--revisions=[Read .gitmodules from the given revision]:REVSET:_default' \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2510,10 +2457,6 @@ _arguments "${_arguments_options[@]}" : \
 '-h[Print help (see more with '\''--help'\'')]' \
 '--help[Print help (see more with '\''--help'\'')]' \
 && ret=0
-;;
-        esac
-    ;;
-esac
 ;;
         esac
     ;;
@@ -2539,7 +2482,7 @@ tutorial\:"Show a tutorial to get started with jj"))' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2551,28 +2494,6 @@ tutorial\:"Show a tutorial to get started with jj"))' \
 '-h[Print help (see more with '\''--help'\'')]' \
 '--help[Print help (see more with '\''--help'\'')]' \
 '*::command -- Print help for the subcommand(s):_default' \
-&& ret=0
-;;
-(init)
-_arguments "${_arguments_options[@]}" : \
-'--git-repo=[DEPRECATED\: Use \`jj git init\` Path to a git repo the jj repo will be backed by]:GIT_REPO:_files -/' \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--git[DEPRECATED\: Use \`jj git init\` Use the Git backend, creating a jj repo backed by a Git repo]' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-'::destination -- The destination directory:_files -/' \
 && ret=0
 ;;
 (interdiff)
@@ -2587,7 +2508,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2618,7 +2539,6 @@ _arguments "${_arguments_options[@]}" : \
 '*--revisions=[Which revisions to show]:REVSETS:_default' \
 '-n+[Limit number of revisions to show]:LIMIT:_default' \
 '--limit=[Limit number of revisions to show]:LIMIT:_default' \
-'(-n --limit)-l+[]:LIMIT:_default' \
 '-T+[Render each revision using the given template]:TEMPLATE:_default' \
 '--template=[Render each revision using the given template]:TEMPLATE:_default' \
 '--tool=[Generate diff by external command]:TOOL:_default' \
@@ -2627,7 +2547,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2668,7 +2588,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2691,7 +2611,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2716,7 +2636,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2743,7 +2663,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2771,7 +2691,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2800,7 +2720,6 @@ _arguments "${_arguments_options[@]}" : \
 _arguments "${_arguments_options[@]}" : \
 '-n+[Limit number of operations to show]:LIMIT:_default' \
 '--limit=[Limit number of operations to show]:LIMIT:_default' \
-'(-n --limit)-l+[]:LIMIT:_default' \
 '-T+[Render each operation using the given template]:TEMPLATE:_default' \
 '--template=[Render each operation using the given template]:TEMPLATE:_default' \
 '--tool=[Generate diff by external command]:TOOL:_default' \
@@ -2809,11 +2728,13 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
+'--reversed[Show operations in the opposite order (older operations first)]' \
 '--no-graph[Don'\''t show the graph, show a flat list of operations]' \
+'-d[Show changes to the repository at each operation]' \
 '--op-diff[Show changes to the repository at each operation]' \
 '-p[Show patch of modifications to changes (implies --op-diff)]' \
 '--patch[Show patch of modifications to changes (implies --op-diff)]' \
@@ -2843,7 +2764,7 @@ remote-tracking\:"The remote-tracking bookmarks. Do not restore these if you'\''
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2865,7 +2786,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2899,7 +2820,7 @@ remote-tracking\:"The remote-tracking bookmarks. Do not restore these if you'\''
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2923,7 +2844,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2950,7 +2871,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -2978,7 +2899,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3007,7 +2928,6 @@ _arguments "${_arguments_options[@]}" : \
 _arguments "${_arguments_options[@]}" : \
 '-n+[Limit number of operations to show]:LIMIT:_default' \
 '--limit=[Limit number of operations to show]:LIMIT:_default' \
-'(-n --limit)-l+[]:LIMIT:_default' \
 '-T+[Render each operation using the given template]:TEMPLATE:_default' \
 '--template=[Render each operation using the given template]:TEMPLATE:_default' \
 '--tool=[Generate diff by external command]:TOOL:_default' \
@@ -3016,11 +2936,13 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
+'--reversed[Show operations in the opposite order (older operations first)]' \
 '--no-graph[Don'\''t show the graph, show a flat list of operations]' \
+'-d[Show changes to the repository at each operation]' \
 '--op-diff[Show changes to the repository at each operation]' \
 '-p[Show patch of modifications to changes (implies --op-diff)]' \
 '--patch[Show patch of modifications to changes (implies --op-diff)]' \
@@ -3050,7 +2972,7 @@ remote-tracking\:"The remote-tracking bookmarks. Do not restore these if you'\''
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3072,7 +2994,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3106,7 +3028,7 @@ remote-tracking\:"The remote-tracking bookmarks. Do not restore these if you'\''
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3130,7 +3052,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3150,7 +3072,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3189,7 +3111,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3213,12 +3135,12 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'-l[Instead of resolving one conflict, list all the conflicts]' \
-'--list[Instead of resolving one conflict, list all the conflicts]' \
+'-l[Instead of resolving conflicts, list all the conflicts]' \
+'--list[Instead of resolving conflicts, list all the conflicts]' \
 '--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
 '--ignore-immutable[Allow rewriting immutable commits]' \
 '--debug[Enable debug logging]' \
@@ -3226,27 +3148,31 @@ _arguments "${_arguments_options[@]}" : \
 '--no-pager[Disable the pager]' \
 '-h[Print help (see more with '\''--help'\'')]' \
 '--help[Print help (see more with '\''--help'\'')]' \
-'*::paths -- Restrict to these paths when searching for a conflict to resolve. We will attempt to resolve the first conflict we can find. You can use the `--list` argument to find paths to use here:_files' \
+'*::paths -- Only resolve conflicts in these paths. You can use the `--list` argument to find paths to use here:_files' \
 && ret=0
 ;;
 (restore)
 _arguments "${_arguments_options[@]}" : \
 '-f+[Revision to restore from (source)]:REVSET:_default' \
 '--from=[Revision to restore from (source)]:REVSET:_default' \
-'-t+[Revision to restore into (destination)]:REVSETS:_default' \
-'--to=[Revision to restore into (destination)]:REVSETS:_default' \
-'(-t --to -f --from)-c+[Undo the changes in a revision as compared to the merge of its parents]:REVSET:_default' \
-'(-t --to -f --from)--changes-in=[Undo the changes in a revision as compared to the merge of its parents]:REVSET:_default' \
+'-t+[Revision to restore into (destination)]:REVSET:_default' \
+'--into=[Revision to restore into (destination)]:REVSET:_default' \
+'--to=[Revision to restore into (destination)]:REVSET:_default' \
+'(-t --into -f --from)-c+[Undo the changes in a revision as compared to the merge of its parents]:REVSET:_default' \
+'(-t --into -f --from)--changes-in=[Undo the changes in a revision as compared to the merge of its parents]:REVSET:_default' \
 '-r+[Prints an error. DO NOT USE]:REVISION:_default' \
 '--revision=[Prints an error. DO NOT USE]:REVISION:_default' \
+'--tool=[Specify diff editor to be used (implies --interactive)]:NAME:_default' \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
+'-i[Interactively choose which parts to restore]' \
+'--interactive[Interactively choose which parts to restore]' \
 '--restore-descendants[Preserve the content (not the diff) when rebasing descendants]' \
 '--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
 '--ignore-immutable[Allow rewriting immutable commits]' \
@@ -3260,11 +3186,21 @@ _arguments "${_arguments_options[@]}" : \
 ;;
 (revert)
 _arguments "${_arguments_options[@]}" : \
+'*-r+[The revision(s) to apply the reverse of]:REVSETS:_default' \
+'*--revisions=[The revision(s) to apply the reverse of]:REVSETS:_default' \
+'*-d+[The revision(s) to apply the reverse changes on top of]:REVSETS:_default' \
+'*--destination=[The revision(s) to apply the reverse changes on top of]:REVSETS:_default' \
+'(-d --destination)*-A+[The revision(s) to insert the reverse changes after (can be repeated to create a merge commit)]:REVSETS:_default' \
+'(-d --destination)*--insert-after=[The revision(s) to insert the reverse changes after (can be repeated to create a merge commit)]:REVSETS:_default' \
+'(-d --destination)*--after=[The revision(s) to insert the reverse changes after (can be repeated to create a merge commit)]:REVSETS:_default' \
+'(-d --destination)*-B+[The revision(s) to insert the reverse changes before (can be repeated to create a merge commit)]:REVSETS:_default' \
+'(-d --destination)*--insert-before=[The revision(s) to insert the reverse changes before (can be repeated to create a merge commit)]:REVSETS:_default' \
+'(-d --destination)*--before=[The revision(s) to insert the reverse changes before (can be repeated to create a merge commit)]:REVSETS:_default' \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3275,7 +3211,6 @@ _arguments "${_arguments_options[@]}" : \
 '--no-pager[Disable the pager]' \
 '-h[Print help (see more with '\''--help'\'')]' \
 '--help[Print help (see more with '\''--help'\'')]' \
-'*::_args:_default' \
 && ret=0
 ;;
 (root)
@@ -3284,7 +3219,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3307,7 +3242,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3332,7 +3267,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3356,6 +3291,28 @@ _arguments "${_arguments_options[@]}" : \
 '::revision -- Show changes in this revision, compared to its parent(s):_default' \
 && ret=0
 ;;
+(sign)
+_arguments "${_arguments_options[@]}" : \
+'*-r+[What revision(s) to sign]:REVSETS:_default' \
+'*--revisions=[What revision(s) to sign]:REVSETS:_default' \
+'--key=[The key used for signing]:KEY:_default' \
+'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
+'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
+'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
+'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
+'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
+'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
+'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
+'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
+'--ignore-immutable[Allow rewriting immutable commits]' \
+'--debug[Enable debug logging]' \
+'--quiet[Silence non-primary command output]' \
+'--no-pager[Disable the pager]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+&& ret=0
+;;
 (simplify-parents)
 _arguments "${_arguments_options[@]}" : \
 '*-s+[Simplify specified revision(s) together with their trees of descendants (can be repeated)]:REVSETS:_default' \
@@ -3366,7 +3323,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3385,7 +3342,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3412,7 +3369,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3431,7 +3388,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3450,7 +3407,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3471,7 +3428,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3498,7 +3455,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3532,7 +3489,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3558,7 +3515,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3578,7 +3535,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3598,7 +3555,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3627,7 +3584,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3649,7 +3606,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3673,7 +3630,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3700,7 +3657,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3723,7 +3680,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3742,7 +3699,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3764,7 +3721,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3777,13 +3734,13 @@ _arguments "${_arguments_options[@]}" : \
 '--help[Print help (see more with '\''--help'\'')]' \
 && ret=0
 ;;
-(mangen)
+(install-man-pages)
 _arguments "${_arguments_options[@]}" : \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3794,6 +3751,7 @@ _arguments "${_arguments_options[@]}" : \
 '--no-pager[Disable the pager]' \
 '-h[Print help (see more with '\''--help'\'')]' \
 '--help[Print help (see more with '\''--help'\'')]' \
+':path -- The path where manpages will installed. An example path might be `/usr/share/man`. The provided path will be appended with `man1`, etc., as appropriate:_files' \
 && ret=0
 ;;
 (markdown-help)
@@ -3802,7 +3760,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3827,7 +3785,7 @@ remote-tracking\:"The remote-tracking bookmarks. Do not restore these if you'\''
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3841,37 +3799,15 @@ remote-tracking\:"The remote-tracking bookmarks. Do not restore these if you'\''
 '::operation -- The operation to undo:_default' \
 && ret=0
 ;;
-(unsquash)
+(unsign)
 _arguments "${_arguments_options[@]}" : \
-'-r+[]:REVSET:_default' \
-'--revision=[]:REVSET:_default' \
-'--tool=[Specify diff editor to be used (implies --interactive)]:NAME:_default' \
+'*-r+[What revision(s) to unsign]:REVSETS:_default' \
+'*--revisions=[What revision(s) to unsign]:REVSETS:_default' \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'-i[Interactively choose which parts to unsquash]' \
-'--interactive[Interactively choose which parts to unsquash]' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-&& ret=0
-;;
-(untrack)
-_arguments "${_arguments_options[@]}" : \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3882,7 +3818,6 @@ _arguments "${_arguments_options[@]}" : \
 '--no-pager[Disable the pager]' \
 '-h[Print help (see more with '\''--help'\'')]' \
 '--help[Print help (see more with '\''--help'\'')]' \
-'*::paths -- Paths to untrack. They must already be ignored:_files' \
 && ret=0
 ;;
 (version)
@@ -3891,7 +3826,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3910,7 +3845,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3943,7 +3878,7 @@ empty\:"Clear all files from the workspace (it will be empty)"))' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3963,7 +3898,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -3983,7 +3918,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -4002,7 +3937,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -4022,7 +3957,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -4041,7 +3976,7 @@ _arguments "${_arguments_options[@]}" : \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
 '--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output (always, never, debug, auto)]:WHEN:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
@@ -4068,11 +4003,9 @@ _jj_commands() {
     local commands; commands=(
 'abandon:Abandon a revision' \
 'absorb:Move changes from a revision into the stack of mutable revisions' \
-'backout:Apply the reverse of a revision on top of another revision' \
+'backout:Apply the reverse of given revisions on top of another revision' \
 'bookmark:Manage bookmarks \[default alias\: b\]' \
 'branch:Manage bookmarks \[default alias\: b\]' \
-'cat:Print contents of files in a revision' \
-'chmod:Sets or removes the executable bit for paths in the repo' \
 'commit:Update the description and create a new change on top' \
 'config:Manage config options' \
 'debug:Low-level commands not intended for users' \
@@ -4085,11 +4018,9 @@ _jj_commands() {
 'evolog:Show how a change has evolved over time' \
 'evolution-log:Show how a change has evolved over time' \
 'file:File operations' \
-'files:List files in a revision (DEPRECATED use \`jj file list\`)' \
 'fix:Update files with formatting fixes or other changes' \
 'git:Commands for working with Git remotes and the underlying Git repo' \
 'help:Print this message or the help of the given subcommand(s)' \
-'init:Create a new repo in the given directory' \
 'interdiff:Compare the changes of two commits' \
 'log:Show revision history' \
 'new:Create a new, empty change and (by default) edit it in the working copy' \
@@ -4099,12 +4030,13 @@ _jj_commands() {
 'parallelize:Parallelize revisions by making them siblings' \
 'prev:Change the working copy revision relative to the parent revision' \
 'rebase:Move revisions to different parent(s)' \
-'resolve:Resolve a conflicted file with an external merge tool' \
+'resolve:Resolve conflicted files with an external merge tool' \
 'restore:Restore paths from another revision' \
-'revert:A dummy command that accepts any arguments' \
-'root:Show the current workspace root directory' \
+'revert:Apply the reverse of the given revision(s)' \
+'root:Show the current workspace root directory (shortcut for \`jj workspace root\`)' \
 'run:(**Stub**, does not work yet) Run a command across a set of revisions.' \
 'show:Show commit description and changes in a revision' \
+'sign:Cryptographically sign a revision' \
 'simplify-parents:Simplify parent edges for the specified revision(s)' \
 'sparse:Manage which paths from the working-copy commit are present in the working copy' \
 'split:Split a revision in two' \
@@ -4114,8 +4046,7 @@ _jj_commands() {
 'tag:Manage tags' \
 'util:Infrequently used commands such as for generating shell completions' \
 'undo:Undo an operation (shortcut for \`jj op undo\`)' \
-'unsquash:Move changes from a revision'\''s parent into the revision' \
-'untrack:Stop tracking specified paths in the working copy' \
+'unsign:Drop a cryptographic signature' \
 'version:Display version information' \
 'workspace:Commands for working with workspaces' \
     )
@@ -4143,8 +4074,8 @@ _jj__bookmark_commands() {
 'c:Create a new bookmark' \
 'delete:Delete an existing bookmark and propagate the deletion to remotes on the next push' \
 'd:Delete an existing bookmark and propagate the deletion to remotes on the next push' \
-'forget:Forget everything about a bookmark, including its local and remote targets' \
-'f:Forget everything about a bookmark, including its local and remote targets' \
+'forget:Forget a bookmark without marking it as a deletion to be pushed' \
+'f:Forget a bookmark without marking it as a deletion to be pushed' \
 'list:List bookmarks and their targets' \
 'l:List bookmarks and their targets' \
 'move:Move existing bookmarks to target revision' \
@@ -4211,8 +4142,8 @@ _jj__branch_commands() {
 'c:Create a new bookmark' \
 'delete:Delete an existing bookmark and propagate the deletion to remotes on the next push' \
 'd:Delete an existing bookmark and propagate the deletion to remotes on the next push' \
-'forget:Forget everything about a bookmark, including its local and remote targets' \
-'f:Forget everything about a bookmark, including its local and remote targets' \
+'forget:Forget a bookmark without marking it as a deletion to be pushed' \
+'f:Forget a bookmark without marking it as a deletion to be pushed' \
 'list:List bookmarks and their targets' \
 'l:List bookmarks and their targets' \
 'move:Move existing bookmarks to target revision' \
@@ -4272,16 +4203,6 @@ _jj__branch__untrack_commands() {
     local commands; commands=()
     _describe -t commands 'jj branch untrack commands' commands "$@"
 }
-(( $+functions[_jj__cat_commands] )) ||
-_jj__cat_commands() {
-    local commands; commands=()
-    _describe -t commands 'jj cat commands' commands "$@"
-}
-(( $+functions[_jj__chmod_commands] )) ||
-_jj__chmod_commands() {
-    local commands; commands=()
-    _describe -t commands 'jj chmod commands' commands "$@"
-}
 (( $+functions[_jj__commit_commands] )) ||
 _jj__commit_commands() {
     local commands; commands=()
@@ -4294,14 +4215,14 @@ _jj__config_commands() {
 'e:Start an editor on a jj config file' \
 'get:Get the value of a given config option.' \
 'g:Get the value of a given config option.' \
-'list:List variables set in config file, along with their values' \
-'l:List variables set in config file, along with their values' \
-'path:Print the path to the config file' \
-'p:Print the path to the config file' \
-'set:Update config file to set the given option to a given value' \
-'s:Update config file to set the given option to a given value' \
-'unset:Update config file to unset the given option' \
-'u:Update config file to unset the given option' \
+'list:List variables set in config files, along with their values' \
+'l:List variables set in config files, along with their values' \
+'path:Print the paths to the config files' \
+'p:Print the paths to the config files' \
+'set:Update a config file to set the given option to a given value' \
+'s:Update a config file to set the given option to a given value' \
+'unset:Update a config file to unset the given option' \
+'u:Update a config file to unset the given option' \
     )
     _describe -t commands 'jj config commands' commands "$@"
 }
@@ -4338,9 +4259,10 @@ _jj__config__unset_commands() {
 (( $+functions[_jj__debug_commands] )) ||
 _jj__debug_commands() {
     local commands; commands=(
-'copy-detection:Rebuild commit index' \
+'copy-detection:Show information about file copies detected' \
 'fileset:Parse fileset expression' \
 'index:Show commit index stats' \
+'init-simple:Create a new repo in the given directory using the proof-of-concept simple backend' \
 'local-working-copy:Show information about the local working copy state' \
 'operation:Show information about an operation and its view' \
 'view:Show information about an operation and its view' \
@@ -4368,6 +4290,11 @@ _jj__debug__fileset_commands() {
 _jj__debug__index_commands() {
     local commands; commands=()
     _describe -t commands 'jj debug index commands' commands "$@"
+}
+(( $+functions[_jj__debug__init-simple_commands] )) ||
+_jj__debug__init-simple_commands() {
+    local commands; commands=()
+    _describe -t commands 'jj debug init-simple commands' commands "$@"
 }
 (( $+functions[_jj__debug__local-working-copy_commands] )) ||
 _jj__debug__local-working-copy_commands() {
@@ -4511,11 +4438,6 @@ _jj__file__untrack_commands() {
     local commands; commands=()
     _describe -t commands 'jj file untrack commands' commands "$@"
 }
-(( $+functions[_jj__files_commands] )) ||
-_jj__files_commands() {
-    local commands; commands=()
-    _describe -t commands 'jj files commands' commands "$@"
-}
 (( $+functions[_jj__fix_commands] )) ||
 _jj__fix_commands() {
     local commands; commands=()
@@ -4531,7 +4453,7 @@ _jj__git_commands() {
 'init:Create a new Git backed repo' \
 'push:Push to a Git remote' \
 'remote:Manage Git remotes' \
-'submodule:FOR INTERNAL USE ONLY Interact with git submodules' \
+'root:Show the underlying Git directory of a repository using the Git backend' \
     )
     _describe -t commands 'jj git commands' commands "$@"
 }
@@ -4601,27 +4523,15 @@ _jj__git__remote__set-url_commands() {
     local commands; commands=()
     _describe -t commands 'jj git remote set-url commands' commands "$@"
 }
-(( $+functions[_jj__git__submodule_commands] )) ||
-_jj__git__submodule_commands() {
-    local commands; commands=(
-'print-gitmodules:Print the relevant contents from .gitmodules. For debugging purposes only' \
-    )
-    _describe -t commands 'jj git submodule commands' commands "$@"
-}
-(( $+functions[_jj__git__submodule__print-gitmodules_commands] )) ||
-_jj__git__submodule__print-gitmodules_commands() {
+(( $+functions[_jj__git__root_commands] )) ||
+_jj__git__root_commands() {
     local commands; commands=()
-    _describe -t commands 'jj git submodule print-gitmodules commands' commands "$@"
+    _describe -t commands 'jj git root commands' commands "$@"
 }
 (( $+functions[_jj__help_commands] )) ||
 _jj__help_commands() {
     local commands; commands=()
     _describe -t commands 'jj help commands' commands "$@"
-}
-(( $+functions[_jj__init_commands] )) ||
-_jj__init_commands() {
-    local commands; commands=()
-    _describe -t commands 'jj init commands' commands "$@"
 }
 (( $+functions[_jj__interdiff_commands] )) ||
 _jj__interdiff_commands() {
@@ -4730,6 +4640,11 @@ _jj__show_commands() {
     local commands; commands=()
     _describe -t commands 'jj show commands' commands "$@"
 }
+(( $+functions[_jj__sign_commands] )) ||
+_jj__sign_commands() {
+    local commands; commands=()
+    _describe -t commands 'jj sign commands' commands "$@"
+}
 (( $+functions[_jj__simplify-parents_commands] )) ||
 _jj__simplify-parents_commands() {
     local commands; commands=()
@@ -4798,15 +4713,10 @@ _jj__undo_commands() {
     local commands; commands=()
     _describe -t commands 'jj undo commands' commands "$@"
 }
-(( $+functions[_jj__unsquash_commands] )) ||
-_jj__unsquash_commands() {
+(( $+functions[_jj__unsign_commands] )) ||
+_jj__unsign_commands() {
     local commands; commands=()
-    _describe -t commands 'jj unsquash commands' commands "$@"
-}
-(( $+functions[_jj__untrack_commands] )) ||
-_jj__untrack_commands() {
-    local commands; commands=()
-    _describe -t commands 'jj untrack commands' commands "$@"
+    _describe -t commands 'jj unsign commands' commands "$@"
 }
 (( $+functions[_jj__util_commands] )) ||
 _jj__util_commands() {
@@ -4815,7 +4725,7 @@ _jj__util_commands() {
 'config-schema:Print the JSON schema for the jj TOML config format' \
 'exec:Execute an external command via jj' \
 'gc:Run backend-dependent garbage collection' \
-'mangen:Print a ROFF (manpage)' \
+'install-man-pages:Install Jujutsu'\''s manpages to the provided path' \
 'markdown-help:Print the CLI help for all subcommands in Markdown' \
     )
     _describe -t commands 'jj util commands' commands "$@"
@@ -4840,10 +4750,10 @@ _jj__util__gc_commands() {
     local commands; commands=()
     _describe -t commands 'jj util gc commands' commands "$@"
 }
-(( $+functions[_jj__util__mangen_commands] )) ||
-_jj__util__mangen_commands() {
+(( $+functions[_jj__util__install-man-pages_commands] )) ||
+_jj__util__install-man-pages_commands() {
     local commands; commands=()
-    _describe -t commands 'jj util mangen commands' commands "$@"
+    _describe -t commands 'jj util install-man-pages commands' commands "$@"
 }
 (( $+functions[_jj__util__markdown-help_commands] )) ||
 _jj__util__markdown-help_commands() {
