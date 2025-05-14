@@ -164,7 +164,14 @@
                                                      ;; because `$(tty)` must be written litteraly and `literal-string` will wrap it
                                                      ;; with single quotes `'$(tty)'` which forbid evaluation when logging in
                                                      (plain-file "gpg-tty"
-                                                      "export GPG_TTY=$(tty)")))
+                                                      "export GPG_TTY=$(tty)")
+                                                     (plain-file "ssl"
+                                                                 (string-join '
+                                                                  ("export GIT_SSL_CAINFO=${HOME}/.guix-home/profile/etc/ssl/certs/ca-certificates.crt"
+                                                                   "export SSL_CERT_DIR=${HOME}/.guix-home/profile/etc/ssl/certs/"
+                                                                   "export SSL_CERT_FILE=${HOME}/.guix-home/profile/etc/ssl/certs/ca-certificates.crt"
+
+                                                                   ) "\n"))))
                                             (zshrc (list (plain-file
                                                           "zsh-fpath"
                                                           "fpath=(${HOME}/.dot/zsh/completion ${fpath})")
