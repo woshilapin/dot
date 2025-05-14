@@ -152,7 +152,11 @@
                                                      ;; DIRENV_LOG_FORMAT="$'something'" or DIRENV_LOG_FORMAT='$\'something\'' (with literal-string)
                                                      (plain-file
                                                       "direnv-format"
-                                                      (string-append "export DIRENV_LOG_FORMAT=" (string #\$ #\') "\\033[2mdirenv: %s\\033[0m" (string #\')))))
+                                                      (string-append
+                                                       "export DIRENV_LOG_FORMAT="
+                                                       (string #\$ #\')
+                                                       "\\033[2mdirenv: %s\\033[0m"
+                                                       (string #\')))))
                                             (zshrc (list
                                                     ;; https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html#Invoking-GPG_002dAGENT
                                                     ;; /!\ Cannot be done in 'home-environment-variables-service-type'
@@ -171,7 +175,7 @@
                                                     (plain-file "direnv-init"
                                                      "eval \"$(direnv hook zsh)\"")
                                                     (plain-file "nix-init"
-                                                      "source ${HOME}/.local/state/nix/profiles/profile/etc/profile.d/nix.sh")
+                                                     "source ${HOME}/.local/state/nix/profiles/profile/etc/profile.d/nix.sh")
                                                     (plain-file "atuin-init"
                                                      "eval \"$(atuin init zsh)\"")
                                                     (plain-file "zoxide-init"
