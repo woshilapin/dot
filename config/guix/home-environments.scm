@@ -22,6 +22,7 @@
   #:use-module (channels))
 
 (use-package-modules base
+                     certs
                      commencement
                      containers
                      crates-io
@@ -60,6 +61,7 @@
                     hydroxide
                     mandoc
                     nix
+                    nss-certs
                     openssh
                     openssl
                     password-store
