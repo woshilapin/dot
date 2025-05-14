@@ -156,33 +156,37 @@
                                                        "export DIRENV_LOG_FORMAT="
                                                        (string #\$ #\')
                                                        "\\033[2mdirenv: %s\\033[0m"
-                                                       (string #\')))))
-                                            (zshrc (list
-                                                    ;; https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html#Invoking-GPG_002dAGENT
-                                                    ;; /!\ Cannot be done in 'home-environment-variables-service-type'
-                                                    ;; because `$(tty)` must be written litteraly and `literal-string` will wrap it
-                                                    ;; with single quotes `'$(tty)'` which forbid evaluation when logging in
-                                                    (plain-file "gpg-tty"
-                                                     "export GPG_TTY=$(tty)")
-                                                    (plain-file "zsh-fpath"
-                                                     "fpath=(${HOME}/.dot/zsh/completion ${fpath})")
-                                                    (plain-file
-                                                     "completion-init"
-                                                     "autoload -Uz compinit && compinit")
-                                                    (plain-file
-                                                     "starship-init"
-                                                     "eval \"$(starship init zsh)\"")
-                                                    (plain-file "direnv-init"
-                                                     "eval \"$(direnv hook zsh)\"")
-                                                    (plain-file "nix-init"
-                                                     "source ${HOME}/.local/state/nix/profiles/profile/etc/profile.d/nix.sh")
-                                                    (plain-file "atuin-init"
-                                                     "eval \"$(atuin init zsh)\"")
-                                                    (plain-file "zoxide-init"
-                                                     "eval \"$(zoxide init zsh)\"")
-                                                    (plain-file
-                                                     "himalaya-init"
-                                                     "eval \"$(himalaya completion zsh)\"")))))
+                                                       (string #\')))
+                                                     ;; https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html#Invoking-GPG_002dAGENT
+                                                     ;; /!\ Cannot be done in 'home-environment-variables-service-type'
+                                                     ;; because `$(tty)` must be written litteraly and `literal-string` will wrap it
+                                                     ;; with single quotes `'$(tty)'` which forbid evaluation when logging in
+                                                     (plain-file "gpg-tty"
+                                                      "export GPG_TTY=$(tty)")))
+                                            (zshrc (list (plain-file
+                                                          "zsh-fpath"
+                                                          "fpath=(${HOME}/.dot/zsh/completion ${fpath})")
+                                                         (plain-file
+                                                          "completion-init"
+                                                          "autoload -Uz compinit && compinit")
+                                                         (plain-file
+                                                          "starship-init"
+                                                          "eval \"$(starship init zsh)\"")
+                                                         (plain-file
+                                                          "direnv-init"
+                                                          "eval \"$(direnv hook zsh)\"")
+                                                         (plain-file
+                                                          "nix-init"
+                                                          "source ${HOME}/.local/state/nix/profiles/profile/etc/profile.d/nix.sh")
+                                                         (plain-file
+                                                          "atuin-init"
+                                                          "eval \"$(atuin init zsh)\"")
+                                                         (plain-file
+                                                          "zoxide-init"
+                                                          "eval \"$(zoxide init zsh)\"")
+                                                         (plain-file
+                                                          "himalaya-init"
+                                                          "eval \"$(himalaya completion zsh)\"")))))
            (service home-gpg-agent-service-type
                     (home-gpg-agent-configuration (pinentry-program (file-append
                                                                      pinentry-tty
