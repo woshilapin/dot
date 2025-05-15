@@ -36,7 +36,11 @@ mode = "plain"
 [platform]
 # Microsoft Windows overwrite
 windows.shell.program = "wsl"
-windows.shell.args = ["--cd", "/home/woshilapin", "zellij", "--layout", "welcome"]
+windows.shell.args = [
+  "--cd", "/home/woshilapin",
+  "--shell-type", "login",
+  "zellij", "--layout", "welcome"
+]
 
 [window]
 mode = "fullscreen"
