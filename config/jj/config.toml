@@ -1,4 +1,5 @@
 [git]
+push-new-bookmarks = true
 sign-on-push = true
 
 [signing]
