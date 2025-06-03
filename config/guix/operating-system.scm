@@ -239,6 +239,11 @@ USER."
            ;; For Podman configuration, see
            ;; https://gooseandquill.blog/posts/install-rootless-podman-on-guix.pdf
            ;; Configuration of uid and gid for Podman usage
+           ;; If on a foreign distro, you can read the following tutorial
+           ;; https://jcvassort.open-web.fr/how-to-setup-podman-on-debian-11/
+           ;; sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 woshilapin
+           ;; sudo apt install uidmap # Might need the `newuidmap` binary
+           ;; podman system migrate
            (simple-service 'etc-subuid etc-service-type
                            (list `("subuid" ,(plain-file "subuid"
                                                          (string-append
