@@ -541,433 +541,6 @@ _arguments "${_arguments_options[@]}" : \
     ;;
 esac
 ;;
-(branch)
-_arguments "${_arguments_options[@]}" : \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output]:WHEN:(always never debug auto)' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-":: :_jj__branch_commands" \
-"*::: :->branch" \
-&& ret=0
-
-    case $state in
-    (branch)
-        words=($line[1] "${words[@]}")
-        (( CURRENT += 1 ))
-        curcontext="${curcontext%:*:*}:jj-branch-command-$line[1]:"
-        case $line[1] in
-            (create)
-_arguments "${_arguments_options[@]}" : \
-'-r+[The bookmark'\''s target revision]:REVSET:_default' \
-'--revision=[The bookmark'\''s target revision]:REVSET:_default' \
-'--to=[The bookmark'\''s target revision]:REVSET:_default' \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output]:WHEN:(always never debug auto)' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-'*::names -- The bookmarks to create:_default' \
-&& ret=0
-;;
-(c)
-_arguments "${_arguments_options[@]}" : \
-'-r+[The bookmark'\''s target revision]:REVSET:_default' \
-'--revision=[The bookmark'\''s target revision]:REVSET:_default' \
-'--to=[The bookmark'\''s target revision]:REVSET:_default' \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output]:WHEN:(always never debug auto)' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-'*::names -- The bookmarks to create:_default' \
-&& ret=0
-;;
-(delete)
-_arguments "${_arguments_options[@]}" : \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output]:WHEN:(always never debug auto)' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-'*::names -- The bookmarks to delete:_default' \
-&& ret=0
-;;
-(d)
-_arguments "${_arguments_options[@]}" : \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output]:WHEN:(always never debug auto)' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-'*::names -- The bookmarks to delete:_default' \
-&& ret=0
-;;
-(forget)
-_arguments "${_arguments_options[@]}" : \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output]:WHEN:(always never debug auto)' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--include-remotes[When forgetting a local bookmark, also forget any corresponding remote bookmarks]' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-'*::names -- The bookmarks to forget:_default' \
-&& ret=0
-;;
-(f)
-_arguments "${_arguments_options[@]}" : \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output]:WHEN:(always never debug auto)' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--include-remotes[When forgetting a local bookmark, also forget any corresponding remote bookmarks]' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-'*::names -- The bookmarks to forget:_default' \
-&& ret=0
-;;
-(list)
-_arguments "${_arguments_options[@]}" : \
-'(-a --all-remotes)*--remote=[Show all tracking and non-tracking remote bookmarks belonging to this remote]:REMOTE:_default' \
-'*-r+[Show bookmarks whose local targets are in the given revisions]:REVSETS:_default' \
-'*--revisions=[Show bookmarks whose local targets are in the given revisions]:REVSETS:_default' \
-'-T+[Render each bookmark using the given template]:TEMPLATE:_default' \
-'--template=[Render each bookmark using the given template]:TEMPLATE:_default' \
-'*--sort=[Sort bookmarks based on the given key (or multiple keys)]:SORT_KEY:(name name- author-name author-name- author-email author-email- author-date author-date- committer-name committer-name- committer-email committer-email- committer-date committer-date-)' \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output]:WHEN:(always never debug auto)' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'-a[Show all tracking and non-tracking remote bookmarks including the ones whose targets are synchronized with the local bookmarks]' \
-'--all-remotes[Show all tracking and non-tracking remote bookmarks including the ones whose targets are synchronized with the local bookmarks]' \
-'(-a --all-remotes)-t[Show remote tracked bookmarks only. Omits local Git-tracking bookmarks by default]' \
-'(-a --all-remotes)--tracked[Show remote tracked bookmarks only. Omits local Git-tracking bookmarks by default]' \
-'(-a --all-remotes)-c[Show conflicted bookmarks only]' \
-'(-a --all-remotes)--conflicted[Show conflicted bookmarks only]' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-'*::names -- Show bookmarks whose local name matches:_default' \
-&& ret=0
-;;
-(l)
-_arguments "${_arguments_options[@]}" : \
-'(-a --all-remotes)*--remote=[Show all tracking and non-tracking remote bookmarks belonging to this remote]:REMOTE:_default' \
-'*-r+[Show bookmarks whose local targets are in the given revisions]:REVSETS:_default' \
-'*--revisions=[Show bookmarks whose local targets are in the given revisions]:REVSETS:_default' \
-'-T+[Render each bookmark using the given template]:TEMPLATE:_default' \
-'--template=[Render each bookmark using the given template]:TEMPLATE:_default' \
-'*--sort=[Sort bookmarks based on the given key (or multiple keys)]:SORT_KEY:(name name- author-name author-name- author-email author-email- author-date author-date- committer-name committer-name- committer-email committer-email- committer-date committer-date-)' \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output]:WHEN:(always never debug auto)' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'-a[Show all tracking and non-tracking remote bookmarks including the ones whose targets are synchronized with the local bookmarks]' \
-'--all-remotes[Show all tracking and non-tracking remote bookmarks including the ones whose targets are synchronized with the local bookmarks]' \
-'(-a --all-remotes)-t[Show remote tracked bookmarks only. Omits local Git-tracking bookmarks by default]' \
-'(-a --all-remotes)--tracked[Show remote tracked bookmarks only. Omits local Git-tracking bookmarks by default]' \
-'(-a --all-remotes)-c[Show conflicted bookmarks only]' \
-'(-a --all-remotes)--conflicted[Show conflicted bookmarks only]' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-'*::names -- Show bookmarks whose local name matches:_default' \
-&& ret=0
-;;
-(move)
-_arguments "${_arguments_options[@]}" : \
-'*-f+[Move bookmarks from the given revisions]:REVSETS:_default' \
-'*--from=[Move bookmarks from the given revisions]:REVSETS:_default' \
-'-t+[Move bookmarks to this revision]:REVSET:_default' \
-'--to=[Move bookmarks to this revision]:REVSET:_default' \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output]:WHEN:(always never debug auto)' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'-B[Allow moving bookmarks backwards or sideways]' \
-'--allow-backwards[Allow moving bookmarks backwards or sideways]' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-'*::names -- Move bookmarks matching the given name patterns:_default' \
-&& ret=0
-;;
-(m)
-_arguments "${_arguments_options[@]}" : \
-'*-f+[Move bookmarks from the given revisions]:REVSETS:_default' \
-'*--from=[Move bookmarks from the given revisions]:REVSETS:_default' \
-'-t+[Move bookmarks to this revision]:REVSET:_default' \
-'--to=[Move bookmarks to this revision]:REVSET:_default' \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output]:WHEN:(always never debug auto)' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'-B[Allow moving bookmarks backwards or sideways]' \
-'--allow-backwards[Allow moving bookmarks backwards or sideways]' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-'*::names -- Move bookmarks matching the given name patterns:_default' \
-&& ret=0
-;;
-(rename)
-_arguments "${_arguments_options[@]}" : \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output]:WHEN:(always never debug auto)' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-':old -- The old name of the bookmark:_default' \
-':new -- The new name of the bookmark:_default' \
-&& ret=0
-;;
-(r)
-_arguments "${_arguments_options[@]}" : \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output]:WHEN:(always never debug auto)' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-':old -- The old name of the bookmark:_default' \
-':new -- The new name of the bookmark:_default' \
-&& ret=0
-;;
-(set)
-_arguments "${_arguments_options[@]}" : \
-'-r+[The bookmark'\''s target revision]:REVSET:_default' \
-'--revision=[The bookmark'\''s target revision]:REVSET:_default' \
-'--to=[The bookmark'\''s target revision]:REVSET:_default' \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output]:WHEN:(always never debug auto)' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'-B[Allow moving the bookmark backwards or sideways]' \
-'--allow-backwards[Allow moving the bookmark backwards or sideways]' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-'*::names -- The bookmarks to update:_default' \
-&& ret=0
-;;
-(s)
-_arguments "${_arguments_options[@]}" : \
-'-r+[The bookmark'\''s target revision]:REVSET:_default' \
-'--revision=[The bookmark'\''s target revision]:REVSET:_default' \
-'--to=[The bookmark'\''s target revision]:REVSET:_default' \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output]:WHEN:(always never debug auto)' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'-B[Allow moving the bookmark backwards or sideways]' \
-'--allow-backwards[Allow moving the bookmark backwards or sideways]' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-'*::names -- The bookmarks to update:_default' \
-&& ret=0
-;;
-(track)
-_arguments "${_arguments_options[@]}" : \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output]:WHEN:(always never debug auto)' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-'*::names -- Remote bookmarks to track:_default' \
-&& ret=0
-;;
-(t)
-_arguments "${_arguments_options[@]}" : \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output]:WHEN:(always never debug auto)' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-'*::names -- Remote bookmarks to track:_default' \
-&& ret=0
-;;
-(untrack)
-_arguments "${_arguments_options[@]}" : \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output]:WHEN:(always never debug auto)' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-'*::names -- Remote bookmarks to untrack:_default' \
-&& ret=0
-;;
-        esac
-    ;;
-esac
-;;
 (commit)
 _arguments "${_arguments_options[@]}" : \
 '--tool=[Specify diff editor to be used (implies --interactive)]:NAME:_default' \
@@ -3115,8 +2688,8 @@ _arguments "${_arguments_options[@]}" : \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'(-r --revisions)--skip-empty[Deprecated. Use --skip-emptied instead]' \
 '--skip-emptied[If true, when rebasing would produce an empty commit, the commit is abandoned. It will not be abandoned if it was already empty before the rebase. Will never skip merge commits with multiple non-empty parents]' \
+'--keep-divergent[Keep divergent commits while rebasing]' \
 '--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
 '--ignore-immutable[Allow rewriting immutable commits]' \
 '--debug[Enable debug logging]' \
@@ -3279,8 +2852,11 @@ _arguments "${_arguments_options[@]}" : \
 '--name-only[For each path, show only its path]' \
 '--git[Show a Git-format diff]' \
 '--color-words[Show a word-level diff with changes indicated only by color]' \
+'(-s --summary --stat --types --name-only --git --color-words --tool --context -w --ignore-all-space -b --ignore-space-change)--no-patch[Do not show the patch]' \
+'-w[Ignore whitespace when comparing lines]' \
 '--ignore-all-space[Ignore whitespace when comparing lines]' \
-'(--ignore-all-space)--ignore-space-change[Ignore changes in amount of whitespace when comparing lines]' \
+'(-w --ignore-all-space)-b[Ignore changes in amount of whitespace when comparing lines]' \
+'(-w --ignore-all-space)--ignore-space-change[Ignore changes in amount of whitespace when comparing lines]' \
 '--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
 '--ignore-immutable[Allow rewriting immutable commits]' \
 '--debug[Enable debug logging]' \
@@ -3451,6 +3027,16 @@ _arguments "${_arguments_options[@]}" : \
 '--tool=[Specify diff editor to be used (implies --interactive)]:NAME:_default' \
 '-r+[The revision to split]:REVSET:_default' \
 '--revision=[The revision to split]:REVSET:_default' \
+'(-p --parallel)*-d+[The revision(s) to rebase onto (can be repeated to create a merge commit)]:REVSETS:_default' \
+'(-p --parallel)*--destination=[The revision(s) to rebase onto (can be repeated to create a merge commit)]:REVSETS:_default' \
+'(-d --destination -p --parallel)*-A+[The revision(s) to insert after (can be repeated to create a merge commit)]:REVSETS:_default' \
+'(-d --destination -p --parallel)*--insert-after=[The revision(s) to insert after (can be repeated to create a merge commit)]:REVSETS:_default' \
+'(-d --destination -p --parallel)*--after=[The revision(s) to insert after (can be repeated to create a merge commit)]:REVSETS:_default' \
+'(-d --destination -p --parallel)*-B+[The revision(s) to insert before (can be repeated to create a merge commit)]:REVSETS:_default' \
+'(-d --destination -p --parallel)*--insert-before=[The revision(s) to insert before (can be repeated to create a merge commit)]:REVSETS:_default' \
+'(-d --destination -p --parallel)*--before=[The revision(s) to insert before (can be repeated to create a merge commit)]:REVSETS:_default' \
+'*-m+[The change description to use (don'\''t open editor)]:MESSAGE:_default' \
+'*--message=[The change description to use (don'\''t open editor)]:MESSAGE:_default' \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
 '--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
@@ -3470,7 +3056,7 @@ _arguments "${_arguments_options[@]}" : \
 '--no-pager[Disable the pager]' \
 '-h[Print help (see more with '\''--help'\'')]' \
 '--help[Print help (see more with '\''--help'\'')]' \
-'*::paths -- Files matching any of these filesets are put in the first commit:_files' \
+'*::paths -- Files matching any of these filesets are put in the selected changes:_files' \
 && ret=0
 ;;
 (squash)
@@ -3624,6 +3210,49 @@ _arguments "${_arguments_options[@]}" : \
     ;;
 esac
 ;;
+(undo)
+_arguments "${_arguments_options[@]}" : \
+'*--what=[What portions of the local state to restore (can be repeated)]:WHAT:((repo\:"The jj repo state and local bookmarks"
+remote-tracking\:"The remote-tracking bookmarks. Do not restore these if you'\''d like to push after the undo"))' \
+'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
+'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
+'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
+'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
+'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
+'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
+'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
+'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
+'--ignore-immutable[Allow rewriting immutable commits]' \
+'--debug[Enable debug logging]' \
+'--quiet[Silence non-primary command output]' \
+'--no-pager[Disable the pager]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'::operation -- The operation to undo:_default' \
+&& ret=0
+;;
+(unsign)
+_arguments "${_arguments_options[@]}" : \
+'*-r+[What revision(s) to unsign]:REVSETS:_default' \
+'*--revisions=[What revision(s) to unsign]:REVSETS:_default' \
+'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
+'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
+'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
+'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
+'--color=[When to colorize output]:WHEN:(always never debug auto)' \
+'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
+'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
+'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
+'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
+'--ignore-immutable[Allow rewriting immutable commits]' \
+'--debug[Enable debug logging]' \
+'--quiet[Silence non-primary command output]' \
+'--no-pager[Disable the pager]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+&& ret=0
+;;
 (util)
 _arguments "${_arguments_options[@]}" : \
 '-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
@@ -3661,9 +3290,6 @@ _arguments "${_arguments_options[@]}" : \
 '*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
 '*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
 '*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--bash[Deprecated. Use the SHELL positional argument instead]' \
-'--fish[Deprecated. Use the SHELL positional argument instead]' \
-'--zsh[Deprecated. Use the SHELL positional argument instead]' \
 '--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
 '--ignore-immutable[Allow rewriting immutable commits]' \
 '--debug[Enable debug logging]' \
@@ -3671,7 +3297,7 @@ _arguments "${_arguments_options[@]}" : \
 '--no-pager[Disable the pager]' \
 '-h[Print help (see more with '\''--help'\'')]' \
 '--help[Print help (see more with '\''--help'\'')]' \
-'::shell:(bash elvish fish nushell power-shell zsh)' \
+':shell:(bash elvish fish nushell power-shell zsh)' \
 && ret=0
 ;;
 (config-schema)
@@ -3776,49 +3402,6 @@ _arguments "${_arguments_options[@]}" : \
         esac
     ;;
 esac
-;;
-(undo)
-_arguments "${_arguments_options[@]}" : \
-'*--what=[What portions of the local state to restore (can be repeated)]:WHAT:((repo\:"The jj repo state and local bookmarks"
-remote-tracking\:"The remote-tracking bookmarks. Do not restore these if you'\''d like to push after the undo"))' \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output]:WHEN:(always never debug auto)' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-'::operation -- The operation to undo:_default' \
-&& ret=0
-;;
-(unsign)
-_arguments "${_arguments_options[@]}" : \
-'*-r+[What revision(s) to unsign]:REVSETS:_default' \
-'*--revisions=[What revision(s) to unsign]:REVSETS:_default' \
-'-R+[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--repository=[Path to repository to operate on]:REPOSITORY:_files -/' \
-'--at-operation=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--at-op=[Operation to load the repo at]:AT_OPERATION:_default' \
-'--color=[When to colorize output]:WHEN:(always never debug auto)' \
-'*--config=[Additional configuration options (can be repeated)]:NAME=VALUE:_default' \
-'*--config-toml=[Additional configuration options (can be repeated) (DEPRECATED)]:TOML:_default' \
-'*--config-file=[Additional configuration files (can be repeated)]:PATH:_files' \
-'--ignore-working-copy[Don'\''t snapshot the working copy, and don'\''t update it]' \
-'--ignore-immutable[Allow rewriting immutable commits]' \
-'--debug[Enable debug logging]' \
-'--quiet[Silence non-primary command output]' \
-'--no-pager[Disable the pager]' \
-'-h[Print help (see more with '\''--help'\'')]' \
-'--help[Print help (see more with '\''--help'\'')]' \
-&& ret=0
 ;;
 (version)
 _arguments "${_arguments_options[@]}" : \
@@ -4005,7 +3588,6 @@ _jj_commands() {
 'absorb:Move changes from a revision into the stack of mutable revisions' \
 'backout:Apply the reverse of given revisions on top of another revision' \
 'bookmark:Manage bookmarks \[default alias\: b\]' \
-'branch:Manage bookmarks \[default alias\: b\]' \
 'commit:Update the description and create a new change on top' \
 'config:Manage config options' \
 'debug:Low-level commands not intended for users' \
@@ -4044,9 +3626,9 @@ _jj_commands() {
 'status:Show high-level repo status' \
 'st:Show high-level repo status' \
 'tag:Manage tags' \
-'util:Infrequently used commands such as for generating shell completions' \
 'undo:Undo an operation (shortcut for \`jj op undo\`)' \
 'unsign:Drop a cryptographic signature' \
+'util:Infrequently used commands such as for generating shell completions' \
 'version:Display version information' \
 'workspace:Commands for working with workspaces' \
     )
@@ -4134,74 +3716,6 @@ _jj__bookmark__track_commands() {
 _jj__bookmark__untrack_commands() {
     local commands; commands=()
     _describe -t commands 'jj bookmark untrack commands' commands "$@"
-}
-(( $+functions[_jj__branch_commands] )) ||
-_jj__branch_commands() {
-    local commands; commands=(
-'create:Create a new bookmark' \
-'c:Create a new bookmark' \
-'delete:Delete an existing bookmark and propagate the deletion to remotes on the next push' \
-'d:Delete an existing bookmark and propagate the deletion to remotes on the next push' \
-'forget:Forget a bookmark without marking it as a deletion to be pushed' \
-'f:Forget a bookmark without marking it as a deletion to be pushed' \
-'list:List bookmarks and their targets' \
-'l:List bookmarks and their targets' \
-'move:Move existing bookmarks to target revision' \
-'m:Move existing bookmarks to target revision' \
-'rename:Rename \`old\` bookmark name to \`new\` bookmark name' \
-'r:Rename \`old\` bookmark name to \`new\` bookmark name' \
-'set:Create or update a bookmark to point to a certain commit' \
-'s:Create or update a bookmark to point to a certain commit' \
-'track:Start tracking given remote bookmarks' \
-'t:Start tracking given remote bookmarks' \
-'untrack:Stop tracking given remote bookmarks' \
-    )
-    _describe -t commands 'jj branch commands' commands "$@"
-}
-(( $+functions[_jj__branch__create_commands] )) ||
-_jj__branch__create_commands() {
-    local commands; commands=()
-    _describe -t commands 'jj branch create commands' commands "$@"
-}
-(( $+functions[_jj__branch__delete_commands] )) ||
-_jj__branch__delete_commands() {
-    local commands; commands=()
-    _describe -t commands 'jj branch delete commands' commands "$@"
-}
-(( $+functions[_jj__branch__forget_commands] )) ||
-_jj__branch__forget_commands() {
-    local commands; commands=()
-    _describe -t commands 'jj branch forget commands' commands "$@"
-}
-(( $+functions[_jj__branch__list_commands] )) ||
-_jj__branch__list_commands() {
-    local commands; commands=()
-    _describe -t commands 'jj branch list commands' commands "$@"
-}
-(( $+functions[_jj__branch__move_commands] )) ||
-_jj__branch__move_commands() {
-    local commands; commands=()
-    _describe -t commands 'jj branch move commands' commands "$@"
-}
-(( $+functions[_jj__branch__rename_commands] )) ||
-_jj__branch__rename_commands() {
-    local commands; commands=()
-    _describe -t commands 'jj branch rename commands' commands "$@"
-}
-(( $+functions[_jj__branch__set_commands] )) ||
-_jj__branch__set_commands() {
-    local commands; commands=()
-    _describe -t commands 'jj branch set commands' commands "$@"
-}
-(( $+functions[_jj__branch__track_commands] )) ||
-_jj__branch__track_commands() {
-    local commands; commands=()
-    _describe -t commands 'jj branch track commands' commands "$@"
-}
-(( $+functions[_jj__branch__untrack_commands] )) ||
-_jj__branch__untrack_commands() {
-    local commands; commands=()
-    _describe -t commands 'jj branch untrack commands' commands "$@"
 }
 (( $+functions[_jj__commit_commands] )) ||
 _jj__commit_commands() {
