@@ -194,8 +194,23 @@
                                                           "zoxide-init"
                                                           "eval \"$(zoxide init zsh)\"")
                                                          (plain-file
+                                                          "docker-init"
+                                                          "eval \"$(docker completion zsh)\"")
+                                                         (plain-file
+                                                          "fd-init"
+                                                          "eval \"$(fd --gen-completions)\"")
+                                                         (plain-file
+                                                          "jj-init"
+                                                          "eval \"$(jj util completion zsh)\"")
+                                                         (plain-file
+                                                          "just-init"
+                                                          "eval \"$(just --completions zsh)\"")
+                                                         (plain-file
                                                           "himalaya-init"
-                                                          "eval \"$(himalaya completion zsh)\"")))))
+                                                          "eval \"$(himalaya completion zsh)\"")
+                                                         (plain-file
+                                                          "podman-init"
+                                                          "eval \"$(podman completion zsh)\"")))))
            (service home-gpg-agent-service-type
                     (home-gpg-agent-configuration (pinentry-program (file-append
                                                                      pinentry-tty
