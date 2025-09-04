@@ -27,6 +27,7 @@
                      gnupg
                      mail
                      man
+                     nss
                      package-management
                      password-utils
                      rust
