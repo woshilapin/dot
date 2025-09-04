@@ -10,10 +10,6 @@ args = ["shell", "guile-lsp-server", "--", "guile-lsp-server", "--stdio"]
 command = "harper-ls"
 args = ["--stdio"]
 
-[language-server.jedi]
-command = "uvx"
-args = ["jedi-language-server"]
-
 [language-server.just]
 command = "just-lsp"
 
@@ -45,4 +41,4 @@ formatter = { command = "ocamlformat", args = ["--impl", "-"] }
 [[language]]
 name = "python"
 auto-format = true
-language-servers = ["ruff", "pylsp", "jedi", "basedpyright"]
+language-servers = ["ruff", "pylsp", "basedpyright"]
