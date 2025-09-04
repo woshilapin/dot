@@ -18,14 +18,12 @@
   #:use-module (guix gexp)
   #:use-module (guix channels)
   #:use-module (saayix packages fonts)
-  #:use-module (saayix packages text-editors)
   #:use-module (channels))
 
 (use-package-modules base
                      certs
                      commencement
                      containers
-                     crates-io
                      gnupg
                      mail
                      man
@@ -37,6 +35,7 @@
                      ssh
                      task-management
                      terminals
+                     text-editors
                      tls
                      version-control
                      vim)
