@@ -210,7 +210,10 @@
                                                           "eval \"$(himalaya completion zsh)\"")
                                                          (plain-file
                                                           "podman-init"
-                                                          "eval \"$(podman completion zsh)\"")))))
+                                                          "eval \"$(podman completion zsh)\"")
+                                                         (plain-file
+                                                          "fnm-init"
+                                                          "eval \"$(fnm completions --corepack-enabled)\"")))))
            (service home-gpg-agent-service-type
                     (home-gpg-agent-configuration (pinentry-program (file-append
                                                                      pinentry-tty
