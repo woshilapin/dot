@@ -11,6 +11,7 @@
                                 (openpgp-fingerprint
                                  "3FFA 7335 973E 0A49 47FC  0A8C 38D5 96BE 07D3 34AB")))))
 
+;; The channel needs to be updated to the new Rust packaging model
 (define tuziwo
   (channel
     (name 'tuziwo)
@@ -22,6 +23,6 @@
                                  "5554 54E7 6611 9F60 80F1  2F63 B041 63DC 7020 116A")))))
 
 (define-public channels
-  (cons* saayix tuziwo %default-channels))
+  (cons* saayix %default-channels))
 
 channels
