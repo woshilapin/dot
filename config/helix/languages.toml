@@ -21,6 +21,9 @@ args = ["--from", "python-lsp-server", "pylsp"]
 command = "uvx"
 args = ["ruff", "server"]
 
+[language-server.rust-analyzer.config]
+check.workspace = false
+
 [[language]]
 name = "scheme"
 language-servers = ["guile-lsp-server"]
