@@ -1,14 +1,15 @@
 use_guix() {
-  local cache_dir=".guix-profile"
-  # delete =.guix-profile= if =manifest.scm= or =guix.scm= is newer
-  # bash test builtin dereferences links, using =find=
-  if [[ -e $cache_dir && $(find \( -name "manifest.scm" -o -name "guix.scm" \) -prune -newer $cache_dir) ]]; then
-    rm $cache_dir
+  mkdir -p "$(direnv_layout_dir)"
+  local cache_dir="$(direnv_layout_dir)/.guix-profile"
+  local channel_dir="$(direnv_layout_dir)/.guix-channels"
+  watch_file guix.scm
+  watch_file manifest.scm
+  watch_file channels.scm
+  if [ -f channels.scm ]
+  then
+    log_status "Using Guix version from channels.scm"
+    PATH_add "$channel_dir/bin"
+    guix pull -C channels.scm --profile="$channel_dir"
   fi
-  if [[ -e "$cache_dir/etc/profile" ]]; then
-    source "$cache_dir/etc/profile"
-  else
-    echo "direnvrc: building $cache_dir"
-    eval "$(guix shell --root="$cache_dir" --search-paths)"
-  fi
+  eval "$(guix shell --root="$cache_dir" "$@" --search-paths)"
 }
