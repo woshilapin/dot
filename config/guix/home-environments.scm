@@ -164,7 +164,11 @@
                                                      ;; because `$(tty)` must be written litteraly and `literal-string` will wrap it
                                                      ;; with single quotes `'$(tty)'` which forbid evaluation when logging in
                                                      (plain-file "gpg-tty"
-                                                      "export GPG_TTY=$(tty)")
+                                                                 (string-join '
+                                                                  ("if command -v tty > /dev/null"
+                                                                   "then"
+                                                                   "  export GPG_TTY=$(tty)"
+                                                                   "fi") "\n"))
                                                      (plain-file "ssl"
                                                                  (string-join '
                                                                   ("export GIT_SSL_CAINFO=${HOME}/.guix-home/profile/etc/ssl/certs/ca-certificates.crt"
@@ -180,40 +184,82 @@
                                                           "autoload -Uz compinit && compinit")
                                                          (plain-file
                                                           "starship-init"
-                                                          "eval \"$(starship init zsh)\"")
+                                                          (string-join '("if command -v starship > /dev/null"
+                                                                         "then"
+                                                                         "  eval \"$(starship init zsh)\""
+                                                                         "fi")
+                                                                       "\n"))
                                                          (plain-file
                                                           "direnv-init"
-                                                          "eval \"$(direnv hook zsh)\"")
+                                                          (string-join '("if command -v direnv > /dev/null"
+                                                                         "then"
+                                                                         "  eval \"$(direnv hook zsh)\""
+                                                                         "fi")
+                                                                       "\n"))
                                                          (plain-file
                                                           "nix-init"
                                                           "source ${HOME}/.local/state/nix/profiles/profile/etc/profile.d/nix.sh")
                                                          (plain-file
                                                           "atuin-init"
-                                                          "eval \"$(atuin init zsh)\"")
+                                                          (string-join '("if command -v atuin > /dev/null"
+                                                                         "then"
+                                                                         "  eval \"$(atuin init zsh)\""
+                                                                         "fi")
+                                                                       "\n"))
                                                          (plain-file
                                                           "zoxide-init"
-                                                          "eval \"$(zoxide init zsh)\"")
+                                                          (string-join '("if command -v zoxide > /dev/null"
+                                                                         "then"
+                                                                         "  eval \"$(zoxide init zsh)\""
+                                                                         "fi")
+                                                                       "\n"))
                                                          (plain-file
                                                           "docker-init"
-                                                          "eval \"$(docker completion zsh)\"")
-                                                         (plain-file
-                                                          "fd-init"
-                                                          "eval \"$(fd --gen-completions)\"")
-                                                         (plain-file
-                                                          "jj-init"
-                                                          "eval \"$(jj util completion zsh)\"")
+                                                          (string-join '("if command -v docker > /dev/null"
+                                                                         "then"
+                                                                         "  eval \"$(docker completion zsh)\""
+                                                                         "fi")
+                                                                       "\n"))
+                                                         (plain-file "fd-init"
+                                                          (string-join '("if command -v fd > /dev/null"
+                                                                         "then"
+                                                                         "  eval \"$(fd --gen-completions)\""
+                                                                         "fi")
+                                                                       "\n"))
+                                                         (plain-file "jj-init"
+                                                          (string-join '("if command -v jj > /dev/null"
+                                                                         "then"
+                                                                         "  eval \"$(jj util completion zsh)\""
+                                                                         "fi")
+                                                                       "\n"))
                                                          (plain-file
                                                           "just-init"
-                                                          "eval \"$(just --completions zsh)\"")
+                                                          (string-join '("if command -v just > /dev/null"
+                                                                         "then"
+                                                                         "  eval \"$(just --completions zsh)\""
+                                                                         "fi")
+                                                                       "\n"))
                                                          (plain-file
                                                           "himalaya-init"
-                                                          "eval \"$(himalaya completion zsh)\"")
+                                                          (string-join '("if command -v himalaya > /dev/null"
+                                                                         "then"
+                                                                         "  eval \"$(himalaya completion zsh)\""
+                                                                         "fi")
+                                                                       "\n"))
                                                          (plain-file
                                                           "podman-init"
-                                                          "eval \"$(podman completion zsh)\"")
+                                                          (string-join '("if command -v podman > /dev/null"
+                                                                         "then"
+                                                                         "  eval \"$(podman completion zsh)\""
+                                                                         "fi")
+                                                                       "\n"))
                                                          (plain-file
                                                           "fnm-init"
-                                                          "eval \"$(fnm completions --corepack-enabled)\"")))))
+                                                          (string-join '("if command -v fnm > /dev/null"
+                                                                         "then"
+                                                                         "  eval \"$(fnm completions --corepack-enabled)\""
+                                                                         "fi")
+                                                                       "\n"))))))
            (service home-gpg-agent-service-type
                     (home-gpg-agent-configuration (pinentry-program (file-append
                                                                      pinentry-tty
