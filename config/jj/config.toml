@@ -1,5 +1,4 @@
 [git]
-push-new-bookmarks = true
 sign-on-push = true
 
 [signing]
@@ -12,6 +11,12 @@ default-command = ["log"]
 diff-editor = ":builtin"
 diff-formatter = ":git"
 pager = "delta"
+
+[remotes.origin]
+auto-track-bookmarks = "regex:.*"
+
+[remotes.upstream]
+auto-track-bookmarks = "exact:main | exact:master"
 
 [user]
 name = "Jean SIMARD"
