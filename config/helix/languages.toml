@@ -45,3 +45,8 @@ formatter = { command = "ocamlformat", args = ["--impl", "-"] }
 name = "python"
 auto-format = true
 language-servers = ["ruff", "pylsp", "basedpyright"]
+
+[[language]]
+name = "toml"
+auto-format = true
+formatter = { command = "taplo", args = ["format", "-"] }
