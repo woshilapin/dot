@@ -1,4 +1,6 @@
-# Installation
+Installation
+============
+
 `vdirsyncer` can be installed with `virtualenv`, preferably with Python3+.
 
 ```
@@ -25,9 +27,11 @@ install `vdirsyncer`.
 pip install vdirsyncer
 ```
 
-# Use
+Use
+===
+
 To use `vdirsyncer`, you can either launch it with the `virtualenv` version of
-`python`'s binary.
+`python`’s binary.
 
 ```
 ~/.virtualenvs/vdirsyncer/bin/python ~/.virtualenvs/vdirsyncer/bin/vdirsyncer <option>
@@ -41,5 +45,6 @@ vdirsyncer <option>
 ```
 
 The options are:
-* `discover` to look for new configurations
-* `sync` to synchronize the data
+
+- `discover` to look for new configurations
+- `sync` to synchronize the data

@@ -1,8 +1,11 @@
-# dot
+dot
+===
 
-All "dot" files for the configuration of the system
+All “dot” files for the configuration of the system
 
-## Setup
+
+Setup
+-----
 
 First, you can clone this repository in `~/.dot` for example (it should work
 cloned anywhere but has never been tested). You also need to pull all
@@ -33,9 +36,11 @@ Once this is done, you can simply run the script `powerline` (in the
 `.dot/zsh/scripts/` directory), it will automatically use `pip` and
 `virtualenv` to install Powerline in `~/.virtualenv`.
 
-Powerline use a set of specific [fonts](https://github.com/powerline/fonts). You
+Powerline use a set of specific [fonts]. You
 can install them with `fonts-powerline` package on Debian-like distribution. You
 might need to restart the system to activate it.
+
+[fonts]: https://github.com/powerline/fonts
 
 ### YouCompleteMe for Vim
 
@@ -63,7 +68,9 @@ command.
 python3.7 ~/.dot/vim/bundle/YouCompleteMe/install.py --clangd-completer
 ```
 
-## Update submodules
+
+Update submodules
+-----------------
 
 To update all submodules, use the following command.
 

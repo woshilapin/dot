@@ -1,4 +1,6 @@
-# Initialization
+Initialization
+==============
+
 This Cozy is launch on Docker with multiple containers orchestrated with Docker
 Compose.
 
@@ -14,7 +16,9 @@ Then initialize it with
 docker exec -it cozy_controller_1 cozy-init.sh
 ```
 
-# Daily maintenance
+Daily maintenance
+=================
+
 To stop the containers, you can hit `CTRL-C` when it is has been launched with
 in a non-daemon mode.  To launch it in daemon mode, you can use the `-d` option.
 
@@ -23,6 +27,7 @@ docker-compose up -d
 ```
 
 You can then stop it with
+
 ```
 docker-compose stop
 ```

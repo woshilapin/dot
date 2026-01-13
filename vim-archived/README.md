@@ -1,8 +1,11 @@
-# dot-vim
+dot-vim
+=======
 
 vim configuration files
 
-## Build `vim`
+
+Build `vim`
+-----------
 
 Here is the configuration used to build `vim`.
 
@@ -37,7 +40,9 @@ make
 sudo make install
 ```
 
-## `fzf`
+
+`fzf`
+-----
 
 [`fzf.vim`] is a `vim` plugin depending on the [`fzf`] binary. `fzf` binary can
 be installed directly from `vim` thanks to a Vimscript in [`fzf`] repository
@@ -51,7 +56,9 @@ should keep both [`fzf`] and [`fzf.vim`] in synchronization (same maintainer).
 [`fzf.vim`]: https://github.com/junegunn/fzf.vim
 [`fzf`]: https://github.com/junegunn/fzf
 
-## Auto-completion
+
+Auto-completion
+---------------
 
 Auto-completion is achieved through the `coc` vim plugin. NodeJS must be
 installed. Try `:CocUpdate` to see if all the extensions are installed.

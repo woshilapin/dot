@@ -1,4 +1,6 @@
-# Configuration
+Configuration
+=============
+
 When first launched, Baïkal will ask for configuration.  This Docker Compose
 setup is configured to use MySQL (MariaDB implementation).  Here are the
 credentials to configure to it.
@@ -10,7 +12,9 @@ MySQL username     : baikal
 MySQL password     : baikal
 ```
 
-# Administration and usage
+Administration and usage
+========================
+
 In order to administrate Baïkal, you have to access the following URL.
 
 http://dav.example.com/admin

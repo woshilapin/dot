@@ -1,3 +1,4 @@
-# dot-zsh
+dot-zsh
+=======
 
 zsh configuration files

@@ -30,7 +30,7 @@ language-servers = ["guile-lsp-server"]
 
 [[language]]
 name = "just"
-language-servers = [ "just" ]
+language-servers = ["just"]
 
 [[language]]
 name = "markdown"

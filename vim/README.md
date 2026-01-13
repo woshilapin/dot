@@ -1,8 +1,11 @@
-# dot-vim
+dot-vim
+=======
 
 vim configuration files
 
-## Build `vim`
+
+Build `vim`
+-----------
 
 Here is the configuration used to build `vim`.
 

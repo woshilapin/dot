@@ -1,0 +1,16 @@
+[heading]
+sentence_case = false
+
+[unordered_list]
+unordered_marker = "-"
+leading_spaces = 0
+trailing_spaces = 1
+
+[code_block]
+fence_char = "`"
+min_fence_length = 3
+space_after_fence = false
+
+[punctuation]
+en_dash = "--"
+em_dash = "---"

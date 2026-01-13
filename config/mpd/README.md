@@ -1,4 +1,6 @@
-# Installation
+Installation
+============
+
 The setup of MPD is dependent of systemd.  You must have a systemd process for
 the user.  You may check this is the case with the following command.
 
