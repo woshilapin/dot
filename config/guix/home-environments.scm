@@ -133,6 +133,8 @@
                                              "/home/woshilapin/.dot/config/helix/config.toml"))
                       ("helix/languages.toml" ,(local-file
                                                 "/home/woshilapin/.dot/config/helix/languages.toml"))
+                      ("hongdown/config.toml" ,(local-file
+                                                "/home/woshilapin/.dot/config/hongdown/config.toml"))
                       ("jj/config.toml" ,(local-file
                                           "/home/woshilapin/.dot/config/jj/config.toml"))
                       ("nix/nix.conf" ,(local-file
