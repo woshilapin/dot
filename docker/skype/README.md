@@ -88,7 +88,7 @@ docker run \
 ```
 
 With `--name=skype-data` for naming the container; `skype` in order to use the
-same image for [data persistence ]; and `true`
+same image for [data persistence]; and `true`
 the command to send to the container (which basically do nothing).
 
 Then now, you can run the skype container with a very similar command than the
@@ -113,7 +113,7 @@ from the container `skype-data` into the new `skype` container.
 
 [data containers]: https://docs.docker.com/userguide/dockervolumes/
 [this post]: https://stackoverflow.com/questions/18496940/how-to-deal-with-persistent-storage-e-g-databases-in-docker/20652410#20652410
-[data persistence ]: http://container42.com/2014/11/18/data-only-container-madness/
+[data persistence]: http://container42.com/2014/11/18/data-only-container-madness/
 
 
 On GNOME
