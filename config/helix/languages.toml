@@ -24,6 +24,10 @@ args = ["ruff", "server"]
 [language-server.rust-analyzer.config]
 check.workspace = false
 
+[language-server.ty]
+command = "uvx"
+args = ["ty", "server"]
+
 [[language]]
 name = "scheme"
 language-servers = ["guile-lsp-server"]
@@ -46,7 +50,7 @@ formatter = { command = "ocamlformat", args = ["--impl", "-"] }
 [[language]]
 name = "python"
 auto-format = true
-language-servers = ["ruff", "pylsp", "basedpyright"]
+language-servers = ["ty", "ruff", "pylsp", "basedpyright"]
 
 [[language]]
 name = "toml"
