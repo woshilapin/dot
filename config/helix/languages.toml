@@ -15,7 +15,15 @@ command = "just-lsp"
 
 [language-server.pylsp]
 command = "uvx"
-args = ["--from", "python-lsp-server", "pylsp"]
+args = [
+  "--from",
+  "python-lsp-server[all]",
+  "--with",
+  "pylsp-rope",
+  "--with",
+  "python-lsp-ruff",
+  "pylsp",
+]
 
 [language-server.ruff]
 command = "uvx"
@@ -50,7 +58,25 @@ formatter = { command = "ocamlformat", args = ["--impl", "-"] }
 [[language]]
 name = "python"
 auto-format = true
-language-servers = ["ty", "ruff", "pylsp", "basedpyright"]
+language-servers = [
+  # The configuration of `pylsp` already includes `ruff`
+  "pylsp",
+  { name = "ty", except-features = [
+    "goto-definition",
+    "goto-declaration",
+    "goto-type-definition",
+    "goto-reference",
+    "goto-implementation",
+  ] },
+  { name = "basedpyright", except-features = [
+    "goto-definition",
+    "goto-declaration",
+    "goto-type-definition",
+    "goto-reference",
+    "goto-implementation",
+  ] },
+]
+
 
 [[language]]
 name = "toml"
