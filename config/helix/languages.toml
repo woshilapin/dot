@@ -48,7 +48,6 @@ language-servers = ["just"]
 name = "markdown"
 rulers = [80, 120]
 auto-format = true
-formatter = { command = "hongdown", args = ["--stdin"] }
 
 [[language]]
 name = "ocaml"
