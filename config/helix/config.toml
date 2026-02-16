@@ -20,7 +20,7 @@ character = "┆"
 skip-levels = 1
 
 [editor.inline-diagnostics]
-cursor-line = "warning"
+cursor-line = "hint"
 
 [editor.lsp]
 auto-signature-help = false
