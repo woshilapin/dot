@@ -31,7 +31,13 @@ display-messages = true
 enable = true
 
 [editor.statusline]
-left = ["mode", "spinner", "file-name", "file-modification-indicator", "file-encoding"]
+left = [
+  "mode",
+  "spinner",
+  "file-name",
+  "file-modification-indicator",
+  "file-encoding",
+]
 center = ["version-control", "spacer", "diagnostics"]
 right = ["selections", "register", "position", "position-percentage"]
 
