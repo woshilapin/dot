@@ -36,6 +36,9 @@ check.workspace = false
 command = "uvx"
 args = ["ty", "server"]
 
+[language-server.typos]
+command = "typos-lsp"
+
 [[language]]
 name = "scheme"
 language-servers = ["guile-lsp-server"]
@@ -74,8 +77,12 @@ language-servers = [
     "goto-reference",
     "goto-implementation",
   ] },
+  "typos",
 ]
 
+[[language]]
+name = "rust"
+language-servers = ["rust-analyzer", "typos"]
 
 [[language]]
 name = "toml"
