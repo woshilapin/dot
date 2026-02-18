@@ -26,6 +26,7 @@ cursor-line = "hint"
 auto-signature-help = false
 display-inlay-hints = true
 display-messages = true
+display-progress-messages = true
 
 [editor.soft-wrap]
 enable = true
