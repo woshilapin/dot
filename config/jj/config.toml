@@ -13,7 +13,7 @@ diff-formatter = ":git"
 pager = "delta"
 
 [remotes.origin]
-auto-track-bookmarks = "regex:.*"
+auto-track-bookmarks = 'regex:".*"'
 
 [remotes.upstream]
 auto-track-bookmarks = "exact:main | exact:master"
