@@ -1,3 +1,5 @@
+theme = "default-with-primary"
+
 [editor]
 auto-pairs = true
 auto-save = true
