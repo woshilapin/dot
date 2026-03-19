@@ -88,4 +88,5 @@ language-servers = ["rust-analyzer", "typos"]
 [[language]]
 name = "toml"
 auto-format = true
-formatter = { command = "taplo", args = ["format", "-"] }
+formatter = { command = "tombi", args = ["format", "-"] }
+language-servers = ["tombi"]
