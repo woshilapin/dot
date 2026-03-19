@@ -1,0 +1,13 @@
+# Until https://github.com/helix-editor/helix/issues/3842 is resolved
+# let’s define specificities for the primary cursor and selection
+# See original theme at https://github.com/helix-editor/helix/blob/master/theme.toml
+inherits = "default"
+"ui.cursor.normal" = { bg = "dark-gray" }
+"ui.cursor.insert" = { bg = "dark-gray" }
+"ui.cursor.primary.select" = { bg = "light-delta" }
+"ui.selection.primary" = { bg = "light-purple" }
+
+[palette]
+dark-gray = "#aaaaaa"
+light-delta = "#977bed"
+light-purple = "#7500d6"
