@@ -31,6 +31,7 @@ args = ["ruff", "server"]
 
 [language-server.rust-analyzer.config]
 check.workspace = false
+rust-analyzer.check.command = "clippy"
 
 [language-server.ty]
 command = "uvx"
