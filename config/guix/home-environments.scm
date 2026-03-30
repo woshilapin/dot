@@ -59,6 +59,7 @@
                     gnupg
                     helix
                     hydroxide
+                    jujutsu
                     mandoc
                     nix
                     nss-certs
