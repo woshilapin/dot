@@ -140,6 +140,8 @@
                                                 "/home/woshilapin/.dot/config/hongdown/config.toml"))
                       ("jj/config.toml" ,(local-file
                                           "/home/woshilapin/.dot/config/jj/config.toml"))
+                      ("nextest/config.toml" ,(local-file
+                                        "/home/woshilapin/.dot/config/nextest/config.toml"))
                       ("nix/nix.conf" ,(local-file
                                         "/home/woshilapin/.dot/config/nix/nix.conf"))
                       ("rio/config.toml" ,(local-file
