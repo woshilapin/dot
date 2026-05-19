@@ -2,6 +2,10 @@
 command = "uvx"
 args = ["--from", "basedpyright", "basedpyright-langserver", "--stdio"]
 
+[language-server.codebook]
+command = "codebook-lsp"
+args = ["serve"]
+
 [language-server.guile-lsp-server]
 command = "guix"
 args = ["shell", "guile-lsp-server", "--", "guile-lsp-server", "--stdio"]
@@ -52,6 +56,7 @@ language-servers = ["just"]
 name = "markdown"
 rulers = [80, 120]
 auto-format = true
+language-servers = ["codebook"]
 
 [[language]]
 name = "ocaml"
@@ -79,14 +84,15 @@ language-servers = [
     "goto-implementation",
   ] },
   "typos",
+  "codebook",
 ]
 
 [[language]]
 name = "rust"
-language-servers = ["rust-analyzer", "typos"]
+language-servers = ["rust-analyzer", "typos", "codebook"]
 
 [[language]]
 name = "toml"
 auto-format = true
 formatter = { command = "tombi", args = ["format", "-"] }
-language-servers = ["tombi"]
+language-servers = ["tombi", "codebook"]
