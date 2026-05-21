@@ -101,6 +101,8 @@
                                                     "/home/woshilapin/.dot/config/alacritty/alacritty.toml"))
                       ("atuin/config.toml" ,(local-file
                                              "/home/woshilapin/.dot/config/atuin/config.toml"))
+                      ("codebook/codebook.toml" ,(local-file
+                                             "/home/woshilapin/.dot/config/codebook/codebook.toml"))
                       ("containers/policy.json" ,(plain-file "policy.json"
                                                   "{\"default\": [{\"type\": \"insecureAcceptAnything\"}]}"))
                       ;; Use a fast storage ('overlayfs') instead of the default ('vfs') for Podman
