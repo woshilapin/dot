@@ -41,6 +41,10 @@ rust-analyzer.check.command = "clippy"
 command = "uvx"
 args = ["ty", "server"]
 
+[language-server.typescript-language-server]
+command = "npx"
+args = ["--yes", "typescript-language-server", "--stdio"]
+
 [language-server.typos]
 command = "typos-lsp"
 
