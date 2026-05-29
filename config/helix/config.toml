@@ -3,7 +3,6 @@ theme = "default-with-primary"
 [editor]
 auto-pairs = true
 auto-save = true
-bufferline = "multiple"
 color-modes = true
 completion-trigger-len = 1
 cursorline = true
