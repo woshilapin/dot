@@ -150,6 +150,8 @@
                                            "/home/woshilapin/.dot/config/rio/config.toml"))
                       ("starship.toml" ,(local-file
                                          "/home/woshilapin/.dot/config/starship.toml"))
+                      ("starship-jj/starship-jj.toml" ,(local-file
+                                         "/home/woshilapin/.dot/config/starship-jj/starship-jj.toml"))
                       ("task/taskrc" ,(local-file
                                        "/home/woshilapin/.dot/config/task/taskrc"))
                       ("task/holidays.rc" ,(local-file

@@ -1,3 +1,5 @@
+format = "$all"
+
 [[battery.display]]
 threshold = 25
 
@@ -22,6 +24,9 @@ denied_msg = "⛔"
 loaded_msg = "✔️"
 unloaded_msg = "❌"
 
+[git_branch]
+disabled = true
+
 [guix_shell]
 format = "[guix $symbol]($style)"
 
@@ -39,6 +44,20 @@ map_symbol = true
 disabled = false
 
 [custom]
+[custom.git_branch]
+when = true
+command = "jj root >/dev/null 2>&1 || starship module git_branch"
+description = "Only show git_branch if we're not in a jj repo"
+
+[custom.jj]
+command = "prompt"
+symbol = "🐦"
+format = "$symbol $output"
+style = "bold purple"
+ignore_timeout = true
+shell = ["starship-jj", "--ignore-working-copy", "starship"]
+use_stdin = false
+when = true
 
 [custom.tab]
 description = "The current tab in the tab terminal multiplexer"
