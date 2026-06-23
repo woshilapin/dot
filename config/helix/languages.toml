@@ -17,6 +17,10 @@ args = ["--stdio"]
 [language-server.just]
 command = "just-lsp"
 
+[language-server.kotlin]
+command = "kotlin-lsp"
+args = ["--stdio"]
+
 [language-server.pylsp]
 command = "uvx"
 args = [
@@ -53,10 +57,18 @@ name = "scheme"
 language-servers = ["guile-lsp-server"]
 
 [[language]]
+name = "java"
+language-servers = ["kotlin"]
+
+[[language]]
 name = "just"
 language-servers = ["just"]
 auto-format = true
 formatter = { command="just", args=["--fmt", "--justfile", "-"] }
+
+[[language]]
+name = "kotlin"
+language-servers = ["kotlin"]
 
 [[language]]
 name = "markdown"
