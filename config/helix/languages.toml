@@ -55,6 +55,8 @@ language-servers = ["guile-lsp-server"]
 [[language]]
 name = "just"
 language-servers = ["just"]
+auto-format = true
+formatter = { command="just", args=["--fmt", "--justfile", "-"] }
 
 [[language]]
 name = "markdown"
