@@ -8,8 +8,13 @@ key = "7D7767B4"
 
 [ui]
 default-command = ["log"]
-diff-editor = ":builtin"
+diff-editor = "oyui"
 diff-formatter = ["difft", "--color=always", "$left", "$right"]
+diff-instructions = false
+
+[merge-tools.oyui]
+program = "oyui"
+edit-args = ["diff", "--diff-algorithm", "syntax-aware", "$left", "$right"]
 
 [remotes.origin]
 auto-track-bookmarks = 'regex:".*"'
