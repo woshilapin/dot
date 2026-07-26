@@ -17,13 +17,13 @@
   #:use-module (gnu system)
   #:use-module (guix gexp)
   #:use-module (guix channels)
-  #:use-module (saayix packages fonts)
   #:use-module (channels))
 
 (use-package-modules base
                      certs
                      commencement
                      containers
+                     fonts
                      gnupg
                      mail
                      man
