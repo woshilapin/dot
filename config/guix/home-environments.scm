@@ -46,6 +46,7 @@
     ;; Below is the list of packages that will show up in your
     ;; Home profile, under ~/.guix-home/profile.
     (packages (list alacritty
+                    atuin
                     bat
                     direnv
                     fd
