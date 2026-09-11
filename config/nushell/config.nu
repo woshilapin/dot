@@ -39,3 +39,4 @@ atuin init nu | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
 
 $env.config.show_banner = false
 $env.config.use_kitty_protocol = true
+$env.config.table.mode = "none"
