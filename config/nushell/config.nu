@@ -40,3 +40,14 @@ atuin init nu | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
 $env.config.show_banner = false
 $env.config.use_kitty_protocol = true
 $env.config.table.mode = "none"
+
+$env.config.keybindings ++= [{
+    name: job_unfreeze
+    modifier: CONTROL_SHIFT
+    keycode: CHAR_Z
+    mode: [emacs, vi_normal]
+    event: {
+        send: ExecuteHostCommand
+        cmd: "job unfreeze"
+    }
+}]
