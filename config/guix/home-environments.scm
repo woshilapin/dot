@@ -146,6 +146,8 @@
                                                "/home/woshilapin/.dot/config/nextest/config.toml"))
                       ("nix/nix.conf" ,(local-file
                                         "/home/woshilapin/.dot/config/nix/nix.conf"))
+                      ("nushell/config.nu" ,(local-file
+                                             "/home/woshilapin/.dot/config/nushell/config.nu"))
                       ("rio/config.toml" ,(local-file
                                            "/home/woshilapin/.dot/config/rio/config.toml"))
                       ("starship.toml" ,(local-file
