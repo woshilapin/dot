@@ -28,6 +28,7 @@
                      mail
                      man
                      nss
+                     nushell
                      package-management
                      password-utils
                      rust
@@ -63,6 +64,7 @@
                     mandoc
                     nix
                     nss-certs
+                    nushell
                     openssh
                     openssl
                     password-store
