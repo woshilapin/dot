@@ -51,3 +51,19 @@ $env.config.keybindings ++= [{
         cmd: "job unfreeze"
     }
 }]
+
+$env.config.hooks.env_change.PWD = $env.config.hooks.env_change.PWD? | default []
+
+# Set up for direnv
+$env.config.hooks.env_change.PWD ++= [{||
+    if (which direnv | is-empty) {
+        # If direnv isn't installed, do nothing
+        return
+    }
+
+    direnv export json
+        | from json
+        | default {}
+        | upsert PATH { default $env.PATH | split row ':' }
+        | load-env
+}]
