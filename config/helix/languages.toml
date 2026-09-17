@@ -64,7 +64,7 @@ language-servers = ["kotlin"]
 name = "just"
 language-servers = ["just"]
 auto-format = true
-formatter = { command="just", args=["--fmt", "--justfile", "-"] }
+formatter = { command = "just", args = ["--fmt", "--justfile", "-"] }
 
 [[language]]
 name = "kotlin"
@@ -102,15 +102,14 @@ language-servers = [
     "goto-implementation",
   ] },
   "typos",
-  "codebook",
 ]
 
 [[language]]
 name = "rust"
-language-servers = ["rust-analyzer", "typos", "codebook"]
+language-servers = ["rust-analyzer", "typos"]
 
 [[language]]
 name = "toml"
 auto-format = true
 formatter = { command = "tombi", args = ["format", "-"] }
-language-servers = ["tombi", "codebook"]
+language-servers = ["tombi"]
