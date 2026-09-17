@@ -16,6 +16,11 @@
 #
 # You can remove these comments if you want or leave
 # them for future reference.
+$env.NU_PLUGIN_DIRS = [
+  ...$env.NU_PLUGIN_DIRS
+  ($env.HOME | path join ".cargo" "bin")
+]
+
 $env.STARSHIP_SHELL = "nu"
 
 def create_left_prompt [] {
