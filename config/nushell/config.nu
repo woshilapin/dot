@@ -41,6 +41,7 @@ $env.PROMPT_MULTILINE_INDICATOR = "::: "
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 atuin init nu | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
+zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
 
 $env.config.show_banner = false
 $env.config.use_kitty_protocol = true
