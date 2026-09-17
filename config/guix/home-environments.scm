@@ -103,7 +103,7 @@
                       ("atuin/config.toml" ,(local-file
                                              "/home/woshilapin/.dot/config/atuin/config.toml"))
                       ("codebook/codebook.toml" ,(local-file
-                                             "/home/woshilapin/.dot/config/codebook/codebook.toml"))
+                                                  "/home/woshilapin/.dot/config/codebook/codebook.toml"))
                       ("containers/policy.json" ,(plain-file "policy.json"
                                                   "{\"default\": [{\"type\": \"insecureAcceptAnything\"}]}"))
                       ;; Use a fast storage ('overlayfs') instead of the default ('vfs') for Podman
@@ -138,13 +138,13 @@
                       ("helix/languages.toml" ,(local-file
                                                 "/home/woshilapin/.dot/config/helix/languages.toml"))
                       ("helix/themes/default-with-primary.toml" ,(local-file
-                                             "/home/woshilapin/.dot/config/helix/themes/default-with-primary.toml"))
+                                                                  "/home/woshilapin/.dot/config/helix/themes/default-with-primary.toml"))
                       ("hongdown/config.toml" ,(local-file
                                                 "/home/woshilapin/.dot/config/hongdown/config.toml"))
                       ("jj/config.toml" ,(local-file
                                           "/home/woshilapin/.dot/config/jj/config.toml"))
                       ("nextest/config.toml" ,(local-file
-                                        "/home/woshilapin/.dot/config/nextest/config.toml"))
+                                               "/home/woshilapin/.dot/config/nextest/config.toml"))
                       ("nix/nix.conf" ,(local-file
                                         "/home/woshilapin/.dot/config/nix/nix.conf"))
                       ("rio/config.toml" ,(local-file
@@ -152,7 +152,7 @@
                       ("starship.toml" ,(local-file
                                          "/home/woshilapin/.dot/config/starship.toml"))
                       ("starship-jj/starship-jj.toml" ,(local-file
-                                         "/home/woshilapin/.dot/config/starship-jj/starship-jj.toml"))
+                                                        "/home/woshilapin/.dot/config/starship-jj/starship-jj.toml"))
                       ("task/taskrc" ,(local-file
                                        "/home/woshilapin/.dot/config/task/taskrc"))
                       ("task/holidays.rc" ,(local-file
@@ -275,7 +275,11 @@
            (service home-gpg-agent-service-type
                     (home-gpg-agent-configuration (pinentry-program (file-append
                                                                      pinentry-tty
-                                                                     "/bin/pinentry-tty"))))
+                                                                     "/bin/pinentry-tty"))
+                                                  (default-cache-ttl (* 24 60
+                                                                        60)) ;one day
+                                                  (max-cache-ttl (* 30 24 60
+                                                                    60)))) ;30 days
            (service home-ssh-agent-service-type
                     (home-ssh-agent-configuration))
            (service home-openssh-service-type
