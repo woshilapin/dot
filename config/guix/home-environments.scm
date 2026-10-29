@@ -45,8 +45,7 @@
   (home-environment
     ;; Below is the list of packages that will show up in your
     ;; Home profile, under ~/.guix-home/profile.
-    (packages (list alacritty
-                    atuin
+    (packages (list atuin
                     bat
                     direnv
                     fd
@@ -98,9 +97,7 @@
                                                             "(activate-colorized)")
                                                           "\n")))))
            (service home-xdg-configuration-files-service-type
-                    `(("alacritty/alacritty.toml" ,(local-file
-                                                    "/home/woshilapin/.dot/config/alacritty/alacritty.toml"))
-                      ("atuin/config.toml" ,(local-file
+                    `(("atuin/config.toml" ,(local-file
                                              "/home/woshilapin/.dot/config/atuin/config.toml"))
                       ("codebook/codebook.toml" ,(local-file
                                                   "/home/woshilapin/.dot/config/codebook/codebook.toml"))
